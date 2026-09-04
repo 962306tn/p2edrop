@@ -5,13 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>VelaHush — Pet Odor Gun</title>
 <meta name="description" content="A cordless dry-mist gun that neutralizes pet odor inside couch cushions, rugs and car seats.">
-<!-- The design system @imports Archivo 400/600/800; the page also sets 500 and 700,
-     so the full range is requested here to avoid synthesised weights. -->
+<!-- Both skins ship on this one page; exactly one is ever live. Inactive
+     sheets are parked at media="not all", which every browser honours, rather
+     than the <link disabled> attribute, whose support is patchier.
+     Archivo is only needed by the Modernist skin. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="ds-modernist.css">
-<link rel="stylesheet" href="velahush.css">
+<link id="skin-modernist-tokens" rel="stylesheet" href="ds-modernist.css">
+<link id="skin-modernist" rel="stylesheet" href="velahush.css">
+<link id="skin-cupertino-tokens" rel="stylesheet" href="../../design-system/dist/cupertino.css" media="not all">
+<link id="skin-cupertino" rel="stylesheet" href="velahush-cupertino.css" media="not all">
+<style>
+  /* Skin plumbing — belongs to neither skin, so it lives here. */
+  :root:not([data-vh-skin="cupertino"]) .vh-theme-toggle { display: none; }
+</style>
+<script>
+  // Runs before first paint: picks the skin and, for Cupertino, the stored
+  // theme. Without this the page paints one skin and then swaps to the other.
+  (function () {
+    var stored = function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } };
+    var param = new URLSearchParams(location.search).get('skin');
+    var skin = param || stored('vh-skin') || 'modernist';
+    var cupertino = skin === 'cupertino';
+    document.getElementById('skin-modernist-tokens').media = cupertino ? 'not all' : 'all';
+    document.getElementById('skin-modernist').media = cupertino ? 'not all' : 'all';
+    document.getElementById('skin-cupertino-tokens').media = cupertino ? 'all' : 'not all';
+    document.getElementById('skin-cupertino').media = cupertino ? 'all' : 'not all';
+    document.documentElement.setAttribute('data-vh-skin', cupertino ? 'cupertino' : 'modernist');
+    if (cupertino) {
+      var t = stored('vh-theme');
+      if (t) document.documentElement.setAttribute('data-ap-theme', t);
+    }
+  })();
+</script>
 </head>
 <body class="vh-page">
 
@@ -36,6 +63,8 @@
       <a href="#how">How it works</a>
       <a href="#reviews">Reviews</a>
       <a href="#refills">Refills</a>
+      <button class="vh-skin-toggle" type="button" id="skin-toggle" aria-label="Switch design system">Cupertino</button>
+      <button class="vh-theme-toggle" type="button" id="theme-toggle" aria-label="Switch colour theme">Dark</button>
       <a class="vh-nav__cta" href="#buy">Shop $49</a>
     </nav>
   </div>

@@ -282,24 +282,50 @@
 
   setInterval(function () { state.tick += 1; render(); }, 5200);
 
-  /* Theme toggle — only present on the Cupertino skin, which reads
+  function isDarkNow() {
+    var set = document.documentElement.getAttribute('data-ap-theme');
+    return set ? set === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  /* Skin switch. The stylesheets are already in the document; switching is a
+     matter of which pair is parked at media="not all". The label names the skin
+     the click will move to, matching the theme button below. */
+  var skinBtn = $('skin-toggle');
+  if (skinBtn) {
+    var root = document.documentElement;
+    // A ?skin= override means this page is a pane in compare.html, so a click
+    // here must not overwrite the reader's own saved preference.
+    var pinned = new URLSearchParams(location.search).has('skin');
+    var applySkin = function (skin) {
+      var cupertino = skin === 'cupertino';
+      $('skin-modernist-tokens').media = cupertino ? 'not all' : 'all';
+      $('skin-modernist').media = cupertino ? 'not all' : 'all';
+      $('skin-cupertino-tokens').media = cupertino ? 'all' : 'not all';
+      $('skin-cupertino').media = cupertino ? 'all' : 'not all';
+      root.setAttribute('data-vh-skin', skin);
+      skinBtn.textContent = cupertino ? 'Modernist' : 'Cupertino';
+    };
+    skinBtn.addEventListener('click', function () {
+      var next = root.getAttribute('data-vh-skin') === 'cupertino' ? 'modernist' : 'cupertino';
+      applySkin(next);
+      if (!pinned) { try { localStorage.setItem('vh-skin', next); } catch (e) {} }
+      if (themeBtn) themeBtn.textContent = isDarkNow() ? 'Light' : 'Dark';
+    });
+    applySkin(root.getAttribute('data-vh-skin') || 'modernist');
+  }
+
+  /* Theme toggle — only meaningful on the Cupertino skin, which reads
      data-ap-theme. With nothing set the design system follows the OS, so the
      button's job is to say what the click will do, not what the theme is. */
   var themeBtn = $('theme-toggle');
   if (themeBtn) {
-    var root = document.documentElement;
-    var isDark = function () {
-      var set = root.getAttribute('data-ap-theme');
-      return set ? set === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
-    };
-    var label = function () { themeBtn.textContent = isDark() ? 'Light' : 'Dark'; };
     themeBtn.addEventListener('click', function () {
-      var next = isDark() ? 'light' : 'dark';
-      root.setAttribute('data-ap-theme', next);
+      var next = isDarkNow() ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-ap-theme', next);
       try { localStorage.setItem('vh-theme', next); } catch (e) {}
-      label();
+      themeBtn.textContent = isDarkNow() ? 'Light' : 'Dark';
     });
-    label();
+    themeBtn.textContent = isDarkNow() ? 'Light' : 'Dark';
   }
 
   render();

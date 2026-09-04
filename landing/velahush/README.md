@@ -5,18 +5,20 @@ the **Modernist** design system. Single-product direct-response page; audience i
 US women 35+ with dogs or cats; the page has one job, which is add-to-cart on the
 refill plan.
 
-It ships in two skins. Open either in a browser — no build step, no server, no
-dependencies.
+It ships in two skins, both on the same page. Open `index.html` and switch
+between them from the nav — no build step, no server, no dependencies.
 
-| | |
+| Skin | |
 |---|---|
-| **`index.html`** | **Modernist** — the approved design from Claude Design |
-| **`index-cupertino.html`** | **Cupertino** — the same page in the repo's own design system, with a dark-mode toggle in the nav |
+| **Modernist** | the approved design from Claude Design — square, ruled, Archivo uppercase, red |
+| **Cupertino** | the repo's own design system — pill controls, rounded cards, air instead of rules, blue, with a dark-mode toggle |
+
+Open `compare.html` to see both at once, side by side.
 
 ```
-index.html                the page, Modernist skin
-index-cupertino.html      the page, Cupertino skin — head and one nav button apart
-velahush.js               behaviour, shared by both — and the only place prices live
+index.html                the page — carries both skins
+compare.html              both skins side by side, in two panes
+velahush.js               behaviour, and the only place prices live
 velahush.css              Modernist skin
 ds-modernist.css          Modernist tokens, verbatim from Claude Design — do not edit
 velahush-cupertino.css    Cupertino skin
@@ -27,19 +29,31 @@ reference/                the handoff sources this was built from
 The Cupertino skin reads its tokens from `../../design-system/dist/cupertino.css`,
 so a fix to that design system reaches this page without a copy step.
 
-## Two skins, one markup
+## How one page carries two skins
 
-The two HTML files differ by twelve lines: the two stylesheet links, and the
-theme-toggle button. Everything else — every section, every string, every class —
-is identical, and both load the same `velahush.js`.
+All four stylesheets sit in the document; the inactive pair is parked at
+`media="not all"`, and switching skins just moves that attribute. That is used
+rather than `<link disabled>`, whose browser support is patchier.
 
-That works because no styling decision lives in the markup. There are no inline
-styles and no design-system class names in the HTML; even the uppercasing is a
-CSS rule, which is why the same `<h1>` reads `NOBODY SHOULD BE ABLE TO TELL YOU
-HAVE DOGS.` in one skin and `Nobody should be able to tell you have dogs.` in the
-other. **If you edit the page, edit both HTML files**, or the two drift.
+A small script in the head picks the skin **before first paint** — otherwise the
+page paints one skin and visibly swaps to the other. It reads, in order: a
+`?skin=` query string, then the choice saved in `localStorage`, then Modernist.
+`compare.html` uses that query string to pin each pane, and a switch clicked
+inside a pinned pane deliberately does not overwrite your saved preference.
 
-The skins are opposites, and that is the point of keeping both:
+There is exactly one copy of the markup, so the two skins cannot drift apart.
+That works because no styling decision lives in the HTML: no inline styles, no
+design-system class names, and even the uppercasing is a CSS rule — which is why
+the same `<h1>` reads `NOBODY SHOULD BE ABLE TO TELL YOU HAVE DOGS.` in one skin
+and `Nobody should be able to tell you have dogs.` in the other.
+
+**When you pick a winner, delete the loser.** Carrying both means every visitor
+downloads two design systems and a web font one of them never uses. Shipping is
+three deletions: the losing skin's two `<link>` tags, its CSS file, and the two
+toggle buttons in the nav — plus the Archivo `<link>` if Cupertino wins, since
+it uses the system stack and requests no font at all.
+
+The skins are opposites, and that is the point of keeping both while you decide:
 
 | | Modernist | Cupertino |
 |---|---|---|
@@ -51,14 +65,13 @@ The skins are opposites, and that is the point of keeping both:
 | Contrast band | red field | black field, flipping in dark mode |
 | Dark mode | none | follows the OS, with a nav toggle |
 
-Two conveniences fall out of the Cupertino skin not loading `ds-modernist.css`:
-its `.grayscale` class stops existing, so photos print in colour on their own,
-and Archivo is never requested, so that page loads no web font at all.
+Photography needs no per-skin markup: `.grayscale` is defined in
+`ds-modernist.css`, so when that sheet is parked the class stops existing and
+photos print in colour on their own.
 
-Dark mode is stored per browser under `vh-theme` and applied by a small inline
-script in the head, before first paint — otherwise a stored dark choice flashes
-light on every load. With nothing stored the design system follows the OS, so
-the button's label says what the click will do, not what the theme currently is.
+Dark mode is stored under `vh-theme` and applied by the same pre-paint script.
+With nothing stored the design system follows the OS, so both toggle buttons are
+labelled with what the click will do, not with the current state.
 
 ## Editing the offer
 

@@ -124,7 +124,7 @@
   gap: var(--space-4);
   padding-block: var(--space-4);
 }
-.vh-brand { display: flex; align-items: baseline; gap: var(--space-3); }
+.vh-brand { display: flex; align-items: baseline; gap: var(--space-3); flex: none; }
 .vh-brand__mark {
   font-family: var(--font-heading); font-weight: 800; font-size: 24px;
   letter-spacing: -0.02em; text-transform: uppercase; color: var(--color-text);
@@ -132,12 +132,13 @@
 .vh-brand__kicker {
   font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
   text-transform: uppercase; color: var(--color-neutral-700);
+  white-space: nowrap;
 }
 .vh-nav {
   display: flex; align-items: center; gap: var(--space-6);
   font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
 }
-.vh-nav a { color: var(--color-neutral-800); text-decoration: none; }
+.vh-nav a { color: var(--color-neutral-800); text-decoration: none; white-space: nowrap; }
 .vh-nav a:hover { color: var(--color-accent-700); text-decoration: underline; }
 .vh-nav__cta {
   background: var(--color-accent);
@@ -146,7 +147,14 @@
 }
 .vh-nav a.vh-nav__cta { color: #fff; }
 .vh-nav a.vh-nav__cta:hover { background: var(--color-accent-600); color: #fff; text-decoration: none; }
-@media (max-width: 720px) {
+.vh-skin-toggle, .vh-theme-toggle {
+  appearance: none; border: 0; background: none; cursor: pointer;
+  font: inherit; color: var(--color-neutral-800);
+  font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 0; white-space: nowrap;
+}
+.vh-skin-toggle:hover, .vh-theme-toggle:hover { color: var(--color-accent-700); }
+@media (max-width: 900px) {
   .vh-nav { gap: var(--space-4); overflow-x: auto; scrollbar-width: none; }
   .vh-nav::-webkit-scrollbar { display: none; }
 }

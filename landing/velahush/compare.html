@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VelaHush — skins side by side</title>
+<style>
+  /* Deliberately neutral chrome: anything with an opinion here would bias the
+     comparison. Belongs to neither design system. */
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #e9e9ec;
+    font: 13px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #3a3a3e;
+  }
+  header {
+    flex: none;
+    display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+    padding: 10px 16px;
+  }
+  h1 { margin: 0; font-size: 13px; font-weight: 600; color: #1c1c1e; }
+  header p { margin: 0; color: #75757a; }
+  .panes {
+    flex: 1; min-height: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 0 10px 10px;
+  }
+  .pane { display: flex; flex-direction: column; min-height: 0; min-width: 0; }
+  .pane h2 {
+    flex: none; margin: 0 0 6px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+    color: #75757a;
+  }
+  .pane iframe {
+    flex: 1; min-height: 0; width: 100%;
+    border: 0; border-radius: 8px; background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  }
+  @media (max-width: 900px) {
+    body { height: auto; }
+    .panes { grid-template-columns: 1fr; }
+    .pane iframe { height: 80vh; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>VelaHush — two skins, one page</h1>
+  <p>Both panes load the same <code>index.html</code>, pinned to a skin by query
+     string. Each scrolls on its own; the switch inside a pane will not overwrite
+     your saved preference.</p>
+</header>
+
+<div class="panes">
+  <section class="pane">
+    <h2>Modernist</h2>
+    <iframe src="index.html?skin=modernist" title="VelaHush landing page, Modernist skin"></iframe>
+  </section>
+  <section class="pane">
+    <h2>Cupertino</h2>
+    <iframe src="index.html?skin=cupertino" title="VelaHush landing page, Cupertino skin"></iframe>
+  </section>
+</div>
+
+</body>
+</html>
