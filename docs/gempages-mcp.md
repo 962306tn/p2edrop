@@ -81,6 +81,25 @@ project-scoped `.mcp.json`.
 Use **either** user scope **or** project scope — registering the same name in both
 is confusing to debug.
 
+## Connect a store
+
+Authenticating the MCP server is not the same as connecting a store to it. GemPages
+issues a **store connection code** shaped like `GC-######` (Shopify admin → GemPages →
+Preferences → MCP Connection, next to the endpoint URL).
+
+Once `/mcp` reports `gempages` as connected, hand the code to the agent in the session:
+
+```
+Connect a new store in GemCommerce MCP. Code: GC-XXXXXX
+```
+
+The MCP server exposes its own store-connection tool; the agent picks it up from the
+tool list once the server is authenticated. If nothing happens, run `/mcp` and confirm
+`gempages` is `connected` rather than `Needs authentication` — an unauthenticated
+server loads no tools at all, so the code has nowhere to go.
+
+Treat the code like a credential: do not commit it.
+
 ## Smoke test
 
 ```
