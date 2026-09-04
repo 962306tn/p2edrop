@@ -1258,3 +1258,325 @@ Quá sớm để đánh giá CPA. Chỉ đọc tín hiệu creative:
 
 ---
 *Báo cáo hoàn thành 03/09/2026. Mọi mục 🔴 là giả định của tôi và cần bạn xác minh trước khi chi tiền quảng cáo.*
+
+---
+---
+
+# 📌 PHỤ LỤC — CẬP NHẬT 03/09/2026 SAU KHI CÓ 4 THÔNG SỐ VẬN HÀNH
+
+**Bạn đã cung cấp:** COGS `$14.90` · Giá bán `$59.90` · Video sản xuất bằng `AI` · Giao hàng `ship thẳng từ Trung Quốc`.
+
+Bốn thông số này thay đổi **PHẦN 7 (sản xuất video)**, **PHẦN 9 (website)** và **PHẦN 10 (kế hoạch 7 ngày)**. Phần Avatar, Pain, Angle và Headline **không đổi** — chúng độc lập với giá và cách sản xuất.
+
+---
+
+# PHỤ LỤC A — UNIT ECONOMICS & NGƯỠNG CPA
+
+## A.1 Bảng P&L trên 100 đơn hàng
+
+Giả định (🔴 **giả định của tôi, hãy sửa theo số thật của bạn**):
+- COGS $14.90 đã bao gồm phí ship từ TQ về Mỹ
+- Tỷ lệ hoàn tiền **8%** (dropship TQ + [bằng chứng review đối thủ: máy vỡ khi nhận, 2 lần từ 2 seller khác nhau](https://www.tiktok.com/discover/geniekiss-odor-eliminator-review))
+- Tỷ lệ gửi bù máy hỏng **4%** (không hoàn tiền, chỉ gửi lại)
+- Không thu hồi hàng hoàn về TQ (không kinh tế) → mất luôn COGS
+- Shopify **Basic** $39/tháng + apps ~$120/tháng
+
+| Khoản | 100 đơn | Trên 1 đơn |
+|---|---|---|
+| Doanh thu gộp | $5,990 | $59.90 |
+| − Hoàn tiền 8% | −$479 | −$4.79 |
+| **Doanh thu thuần** | **$5,511** | **$55.11** |
+| − COGS (100 đơn, kể cả đơn hoàn) | −$1,490 | −$14.90 |
+| − Phí thanh toán (2.9% + $0.30) | −$204 | −$2.04 |
+| − Gửi bù máy hỏng 4% | −$60 | −$0.60 |
+| − Nền tảng + apps | −$159 | −$1.59 |
+| − CSKH / phát sinh | −$100 | −$1.00 |
+| **= Đóng góp trước chi phí ads** | **$3,498** | **$34.98** |
+
+## A.2 Các ngưỡng bạn phải thuộc lòng
+
+| Kịch bản | CPA | ROAS | Lợi nhuận ròng/đơn | Biên ròng | Hành động |
+|---|---|---|---|---|---|
+| 🔴 **Hoà vốn** | **$35** | **1.71** | $0 | 0% | Trên mức này = **lỗ** |
+| 🟠 Sống sót | $28–30 | 2.0–2.1 | $5–7 | 8–12% | Giữ chạy, thay creative |
+| 🟢 **Mục tiêu** | **$23** | **2.6** | **$12** | **20%** | Đây là mốc để nói "đã validate" |
+| 🔵 Scale | $20 | 3.0 | $15 | 25% | Tăng ngân sách 20–30%/ngày |
+
+> ⚠️ **Cửa sổ lợi nhuận của bạn rất hẹp: từ CPA $35 xuống $23 chỉ có $12.** Trong pet niche trên Meta, CPA $23 cho sản phẩm $59.90 là **có thể đạt được nhưng không dễ**. Toàn bộ mục A.3 tồn tại để nới cửa sổ này ra.
+
+## A.3 🔑 ĐÒN BẨY QUAN TRỌNG NHẤT: NÂNG AOV BẰNG BẬC THANG OFFER
+
+Với biên gộp $45/máy, **mỗi $10 AOV tăng thêm nới ngưỡng CPA lên gần $10**. Đây là đòn bẩy rẻ nhất bạn có — không tốn thêm một đồng quảng cáo nào.
+
+| Gói | Nội dung | Giá | COGS (🔴 ước tính) | Vai trò |
+|---|---|---|---|---|
+| Starter | 1 máy + 4 refill | **$59.90** | $14.90 | Neo giá, không phải gói để bán |
+| ⭐ **Most Popular** (chọn sẵn) | 1 máy + **8 refill** | **$79.90** | ~$18.90 | **Gói bạn thật sự muốn bán** |
+| Whole Home | **2 máy** + 12 refill | **$109.90** | ~$33.80 | Tầng trên/tầng dưới, hoặc mua tặng |
+| Refill 4-pack (bán lại) | 4 refill | $19.90 | ~$4.00 | LTV, không phải sản phẩm dẫn |
+
+**Nếu 40% khách chọn gói $79.90:**
+- AOV blended = **$67.90** (+13%)
+- Đóng góp/đơn ≈ **$41**
+- 🔴 Hoà vốn CPA → **$41** · 🟢 Mục tiêu CPA → **$28**
+
+👉 **Cửa sổ lợi nhuận rộng thêm ~20% mà không cần cải thiện quảng cáo.** Làm việc này **trước** khi tối ưu creative.
+
+🔴 **Cần bạn xác nhận:** giá vốn 1 chai refill là bao nhiêu? Toàn bộ bậc thang trên dựa trên giả định **$1/chai**. Nếu refill đắt hơn nhiều, cấu trúc bundle phải đổi.
+
+## A.4 ⚠️ RỦI RO LỚN NHẤT CHƯA GIẢI QUYẾT: NEO GIÁ AMAZON
+
+Tôi **không truy cập được giá của GeniKiss** (Amazon bị chặn egress). Đây là biến số nguy hiểm nhất trong toàn bộ mô hình:
+
+- Bạn bán **$59.90**
+- 🟡 Theo mặt bằng category deodorizer trên Amazon, sản phẩm cùng loại thường nằm ở **$25–$40** — nhưng đây **chỉ là suy luận, chưa xác minh**
+- Khách Mỹ có thói quen **search tên sản phẩm trên Amazon trước khi mua từ ad**
+
+**👉 Việc bạn phải làm HÔM NAY (5 phút):** mở [link đối thủ](https://www.amazon.com/GeniKiss-Light-Deodorizer-Refill-Eliminator/dp/B0H4Z3NKPB) + [PetMizer](https://us.amazon.com/PetMizer-Light-Deodorizer-Carpets-Interiors/dp/B0H79HPZZ9) + [TikTok Shop](https://shop.tiktok.com/us/pdp/genikiss-nano-spray-gun-rechargeable-mite-remover-deodorizer/1732292265732772743), ghi lại giá bộ máy + giá refill.
+
+**Luật quyết định:**
+
+| Giá đối thủ | Kết luận | Hành động |
+|---|---|---|
+| **≥ $50** | ✅ $59.90 an toàn | Chạy như kế hoạch |
+| **$40–49** | 🟠 Chênh lệch chấp nhận được | Bắt buộc nhồi thêm giá trị: 8 refill mặc định + bảo hành 1 năm + guarantee 60 ngày |
+| **$30–39** | 🔴 Nguy hiểm | Bạn **không được** bán cùng một cái máy trông y hệt với giá gấp đôi. Phải khác biệt hoá vật lý: đổi màu vỏ, đổi bao bì, đặt tên riêng, tặng thêm chai refill, hoặc **hạ xuống $44.90–$49.90** |
+| **< $30** | 🔴🔴 Bỏ mức giá $59.90 | Mô hình giá không khả thi ở dạng hiện tại |
+
+⚠️ Đồng thời: **đừng dùng ảnh sản phẩm giống hệt listing Amazon.** Khách reverse-image-search ra giá rẻ hơn = mất đơn + mất niềm tin. Đây là lý do thứ hai để bạn tự chụp ảnh sản phẩm.
+
+## A.5 Ngân sách test — điều chỉnh so với PHẦN 10
+
+$630 ở kế hoạch gốc **quá mỏng** với ngưỡng CPA $23–35. Ở CPA hoà vốn $35, $630 chỉ mua được ~18 đơn — không đủ để kết luận gì.
+
+| Hạng mục | Khuyến nghị |
+|---|---|
+| Ngân sách/ngày | **$90** (3 ad set × $30) — giữ nguyên |
+| **Ngân sách phải sẵn sàng chi trước khi kết luận** | **$900–$1,200** (10–14 ngày), không phải $630 |
+| Luật cắt 1 ad set | Chỉ tắt sau khi đã tiêu **≥$70** (≈3× CPA mục tiêu) mà **0 đơn** |
+| Luật cắt 1 creative | Hook Rate <15% sau ≥3,000 impression |
+| Mốc "đã validate" | **≥15 đơn với CPA ≤ $30** trong 7 ngày liên tục |
+
+> Hãy coi **$400–500 đầu tiên là học phí mua dữ liệu**, không phải vốn kỳ vọng sinh lời. Nếu bạn không sẵn sàng mất số này, đừng bắt đầu.
+
+## A.6 💡 Hai điều chỉnh vận hành tiết kiệm tiền ngay
+
+1. **Hạ Shopify từ Advanced xuống Basic.** Store của bạn đang ở plan **Advanced** (quan sát trực tiếp qua API) với **1 sản phẩm và 0 đơn**. Advanced ~$399/tháng; Basic $39/tháng. **Chênh lệch ~$360/tháng = ~15 đơn hàng lợi nhuận bị đốt vô ích.** Chỉ nâng cấp lại khi >500 đơn/tháng.
+2. **Chưa bật Klarna/Afterpay ở giai đoạn đầu.** Với hàng ship từ TQ và thời gian giao dài, BNPL làm tăng tranh chấp. Bật lại sau khi ổn định logistics.
+
+---
+
+# PHỤ LỤC B — SẢN XUẤT VIDEO BẰNG AI
+
+## B.1 ⚠️ SỰ THẬT KHÓ NGHE TRƯỚC
+
+**AI làm được ~80% của một video ad trong ngành này. Nhưng 20% còn lại — phần thật sự bán hàng — thì không.**
+
+20% đó là **demo sản phẩm**: đường sương xanh phun qua sofa, và bàn tay sờ lên vải **vẫn khô**. Trong toàn bộ PHẦN 3, đây là proof mạnh nhất và rẻ nhất bạn có. AI không thể tạo ra nó một cách đáng tin, vì ba lý do:
+
+| Vấn đề | Vì sao AI thất bại |
+|---|---|
+| **Nhất quán sản phẩm** | Model video không giữ được đúng hình dáng máy của BẠN qua nhiều shot. Mỗi cảnh máy hơi khác nhau → người xem cảm nhận được sự "sai sai" dù không chỉ ra được |
+| **Vật lý của sương** | AI render sương thành **khói/mist mờ**, không ra được **hình nón phun có áp lực** của một máy phun thật. Đây là chi tiết category-specific mà khán giả CleanTok nhận ra ngay |
+| **Tay tương tác với vật thể** | Bàn tay bóp cò, ngón tay ấn công tắc, lòng bàn tay áp lên vải — vẫn là điểm yếu nhất của video AI |
+
+Cộng thêm: 🟡 Meta gắn nhãn AI cho nội dung phát hiện được. Trong ngành mà **rào cản chính là sự hoài nghi** (nhớ lại hiện vật #8: *"My Honest Take"* — thị trường đang tìm review thật), một nhãn AI trên video demo là đòn tự bắn vào chân.
+
+## B.2 🚨 RANH GIỚI PHÁP LÝ — ĐỌC KỸ, ĐÂY LÀ PHẦN CÓ THỂ BỊ PHẠT TIỀN
+
+**Quy tắc FTC 16 CFR Part 465** (hiệu lực **21/10/2024**) cấm review và testimonial giả — **bao gồm cả nội dung do AI tạo ra**. Cụ thể, quy tắc nhắm vào review/testimonial **thể hiện sai rằng nó đến từ một người không tồn tại**, hoặc từ người **không thật sự có trải nghiệm** với sản phẩm. Mức phạt dân sự lên tới **$51,744 cho mỗi vi phạm**.
+Nguồn: [FTC press release](https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials) · [16 CFR Part 465 – eCFR](https://www.ecfr.gov/current/title-16/chapter-I/subchapter-D/part-465) · [FTC Q&A](https://www.ftc.gov/business-guidance/resources/consumer-reviews-testimonials-rule-questions-answers)
+
+### 🔑 Ranh giới quyết định: NGƯỜI DẪN vs. KHÁCH HÀNG
+
+🟡 *Đây là cách tôi đọc quy tắc. Nếu bạn scale lớn, hãy hỏi luật sư — nhưng ranh giới này rõ ràng và bạn nên tuân thủ ngay từ đơn đầu tiên.*
+
+| ✅ AI avatar được phép nói (vai **người dẫn/spokesperson**) | 🚫 AI avatar KHÔNG được nói (vai **khách hàng**) |
+|---|---|
+| *"Here's why your house smells even after you clean."* | ❌ *"I bought this and it changed my house."* |
+| *"This is how the mist reaches into fabric."* | ❌ *"I've had two labs for eight years and nothing worked until this."* |
+| *"Most sprays are built for a spot. This covers a room."* | ❌ *"My mother-in-law finally stopped commenting."* |
+| *"Watch the coverage."* | ❌ Bất kỳ câu nào ở ngôi thứ nhất kể **trải nghiệm cá nhân với sản phẩm** |
+
+> ⚠️ **Nghịch lý bạn phải xử lý:** toàn bộ Framework B (UGC testimonial) và Angle 1 (Guest Test) ở PHẦN 7 được viết ở **ngôi thứ nhất kể trải nghiệm**. Đó chính là dạng **không được** giao cho AI avatar.
+> 👉 Hai lối ra hợp pháp: **(1)** viết lại thành giọng người dẫn (mất một phần sức thuyết phục), hoặc **(2)** thuê UGC creator thật — người thật sự nhận sản phẩm và dùng nó. Xem B.5.
+
+### Ba điều tuyệt đối cấm với AI
+1. 🚫 **Dựng demo hiệu năng bằng AI** — cảnh sương phủ, cảnh "vẫn khô", cảnh before/after. Đây là **fabricated demonstration**, lừa dối người tiêu dùng bất kể có nhãn AI hay không.
+2. 🚫 **AI avatar đóng vai khách hàng** — 16 CFR 465, tối đa $51,744/vi phạm.
+3. 🚫 **Sinh review AI cho PDP** — cùng quy tắc. Đừng import review, đừng generate review.
+
+## B.3 ✅ MÔ HÌNH LAI — CÁCH DUY NHẤT KHẢ THI
+
+**Chia mỗi video thành hai loại cảnh:**
+
+| 🤖 **AI làm toàn bộ** (rẻ, nhanh, vô hạn biến thể) | 📱 **Quay thật, bằng điện thoại** (chỉ ~90 giây footage) |
+|---|---|
+| Hook talking-head người dẫn | Sản phẩm trên bàn |
+| B-roll đời sống: nhà, chó, khách bước vào, vali ở hành lang | Tay cầm máy lên + bấm công tắc + đèn xanh bật |
+| Đồ hoạ giải thích mechanism (`SPOT` vs `ROOM`) | Đường sương phun qua sofa |
+| Motion graphic cho Money Math | **Bàn tay áp lên vải — vẫn khô** |
+| Kinetic text, phụ đề, chuyển cảnh | Macro sương chạm sợi vải |
+| Voice-over (ElevenLabs) | Đường sương xanh trong phòng tối |
+| Dịch/localize sang nhiều thị trường | |
+
+**Tỷ lệ thực tế:** một video 40 giây = **32 giây AI + 8 giây quay thật**. Bạn chỉ cần **một buổi quay 20 phút bằng điện thoại, một lần duy nhất**, dùng lại cho tất cả creative.
+
+## B.4 🚨 VIỆC CẤP BÁCH NHẤT NGAY BÂY GIỜ: ĐẶT 2–3 MÁY MẪU VỀ TAY BẠN
+
+Bạn ship thẳng từ TQ → **bạn chưa cầm sản phẩm**. Không có 90 giây footage thật đó, bạn **không thể** làm creative có sức thuyết phục trong ngành này.
+
+- [ ] Đặt supplier gửi **2–3 máy + refill** bằng **DHL/FedEx express** (5–8 ngày, ~$30–60). Làm **hôm nay**, không phải tuần sau.
+- [ ] Đặt 2–3 cái để có dự phòng khi 1 cái hỏng — nhớ bằng chứng "máy vỡ khi nhận" ở review đối thủ.
+- [ ] Cùng lúc, gửi email cho supplier xin **bộ ảnh + video gốc kèm quyền sử dụng bằng văn bản**. Đây là nguồn footage hợp pháp nhanh nhất trong lúc chờ hàng.
+
+**Mẫu email gửi supplier (copy dùng luôn):**
+> *"Hi, we're launching this product in the US market. Could you please send: (1) all raw product photos and videos you have, in the highest resolution available, and (2) written confirmation that we have permission to use these assets in paid advertising. Also, please ship 3 units + refills to [address] via DHL express — we'll cover the cost. Finally, could you confirm the exact specs: tank capacity, mist particle size in microns, battery mAh, continuous spray time per charge, max spray distance, and the full ingredient list of the solution?"*
+
+Câu cuối lấy luôn dữ liệu cho **bảng thông số 18 dòng ở mục 8.1** — thứ bạn vẫn đang thiếu.
+
+## B.5 Bộ công cụ AI đề xuất (🟡 theo landscape 2026)
+
+| Việc | Công cụ | Ghi chú |
+|---|---|---|
+| **AI avatar người dẫn** | **Arcads** hoặc HeyGen | 🟡 Arcads được đánh giá mạnh nhất về giữ chân ở tốc độ lướt cho Meta ads; HeyGen mạnh về realism và localize 175+ ngôn ngữ — [nguồn](https://adlibrary.com/posts/best-ai-ugc-video-generators), [HeyGen](https://www.heygen.com/blog/best-ai-video-tools-marketing-ads-2026) |
+| **Số lượng biến thể lớn** | **Creatify** | 🟡 Sinh ~20 biến thể từ 1 script template — hợp với việc test 15 hook |
+| **B-roll đời sống** | Veo / Sora / Kling / Runway | Dùng **image-to-video** từ ảnh thật để giữ nhất quán |
+| **Voice-over** | ElevenLabs | Giọng nữ Mỹ 40–55, tốc độ hơi nhanh, không "đọc quảng cáo" |
+| **Dựng + phụ đề** | CapCut | Phụ đề burned-in bắt buộc |
+
+> ⚠️ **Cảnh báo chất lượng:** 🟡 khoảng cách giữa avatar AI "nhựa" và avatar đáng tin giờ là **biến số hiệu suất chính** — người xem nhận ra AI trong 0.3 giây đầu là đã loại bỏ quảng cáo ([nguồn](https://www.hyperfx.ai/blog/arcads-vs-creatify-vs-higgs-field-vs-hyper-2026)). Hãy render nhiều avatar và **tự mình xem ở tốc độ lướt thật** trước khi chi tiền.
+
+## B.6 🎬 5 CREATIVE ĐẦU TIÊN — VIẾT LẠI CHO PIPELINE AI
+
+Thứ tự đã đổi: **những creative không cần footage thật được đẩy lên trước**, để bạn launch ngay trong lúc chờ hàng mẫu.
+
+| # | Creative | Cần footage thật? | Launch được khi nào | Ghi chú thay đổi so với PHẦN 7 |
+|---|---|---|---|---|
+| **1** | **Kinetic Text — "Nose Blind"** 20–25s. Chỉ chữ động + b-roll AI + 1 ảnh sản phẩm tĩnh. VO nữ. | ❌ Không | **Ngay ngày 4** | Creative mới, không có trong PHẦN 7. Đây là cách duy nhất để bắt đầu học dữ liệu trước khi có hàng |
+| **2** | **AI Presenter — Nose-Blind Explainer** 30s (Angle 2). Avatar Arcads/HeyGen, **giọng người dẫn, KHÔNG phải khách hàng** | ⚠️ Chỉ cần 1 ảnh sản phẩm | Ngày 4 (bản v1 không demo) | Angle 2 gần như không đổi — nó vốn đã là giọng giải thích, hợp AI nhất |
+| **3** | **Coverage Demo** 22–26s (Angle 3) | ✅ **Bắt buộc** | Khi máy mẫu về | Creative quan trọng nhất. Split-screen, không lời → cũng là cái AI **không** làm được |
+| **4** | **Guest Test** 40s (Angle 1) — b-roll khách bước vào bằng AI, demo bằng footage thật | ✅ Bắt buộc phần demo | Khi máy mẫu về | ⚠️ **Phải viết lại**: bản gốc là ngôi thứ nhất kể trải nghiệm. Với AI avatar phải chuyển sang giọng người dẫn, hoặc thuê UGC thật |
+| **5** | **Advertorial + static** | ❌ Không | Ngày 2 | Ảnh AI + ảnh sản phẩm thật. Không đổi |
+
+**Giai đoạn 2 (sau khi có ≥15 đơn):** thuê **2–3 UGC creator thật** trên Billo/Insense/JoinBrands (🟡 ~$60–150/video). Họ nhận sản phẩm thật → được phép nói ngôi thứ nhất hợp pháp → mở khoá lại toàn bộ Framework B và Angle 1/5 ở dạng mạnh nhất. **Đây mới là creative sẽ scale**, AI chỉ là cầu nối trong 2 tuần đầu.
+
+## B.7 📱 SHOT LIST QUAY THẬT — 20 PHÚT, ĐIỆN THOẠI, MỘT LẦN DUY NHẤT
+
+Khi máy mẫu về, quay đúng 6 shot này. Dùng cho **mọi creative về sau**.
+
+| # | Shot | Thời lượng | Ghi chú |
+|---|---|---|---|
+| 1 | Máy nằm trên bàn, camera lia chậm quanh | 6s | Ánh sáng cửa sổ, nền gỗ hoặc vải trung tính |
+| 2 | Tay nhặt máy lên → bấm công tắc → **đèn xanh bật** | 5s | Quay 3 lần, chọn cái mượt nhất |
+| 3 | **Phun 1 lượt liên tục qua sofa, KHÔNG CẮT** | **10s** | 🔑 Shot quan trọng nhất. Tripod cố định, người đi ngang khung |
+| 4 | **Lòng bàn tay áp lên vải vừa phun, giữ 2 giây** | 4s | 🔑 Proof rẻ nhất và mạnh nhất. Quay 3 góc |
+| 5 | Macro: sương chạm sợi vải | 5s | Quay chậm, lấy nét thủ công |
+| 6 | Đường sương xanh trong **phòng tối** | 6s | Visual hook độc quyền của category |
+
+**Tổng: ~36 giây footage thô → đủ cho toàn bộ 5 creative + mọi biến thể về sau.**
+
+---
+
+# PHỤ LỤC C — SHIP THẲNG TỪ TRUNG QUỐC
+
+## C.1 Rủi ro và cách xử lý
+
+| Rủi ro | Mức độ | Xử lý |
+|---|---|---|
+| **Thời gian giao 10–20 ngày** | 🔴 Cao | **P0.** Ghi rõ ở PDP, cart và email xác nhận. Giấu = chargeback hàng loạt = mất tài khoản quảng cáo |
+| **Máy vỡ khi nhận** | 🔴 Cao | 🟢 Có bằng chứng thật: review đối thủ ghi nhận **máy vỡ khi mở hộp, 2 lần từ 2 seller khác nhau**. Yêu cầu supplier gửi ảnh quy cách đóng gói. Dự phòng **4% gửi bù** (đã tính vào A.1) |
+| **Tỷ lệ hoàn tiền cao** | 🟠 Trung bình–cao | Đã tính 8%. Theo dõi hằng tuần. Nếu >12% → dừng scale, xử lý logistics trước |
+| **Dispute rate cao → Meta khoá tài khoản** | 🔴 Cao | Giữ chargeback <0.65%. Trả lời email khách trong 24h. Hoàn tiền nhanh thay vì tranh cãi |
+| **Cao điểm Q4** | 🟠 | Đặt hạn chót đặt hàng Giáng sinh **~25/11–01/12**. Angle 9 (Holiday Countdown) chỉ được dùng urgency **có thật** từ mốc này |
+| **Tết Nguyên đán** | 🟡 | 🔴 Nhà máy TQ nghỉ ~2–3 tuần quanh Tết (đầu tháng 2/2027 — **hãy tự xác minh ngày chính xác**). Nếu còn chạy tới lúc đó, cần trữ hàng trước |
+
+## C.2 Ngôn ngữ minh bạch bắt buộc (dùng nguyên văn)
+
+Đặt ngay dưới nút Add to Cart:
+> **"Ships within 2 business days. Delivery 10–16 days. You'll get a tracking number in 72 hours."**
+> *(Gửi hàng trong 2 ngày làm việc. Giao trong 10–16 ngày. Bạn nhận mã vận đơn trong 72 giờ.)*
+
+Và trong email xác nhận đơn:
+> **"Your order is on its way from our fulfillment partner. Tracking arrives within 72 hours. If anything shows up damaged, send us a photo — we replace it, no return needed."**
+
+🔑 Câu cuối vừa **giảm hoàn tiền** (khách chọn nhận máy mới thay vì đòi tiền), vừa **xây trust**, vừa phù hợp thực tế là **không kinh tế để thu hồi hàng về TQ**.
+
+## C.3 Lộ trình chuyển sang 3PL Mỹ
+
+| Mốc | Hành động |
+|---|---|
+| Đơn 1–100 | Ship thẳng TQ. Chấp nhận 10–16 ngày. Đo tỷ lệ hoàn tiền và tỷ lệ vỡ thật |
+| **Đơn 100–200** | Nếu CPA ≤ $30 và hoàn tiền ≤ 10% → **nhập 200–300 máy bằng air freight về 3PL Mỹ** |
+| Sau đó | Giao 3–5 ngày trở thành **đòn bẩy chuyển đổi**: thêm *"Ships from the US — arrives in 3–5 days"* lên PDP. 🟡 Trong ngành này, riêng dòng chữ đó thường đủ để nâng conversion rate đáng kể |
+
+---
+
+# PHỤ LỤC D — KẾ HOẠCH 7 NGÀY (BẢN THAY THẾ)
+
+> Bản này **thay thế mục 10.2**. Khác biệt cốt lõi: **không còn "Ngày quay"** — thay bằng đặt hàng mẫu + sản xuất AI, và creative được chia thành hai đợt theo việc có footage thật hay chưa.
+
+### 📅 NGÀY 1 — Vận hành & đặt hàng mẫu (ưu tiên cao nhất)
+- [ ] 🔥 **Đặt 3 máy mẫu + refill bằng DHL/FedEx express.** Việc quan trọng nhất trong cả tuần — làm đầu tiên
+- [ ] 🔥 Gửi email supplier xin **bộ asset + quyền sử dụng bằng văn bản + 18 thông số** (mẫu ở B.4)
+- [ ] 🔥 **Kiểm tra giá đối thủ trên Amazon/TikTok Shop** → áp luật quyết định ở A.4
+- [ ] **Hạ Shopify Advanced → Basic** (tiết kiệm ~$360/tháng)
+- [ ] Đổi tên store, đổi timezone sang `America/New_York`, mua custom domain
+- [ ] **Xoá toàn bộ ảnh `helpemup.com`**
+- [ ] Tạo trang Shipping/Returns/Refund/Privacy/Terms/Contact — **có ghi rõ 10–16 ngày**
+
+### 📅 NGÀY 2 — PDP, bậc thang offer, advertorial
+- [ ] Tạo PDP với **3 bậc giá ở A.3**, gói **$79.90 được chọn sẵn**
+- [ ] Ghi rõ thời gian giao ngay dưới nút ATC (ngôn ngữ ở C.2)
+- [ ] Viết advertorial `/pages/nose-blind-test`
+- [ ] Cài Meta Pixel + Conversions API, verify domain
+- [ ] **Đặt 1 đơn thật bằng thẻ Mỹ**, kiểm tra toàn bộ luồng + email
+- [ ] ⚠️ **Không** import review. PDP mới chưa có review là bình thường; review giả là vi phạm 16 CFR 465
+
+### 📅 NGÀY 3 — Sản xuất AI (không cần sản phẩm trong tay)
+- [ ] Viết 3 script: Kinetic Text · AI Presenter Explainer · Advertorial static
+- [ ] ⚠️ **Rà từng câu**: bất kỳ câu nào ngôi thứ nhất kể trải nghiệm cá nhân → **viết lại thành giọng người dẫn**
+- [ ] Render avatar ở **≥4 khuôn mặt khác nhau**, tự xem ở tốc độ lướt, loại các bản "nhựa"
+- [ ] Sinh b-roll AI: nhà có chó, khách bước vào, vali ở hành lang, tủ chứa chai xịt cũ
+- [ ] VO ElevenLabs + phụ đề burned-in
+- [ ] Dựng **3 creative + 6 biến thể hook**
+
+### 📅 NGÀY 4 — Launch đợt 1
+- [ ] Cấu trúc: **ASC $30** · **ABO Broad $30** · **ABO Interest $30**
+- [ ] Objective **Purchase**
+- [ ] Chỉ chạy 3 creative không cần demo. **Mục tiêu tuần này là học Hook Rate và message match, chưa phải tối ưu CPA**
+
+### 📅 NGÀY 5–6 — Đọc tín hiệu, KHÔNG đụng ngân sách
+- [ ] Chỉ đọc **Hook Rate >25%**, **Hold Rate >15%**, CTR >1.2%, ATC >6%
+- [ ] Không tắt ad set trước khi tiêu ≥$70 mà 0 đơn
+- [ ] Không đổi ngân sách trước 72 giờ
+- [ ] Kiểm tra email supplier: đã có asset chưa, hàng mẫu đang ở đâu
+
+### 📅 NGÀY 7 — Quyết định + chuẩn bị đợt 2
+- [ ] Giữ nhánh landing có CPA thấp hơn (advertorial vs PDP thẳng)
+- [ ] Đọc breakdown giới tính/độ tuổi → **xác minh hoặc bác bỏ giả định 78% nữ ở mục 2.1**
+- [ ] Đối chiếu CPA với bảng ngưỡng A.2:
+  - CPA ≤ $23 → tăng ngân sách 20–30%/ngày
+  - CPA $23–35 → giữ nguyên, thay creative, **ưu tiên đẩy gói $79.90 để nới ngưỡng**
+  - CPA > $35 và Hook Rate <15% → vấn đề ở **angle**, quay lại PHẦN 7
+  - Hook Rate cao nhưng ATC thấp → vấn đề ở **website hoặc giá**, quay lại PHẦN 9 + A.4
+- [ ] **Chuẩn bị shot list B.7.** Máy mẫu về (ngày 6–10) → quay 20 phút → chèn demo thật vào creative → **đây mới là đợt creative có khả năng scale**
+
+### 🚦 Bổ sung vào danh sách "NEVER" ở mục 10.3
+8. ❌ **Không dựng cảnh demo hiệu năng bằng AI** (sương phủ, "vẫn khô", before/after)
+9. ❌ **Không để AI avatar nói ở ngôi khách hàng** — 16 CFR 465, tối đa $51,744/vi phạm
+10. ❌ **Không import hoặc generate review** cho PDP
+11. ❌ **Không giấu thời gian giao hàng**
+12. ❌ **Không chạy ads trước khi biết giá đối thủ** (A.4)
+
+---
+
+## 📌 TÓM TẮT: BỐN THÔNG SỐ CỦA BẠN ĐÃ THAY ĐỔI ĐIỀU GÌ
+
+| Thông số | Thay đổi lớn nhất nó gây ra |
+|---|---|
+| **COGS $14.90 / Giá $59.90** | Cửa sổ lợi nhuận hẹp: hoà vốn CPA **$35**, mục tiêu **$23**. → Bậc thang offer ở A.3 **không phải tuỳ chọn**, nó là điều kiện để mô hình chạy được. Và **phải kiểm tra giá đối thủ trước khi chi đồng nào** |
+| **Video bằng AI** | AI làm được 80%, nhưng **không làm được demo** — thứ bán hàng mạnh nhất. → **Đặt máy mẫu ngay hôm nay.** Và AI avatar **không được** đóng vai khách hàng (16 CFR 465) |
+| **Ship thẳng từ TQ** | Minh bạch 10–16 ngày là **P0**. Dự phòng 8% hoàn tiền + 4% gửi bù đã nằm trong P&L. Chuyển 3PL Mỹ sau 100–200 đơn |
+
+*Phụ lục hoàn thành 03/09/2026.*
