@@ -1,0 +1,474 @@
+/* ==========================================================================
+   Cupertino DS — 3. Components
+   Every component is a single `.ap-<name>` block with `--modifier` classes.
+   No component defines a colour literal: they all read tokens.
+   ========================================================================== */
+
+/* --- Button ---------------------------------------------------------------
+   Pill shape, 17px label, no uppercase, no letter-spacing tricks.
+   Primary is the blue fill; secondary is the outline; the two are the same size. */
+.ap-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ap-space-2);
+  min-height: 44px;                       /* touch target */
+  padding: 0.6875rem 1.375rem;            /* 11 / 22 */
+  border: 1px solid transparent;
+  border-radius: var(--ap-radius-pill);
+  background: var(--ap-accent);
+  color: var(--ap-text-on-accent);
+  font: inherit;
+  font-size: var(--ap-text-body-size);
+  line-height: 1.2;
+  letter-spacing: var(--ap-text-body-track);
+  font-weight: var(--ap-weight-regular);
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--ap-duration-fast) var(--ap-ease),
+    color var(--ap-duration-fast) var(--ap-ease),
+    border-color var(--ap-duration-fast) var(--ap-ease),
+    opacity var(--ap-duration-fast) var(--ap-ease);
+}
+.ap-btn:hover { background: var(--ap-accent-hover); color: var(--ap-text-on-accent); text-decoration: none; }
+.ap-btn:active { background: var(--ap-accent-active); }
+.ap-btn[disabled],
+.ap-btn[aria-disabled="true"] { opacity: 0.42; pointer-events: none; }
+
+.ap-btn--secondary {
+  background: transparent;
+  color: var(--ap-link);
+  border-color: var(--ap-link);
+}
+.ap-btn--secondary:hover {
+  background: var(--ap-link);
+  color: var(--ap-surface);
+  border-color: var(--ap-link);
+}
+
+.ap-btn--quiet {
+  background: var(--ap-surface-secondary);
+  color: var(--ap-text);
+}
+.ap-btn--quiet:hover { background: var(--ap-separator-soft); color: var(--ap-text); }
+
+.ap-btn--sm { min-height: 32px; padding: 0.3125rem 0.9375rem; font-size: var(--ap-text-small-size); }
+.ap-btn--lg { min-height: 52px; padding: 0.875rem 1.75rem; font-size: var(--ap-text-title3-size); }
+.ap-btn--block { display: flex; width: 100%; }
+
+/* On an inverse surface the outline button drops the blue and goes monochrome —
+   it reads cleaner against a photographic or black field. `--ap-text` already
+   resolves to the on-inverse value inside these blocks. */
+.ap-section--inverse .ap-btn--secondary,
+.ap-card--inverse .ap-btn--secondary,
+.ap-tile--inverse .ap-btn--secondary,
+.ap-on-dark .ap-btn--secondary {
+  color: var(--ap-text);
+  border-color: var(--ap-text);
+}
+.ap-section--inverse .ap-btn--secondary:hover,
+.ap-card--inverse .ap-btn--secondary:hover,
+.ap-tile--inverse .ap-btn--secondary:hover,
+.ap-on-dark .ap-btn--secondary:hover {
+  background: var(--ap-text);
+  color: var(--ap-surface-inverse);
+}
+
+/* --- Inverse surfaces -----------------------------------------------------
+   An inverse block flips the *token scope* rather than restating a colour on
+   every child. Anything inside — headings, muted copy, links, separators,
+   badges — resolves against the inverted surface automatically, and it works
+   the same whether the page is in light or dark mode. */
+.ap-section--inverse,
+.ap-card--inverse,
+.ap-tile--inverse,
+.ap-on-dark {
+  --ap-text: var(--ap-text-on-inverse);
+  --ap-text-secondary: var(--ap-text-secondary-on-inverse);
+  --ap-text-tertiary: var(--ap-text-tertiary-on-inverse);
+  --ap-link: var(--ap-link-on-inverse);
+  --ap-link-hover: var(--ap-link-on-inverse);
+  --ap-separator: var(--ap-separator-on-inverse);
+  --ap-separator-soft: var(--ap-separator-on-inverse);
+  --ap-surface-secondary: color-mix(in srgb, var(--ap-surface-inverse) 88%, var(--ap-text-on-inverse));
+  color: var(--ap-text);
+}
+
+/* --- Nav ------------------------------------------------------------------
+   44px tall, translucent, blurred, pinned. The blur is the whole point;
+   it degrades to a solid tint where backdrop-filter is unsupported. */
+.ap-nav {
+  position: sticky;
+  top: 0;
+  z-index: var(--ap-z-nav);
+  height: var(--ap-nav-height);
+  background: var(--ap-chrome-bg);
+  border-bottom: 1px solid var(--ap-separator-soft);
+}
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .ap-nav {
+    -webkit-backdrop-filter: var(--ap-chrome-blur);
+    backdrop-filter: var(--ap-chrome-blur);
+  }
+}
+.ap-nav__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--ap-space-6);
+  height: 100%;
+  max-width: var(--ap-container-wide);
+  margin-inline: auto;
+  padding-inline: var(--ap-gutter);
+}
+.ap-nav__brand {
+  font-size: var(--ap-text-body-size);
+  font-weight: var(--ap-weight-semibold);
+  letter-spacing: -0.01em;
+  color: var(--ap-text);
+}
+.ap-nav__brand:hover { color: var(--ap-text); text-decoration: none; }
+.ap-nav__menu {
+  display: flex;
+  align-items: center;
+  gap: var(--ap-space-6);
+  margin: 0 0 0 auto;
+  padding: 0;
+  list-style: none;
+}
+.ap-nav__link {
+  color: var(--ap-text);
+  font-size: var(--ap-text-caption-size);
+  letter-spacing: -0.01em;
+  opacity: 0.86;
+  transition: opacity var(--ap-duration-fast) var(--ap-ease);
+}
+.ap-nav__link:hover { opacity: 1; color: var(--ap-text); text-decoration: none; }
+.ap-nav__link[aria-current] { opacity: 1; font-weight: var(--ap-weight-medium); }
+@media (max-width: 640px) {
+  .ap-nav__menu { gap: var(--ap-space-4); overflow-x: auto; scrollbar-width: none; }
+  .ap-nav__menu::-webkit-scrollbar { display: none; }
+}
+
+/* --- Marquee bar ----------------------------------------------------------
+   The thin promo strip that sits above or below the nav. */
+.ap-marquee {
+  background: var(--ap-surface-secondary);
+  color: var(--ap-text-secondary);
+  text-align: center;
+  padding: var(--ap-space-3) var(--ap-gutter);
+  font-size: var(--ap-text-caption-size);
+  letter-spacing: var(--ap-text-caption-track);
+}
+
+/* --- Hero -----------------------------------------------------------------
+   Centred, short headline, one-line subhead, two links. Nothing else. */
+.ap-hero {
+  padding-block: clamp(3rem, 9vw, 6.5rem) clamp(2.5rem, 7vw, 5rem);
+  text-align: center;
+}
+.ap-hero__eyebrow {
+  display: block;
+  margin-bottom: var(--ap-space-3);
+  color: var(--ap-caution);
+  font-size: var(--ap-text-title3-size);
+  font-weight: var(--ap-weight-semibold);
+  letter-spacing: var(--ap-text-title3-track);
+}
+.ap-hero__title { margin-bottom: var(--ap-space-4); }
+.ap-hero__subtitle {
+  max-width: 34rem;
+  margin: 0 auto var(--ap-space-6);
+  color: var(--ap-text-secondary);
+}
+.ap-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--ap-space-6);
+}
+.ap-hero__media { margin-top: clamp(2rem, 5vw, 3.5rem); }
+
+/* --- Card -----------------------------------------------------------------
+   18px radius, flat grey or elevated white, content padded generously. */
+.ap-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--ap-space-8);
+  border-radius: var(--ap-radius-lg);
+  background: var(--ap-fill);
+  color: var(--ap-text);
+  overflow: hidden;
+}
+.ap-card--elevated {
+  background: var(--ap-surface-elevated);
+  box-shadow: var(--ap-shadow-md);
+}
+.ap-card--outlined {
+  background: var(--ap-surface);
+  border: 1px solid var(--ap-separator-soft);
+}
+.ap-card--inverse { background: var(--ap-surface-inverse); }
+.ap-card--center { text-align: center; align-items: center; }
+.ap-card__eyebrow {
+  margin-bottom: var(--ap-space-2);
+  color: var(--ap-text-secondary);
+  font-size: var(--ap-text-caption-size);
+  font-weight: var(--ap-weight-semibold);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.ap-card__title { margin-bottom: var(--ap-space-3); }
+.ap-card__body { color: var(--ap-text-secondary); }
+.ap-card__footer { margin-top: auto; padding-top: var(--ap-space-6); }
+
+/* A card that is entirely a link lifts very slightly on hover. */
+.ap-card--interactive {
+  text-decoration: none;
+  transition: transform var(--ap-duration) var(--ap-ease),
+              box-shadow var(--ap-duration) var(--ap-ease);
+}
+.ap-card--interactive:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--ap-shadow-lg);
+  text-decoration: none;
+}
+
+/* --- Tile -----------------------------------------------------------------
+   The full-bleed marketing panel: big type on a coloured or image field. */
+.ap-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 460px;
+  padding: clamp(2.5rem, 5vw, 3.5rem) var(--ap-space-6);
+  border-radius: var(--ap-radius-xl);
+  background: var(--ap-fill);
+  text-align: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+.ap-tile--inverse { background: var(--ap-surface-inverse); }
+.ap-tile--bottom { justify-content: flex-end; }
+.ap-tile__title { margin-bottom: var(--ap-space-2); }
+.ap-tile__copy {
+  max-width: 26rem;
+  margin-bottom: var(--ap-space-5);
+  color: var(--ap-text-secondary);
+}
+.ap-tile__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--ap-space-5); }
+/* Image layer sits behind the copy, cropped, never stretched. */
+.ap-tile__media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+
+/* --- Stat ----------------------------------------------------------------- */
+.ap-stat { text-align: center; }
+.ap-stat__value {
+  font-size: var(--ap-text-display-size);
+  line-height: 1.05;
+  letter-spacing: var(--ap-text-display-track);
+  font-weight: var(--ap-weight-semibold);
+}
+.ap-stat__label { margin-top: var(--ap-space-2); color: var(--ap-text-secondary); }
+
+/* --- Badge / chip --------------------------------------------------------- */
+.ap-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ap-space-1);
+  padding: 0.1875rem 0.625rem;
+  border-radius: var(--ap-radius-pill);
+  background: var(--ap-surface-secondary);
+  color: var(--ap-text-secondary);
+  font-size: var(--ap-text-caption-size);
+  font-weight: var(--ap-weight-medium);
+  letter-spacing: var(--ap-text-caption-track);
+}
+.ap-badge--accent {
+  background: rgba(0, 113, 227, 0.12);
+  background: color-mix(in srgb, var(--ap-link) 14%, transparent);
+  color: var(--ap-link);
+}
+.ap-badge--positive {
+  background: rgba(0, 168, 98, 0.12);
+  background: color-mix(in srgb, var(--ap-positive) 14%, transparent);
+  color: var(--ap-positive);
+}
+.ap-badge--caution {
+  background: rgba(245, 99, 0, 0.12);
+  background: color-mix(in srgb, var(--ap-caution) 14%, transparent);
+  color: var(--ap-caution);
+}
+.ap-badge--critical {
+  background: rgba(227, 0, 0, 0.12);
+  background: color-mix(in srgb, var(--ap-critical) 14%, transparent);
+  color: var(--ap-critical);
+}
+
+/* --- Segmented control ---------------------------------------------------- */
+.ap-segmented {
+  display: inline-flex;
+  padding: 2px;
+  border-radius: var(--ap-radius-pill);
+  background: var(--ap-surface-secondary);
+}
+.ap-segmented__item {
+  appearance: none;
+  border: 0;
+  padding: 0.4375rem 1rem;
+  border-radius: var(--ap-radius-pill);
+  background: transparent;
+  color: var(--ap-text-secondary);
+  font: inherit;
+  font-size: var(--ap-text-small-size);
+  cursor: pointer;
+  transition: background-color var(--ap-duration-fast) var(--ap-ease),
+              color var(--ap-duration-fast) var(--ap-ease);
+}
+.ap-segmented__item[aria-selected="true"],
+.ap-segmented__item.is-selected {
+  background: var(--ap-surface);
+  color: var(--ap-text);
+  box-shadow: var(--ap-shadow-sm);
+}
+
+/* --- Form ----------------------------------------------------------------- */
+.ap-field { display: flex; flex-direction: column; gap: var(--ap-space-2); }
+.ap-label {
+  font-size: var(--ap-text-small-size);
+  font-weight: var(--ap-weight-medium);
+  color: var(--ap-text-secondary);
+}
+.ap-input,
+.ap-select,
+.ap-textarea {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.6875rem 1rem;
+  border: 1px solid var(--ap-separator);
+  border-radius: var(--ap-radius-md);
+  background: var(--ap-surface);
+  color: var(--ap-text);
+  font: inherit;
+  font-size: var(--ap-text-body-size);
+  transition: border-color var(--ap-duration-fast) var(--ap-ease),
+              box-shadow var(--ap-duration-fast) var(--ap-ease);
+}
+.ap-input::placeholder,
+.ap-textarea::placeholder { color: var(--ap-text-tertiary); }
+.ap-input:focus,
+.ap-select:focus,
+.ap-textarea:focus {
+  outline: none;
+  border-color: var(--ap-accent);
+  box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.18);
+}
+.ap-textarea { min-height: 120px; resize: vertical; }
+.ap-help { font-size: var(--ap-text-caption-size); color: var(--ap-text-secondary); }
+.ap-field--invalid .ap-input,
+.ap-field--invalid .ap-select,
+.ap-field--invalid .ap-textarea { border-color: var(--ap-critical); }
+.ap-field--invalid .ap-help { color: var(--ap-critical); }
+
+/* --- Accordion ------------------------------------------------------------
+   Native <details>, chevron rotates. Works without a line of JavaScript. */
+.ap-accordion { border-top: 1px solid var(--ap-separator-soft); }
+.ap-accordion__item { border-bottom: 1px solid var(--ap-separator-soft); }
+.ap-accordion__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ap-space-4);
+  padding: var(--ap-space-5) 0;
+  font-size: var(--ap-text-title3-size);
+  letter-spacing: var(--ap-text-title3-track);
+  cursor: pointer;
+  list-style: none;
+}
+.ap-accordion__summary::-webkit-details-marker { display: none; }
+.ap-accordion__summary::after {
+  content: "";
+  flex: none;
+  width: 9px; height: 9px;
+  border-right: 1.5px solid var(--ap-text-secondary);
+  border-bottom: 1.5px solid var(--ap-text-secondary);
+  transform: rotate(45deg);
+  transition: transform var(--ap-duration) var(--ap-ease);
+}
+.ap-accordion__item[open] > .ap-accordion__summary::after { transform: rotate(-135deg); }
+.ap-accordion__panel { padding-bottom: var(--ap-space-5); color: var(--ap-text-secondary); }
+
+/* --- Table ---------------------------------------------------------------- */
+.ap-table-wrap { overflow-x: auto; }
+.ap-table { width: 100%; border-collapse: collapse; text-align: left; }
+.ap-table th,
+.ap-table td {
+  padding: var(--ap-space-3) var(--ap-space-4);
+  border-bottom: 1px solid var(--ap-separator-soft);
+  vertical-align: top;
+}
+.ap-table th {
+  font-size: var(--ap-text-small-size);
+  font-weight: var(--ap-weight-semibold);
+  color: var(--ap-text-secondary);
+  white-space: nowrap;
+}
+
+/* --- Footer --------------------------------------------------------------- */
+.ap-footer {
+  background: var(--ap-surface-secondary);
+  color: var(--ap-text-secondary);
+  padding-block: var(--ap-space-12);
+  font-size: var(--ap-text-caption-size);
+  line-height: 1.4;
+}
+.ap-footer__grid {
+  display: grid;
+  gap: var(--ap-space-8);
+  grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr));
+  padding-bottom: var(--ap-space-8);
+  border-bottom: 1px solid var(--ap-separator);
+}
+.ap-footer__heading {
+  margin-bottom: var(--ap-space-3);
+  color: var(--ap-text);
+  font-size: var(--ap-text-caption-size);
+  font-weight: var(--ap-weight-semibold);
+}
+.ap-footer__list { margin: 0; padding: 0; list-style: none; }
+.ap-footer__list li + li { margin-top: var(--ap-space-2); }
+.ap-footer__list a { color: var(--ap-text-secondary); }
+.ap-footer__list a:hover { color: var(--ap-text); }
+.ap-footer__legal { padding-top: var(--ap-space-5); color: var(--ap-text-secondary); }
+
+/* --- Swatch (documentation aid) ------------------------------------------- */
+.ap-swatch {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ap-space-2);
+}
+.ap-swatch__chip {
+  height: 72px;
+  border-radius: var(--ap-radius-md);
+  border: 1px solid var(--ap-separator-soft);
+}
+
+/* --- Motion --------------------------------------------------------------- */
+.ap-reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity var(--ap-duration-slow) var(--ap-ease-out),
+              transform var(--ap-duration-slow) var(--ap-ease-out);
+}
+.ap-reveal.is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .ap-reveal { opacity: 1; transform: none; }
+}

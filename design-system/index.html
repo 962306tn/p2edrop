@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cupertino DS</title>
+<link rel="stylesheet" href="dist/cupertino.css">
+<style>
+  /* Page-local styling for the documentation shell only — not part of the DS. */
+  .doc-section-head { max-width: 44rem; margin-bottom: var(--ap-space-10); }
+  .doc-eyebrow {
+    display: block; margin-bottom: var(--ap-space-2);
+    font-size: var(--ap-text-caption-size); font-weight: var(--ap-weight-semibold);
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--ap-text-secondary);
+  }
+  .doc-specimen + .doc-specimen { margin-top: var(--ap-space-6); }
+  .doc-specimen__meta {
+    font-family: var(--ap-font-mono); font-size: var(--ap-text-caption-size);
+    color: var(--ap-text-secondary); margin-top: var(--ap-space-1);
+  }
+  .doc-tile-media {
+    width: min(280px, 70%); aspect-ratio: 4 / 3; margin-top: auto;
+    border-radius: var(--ap-radius-lg);
+    background:
+      radial-gradient(120% 90% at 30% 15%, rgba(255,255,255,.55), transparent 60%),
+      linear-gradient(150deg, #5ac8fa, #0071e3 55%, #bf5af2);
+    box-shadow: var(--ap-shadow-lg);
+  }
+  .doc-code {
+    display: block; overflow-x: auto; margin: var(--ap-space-4) 0 0;
+    padding: var(--ap-space-4) var(--ap-space-5);
+    background: var(--ap-surface-secondary); border-radius: var(--ap-radius-md);
+    font-family: var(--ap-font-mono); font-size: var(--ap-text-caption-size);
+    line-height: 1.6; color: var(--ap-text-secondary); white-space: pre;
+  }
+</style>
+</head>
+<body>
+
+<header class="ap-nav">
+  <div class="ap-nav__inner">
+    <a class="ap-nav__brand" href="#top">Cupertino&nbsp;DS</a>
+    <ul class="ap-nav__menu">
+      <li><a class="ap-nav__link" href="#color">Color</a></li>
+      <li><a class="ap-nav__link" href="#type">Type</a></li>
+      <li><a class="ap-nav__link" href="#space">Space</a></li>
+      <li><a class="ap-nav__link" href="#components">Components</a></li>
+      <li><a class="ap-nav__link" href="#patterns">Patterns</a></li>
+      <li><button class="ap-nav__link" id="theme-toggle" type="button"
+                  style="background:none;border:0;font:inherit;cursor:pointer;color:inherit;"
+                  aria-label="Toggle dark mode">Dark</button></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Hero -->
+  <section class="ap-container ap-hero">
+    <span class="ap-hero__eyebrow">Design system</span>
+    <h1 class="ap-t-hero ap-hero__title">Restraint, at&nbsp;scale.</h1>
+    <p class="ap-t-intro ap-hero__subtitle">
+      Tokens, type and components for building product pages that read calm and
+      confident. One accent colour, one easing curve, a lot of white space.
+    </p>
+    <div class="ap-hero__actions">
+      <a class="ap-link-chevron" href="#components">Browse components</a>
+      <a class="ap-link-chevron" href="#install">Install</a>
+    </div>
+  </section>
+
+  <!-- Foundations: colour -->
+  <section class="ap-section ap-section--grey" id="color">
+    <div class="ap-container ap-container--wide">
+      <div class="doc-section-head">
+        <span class="doc-eyebrow">Foundations</span>
+        <h2 class="ap-t-title1">Color</h2>
+        <p class="ap-muted">
+          Two neutral surfaces carry almost every page. Colour is reserved for one
+          thing — the action you want taken. Status hues appear only in state, never
+          in decoration.
+        </p>
+      </div>
+
+      <h3 class="ap-t-title3" style="margin-bottom:var(--ap-space-5)">Surface &amp; text</h3>
+      <div class="ap-grid ap-grid--4" style="margin-bottom:var(--ap-space-12)">
+        <div class="ap-swatch">
+          <div class="ap-swatch__chip" style="background:var(--ap-surface)"></div>
+          <div><strong class="ap-t-small">Surface</strong><div class="doc-specimen__meta">--ap-surface</div></div>
+        </div>
+        <div class="ap-swatch">
+          <div class="ap-swatch__chip" style="background:var(--ap-surface-secondary)"></div>
+          <div><strong class="ap-t-small">Surface secondary</strong><div class="doc-specimen__meta">--ap-surface-secondary</div></div>
+        </div>
+        <div class="ap-swatch">
+          <div class="ap-swatch__chip" style="background:var(--ap-surface-inverse)"></div>
+          <div><strong class="ap-t-small">Surface inverse</strong><div class="doc-specimen__meta">--ap-surface-inverse</div></div>
+        </div>
+        <div class="ap-swatch">
+          <div class="ap-swatch__chip" style="background:var(--ap-text)"></div>
+          <div><strong class="ap-t-small">Text</strong><div class="doc-specimen__meta">--ap-text</div></div>
+        </div>
+        <div class="ap-swatch">
+          <div class="ap-swatch__chip" style="background:var(--ap-text-secondary)"></div>
+          <div><strong class="ap-t-small">Text secondary</strong><div class="doc-specimen__meta">--ap-text-secondary</div></div>
+        </div>
+        <div class="ap-swatch">
+          <div class="ap-swatch__chip" style="background:var(--ap-separator)"></div>
+          <div><strong class="ap-t-small">Separator</strong><div class="doc-specimen__meta">--ap-separator</div></div>
+        </div>
+      </div>
+
+      <h3 class="ap-t-title3" style="margin-bottom:var(--ap-space-5)">Accent &amp; status</h3>
+      <div class="ap-grid ap-grid--4">
+        <div class="ap-swatch">
+          <div class="ap-swatch__chip" style="background:var(--ap-accent)"></div>
+          <div><strong class="ap-t-small">Accent</strong><div class="doc-specimen__meta">--ap-accent</div></div>
+        </div>
+        <div class="ap-swatch">
+          <div class="ap-swatch__chip" style="background:var(--ap-link)"></div>
+          <div><strong class="ap-t-small">Link</strong><div class="doc-specimen__meta">--ap-link</div></div>
+        </div>
+        <div class="ap-swatch">
+          <div class="ap-swatch__chip" style="background:var(--ap-positive)"></div>
+          <div><strong class="ap-t-small">Positive</strong><div class="doc-specimen__meta">--ap-positive</div></div>
+        </div>
+        <div class="ap-swatch">
+          <div class="ap-swatch__chip" style="background:var(--ap-caution)"></div>
+          <div><strong class="ap-t-small">Caution</strong><div class="doc-specimen__meta">--ap-caution</div></div>
+        </div>
+        <div class="ap-swatch">
+          <div class="ap-swatch__chip" style="background:var(--ap-critical)"></div>
+          <div><strong class="ap-t-small">Critical</strong><div class="doc-specimen__meta">--ap-critical</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Foundations: type -->
+  <section class="ap-section" id="type">
+    <div class="ap-container ap-container--wide">
+      <div class="doc-section-head">
+        <span class="doc-eyebrow">Foundations</span>
+        <h2 class="ap-t-title1">Typography</h2>
+        <p class="ap-muted">
+          One family, two weights that matter. Size, line-height and tracking ship as
+          a matched set at every step — tracking tightens as type grows, which is the
+          single most recognisable trait of the system. Body copy is 17px.
+        </p>
+      </div>
+
+      <div class="doc-specimen">
+        <div class="ap-t-hero">Hero</div>
+        <div class="doc-specimen__meta">.ap-t-hero — clamp(44 → 88px) / 1.05 / -0.015em / 600</div>
+      </div>
+      <div class="doc-specimen">
+        <div class="ap-t-display">Display</div>
+        <div class="doc-specimen__meta">.ap-t-display — clamp(36 → 56px) / 1.07 / -0.012em / 600</div>
+      </div>
+      <div class="doc-specimen">
+        <div class="ap-t-title1">Title 1</div>
+        <div class="doc-specimen__meta">.ap-t-title1 — clamp(32 → 40px) / 1.1 / -0.008em / 600</div>
+      </div>
+      <div class="doc-specimen">
+        <div class="ap-t-title2">Title 2</div>
+        <div class="doc-specimen__meta">.ap-t-title2 — clamp(24 → 28px) / 1.14 / -0.006em / 600</div>
+      </div>
+      <div class="doc-specimen">
+        <div class="ap-t-title3">Title 3</div>
+        <div class="doc-specimen__meta">.ap-t-title3 — 21px / 1.19 / -0.004em / 600</div>
+      </div>
+      <div class="doc-specimen">
+        <div class="ap-t-intro">Intro — the one line under a headline.</div>
+        <div class="doc-specimen__meta">.ap-t-intro — clamp(19 → 24px) / 1.375 / -0.006em / 400</div>
+      </div>
+      <div class="doc-specimen">
+        <div class="ap-t-body">Body — the size everything else is measured against.</div>
+        <div class="doc-specimen__meta">.ap-t-body — 17px / 1.47 / -0.022em / 400</div>
+      </div>
+      <div class="doc-specimen">
+        <div class="ap-t-small">Small — dense UI labels and secondary rows.</div>
+        <div class="doc-specimen__meta">.ap-t-small — 14px / 1.43 / -0.016em</div>
+      </div>
+      <div class="doc-specimen">
+        <div class="ap-t-caption">Caption — footnotes, legal, nav.</div>
+        <div class="doc-specimen__meta">.ap-t-caption — 12px / 1.33 / -0.01em</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Foundations: space -->
+  <section class="ap-section ap-section--grey" id="space">
+    <div class="ap-container ap-container--wide">
+      <div class="doc-section-head">
+        <span class="doc-eyebrow">Foundations</span>
+        <h2 class="ap-t-title1">Space, shape, motion</h2>
+        <p class="ap-muted">
+          Spacing is a 4px-based scale. Sections breathe on a fluid rhythm that
+          collapses on phones without a media query. Every transition uses the same
+          easing curve — that consistency is what reads as unhurried.
+        </p>
+      </div>
+
+      <div class="ap-grid ap-grid--2">
+        <div class="ap-card ap-card--outlined">
+          <h3 class="ap-t-title3 ap-card__title">Layout</h3>
+          <div class="ap-table-wrap">
+            <table class="ap-table">
+              <tbody>
+                <tr><th>Editorial column</th><td>980px <span class="ap-dim">— where copy lives</span></td></tr>
+                <tr><th>Wide</th><td>1440px</td></tr>
+                <tr><th>Full bleed</th><td>1680px</td></tr>
+                <tr><th>Gutter</th><td>clamp(20 → 40px)</td></tr>
+                <tr><th>Section rhythm</th><td>clamp(56 → 120px)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="ap-card ap-card--outlined">
+          <h3 class="ap-t-title3 ap-card__title">Radius &amp; motion</h3>
+          <div class="ap-table-wrap">
+            <table class="ap-table">
+              <tbody>
+                <tr><th>Card</th><td>18px</td></tr>
+                <tr><th>Tile</th><td>28px</td></tr>
+                <tr><th>Control</th><td>pill (980px)</td></tr>
+                <tr><th>Easing</th><td class="ap-mono">cubic-bezier(.28,.11,.32,1)</td></tr>
+                <tr><th>Duration</th><td>120 / 250 / 500ms</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Components -->
+  <section class="ap-section" id="components">
+    <div class="ap-container ap-container--wide">
+      <div class="doc-section-head">
+        <span class="doc-eyebrow">Library</span>
+        <h2 class="ap-t-title1">Components</h2>
+        <p class="ap-muted">
+          Each block is one class plus modifiers, and none of them hard-code a colour —
+          they read tokens, so a theme change is a token change.
+        </p>
+      </div>
+
+      <h3 class="ap-t-title2" style="margin-bottom:var(--ap-space-5)">Buttons</h3>
+      <div class="ap-row" style="margin-bottom:var(--ap-space-4)">
+        <button class="ap-btn" type="button">Buy</button>
+        <button class="ap-btn ap-btn--secondary" type="button">Learn more</button>
+        <button class="ap-btn ap-btn--quiet" type="button">Compare</button>
+        <button class="ap-btn" type="button" disabled>Sold out</button>
+        <a class="ap-link-chevron" href="#components">Chevron link</a>
+      </div>
+      <div class="ap-row" style="margin-bottom:var(--ap-space-12)">
+        <button class="ap-btn ap-btn--sm" type="button">Small</button>
+        <button class="ap-btn" type="button">Default</button>
+        <button class="ap-btn ap-btn--lg" type="button">Large</button>
+      </div>
+
+      <h3 class="ap-t-title2" style="margin-bottom:var(--ap-space-5)">Cards</h3>
+      <div class="ap-grid" style="margin-bottom:var(--ap-space-12)">
+        <div class="ap-card">
+          <p class="ap-card__eyebrow">Flat</p>
+          <h4 class="ap-t-title3 ap-card__title">Grey card</h4>
+          <p class="ap-card__body">The default. Sits on white, needs no shadow to separate.</p>
+          <div class="ap-card__footer"><a class="ap-link-chevron ap-link-chevron--sm" href="#components">Learn more</a></div>
+        </div>
+        <div class="ap-card ap-card--elevated">
+          <p class="ap-card__eyebrow">Elevated</p>
+          <h4 class="ap-t-title3 ap-card__title">Raised card</h4>
+          <p class="ap-card__body">For content that floats over a grey section.</p>
+          <div class="ap-card__footer"><a class="ap-link-chevron ap-link-chevron--sm" href="#components">Learn more</a></div>
+        </div>
+        <a class="ap-card ap-card--interactive ap-card--inverse" href="#components">
+          <p class="ap-card__eyebrow">Interactive</p>
+          <h4 class="ap-t-title3 ap-card__title">Whole-card link</h4>
+          <p class="ap-card__body">Lifts 4px on hover. Use once per grid, not everywhere.</p>
+        </a>
+      </div>
+
+      <h3 class="ap-t-title2" style="margin-bottom:var(--ap-space-5)">Badges, segmented control, stats</h3>
+      <div class="ap-row" style="margin-bottom:var(--ap-space-6)">
+        <span class="ap-badge">Neutral</span>
+        <span class="ap-badge ap-badge--accent">New</span>
+        <span class="ap-badge ap-badge--positive">In stock</span>
+        <span class="ap-badge ap-badge--caution">Low stock</span>
+        <span class="ap-badge ap-badge--critical">Sold out</span>
+        <div class="ap-segmented" role="tablist" aria-label="View">
+          <button class="ap-segmented__item" role="tab" aria-selected="true" type="button">Overview</button>
+          <button class="ap-segmented__item" role="tab" aria-selected="false" type="button">Specs</button>
+          <button class="ap-segmented__item" role="tab" aria-selected="false" type="button">Compare</button>
+        </div>
+      </div>
+      <div class="ap-grid ap-grid--4" style="margin-bottom:var(--ap-space-12)">
+        <div class="ap-stat"><div class="ap-stat__value">17px</div><div class="ap-stat__label">Body size</div></div>
+        <div class="ap-stat"><div class="ap-stat__value">980</div><div class="ap-stat__label">Column width</div></div>
+        <div class="ap-stat"><div class="ap-stat__value">1</div><div class="ap-stat__label">Accent colour</div></div>
+        <div class="ap-stat"><div class="ap-stat__value">0</div><div class="ap-stat__label">JS dependencies</div></div>
+      </div>
+
+      <h3 class="ap-t-title2" style="margin-bottom:var(--ap-space-5)">Form</h3>
+      <div class="ap-grid ap-grid--2" style="margin-bottom:var(--ap-space-12)">
+        <div class="ap-stack">
+          <div class="ap-field">
+            <label class="ap-label" for="f-email">Email</label>
+            <input class="ap-input" id="f-email" type="email" placeholder="you@example.com">
+            <span class="ap-help">We only use this for order updates.</span>
+          </div>
+          <div class="ap-field ap-field--invalid">
+            <label class="ap-label" for="f-zip">Postcode</label>
+            <input class="ap-input" id="f-zip" type="text" value="000" aria-invalid="true">
+            <span class="ap-help">Enter a valid postcode.</span>
+          </div>
+        </div>
+        <div class="ap-field">
+          <label class="ap-label" for="f-note">Note</label>
+          <textarea class="ap-textarea" id="f-note" placeholder="Anything we should know?"></textarea>
+        </div>
+      </div>
+
+      <h3 class="ap-t-title2" style="margin-bottom:var(--ap-space-5)">Accordion</h3>
+      <div class="ap-accordion ap-measure">
+        <details class="ap-accordion__item" open>
+          <summary class="ap-accordion__summary">Does it need JavaScript?</summary>
+          <div class="ap-accordion__panel">
+            No. The accordion is native <code class="ap-mono">&lt;details&gt;</code>, the nav is
+            sticky CSS, and dark mode follows the system. The only optional script is
+            the scroll-reveal helper.
+          </div>
+        </details>
+        <details class="ap-accordion__item">
+          <summary class="ap-accordion__summary">How do I rebrand it?</summary>
+          <div class="ap-accordion__panel">
+            Override the tokens in <code class="ap-mono">:root</code> after the stylesheet.
+            No component rule hard-codes a colour, radius or duration.
+          </div>
+        </details>
+        <details class="ap-accordion__item">
+          <summary class="ap-accordion__summary">Will it clash with a Shopify theme?</summary>
+          <div class="ap-accordion__panel">
+            Every class and token is <code class="ap-mono">ap-</code>-prefixed, and the reset is
+            limited to <code class="ap-mono">box-sizing</code> plus element defaults inside the page.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Patterns -->
+  <section class="ap-section" id="patterns">
+    <div class="ap-container ap-container--wide">
+      <div class="doc-section-head">
+        <span class="doc-eyebrow">Patterns</span>
+        <h2 class="ap-t-title1">Tiles</h2>
+        <p class="ap-muted">
+          The full-bleed marketing panel: an oversized headline, one line of copy, two
+          chevron links. Resist adding a third thing.
+        </p>
+      </div>
+      <div class="ap-grid ap-grid--2">
+        <div class="ap-tile">
+          <h3 class="ap-t-display ap-tile__title">Studio</h3>
+          <p class="ap-t-intro ap-tile__copy">Built for the work that pays the bills.</p>
+          <div class="ap-tile__actions">
+            <a class="ap-link-chevron" href="#patterns">Learn more</a>
+            <a class="ap-link-chevron" href="#patterns">Buy</a>
+          </div>
+          <div class="doc-tile-media" role="presentation"></div>
+        </div>
+        <div class="ap-tile ap-tile--inverse">
+          <h3 class="ap-t-display ap-tile__title">Studio Pro</h3>
+          <p class="ap-t-intro ap-tile__copy">The same, with more of everything.</p>
+          <div class="ap-tile__actions">
+            <a class="ap-link-chevron" href="#patterns">Learn more</a>
+            <a class="ap-link-chevron" href="#patterns">Buy</a>
+          </div>
+          <div class="doc-tile-media" role="presentation"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Install -->
+  <section class="ap-section" id="install">
+    <div class="ap-container">
+      <div class="doc-section-head">
+        <span class="doc-eyebrow">Getting started</span>
+        <h2 class="ap-t-title1">Install</h2>
+      </div>
+      <p>Link the bundle, then write markup with <code class="ap-mono">ap-</code> classes.</p>
+      <code class="doc-code">&lt;link rel="stylesheet" href="design-system/dist/cupertino.css"&gt;</code>
+      <p style="margin-top:var(--ap-space-8)">Rebrand by overriding tokens after the stylesheet — nothing else needs to change.</p>
+      <code class="doc-code">:root {
+  --ap-accent: #7c3aed;
+  --ap-link: #6d28d9;
+  --ap-radius-lg: 8px;
+}</code>
+      <p style="margin-top:var(--ap-space-8)">Edit the layers in <code class="ap-mono">src/</code>, then rebuild the bundle.</p>
+      <code class="doc-code">./design-system/build.sh</code>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ap-footer">
+  <div class="ap-container ap-container--wide">
+    <div class="ap-footer__grid">
+      <div>
+        <p class="ap-footer__heading">Foundations</p>
+        <ul class="ap-footer__list">
+          <li><a href="#color">Color</a></li>
+          <li><a href="#type">Typography</a></li>
+          <li><a href="#space">Space &amp; motion</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ap-footer__heading">Library</p>
+        <ul class="ap-footer__list">
+          <li><a href="#components">Components</a></li>
+          <li><a href="#patterns">Patterns</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ap-footer__heading">Use</p>
+        <ul class="ap-footer__list">
+          <li><a href="#install">Install</a></li>
+          <li><a href="#install">Theming</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="ap-footer__legal">
+      Cupertino DS — an original token set and component library in the spirit of
+      minimal product marketing sites. Not affiliated with, endorsed by, or containing
+      assets from any third party.
+    </p>
+  </div>
+</footer>
+
+<script>
+  // Theme toggle — persists per browser, falls back silently.
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById('theme-toggle');
+    var stored = null;
+    try { stored = localStorage.getItem('ap-theme'); } catch (e) {}
+    if (stored) root.setAttribute('data-ap-theme', stored);
+    function label() {
+      var dark = root.getAttribute('data-ap-theme') === 'dark' ||
+        (!root.getAttribute('data-ap-theme') &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches);
+      btn.textContent = dark ? 'Light' : 'Dark';
+    }
+    label();
+    btn.addEventListener('click', function () {
+      var dark = root.getAttribute('data-ap-theme') === 'dark' ||
+        (!root.getAttribute('data-ap-theme') &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches);
+      var next = dark ? 'light' : 'dark';
+      root.setAttribute('data-ap-theme', next);
+      try { localStorage.setItem('ap-theme', next); } catch (e) {}
+      label();
+    });
+  })();
+
+  // Segmented control demo behaviour.
+  document.querySelectorAll('.ap-segmented').forEach(function (group) {
+    group.addEventListener('click', function (e) {
+      var item = e.target.closest('.ap-segmented__item');
+      if (!item) return;
+      group.querySelectorAll('.ap-segmented__item')
+        .forEach(function (b) { b.setAttribute('aria-selected', String(b === item)); });
+    });
+  });
+</script>
+</body>
+</html>

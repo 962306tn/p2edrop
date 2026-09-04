@@ -1,0 +1,241 @@
+/* ==========================================================================
+   Cupertino DS — 1. Tokens
+   Design tokens inspired by the visual language of apple.com:
+   near-black text on white/light-grey, one saturated blue accent,
+   tight negative tracking, pill controls, generous vertical rhythm.
+   All tokens are prefixed `--ap-` so they never collide with theme CSS.
+   ========================================================================== */
+
+:root {
+  /* --- Typography families ------------------------------------------------ */
+  --ap-font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+    "Helvetica Neue", Helvetica, "Segoe UI", Roboto, Arial, sans-serif;
+  --ap-font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas,
+    "Liberation Mono", monospace;
+
+  /* --- Type scale ---------------------------------------------------------
+     Each step ships size / line-height / tracking as a matched set.
+     Display steps use clamp() so they collapse on phones without extra
+     breakpoints. Tracking goes more negative as size grows — the single
+     most recognisable trait of this type system. */
+  --ap-text-hero-size: clamp(2.75rem, 7.5vw, 5.5rem);   /* 44 → 88 */
+  --ap-text-hero-line: 1.05;
+  --ap-text-hero-track: -0.015em;
+
+  --ap-text-display-size: clamp(2.25rem, 5.5vw, 3.5rem); /* 36 → 56 */
+  --ap-text-display-line: 1.0714;
+  --ap-text-display-track: -0.012em;
+
+  --ap-text-title1-size: clamp(2rem, 4vw, 2.5rem);       /* 32 → 40 */
+  --ap-text-title1-line: 1.1;
+  --ap-text-title1-track: -0.008em;
+
+  --ap-text-title2-size: clamp(1.5rem, 3vw, 1.75rem);    /* 24 → 28 */
+  --ap-text-title2-line: 1.1428;
+  --ap-text-title2-track: -0.006em;
+
+  --ap-text-title3-size: 1.3125rem;                      /* 21 */
+  --ap-text-title3-line: 1.19;
+  --ap-text-title3-track: -0.004em;
+
+  --ap-text-intro-size: clamp(1.1875rem, 2vw, 1.5rem);   /* 19 → 24 */
+  --ap-text-intro-line: 1.375;
+  --ap-text-intro-track: -0.006em;
+
+  --ap-text-body-size: 1.0625rem;                        /* 17 — the base */
+  --ap-text-body-line: 1.4706;
+  --ap-text-body-track: -0.022em;
+
+  --ap-text-small-size: 0.875rem;                        /* 14 */
+  --ap-text-small-line: 1.4286;
+  --ap-text-small-track: -0.016em;
+
+  --ap-text-caption-size: 0.75rem;                       /* 12 */
+  --ap-text-caption-line: 1.3333;
+  --ap-text-caption-track: -0.01em;
+
+  /* --- Weights ------------------------------------------------------------
+     The system leans on 400 and 600. 700 exists but is rarely the right call. */
+  --ap-weight-regular: 400;
+  --ap-weight-medium: 500;
+  --ap-weight-semibold: 600;
+  --ap-weight-bold: 700;
+
+  /* --- Neutrals (light) --------------------------------------------------- */
+  --ap-surface: #ffffff;
+  --ap-surface-secondary: #f5f5f7;  /* the signature light grey */
+  --ap-surface-tertiary: #fbfbfd;
+  --ap-surface-elevated: #ffffff;
+  --ap-surface-inverse: #000000;
+
+  --ap-text: #1d1d1f;               /* never pure black for body copy */
+  --ap-text-secondary: #6e6e73;
+  --ap-text-tertiary: #86868b;
+  --ap-text-on-accent: #ffffff;
+  --ap-text-on-inverse: #f5f5f7;
+
+  --ap-separator: #d2d2d7;
+  --ap-separator-soft: #e8e8ed;
+
+  /* The fill a block (card, tile) uses so it separates from whatever ground it
+     sits on. Sections override it — see `.ap-section--grey`. */
+  --ap-fill: var(--ap-surface-secondary);
+
+  /* --- Accent + status ---------------------------------------------------- */
+  --ap-accent: #0071e3;             /* buttons */
+  --ap-accent-hover: #0077ed;
+  --ap-accent-active: #006edb;
+  --ap-link: #0066cc;               /* inline links sit one notch darker */
+  --ap-link-hover: #0077ed;
+
+  --ap-positive: #00a862;
+  --ap-caution: #f56300;
+  --ap-critical: #e30000;
+
+  /* Companions for inverse surfaces. An `--ap-*-on-inverse` token is always the
+     value that reads correctly against `--ap-surface-inverse` *in the current
+     theme* — so a black-on-white section and a white-on-black one use the same
+     component class and both stay legible. */
+  --ap-text-secondary-on-inverse: #a1a1a6;
+  --ap-text-tertiary-on-inverse: #86868b;
+  --ap-link-on-inverse: #2997ff;
+  --ap-separator-on-inverse: #424245;
+
+  --ap-focus-ring: #0071e3;
+
+  /* --- Translucency (nav, overlays) --------------------------------------- */
+  --ap-scrim: rgba(0, 0, 0, 0.48);
+  --ap-chrome-bg: rgba(251, 251, 253, 0.72);
+  --ap-chrome-blur: saturate(180%) blur(20px);
+
+  /* --- Spacing scale ------------------------------------------------------ */
+  --ap-space-1: 0.25rem;   /*  4 */
+  --ap-space-2: 0.5rem;    /*  8 */
+  --ap-space-3: 0.75rem;   /* 12 */
+  --ap-space-4: 1rem;      /* 16 */
+  --ap-space-5: 1.25rem;   /* 20 */
+  --ap-space-6: 1.5rem;    /* 24 */
+  --ap-space-8: 2rem;      /* 32 */
+  --ap-space-10: 2.5rem;   /* 40 */
+  --ap-space-12: 3rem;     /* 48 */
+  --ap-space-16: 4rem;     /* 64 */
+  --ap-space-20: 5rem;     /* 80 */
+  --ap-space-24: 6rem;     /* 96 */
+  --ap-space-30: 7.5rem;   /* 120 */
+
+  /* Section rhythm — the vertical air that carries the whole look. */
+  --ap-section-y: clamp(3.5rem, 8vw, 7.5rem);
+  --ap-section-y-tight: clamp(2.5rem, 5vw, 4rem);
+
+  /* --- Layout ------------------------------------------------------------- */
+  --ap-container: 980px;      /* editorial column — copy lives here */
+  --ap-container-wide: 1440px;
+  --ap-container-full: 1680px;
+  --ap-gutter: clamp(1.25rem, 5vw, 2.5rem);
+  --ap-nav-height: 44px;
+
+  /* --- Radii -------------------------------------------------------------- */
+  --ap-radius-sm: 6px;
+  --ap-radius-md: 12px;
+  --ap-radius-lg: 18px;       /* cards */
+  --ap-radius-xl: 28px;       /* large tiles */
+  --ap-radius-pill: 980px;    /* buttons, chips */
+
+  /* --- Elevation ----------------------------------------------------------
+     Shadows stay soft and low-contrast; depth comes from surface, not drop. */
+  --ap-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --ap-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --ap-shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.12);
+
+  /* --- Motion -------------------------------------------------------------
+     One easing curve everywhere. It is what makes the UI feel unhurried. */
+  --ap-ease: cubic-bezier(0.28, 0.11, 0.32, 1);
+  --ap-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ap-duration-fast: 120ms;
+  --ap-duration: 250ms;
+  --ap-duration-slow: 500ms;
+
+  --ap-z-nav: 9000;
+  --ap-z-overlay: 9500;
+}
+
+/* --- Dark theme -----------------------------------------------------------
+   Follows the system by default; `data-ap-theme` on <html> forces a mode.
+   Only tokens are redefined — no component rule is duplicated below. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-ap-theme="light"]) {
+    --ap-surface: #000000;
+    --ap-surface-secondary: #161617;
+    --ap-surface-tertiary: #1d1d1f;
+    --ap-surface-elevated: #1d1d1f;
+    --ap-surface-inverse: #f5f5f7;
+
+    --ap-text: #f5f5f7;
+    --ap-text-secondary: #a1a1a6;
+    --ap-text-tertiary: #86868b;
+    --ap-text-on-inverse: #1d1d1f;
+
+    --ap-separator: #424245;
+    --ap-separator-soft: #2c2c2e;
+
+    --ap-link: #2997ff;
+    --ap-link-hover: #55acff;
+
+    /* Status hues brighten in dark mode — the light-mode values fail contrast
+       on black. */
+    --ap-positive: #30d158;
+    --ap-caution: #ff9f0a;
+    --ap-critical: #ff453a;
+
+    /* Inverse is now a *light* surface, so the companions flip with it. */
+    --ap-text-secondary-on-inverse: #6e6e73;
+    --ap-text-tertiary-on-inverse: #86868b;
+    --ap-link-on-inverse: #0066cc;
+    --ap-separator-on-inverse: #d2d2d7;
+
+    --ap-scrim: rgba(0, 0, 0, 0.72);
+    --ap-chrome-bg: rgba(22, 22, 23, 0.72);
+
+    --ap-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+    --ap-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.6);
+    --ap-shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.7);
+  }
+}
+
+:root[data-ap-theme="dark"] {
+  --ap-surface: #000000;
+  --ap-surface-secondary: #161617;
+  --ap-surface-tertiary: #1d1d1f;
+  --ap-surface-elevated: #1d1d1f;
+  --ap-surface-inverse: #f5f5f7;
+
+  --ap-text: #f5f5f7;
+  --ap-text-secondary: #a1a1a6;
+  --ap-text-tertiary: #86868b;
+  --ap-text-on-inverse: #1d1d1f;
+
+  --ap-separator: #424245;
+  --ap-separator-soft: #2c2c2e;
+
+  --ap-link: #2997ff;
+  --ap-link-hover: #55acff;
+
+  /* Status hues brighten in dark mode — the light-mode values fail contrast
+     on black. */
+  --ap-positive: #30d158;
+  --ap-caution: #ff9f0a;
+  --ap-critical: #ff453a;
+
+  /* Inverse is now a *light* surface, so the companions flip with it. */
+  --ap-text-secondary-on-inverse: #6e6e73;
+  --ap-text-tertiary-on-inverse: #86868b;
+  --ap-link-on-inverse: #0066cc;
+  --ap-separator-on-inverse: #d2d2d7;
+
+  --ap-scrim: rgba(0, 0, 0, 0.72);
+  --ap-chrome-bg: rgba(22, 22, 23, 0.72);
+
+  --ap-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --ap-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.6);
+  --ap-shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.7);
+}
