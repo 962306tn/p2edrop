@@ -3,8 +3,14 @@
 #
 # Usage:
 #   ./scripts/setup-gempages-mcp.sh <MCP_URL> [--scope user|project|local] [--name gempages]
+#   pbpaste | ./scripts/setup-gempages-mcp.sh          # macOS: paste from clipboard
+#   xclip -o | ./scripts/setup-gempages-mcp.sh         # Linux
 #
-# Where to get <MCP_URL>:
+# The second form accepts the whole block GemPages gives you (the connection
+# prompt, the acceptance email, a JSON snippet) and pulls the endpoint out of it,
+# so you never have to pick the URL out by hand.
+#
+# Where to get it:
 #   Shopify admin -> GemPages -> Preferences -> MCP Connection
 #   (or the acceptance email from the GemPages MCP beta waitlist)
 #
@@ -23,7 +29,7 @@ while [ $# -gt 0 ]; do
   case "$1" in
     --scope) [ $# -ge 2 ] || die "--scope needs a value"; SCOPE=$2; shift 2 ;;
     --name)  [ $# -ge 2 ] || die "--name needs a value";  NAME=$2;  shift 2 ;;
-    -h|--help) sed -n '2,12p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+    -h|--help) sed -n '2,18p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
     -*) die "unknown flag: $1" ;;
     *)  [ -z "$URL" ] || die "unexpected argument: $1"; URL=$1; shift ;;
   esac
@@ -31,12 +37,32 @@ done
 
 case "$SCOPE" in user|project|local) ;; *) die "--scope must be user, project or local" ;; esac
 
+# Pull the first plausible MCP endpoint out of a blob of pasted text.
+extract_url() {
+  grep -Eo 'https://[A-Za-z0-9._~:/?#@!$&()*+,;=%-]+' \
+    | sed 's/[.,;:)"'"'"'>]*$//' \
+    | grep -Ev '^https://(help|feedback|www|apps|support|docs)\.' \
+    | grep -Ei 'mcp|gem' \
+    | head -n 1
+}
+
+# No URL on the command line? Accept it on stdin, so you can pipe in the whole
+# block GemPages hands you instead of hunting for the endpoint yourself.
+if [ -z "$URL" ] && [ ! -t 0 ]; then
+  URL=$(extract_url || true)
+  [ -n "$URL" ] && printf 'Found endpoint in pasted text: %s\n' "$URL"
+fi
+
 if [ -z "$URL" ]; then
   cat >&2 <<'MSG'
-error: missing MCP server URL.
+error: no MCP endpoint found.
 
 Get it from: Shopify admin -> GemPages -> Preferences -> MCP Connection
-Then run:    ./scripts/setup-gempages-mcp.sh https://<your-gempages-mcp-endpoint>
+Then either:
+  ./scripts/setup-gempages-mcp.sh https://<your-gempages-mcp-endpoint>
+or paste the whole block GemPages gives you:
+  pbpaste | ./scripts/setup-gempages-mcp.sh      # macOS
+  xclip -o | ./scripts/setup-gempages-mcp.sh     # Linux
 MSG
   exit 2
 fi

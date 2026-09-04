@@ -24,6 +24,14 @@ GemPages MCP is in **beta behind a waitlist**. You need:
 ./scripts/setup-gempages-mcp.sh https://<your-gempages-mcp-endpoint>
 ```
 
+Don't want to pick the URL out of the page yourself? Copy the whole MCP Connection
+block and pipe it in — the script finds the endpoint in it:
+
+```bash
+pbpaste  | ./scripts/setup-gempages-mcp.sh    # macOS
+xclip -o | ./scripts/setup-gempages-mcp.sh    # Linux
+```
+
 The script registers the server at **user scope**, so it is available in every
 project, then prints the authentication steps. Re-running it updates the existing
 entry instead of creating a duplicate.
