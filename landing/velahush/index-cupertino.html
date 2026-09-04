@@ -5,13 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>VelaHush — Pet Odor Gun</title>
 <meta name="description" content="A cordless dry-mist gun that neutralizes pet odor inside couch cushions, rugs and car seats.">
-<!-- The design system @imports Archivo 400/600/800; the page also sets 500 and 700,
-     so the full range is requested here to avoid synthesised weights. -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="ds-modernist.css">
-<link rel="stylesheet" href="velahush.css">
+<!-- Cupertino skin. Same markup and same script as index.html; only the two
+     stylesheets differ. No web font — the system stack is the design. -->
+<link rel="stylesheet" href="../../design-system/dist/cupertino.css">
+<link rel="stylesheet" href="velahush-cupertino.css">
+<script>
+  // Runs before paint so a stored dark choice never flashes light first.
+  try {
+    var t = localStorage.getItem('vh-theme');
+    if (t) document.documentElement.setAttribute('data-ap-theme', t);
+  } catch (e) {}
+</script>
 </head>
 <body class="vh-page">
 
@@ -36,6 +40,7 @@
       <a href="#how">How it works</a>
       <a href="#reviews">Reviews</a>
       <a href="#refills">Refills</a>
+      <button class="vh-theme-toggle" type="button" id="theme-toggle" aria-label="Switch colour theme">Dark</button>
       <a class="vh-nav__cta" href="#buy">Shop $49</a>
     </nav>
   </div>

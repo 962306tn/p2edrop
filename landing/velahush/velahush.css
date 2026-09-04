@@ -23,6 +23,8 @@
 .vh-section { padding-block: 72px; border-bottom: 2px solid var(--color-divider); }
 .vh-section--surface { background: var(--color-surface); }
 .vh-section--flush { padding-block: 0; }
+.vh-section--last { border-bottom: 0; }
+.vh-wrap--padded { padding-block: 72px; }
 
 .vh-cols {
   display: grid;
@@ -48,12 +50,17 @@
 .vh-h3 { font-size: clamp(24px, 2.6vw, 34px); line-height: 1.02; letter-spacing: -0.02em; }
 .vh-h2--poster { font-size: clamp(30px, 4.4vw, 56px); line-height: 0.96; }
 .vh-h2--refills { font-size: clamp(26px, 3.2vw, 40px); }
+.vh-h2--lead { margin-bottom: var(--space-3); }
+.vh-h2--head { margin-bottom: var(--space-6); }
 
 .vh-kicker {
   font-size: 11px; font-weight: 700; letter-spacing: 0.16em;
   text-transform: uppercase; color: var(--color-accent-700);
 }
 .vh-lede { margin: 0; font-size: 16.5px; line-height: 1.6; color: var(--color-neutral-800); max-width: 52ch; }
+.vh-lede--deck { margin-bottom: var(--space-8); }
+.vh-lede--under { margin-top: var(--space-2); }
+.vh-lede--tight { max-width: 50ch; }
 .vh-sub { margin: 0; font-size: 17px; line-height: 1.55; color: var(--color-neutral-800); max-width: 48ch; text-wrap: pretty; }
 .vh-note { font-size: 15.5px; line-height: 1.55; color: var(--color-neutral-800); margin: 0; }
 
@@ -71,6 +78,7 @@
   background-image: repeating-linear-gradient(45deg, var(--color-neutral-200) 0 10px, #fff 10px 20px);
 }
 .vh-frame--hairline { border: 1px solid var(--color-neutral-400); }
+.vh-frame--bare { border: 0; }
 .vh-frame--1x1 { aspect-ratio: 1 / 1; }
 .vh-frame--4x3 { aspect-ratio: 4 / 3; }
 .vh-frame--3x2 { aspect-ratio: 3 / 2; }
@@ -178,6 +186,7 @@
 .vh-bullet__n { flex: none; color: var(--color-accent-700); font-weight: 800; font-size: 13px; letter-spacing: 0.08em; }
 
 .vh-picker { display: flex; flex-direction: column; gap: var(--space-3); }
+.vh-plans { display: flex; flex-direction: column; gap: var(--space-3); }
 .vh-picker__head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-3); }
 .vh-picker__label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
 .vh-urgency { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); }
@@ -426,6 +435,7 @@
   padding-block: var(--space-3);
 }
 .vh-sticky__left { display: flex; align-items: center; gap: var(--space-3); min-width: 0; }
+.vh-sticky__text { min-width: 0; }
 .vh-sticky__thumb { width: 44px; height: 44px; flex: none; border: 2px solid var(--color-text); overflow: hidden; position: relative; }
 .vh-sticky__summary {
   font-size: 14px; font-weight: 700; text-transform: uppercase;

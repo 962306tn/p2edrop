@@ -5,16 +5,60 @@ the **Modernist** design system. Single-product direct-response page; audience i
 US women 35+ with dogs or cats; the page has one job, which is add-to-cart on the
 refill plan.
 
-Open `index.html` in a browser. No build step, no server, no dependencies.
+It ships in two skins. Open either in a browser — no build step, no server, no
+dependencies.
+
+| | |
+|---|---|
+| **`index.html`** | **Modernist** — the approved design from Claude Design |
+| **`index-cupertino.html`** | **Cupertino** — the same page in the repo's own design system, with a dark-mode toggle in the nav |
 
 ```
-index.html          the page
-velahush.css        page styles — reads Modernist tokens, never a raw hex
-velahush.js         behaviour: plan/scent/gallery pickers, FAQ, sticky bar
-ds-modernist.css    the design system, verbatim from Claude Design — do not edit
-assets/             photos; see assets/README.md for what goes where
-reference/          the handoff sources this was built from
+index.html                the page, Modernist skin
+index-cupertino.html      the page, Cupertino skin — head and one nav button apart
+velahush.js               behaviour, shared by both — and the only place prices live
+velahush.css              Modernist skin
+ds-modernist.css          Modernist tokens, verbatim from Claude Design — do not edit
+velahush-cupertino.css    Cupertino skin
+assets/                   photos; see assets/README.md for what goes where
+reference/                the handoff sources this was built from
 ```
+
+The Cupertino skin reads its tokens from `../../design-system/dist/cupertino.css`,
+so a fix to that design system reaches this page without a copy step.
+
+## Two skins, one markup
+
+The two HTML files differ by twelve lines: the two stylesheet links, and the
+theme-toggle button. Everything else — every section, every string, every class —
+is identical, and both load the same `velahush.js`.
+
+That works because no styling decision lives in the markup. There are no inline
+styles and no design-system class names in the HTML; even the uppercasing is a
+CSS rule, which is why the same `<h1>` reads `NOBODY SHOULD BE ABLE TO TELL YOU
+HAVE DOGS.` in one skin and `Nobody should be able to tell you have dogs.` in the
+other. **If you edit the page, edit both HTML files**, or the two drift.
+
+The skins are opposites, and that is the point of keeping both:
+
+| | Modernist | Cupertino |
+|---|---|---|
+| Corners | square, everywhere | pill controls, 18px cards |
+| Separation | 2px rules | air and alternating grounds |
+| Type | Archivo 800, uppercase, tight | system stack, sentence case |
+| Accent | red `#ec3013` | blue `#0071e3` |
+| Photography | forced black and white | full colour |
+| Contrast band | red field | black field, flipping in dark mode |
+| Dark mode | none | follows the OS, with a nav toggle |
+
+Two conveniences fall out of the Cupertino skin not loading `ds-modernist.css`:
+its `.grayscale` class stops existing, so photos print in colour on their own,
+and Archivo is never requested, so that page loads no web font at all.
+
+Dark mode is stored per browser under `vh-theme` and applied by a small inline
+script in the head, before first paint — otherwise a stored dark choice flashes
+light on every load. With nothing stored the design system follows the OS, so
+the button's label says what the click will do, not what the theme currently is.
 
 ## Editing the offer
 

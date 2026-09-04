@@ -231,7 +231,7 @@
       : 'One-time purchase. Add pods later at ' + money(OFFER.refillPrice) + ' for three.';
 
     var shot = GALLERY[state.img];
-    $('hero-note').textContent = 'photo: ' + shot.short + ' (B&W)';
+    $('hero-note').textContent = 'photo: ' + shot.short;
     var heroImg = $('hero-img');
     if (heroImg) {
       heroImg.onerror = function () { heroImg.style.display = 'none'; };
@@ -281,6 +281,26 @@
   onScroll();
 
   setInterval(function () { state.tick += 1; render(); }, 5200);
+
+  /* Theme toggle — only present on the Cupertino skin, which reads
+     data-ap-theme. With nothing set the design system follows the OS, so the
+     button's job is to say what the click will do, not what the theme is. */
+  var themeBtn = $('theme-toggle');
+  if (themeBtn) {
+    var root = document.documentElement;
+    var isDark = function () {
+      var set = root.getAttribute('data-ap-theme');
+      return set ? set === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    };
+    var label = function () { themeBtn.textContent = isDark() ? 'Light' : 'Dark'; };
+    themeBtn.addEventListener('click', function () {
+      var next = isDark() ? 'light' : 'dark';
+      root.setAttribute('data-ap-theme', next);
+      try { localStorage.setItem('vh-theme', next); } catch (e) {}
+      label();
+    });
+    label();
+  }
 
   render();
 })();
