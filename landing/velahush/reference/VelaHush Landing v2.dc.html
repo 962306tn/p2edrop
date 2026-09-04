@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="ds-modernist.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  body { margin: 0; background: var(--color-bg); -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: var(--color-accent-700); text-decoration: none; }
+  a:hover { color: var(--color-accent-600); text-decoration: underline; }
+  :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+  @keyframes vh-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes vh-blink { 0%,100% { opacity: 1; } 50% { opacity: 0.25; } }
+</style>
+</helmet>
+
+<div style="font-family: var(--font-body); color: var(--color-text); background: var(--color-bg); padding-bottom: 104px;">
+
+  <div style="background: var(--color-text); color: var(--color-bg); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; display: flex; gap: var(--space-8); flex-wrap: wrap; padding: var(--space-3) var(--space-6); max-width: 1240px; margin: 0 auto;">
+    <span>Free US shipping over $50</span>
+    <span>{{ guaranteeLabel }}</span>
+    <span>{{ warrantyLabel }}</span>
+    <span>Ships from California</span>
+  </div>
+
+  <header style="position: sticky; top: 0; z-index: 40; background: var(--color-bg); border-bottom: 2px solid var(--color-text);">
+    <div style="max-width: 1240px; margin: 0 auto; padding: var(--space-4) var(--space-6); display: flex; align-items: center; justify-content: space-between; gap: var(--space-4);">
+      <div style="display: flex; align-items: baseline; gap: var(--space-3);">
+        <span style="font-family: var(--font-heading); font-weight: 800; font-size: 24px; letter-spacing: -0.02em; text-transform: uppercase;">{{ brand }}</span>
+        <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-neutral-700);">Pet odor lab</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: var(--space-6); font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;">
+        <a href="#how" style="color: var(--color-neutral-800);">How it works</a>
+        <a href="#reviews" style="color: var(--color-neutral-800);">Reviews</a>
+        <a href="#refills" style="color: var(--color-neutral-800);">Refills</a>
+        <a href="#buy" style="background: var(--color-accent); color: #fff; padding: var(--space-3) var(--space-4); border-radius: var(--radius-md);" style-hover="background: var(--color-accent-600); text-decoration: none;">Shop $ {{ gunPriceLabel }}</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="buy" style="max-width: 1240px; margin: 0 auto; padding: var(--space-8) var(--space-6) 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: var(--space-8); align-items: start; border-bottom: 2px solid var(--color-divider); padding-bottom: var(--space-8);">
+
+    <div style="display: flex; flex-direction: column; gap: var(--space-3); position: sticky; top: 92px;">
+      <div style="position: relative; border: 2px solid var(--color-text); background: #fff; aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; overflow: hidden; background-image: repeating-linear-gradient(45deg, var(--color-neutral-200) 0 10px, #fff 10px 20px);">
+        <sc-if value="{{ heroIsUnit }}" hint-placeholder-val="{{ true }}">
+          <img src="uploads/assets-1788516208703-ks2u.jpg" alt="VelaHush odor gun" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(1);" />
+        </sc-if>
+        <sc-if value="{{ heroIsPods }}" hint-placeholder-val="{{ false }}">
+          <img src="uploads/assets-1788516208697-3bn1.jpg" alt="VelaHush refill pods" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(1);" />
+        </sc-if>
+        <span style="{{ heroLabelStyle }}">{{ heroLabel }}</span>
+        <div style="position: absolute; top: 0; left: 0; background: var(--color-accent); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; padding: var(--space-2) var(--space-3);">2026 BEST ODOR TOOL</div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-2);">
+        <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="5">
+          <div onClick="{{ g.select }}" style="{{ g.thumbStyle }}">
+            <sc-if value="{{ g.isUnit }}" hint-placeholder-val="{{ false }}">
+              <img src="uploads/assets-1788516208703-ks2u.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(1);" />
+            </sc-if>
+            <sc-if value="{{ g.isPods }}" hint-placeholder-val="{{ false }}">
+              <img src="uploads/assets-1788516208697-3bn1.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(1);" />
+            </sc-if>
+            <span style="{{ g.labelStyle }}">{{ g.short }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: var(--space-6);">
+      <div style="display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap; font-size: 13px; font-weight: 600;">
+        <span style="color: var(--color-accent-700); letter-spacing: 0.06em;">★★★★★</span>
+        <span style="color: var(--color-neutral-700);">{{ ratingLine }}</span>
+      </div>
+
+      <h1 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(36px, 4.6vw, 58px); line-height: 0.98; letter-spacing: -0.03em; margin: 0; text-transform: uppercase; text-wrap: balance;">{{ headline }}</h1>
+
+      <p style="margin: 0; font-size: 17px; line-height: 1.55; color: var(--color-neutral-800); max-width: 48ch; text-wrap: pretty;">{{ subhead }}</p>
+
+      <div style="display: flex; flex-direction: column; gap: 0; border-top: 2px solid var(--color-divider);">
+        <sc-for list="{{ bullets }}" as="b" hint-placeholder-count="4">
+          <div style="display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-3) 0; border-bottom: 1px solid var(--color-neutral-300); font-size: 15.5px; line-height: 1.45;">
+            <span style="flex: none; color: var(--color-accent); font-weight: 800; font-size: 13px; letter-spacing: 0.08em;">{{ b.n }}</span>
+            <span>{{ b.text }}</span>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-3);">
+          <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;">Pick your setup</span>
+          <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700);">{{ urgencyText }}</span>
+        </div>
+
+        <sc-for list="{{ plans }}" as="p" hint-placeholder-count="3">
+          <div onClick="{{ p.select }}" style="{{ p.cardStyle }}">
+            <div style="width: 18px; height: 18px; flex: none; margin-top: 3px; border: 2px solid var(--color-text); background: {{ p.dotBg }};"></div>
+            <div style="flex: 1; display: flex; flex-direction: column; gap: var(--space-1);">
+              <div style="display: flex; align-items: center; gap: var(--space-2); flex-wrap: wrap;">
+                <span style="font-family: var(--font-heading); font-weight: 800; font-size: 16px; text-transform: uppercase; letter-spacing: -0.01em;">{{ p.title }}</span>
+                <span style="{{ p.badgeStyle }}">{{ p.badge }}</span>
+              </div>
+              <span style="font-size: 13.5px; line-height: 1.4; color: var(--color-neutral-700);">{{ p.note }}</span>
+            </div>
+            <div style="text-align: right; flex: none;">
+              <div style="font-family: var(--font-heading); font-weight: 800; font-size: 19px;">{{ p.price }}</div>
+              <div style="font-size: 12.5px; color: var(--color-neutral-600); text-decoration: line-through;">{{ p.compare }}</div>
+            </div>
+          </div>
+        </sc-for>
+
+        <div style="{{ planNoteStyle }}">{{ planNote }}</div>
+
+        <div style="display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap; padding-top: var(--space-1);">
+          <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;">Scent</span>
+          <sc-for list="{{ scents }}" as="s" hint-placeholder-count="4">
+            <button onClick="{{ s.select }}" style="{{ s.chipStyle }}">{{ s.name }}</button>
+          </sc-for>
+        </div>
+
+        <button onClick="{{ addToCart }}" style="margin-top: var(--space-2); width: 100%; border: none; cursor: pointer; background: var(--color-accent); color: #fff; font-family: var(--font-heading); font-size: 17px; font-weight: 800; letter-spacing: 0.02em; text-transform: uppercase; text-align: left; padding: var(--space-4) var(--space-6); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: space-between; gap: var(--space-4);" style-hover="background: var(--color-accent-600);">
+          <span>{{ ctaLabel }}</span>
+          <span style="font-weight: 800;">{{ ctaPrice }}</span>
+        </button>
+
+        <div style="display: flex; align-items: center; gap: var(--space-2); font-size: 13px; font-weight: 600; color: var(--color-neutral-700);">
+          <span style="width: 8px; height: 8px; background: var(--color-accent); animation: vh-blink 1.8s ease-in-out infinite;"></span>
+          <span>{{ stockLine }}</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0; border: 2px solid var(--color-divider);">
+          <sc-for list="{{ trustCells }}" as="t" hint-placeholder-count="4">
+            <div style="padding: var(--space-3) var(--space-4); border-right: 1px solid var(--color-neutral-300);">
+              <div style="font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;">{{ t.title }}</div>
+              <div style="font-size: 12.5px; color: var(--color-neutral-700); line-height: 1.35;">{{ t.body }}</div>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
+          <sc-for list="{{ payments }}" as="m" hint-placeholder-count="7">
+            <span style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-700); border: 1px solid var(--color-neutral-400); padding: var(--space-1) var(--space-2);">{{ m.name }}</span>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="overflow: hidden; border-bottom: 2px solid var(--color-divider); background: var(--color-surface);">
+    <div style="display: flex; width: max-content; animation: vh-marquee 32s linear infinite;">
+      <sc-for list="{{ marquee }}" as="m" hint-placeholder-count="12">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-neutral-800); padding: var(--space-3) var(--space-6); white-space: nowrap;">{{ m.text }}</span>
+      </sc-for>
+    </div>
+  </div>
+
+  <section style="max-width: 1240px; margin: 0 auto; padding: 72px var(--space-6); border-bottom: 2px solid var(--color-divider); display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: var(--space-8); align-items: start;">
+    <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+      <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">The moment nobody talks about</span>
+      <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(28px, 3.6vw, 44px); line-height: 1; letter-spacing: -0.03em; margin: 0; text-transform: uppercase;">You stopped smelling it. Your guests didn't.</h2>
+      <p style="margin: 0; font-size: 16.5px; line-height: 1.6; color: var(--color-neutral-800); max-width: 52ch;">Here's the unfair part: you go nose-blind to your own home in about a week. So the sofa, the rug, the throw blanket your dog claims — they keep getting stronger, and you're the last person to know.</p>
+      <p style="margin: 0; font-size: 16.5px; line-height: 1.6; color: var(--color-neutral-800); max-width: 52ch;">Candles and plug-ins don't fix that. They add perfume on top and wear off by dinner. {{ brand }} sends a dry neutralizing mist into the fibers where the odor actually sits, so there's nothing left to cover up — and nothing for anyone to notice.</p>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); border: 2px solid var(--color-divider); margin-top: var(--space-2);">
+        <sc-for list="{{ specs }}" as="s" hint-placeholder-count="3">
+          <div style="padding: var(--space-4); border-right: 1px solid var(--color-neutral-300);">
+            <div style="font-family: var(--font-heading); font-weight: 800; font-size: 30px; line-height: 1;">{{ s.value }}</div>
+            <div style="font-size: 12.5px; color: var(--color-neutral-700); line-height: 1.35; margin-top: var(--space-1);">{{ s.label }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="border: 2px solid var(--color-text); aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; background-image: repeating-linear-gradient(45deg, var(--color-neutral-200) 0 10px, #fff 10px 20px);">
+      <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: var(--color-neutral-700); background: #fff; border: 1px solid var(--color-neutral-400); padding: var(--space-2) var(--space-3); text-align: left;">photo: woman misting the sofa before guests arrive (B&amp;W)</span>
+    </div>
+  </section>
+
+  <section id="how" style="max-width: 1240px; margin: 0 auto; padding: 72px var(--space-6); border-bottom: 2px solid var(--color-divider);">
+    <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(28px, 3.6vw, 44px); line-height: 1; letter-spacing: -0.03em; margin: 0 0 var(--space-3); text-transform: uppercase;">Three steps. About a minute.</h2>
+    <p style="margin: 0 0 var(--space-8); font-size: 16.5px; color: var(--color-neutral-800);">No wiping, no drying time, no damp patches on the cushions.</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0; border-top: 2px solid var(--color-divider);">
+      <sc-for list="{{ steps }}" as="s" hint-placeholder-count="3">
+        <div style="padding: var(--space-6); border-right: 1px solid var(--color-neutral-300); border-bottom: 1px solid var(--color-neutral-300); display: flex; flex-direction: column; gap: var(--space-4);">
+          <div style="aspect-ratio: 3 / 2; border: 1px solid var(--color-neutral-400); display: flex; align-items: center; justify-content: center; background-image: repeating-linear-gradient(45deg, var(--color-neutral-200) 0 8px, #fff 8px 16px);">
+            <span style="font-size: 11px; font-weight: 600; color: var(--color-neutral-700); background: #fff; border: 1px solid var(--color-neutral-400); padding: var(--space-1) var(--space-2); text-align: left;">{{ s.shot }}</span>
+          </div>
+          <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; color: var(--color-accent-700);">STEP {{ s.n }}</div>
+          <div style="font-family: var(--font-heading); font-weight: 800; font-size: 21px; line-height: 1.1; text-transform: uppercase;">{{ s.title }}</div>
+          <p style="margin: 0; font-size: 15px; line-height: 1.55; color: var(--color-neutral-800);">{{ s.body }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="refills" style="max-width: 1240px; margin: 0 auto; padding: 72px var(--space-6); border-bottom: 2px solid var(--color-divider); display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-8); align-items: start;">
+    <div style="border: 2px solid var(--color-text); background: #fff; aspect-ratio: 1 / 1; overflow: hidden; display: flex;">
+      <img src="uploads/assets-1788516208697-3bn1.jpg" alt="Refill scent oil" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(1);" />
+    </div>
+    <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+      <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">Never run out</span>
+      <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(26px, 3.2vw, 40px); line-height: 1; letter-spacing: -0.03em; margin: 0; text-transform: uppercase;">Refills: 3 pods for {{ refillPriceLabel }}, or {{ refillSubLabel }} on the plan</h2>
+      <p style="margin: 0; font-size: 16px; line-height: 1.6; color: var(--color-neutral-800); max-width: 50ch;">Each pod treats a living room about 25 times. Most households go through three every two months — so the plan sends three, every two months, at 15% off. Skip, pause or cancel from any email, no phone call.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0; border: 2px solid var(--color-divider);">
+        <sc-for list="{{ scentCards }}" as="s" hint-placeholder-count="4">
+          <div style="padding: var(--space-4); border-right: 1px solid var(--color-neutral-300);">
+            <div style="font-family: var(--font-heading); font-weight: 800; font-size: 15px; text-transform: uppercase;">{{ s.name }}</div>
+            <div style="font-size: 12.5px; color: var(--color-neutral-700); line-height: 1.35;">{{ s.note }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <a href="#buy" style="align-self: flex-start; background: var(--color-text); color: var(--color-bg); font-family: var(--font-heading); font-weight: 800; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; padding: var(--space-4) var(--space-6);" style-hover="background: var(--color-accent); text-decoration: none;">Add the refill plan</a>
+    </div>
+  </section>
+
+  <section style="border-bottom: 2px solid var(--color-divider); background: var(--color-accent);">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 72px var(--space-6); color: #fff; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-8); align-items: end;">
+      <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(30px, 4.4vw, 56px); line-height: 0.96; letter-spacing: -0.03em; margin: 0; text-transform: uppercase;">Sofa. Car. Pet bed. That's where the smell lives.</h2>
+      <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+        <p style="margin: 0; font-size: 16.5px; line-height: 1.6; max-width: 44ch;">Treat these six spots once a week and the smell stops coming back between cleanings. It takes less time than lighting a candle.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-2);">
+          <sc-for list="{{ surfaces }}" as="s" hint-placeholder-count="6">
+            <span style="border: 2px solid #fff; padding: var(--space-2) var(--space-3); font-size: 13.5px; font-weight: 600;">{{ s.name }}</span>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews" style="max-width: 1240px; margin: 0 auto; padding: 72px var(--space-6); border-bottom: 2px solid var(--color-divider);">
+    <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-6); flex-wrap: wrap; margin-bottom: var(--space-8);">
+      <div>
+        <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(28px, 3.6vw, 44px); line-height: 1; letter-spacing: -0.03em; margin: 0; text-transform: uppercase;">What dog and cat people say</h2>
+        <p style="margin: var(--space-2) 0 0; font-size: 16px; color: var(--color-neutral-800);">{{ ratingLine }} — all verified purchases</p>
+      </div>
+      <div style="display: flex; gap: 0; border: 2px solid var(--color-divider);">
+        <sc-for list="{{ stats }}" as="s" hint-placeholder-count="3">
+          <div style="padding: var(--space-3) var(--space-4); border-right: 1px solid var(--color-neutral-300);">
+            <div style="font-family: var(--font-heading); font-weight: 800; font-size: 26px; line-height: 1;">{{ s.value }}</div>
+            <div style="font-size: 12px; color: var(--color-neutral-700); max-width: 18ch; line-height: 1.3;">{{ s.label }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 0; border-top: 2px solid var(--color-divider);">
+      <sc-for list="{{ reviews }}" as="r" hint-placeholder-count="3">
+        <div style="border-right: 1px solid var(--color-neutral-300); border-bottom: 1px solid var(--color-neutral-300); display: flex; flex-direction: column;">
+          <div style="aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; background-image: repeating-linear-gradient(45deg, var(--color-neutral-200) 0 8px, #fff 8px 16px);">
+            <span style="font-size: 11px; font-weight: 600; color: var(--color-neutral-700); background: #fff; border: 1px solid var(--color-neutral-400); padding: var(--space-1) var(--space-2); text-align: left;">{{ r.shot }}</span>
+          </div>
+          <div style="padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-3);">
+            <span style="color: var(--color-accent-700); font-size: 13px; letter-spacing: 0.06em;">★★★★★</span>
+            <div style="font-family: var(--font-heading); font-weight: 800; font-size: 18px; line-height: 1.15; text-transform: uppercase;">{{ r.title }}</div>
+            <p style="margin: 0; font-size: 15px; line-height: 1.55; color: var(--color-neutral-800);">{{ r.body }}</p>
+            <div style="font-size: 12.5px; font-weight: 600; color: var(--color-neutral-700);">{{ r.who }}</div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="{{ recentSectionStyle }}">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 72px var(--space-6); display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-8); align-items: start;">
+      <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+        <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">Shipping across the states</span>
+        <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(26px, 3.2vw, 40px); line-height: 1; letter-spacing: -0.03em; margin: 0; text-transform: uppercase;">{{ ordersTodayLine }}</h2>
+        <div style="border: 2px solid var(--color-divider); display: flex; flex-direction: column;">
+          <sc-for list="{{ recentOrders }}" as="o" hint-placeholder-count="5">
+            <div style="{{ o.rowStyle }}">
+              <span style="width: 8px; height: 8px; flex: none; background: {{ o.dot }};"></span>
+              <span style="flex: 1; font-size: 14px; font-weight: 600;">{{ o.city }}</span>
+              <span style="font-size: 13px; color: var(--color-neutral-700);">{{ o.item }}</span>
+              <span style="font-size: 12px; color: var(--color-neutral-600); white-space: nowrap;">{{ o.ago }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="border: 2px solid var(--color-text); aspect-ratio: 8 / 5; display: flex; align-items: center; justify-content: center; background-image: repeating-linear-gradient(45deg, var(--color-neutral-200) 0 10px, #fff 10px 20px);">
+        <span style="font-size: 12px; font-weight: 600; color: var(--color-neutral-700); background: #fff; border: 1px solid var(--color-neutral-400); padding: var(--space-2) var(--space-3); text-align: left;">graphic: US map with order pins (B&amp;W, red pins)</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width: 1000px; margin: 0 auto; padding: 72px var(--space-6); border-bottom: 2px solid var(--color-divider);">
+    <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(28px, 3.6vw, 44px); line-height: 1; letter-spacing: -0.03em; margin: 0 0 var(--space-6); text-transform: uppercase;">{{ brand }} vs. what's under your sink</h2>
+    <div style="border: 2px solid var(--color-text);">
+      <div style="display: grid; grid-template-columns: 1.7fr 0.65fr 0.65fr; background: var(--color-text); color: var(--color-bg); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;">
+        <div style="padding: var(--space-3) var(--space-4);">Compare</div>
+        <div style="padding: var(--space-3) var(--space-2);">{{ brand }}</div>
+        <div style="padding: var(--space-3) var(--space-2);">Sprays &amp; candles</div>
+      </div>
+      <sc-for list="{{ compare }}" as="c" hint-placeholder-count="6">
+        <div style="display: grid; grid-template-columns: 1.7fr 0.65fr 0.65fr; border-top: 1px solid var(--color-neutral-300); align-items: center;">
+          <div style="padding: var(--space-3) var(--space-4); font-size: 15.5px;">{{ c.label }}</div>
+          <div style="padding: var(--space-3) var(--space-2); color: var(--color-accent-700); font-weight: 800; font-size: 15px;">YES</div>
+          <div style="padding: var(--space-3) var(--space-2); color: var(--color-neutral-600); font-weight: 700; font-size: 15px;">NO</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="max-width: 1240px; margin: 0 auto; padding: 72px var(--space-6); border-bottom: 2px solid var(--color-divider); display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 0; border-top: 0;">
+    <div style="border: 2px solid var(--color-text); padding: var(--space-8); display: flex; flex-direction: column; gap: var(--space-3);">
+      <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">{{ guaranteeLabel }}</span>
+      <h3 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(24px, 2.6vw, 34px); line-height: 1.02; letter-spacing: -0.02em; margin: 0; text-transform: uppercase;">Use it for {{ guaranteeDays }} days. If guests still notice, we refund you.</h3>
+      <p style="margin: 0; font-size: 15.5px; line-height: 1.55; color: var(--color-neutral-800);">Keep the refill pods. One email, no return-shipping runaround, no restocking fee.</p>
+    </div>
+    <div style="border: 2px solid var(--color-text); border-left-width: 0; padding: var(--space-8); display: flex; flex-direction: column; gap: var(--space-3); background: var(--color-surface);">
+      <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">{{ warrantyLabel }}</span>
+      <h3 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(24px, 2.6vw, 34px); line-height: 1.02; letter-spacing: -0.02em; margin: 0; text-transform: uppercase;">Motor or battery quits inside {{ warrantyDays }} days? New unit, free.</h3>
+      <p style="margin: 0; font-size: 15.5px; line-height: 1.55; color: var(--color-neutral-800);">Send a photo of the serial plate and we ship a replacement from California. Nothing to mail back.</p>
+    </div>
+  </section>
+
+  <section id="faq" style="max-width: 900px; margin: 0 auto; padding: 72px var(--space-6);">
+    <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(28px, 3.6vw, 44px); line-height: 1; letter-spacing: -0.03em; margin: 0 0 var(--space-6); text-transform: uppercase;">Questions, answered plainly</h2>
+    <div style="border-top: 2px solid var(--color-text);">
+      <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="6">
+        <div style="border-bottom: 1px solid var(--color-neutral-300);">
+          <div onClick="{{ f.toggle }}" style="padding: var(--space-4) 0; display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); cursor: pointer; font-size: 16.5px; font-weight: 700;">
+            <span>{{ f.q }}</span>
+            <span style="font-family: var(--font-heading); font-size: 20px; color: var(--color-accent); flex: none;">{{ f.sign }}</span>
+          </div>
+          <div style="{{ f.answerStyle }}">
+            <p style="margin: 0; padding: 0 0 var(--space-6); font-size: 15.5px; line-height: 1.6; color: var(--color-neutral-800); max-width: 62ch;">{{ f.a }}</p>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <footer style="border-top: 2px solid var(--color-text); background: var(--color-surface);">
+    <div style="max-width: 1240px; margin: 0 auto; padding: var(--space-8) var(--space-6); display: flex; flex-wrap: wrap; gap: var(--space-6); justify-content: space-between; align-items: center; font-size: 13px; color: var(--color-neutral-700);">
+      <span style="font-family: var(--font-heading); font-weight: 800; font-size: 20px; color: var(--color-text); text-transform: uppercase;">{{ brand }}</span>
+      <div style="display: flex; gap: var(--space-6); flex-wrap: wrap; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; font-size: 12px;">
+        <a href="#faq" style="color: var(--color-neutral-800);">Shipping</a>
+        <a href="#faq" style="color: var(--color-neutral-800);">Refunds</a>
+        <a href="#faq" style="color: var(--color-neutral-800);">Warranty</a>
+        <a href="#faq" style="color: var(--color-neutral-800);">Contact</a>
+      </div>
+      <span>© 2026 {{ brand }}. Results vary by surface and odor level.</span>
+    </div>
+  </footer>
+
+  <div style="{{ stickyStyle }}">
+    <div style="max-width: 1240px; margin: 0 auto; padding: var(--space-3) var(--space-6); display: flex; align-items: center; gap: var(--space-4); justify-content: space-between;">
+      <div style="display: flex; align-items: center; gap: var(--space-3); min-width: 0;">
+        <div style="width: 44px; height: 44px; flex: none; border: 2px solid var(--color-text); overflow: hidden;">
+          <img src="uploads/assets-1788516208703-ks2u.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(1);" />
+        </div>
+        <div style="min-width: 0;">
+          <div style="font-size: 14px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-transform: uppercase;">{{ selectedSummary }}</div>
+          <div style="font-size: 12px; color: var(--color-neutral-700);">{{ guaranteeLabel }} · {{ warrantyLabel }} · Free US shipping</div>
+        </div>
+      </div>
+      <button onClick="{{ addToCart }}" style="border: none; cursor: pointer; background: var(--color-accent); color: #fff; font-family: var(--font-heading); font-size: 15px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; padding: var(--space-4) var(--space-6); white-space: nowrap;" style-hover="background: var(--color-accent-600);">{{ stickyCta }}</button>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;brandName&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;VelaHush&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;gunPrice&quot;:{&quot;editor&quot;:&quot;float&quot;,&quot;default&quot;:49,&quot;min&quot;:19,&quot;max&quot;:149,&quot;step&quot;:1,&quot;unit&quot;:&quot;$&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Offer&quot;},&quot;bundlePrice&quot;:{&quot;editor&quot;:&quot;float&quot;,&quot;default&quot;:59.9,&quot;min&quot;:29,&quot;max&quot;:199,&quot;step&quot;:0.1,&quot;unit&quot;:&quot;$&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Offer&quot;},&quot;refillPrice&quot;:{&quot;editor&quot;:&quot;float&quot;,&quot;default&quot;:21,&quot;min&quot;:5,&quot;max&quot;:60,&quot;step&quot;:1,&quot;unit&quot;:&quot;$&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Offer&quot;},&quot;guaranteeDays&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:30,&quot;min&quot;:14,&quot;max&quot;:365,&quot;step&quot;:1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Offer&quot;},&quot;warrantyDays&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:90,&quot;min&quot;:30,&quot;max&quot;:730,&quot;step&quot;:30,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Offer&quot;},&quot;reviewCount&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:25089,&quot;min&quot;:100,&quot;max&quot;:200000,&quot;step&quot;:100,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Offer&quot;},&quot;showUrgency&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Offer&quot;},&quot;showRecentOrders&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Offer&quot;}}">
+class Component extends DCLogic {
+  state = { plan: 1, scent: 0, faq: 0, img: 0, sticky: false, added: false, tick: 0 };
+
+  componentDidMount() {
+    this.onScroll = () => {
+      const y = window.scrollY || (document.scrollingElement && document.scrollingElement.scrollTop) || 0;
+      const show = y > 640;
+      if (show !== this.state.sticky) this.setState({ sticky: show });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    document.addEventListener('scroll', this.onScroll, { capture: true, passive: true });
+    this.pollId = setInterval(this.onScroll, 250);
+    this.tickId = setInterval(() => this.setState(s => ({ tick: s.tick + 1 })), 5200);
+    this.onScroll();
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+    document.removeEventListener('scroll', this.onScroll, { capture: true });
+    clearInterval(this.pollId);
+    clearInterval(this.tickId);
+  }
+
+  money(n) { return '$' + n.toFixed(2).replace(/\.00$/, ''); }
+
+  shipWindow() {
+    const fmt = d => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    const now = Date.now();
+    return fmt(new Date(now + 5 * 864e5)) + '–' + fmt(new Date(now + 9 * 864e5));
+  }
+
+  renderVals() {
+    const brand = this.props.brandName || 'VelaHush';
+    const gun = this.props.gunPrice ?? 49;
+    const refill = this.props.refillPrice ?? 21;
+    const bundle = this.props.bundlePrice ?? 59.9;
+    const guaranteeDays = this.props.guaranteeDays ?? 30;
+    const warrantyDays = this.props.warrantyDays ?? 90;
+    const reviewCount = this.props.reviewCount ?? 25089;
+    const urgency = this.props.showUrgency !== false;
+    const refillSub = refill * 0.85;
+
+    const rawPlans = [
+      { title: 'Gun only', note: 'One unit, one pod included. Try it on the couch first.', price: gun, compare: gun * 1.6, badge: '' },
+      { title: 'Gun + 3 refill pods', note: 'About four months of weekly use. Cheapest way to get pods.', price: bundle, compare: gun + refill, badge: 'MOST POPULAR' },
+      { title: 'Gun + refill plan', note: '3 pods now, then 3 every 2 months at ' + this.money(refillSub) + '. Skip or cancel anytime.', price: bundle, compare: gun + refill, badge: 'NEVER RUN OUT' }
+    ];
+
+    const plans = rawPlans.map((p, i) => {
+      const on = i === this.state.plan;
+      return {
+        title: p.title, note: p.note, badge: p.badge,
+        price: this.money(p.price),
+        compare: this.money(p.compare),
+        dotBg: on ? 'var(--color-accent)' : 'transparent',
+        select: () => this.setState({ plan: i, added: false }),
+        cardStyle: 'display:flex;gap:var(--space-3);align-items:flex-start;cursor:pointer;padding:var(--space-4);background:' +
+          (on ? '#fff' : 'transparent') + ';border:2px solid ' + (on ? 'var(--color-text)' : 'var(--color-neutral-300)') +
+          ';box-shadow:' + (on ? 'var(--shadow-sm)' : 'none'),
+        badgeStyle: p.badge
+          ? 'font-size:9.5px;font-weight:700;letter-spacing:0.12em;padding:3px var(--space-2);color:#fff;background:' + (i === 1 ? 'var(--color-accent)' : 'var(--color-text)')
+          : 'display:none'
+      };
+    });
+
+    const sel = rawPlans[this.state.plan];
+    const scentNames = ['Lemon', 'Lavender', 'Peppermint', 'Fresh Linen'];
+    const scents = scentNames.map((name, i) => ({
+      name,
+      select: () => this.setState({ scent: i }),
+      chipStyle: 'cursor:pointer;font-family:var(--font-body);font-size:13px;font-weight:600;padding:var(--space-2) var(--space-3);border-radius:var(--radius-md);background:' +
+        (i === this.state.scent ? 'var(--color-text)' : 'transparent') + ';color:' + (i === this.state.scent ? 'var(--color-bg)' : 'var(--color-neutral-800)') +
+        ';border:2px solid ' + (i === this.state.scent ? 'var(--color-text)' : 'var(--color-neutral-400)')
+    }));
+
+    const galleryData = [
+      { short: 'unit + box', src: 'uploads/assets-1788516208703-ks2u.jpg' },
+      { short: 'refill pods', src: 'uploads/assets-1788516208697-3bn1.jpg' },
+      { short: 'misting a sofa', src: '' },
+      { short: 'in hand, scale', src: '' },
+      { short: 'dog on treated rug', src: '' }
+    ];
+    const gallery = galleryData.map((g, i) => ({
+      short: g.short,
+      isUnit: i === 0,
+      isPods: i === 1,
+      hasPhoto: !!g.src,
+      select: () => this.setState({ img: i }),
+      labelStyle: g.src ? 'display:none' : 'font-size:9px;font-weight:600;line-height:1.2;color:var(--color-neutral-700);text-align:left;padding:3px',
+      thumbStyle: 'aspect-ratio:1/1;cursor:pointer;overflow:hidden;display:flex;align-items:center;justify-content:center;background-image:repeating-linear-gradient(45deg,var(--color-neutral-200) 0 6px,#fff 6px 12px);border:2px solid ' +
+        (i === this.state.img ? 'var(--color-text)' : 'var(--color-neutral-300)')
+    }));
+    const hero = galleryData[this.state.img];
+
+    const faqData = [
+      ['Does it actually remove pet odor, or just cover it?', 'It neutralizes. The mist carries odor-binding agents into fabric instead of laying fragrance on top, which is why the smell does not come back the same evening. Deep, set-in odor on older upholstery may want a second pass.'],
+      ['Is it safe around cats, dogs and grandkids?', 'Yes. Dye-free, fragrance-light, and the dry mist evaporates in seconds. Give the surface about a minute before pets settle back in — same as any fabric refresher.'],
+      ['What smells does it handle?', 'Wet dog, litter box, accidents on carpet, pet beds, couches, blankets, car seats, and the general background smell you have stopped noticing in your own home.'],
+      ['How long does a charge and a pod last?', 'A full charge covers roughly 40 rooms. One pod treats a typical living room about 25 times. Three pods are ' + this.money(refill) + ', or ' + this.money(refillSub) + ' on the plan.'],
+      ['How does the refill plan work?', 'Three pods ship every two months at 15% off, in the scent you picked. Every email has skip, change-scent, and cancel links — no phone call, no minimum number of deliveries.'],
+      ['Shipping, returns and warranty?', 'Free US shipping over $50, dispatched from California, arriving ' + this.shipWindow() + ' with tracking. ' + guaranteeDays + ' days for a full refund (keep the pods) and a ' + warrantyDays + '-day warranty on the motor and battery.']
+    ];
+    const faqs = faqData.map((f, i) => ({
+      q: f[0], a: f[1],
+      sign: i === this.state.faq ? '–' : '+',
+      toggle: () => this.setState({ faq: this.state.faq === i ? -1 : i }),
+      answerStyle: i === this.state.faq ? 'display:block' : 'display:none'
+    }));
+
+    const orderData = [
+      ['Columbus, OH', 'Gun + refill plan', '2 min ago'],
+      ['Sarasota, FL', 'Gun + 3 pods', '9 min ago'],
+      ['Boise, ID', 'Gun + 3 pods', '14 min ago'],
+      ['Round Rock, TX', 'Gun only', '21 min ago'],
+      ['Grand Rapids, MI', 'Gun + refill plan', '26 min ago']
+    ];
+    const live = this.state.tick % orderData.length;
+    const recentOrders = orderData.map((o, i) => ({
+      city: o[0], item: o[1], ago: i === live ? 'just now' : o[2],
+      dot: i === live ? 'var(--color-accent)' : 'var(--color-neutral-400)',
+      rowStyle: 'display:flex;align-items:center;gap:var(--space-3);padding:var(--space-3) var(--space-4);border-bottom:1px solid var(--color-neutral-300);background:' +
+        (i === live ? 'var(--color-accent-100)' : 'transparent')
+    }));
+
+    return {
+      brand, guaranteeDays, warrantyDays,
+      guaranteeLabel: guaranteeDays + '-day money back',
+      warrantyLabel: warrantyDays + '-day warranty',
+      gunPriceLabel: this.money(gun).replace('$', ''),
+      refillPriceLabel: this.money(refill),
+      refillSubLabel: this.money(refillSub),
+      headline: 'Nobody should be able to tell you have dogs.',
+      subhead: 'A cordless dry-mist gun that neutralizes pet odor inside your couch cushions, rugs and car seats — so the room smells like nothing at all, not like a candle trying to hide something.',
+      ratingLine: '4.8/5 from ' + reviewCount.toLocaleString('en-US') + ' reviews',
+      heroIsUnit: this.state.img === 0 || !hero.src,
+      heroIsPods: this.state.img === 1,
+      heroLabel: 'photo: ' + hero.short + ' (B&W)',
+      heroLabelStyle: hero.src ? 'display:none' : 'font-size:12px;font-weight:600;color:var(--color-neutral-700);background:#fff;border:1px solid var(--color-neutral-400);padding:var(--space-2) var(--space-3);text-align:left',
+      bullets: [
+        { n: '01', text: 'Neutralizes odor inside the fabric — not perfume sprayed over it' },
+        { n: '02', text: 'Dry mist: no soaked cushions, no wiping, safe to sit on in a minute' },
+        { n: '03', text: 'Cordless and rechargeable — one charge covers about 40 rooms' },
+        { n: '04', text: 'Fragrance-light and dye-free around pets, kids and asthma' }
+      ],
+      plans, scents, gallery, faqs, recentOrders,
+      planNote: this.state.plan === 2
+        ? 'Plan billed ' + this.money(refillSub) + ' every 2 months after today. Skip or cancel in one click.'
+        : 'One-time purchase. Add pods later at ' + this.money(refill) + ' for three.',
+      planNoteStyle: 'font-size:12.5px;line-height:1.4;color:var(--color-neutral-700);border-left:2px solid var(--color-accent);padding-left:var(--space-3)',
+      urgencyText: urgency ? 'Pod batch ships Friday' : '',
+      stockLine: urgency ? '312 shipped this week · ' + orderData.length + ' orders in the last 30 min' : 'Ships same day, Mon–Fri',
+      ctaLabel: this.state.added ? 'Added to cart' : 'Add to cart',
+      ctaPrice: this.state.added ? '✓' : this.money(sel.price),
+      stickyCta: this.state.added ? 'Added ✓' : 'Add — ' + this.money(sel.price),
+      selectedSummary: sel.title + ' · ' + scentNames[this.state.scent] + ' · ' + this.money(sel.price),
+      shipWindow: this.shipWindow(),
+      stickyStyle: 'position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--color-bg);border-top:2px solid var(--color-text);transition:transform .2s ease;transform:translateY(' + (this.state.sticky ? '0' : '110%') + ')',
+      addToCart: () => this.setState({ added: true }),
+      recentSectionStyle: this.props.showRecentOrders === false
+        ? 'display:none'
+        : 'border-bottom:2px solid var(--color-divider);background:var(--color-surface)',
+      ordersTodayLine: '1,284 orders shipped in the last 7 days',
+      trustCells: [
+        { title: guaranteeDays + '-day refund', body: 'Keep the pods either way' },
+        { title: warrantyDays + '-day warranty', body: 'Motor and battery covered' },
+        { title: 'Arrives ' + this.shipWindow(), body: 'Tracking on every order' },
+        { title: 'US support', body: 'Real replies within a day' }
+      ],
+      payments: ['Visa', 'Mastercard', 'Amex', 'PayPal', 'Apple Pay', 'Shop Pay', 'Klarna'].map(n => ({ name: n })),
+      marquee: (() => {
+        const items = ['Neutralizes at the source', 'Dry mist, no residue', 'Cordless & rechargeable', '30,000+ US homes', warrantyDays + '-day warranty', 'Refills from ' + this.money(refillSub)];
+        return items.concat(items).map(t => ({ text: t }));
+      })(),
+      specs: [
+        { value: '18s', label: 'to treat a full sofa' },
+        { value: '5µm', label: 'dry-mist particle size' },
+        { value: '40+', label: 'rooms per charge' }
+      ],
+      steps: [
+        { n: '01', title: 'Click in a pod', body: 'Twist, drop, done. No measuring, no mixing, no diluting bottles over the sink.', shot: 'hand clicking pod into base' },
+        { n: '02', title: 'Sweep the fabric', body: 'Hold about a foot back and pass slowly over cushions, rugs, pet beds and car seats.', shot: 'sweeping motion over cushions' },
+        { n: '03', title: 'Walk away', body: 'It dries in seconds. Come back to a living room that smells like nothing at all.', shot: 'clean living room, dog asleep' }
+      ],
+      surfaces: ['Sofa & cushions', 'Car seats', 'Pet beds', 'Rugs & carpet', 'Litter area', 'Blankets'].map(n => ({ name: n })),
+      stats: [
+        { value: '90%', label: 'said odor was clearly reduced after one use' },
+        { value: '30k+', label: 'US homes since 2024' },
+        { value: '4.8', label: 'average rating' }
+      ],
+      reviews: [
+        { title: 'My car finally doesn\u2019t smell like wet golden retriever', body: 'I take my dog everywhere and the seats always held it. One pass on a Sunday and my daughter noticed before I said a word.', who: 'Jenna G. — Ohio, verified buyer', shot: 'customer photo: dog in back seat' },
+        { title: 'First thing that worked on the couch', body: 'Two cats, one apartment, litter box in the hall. I have bought every spray at Target. This is the only one where the smell did not return the next day.', who: 'Maika P. — Texas, verified buyer', shot: 'customer photo: cats on sofa' },
+        { title: 'I stopped apologizing when people come over', body: 'That was the whole reason I bought it. I run it over the living room before guests arrive and nobody mentions the dogs anymore.', who: 'Diane R. — Florida, verified buyer', shot: 'customer photo: living room, guests' }
+      ],
+      compare: [
+        { label: 'Neutralizes odor at the source' },
+        { label: 'No heavy masking perfume' },
+        { label: 'Reaches inside cushions and fibers' },
+        { label: 'Safe around pets and kids' },
+        { label: 'Still working by dinner time' },
+        { label: 'Cost per use after month one' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
