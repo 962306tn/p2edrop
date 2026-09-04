@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "gempages": {
+      "type": "http",
+      "url": "${GEMPAGES_MCP_URL}"
+    }
+  }
+}
