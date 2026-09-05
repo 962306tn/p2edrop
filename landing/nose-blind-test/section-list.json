@@ -1,0 +1,54 @@
+{
+  "themePageId": null,
+  "sourceImagesExternal": false,
+  "sections": [
+    {
+      "order": 1,
+      "name": "hero",
+      "id": null,
+      "attempts": 0
+    },
+    {
+      "order": 2,
+      "name": "story-science",
+      "id": null,
+      "attempts": 0
+    },
+    {
+      "order": 3,
+      "name": "failed-solutions",
+      "id": null,
+      "attempts": 0
+    },
+    {
+      "order": 4,
+      "name": "cost",
+      "id": null,
+      "attempts": 0
+    },
+    {
+      "order": 5,
+      "name": "mechanism",
+      "id": null,
+      "attempts": 0
+    },
+    {
+      "order": 6,
+      "name": "proof-limits",
+      "id": null,
+      "attempts": 0
+    },
+    {
+      "order": 7,
+      "name": "bundle-faq",
+      "id": null,
+      "attempts": 0
+    },
+    {
+      "order": 8,
+      "name": "close",
+      "id": null,
+      "attempts": 0
+    }
+  ]
+}

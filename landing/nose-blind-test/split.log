@@ -1,0 +1,13 @@
+[phase1 split] nose-blind-test — 8 sections
+01-hero — eyebrow line, H1, deck paragraph, closing rule
+02-story-science — "four days away" scene + olfactory adaptation explainer + pull-quote callout
+03-failed-solutions — wrong-tool reframe + 5-row "what you tried / where it stops" table + pattern close
+04-cost — 4-row cost-of-inaction table + closing line
+05-mechanism — droplet-size explainer, product introduction, primary CTA button
+06-proof-limits — three self-run tests (ordered list) + "what it is not" disclaimer list + vet note
+07-bundle-faq — two-unit rationale, 3-tier price box, 6 FAQ pairs
+08-close — final argument, repeat CTA button, legal footer line
+CSS: all styling is inline on elements; no <head>, no <style> block, no external stylesheet — nothing to classify, duplicate or drop.
+JS: none present.
+Images: none present.
+No warnings.

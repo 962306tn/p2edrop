@@ -1,0 +1,5 @@
+[phase0] shop resolved via get_shop (yxciec-f7.myshopify.com); pipeline fetched via gempages_get_skill(convert-html-to-gempages)
+[phase1] nose-blind-test — 8 section files written
+[phase2] 3 rule docs loaded (guidelines, generation-rules, element-taxonomy); cloning-context taken from first get_html_section attachment
+[phase3 1/8 detect] parsedMs=5 sections=1 uncertainClusters=0 responsiveHidden=0 unwrappedStyledNodes=0 droppedElements=0 elementsDetected={detectText=2, detectHeading=1, detectLine=1} droppedProperties={}
+[phase3 1/8 halt] build not started — open decision on fidelity of non-Google font stacks (Georgia / system-ui) and textTransform field shape; awaiting user direction before authoring nodes

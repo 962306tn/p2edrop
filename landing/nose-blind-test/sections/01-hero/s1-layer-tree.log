@@ -1,0 +1,9 @@
+[phase3 1/8 layer-tree] 01-hero
+Section 1: "There's a reason you stopped smelling your own house."
+└── Row cols=1 > Col width=12
+    ├── Text  text="Home &amp; Pets · Reading time 4 minutes"
+    ├── Heading  text="There's a reason you stopped smelling your own house."  level=1
+    ├── Text  text="It is not that you stopped cleaning. It is that your nose filed the smell as ba…"
+    └── Line
+[input] section.html verbatim — 829 bytes
+[self-check] PASS — mapped content and visibility match dom-tree.log

@@ -1,0 +1,6 @@
+[phase3 1/8 dom-tree] 01-hero
+<div> (article wrapper, max-width 720px, serif)
+├── <p> #text: "Home & Pets · Reading time 4 minutes"
+├── <h1> #text: "There's a reason you stopped smelling your own house."
+├── <p> #text: "It is not that you stopped cleaning. It is that your nose filed the smell as ba…"
+└── <hr>
