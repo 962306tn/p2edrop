@@ -57,35 +57,27 @@
 
   var MARQUEE = [
     'Neutralizes at the source', 'Dry mist, no residue', 'Cordless & rechargeable',
-    '30,000+ US homes', OFFER.warrantyDays + '-day warranty', 'Refills from ' + money(refillSub)
-  ];
-
-  /* Demo data. Before launch, feed this from a real recent-order source or
-     drop the section — see README.md. */
-  var ORDERS = [
-    ['Columbus, OH', 'Gun + refill plan', '2 min ago'],
-    ['Sarasota, FL', 'Gun + 3 pods', '9 min ago'],
-    ['Boise, ID', 'Gun + 3 pods', '14 min ago'],
-    ['Round Rock, TX', 'Gun only', '21 min ago'],
-    ['Grand Rapids, MI', 'Gun + refill plan', '26 min ago']
+    'Takes any water-based solution', OFFER.warrantyDays + '-day warranty', 'Refills from ' + money(refillSub)
   ];
 
   var FAQS = [
     ['Does it actually remove pet odor, or just cover it?',
      'It neutralizes. The mist carries odor-binding agents into fabric instead of laying fragrance on top, which is why the smell does not come back the same evening. Deep, set-in odor on older upholstery may want a second pass.'],
-    ['Is it safe around cats, dogs and grandkids?',
-     'Yes. Dye-free, fragrance-light, and the dry mist evaporates in seconds. Give the surface about a minute before pets settle back in — same as any fabric refresher.'],
     ['What smells does it handle?',
      'Wet dog, litter box, accidents on carpet, pet beds, couches, blankets, car seats, and the general background smell you have stopped noticing in your own home.'],
-    ['How long does a charge and a pod last?',
-     'A full charge covers roughly 40 rooms. One pod treats a typical living room about 25 times. Three pods are ' + money(OFFER.refillPrice) + ', or ' + money(refillSub) + ' on the plan.'],
+    ['Can I use my own solution?',
+     'Yes, any water-based enzyme cleaner. Doing so will not void your warranty. What we will not do is promise a result we did not formulate. Our pods are pre-dosed for this atomiser, so those are the ones the ' + OFFER.guaranteeDays + '-day odor guarantee is written against. Use your own and the hardware is still covered; the outcome is yours.'],
+    ['Is there anything I should not put in it?',
+     'Water-based only. No gasoline, no oil-based products, no solvents, nothing thick or abrasive. The nozzle atomises to a very fine mist, and anything oily or heavy clogs it. Clog damage is the one thing the warranty does not cover.'],
+    ['What if it breaks after three weeks?',
+     'Then you send a photo of the serial plate and we ship a replacement from California. Nothing to mail back, no diagnostic call. The motor and battery are covered for ' + OFFER.warrantyDays + ' days, and the refund window runs the first ' + OFFER.guaranteeDays + ' regardless of why you want out.'],
     ['How does the refill plan work?',
-     'Three pods ship every two months at 15% off, in the scent you picked. Every email has skip, change-scent, and cancel links — no phone call, no minimum number of deliveries.'],
-    ['Shipping, returns and warranty?',
-     'Free US shipping over $50, dispatched from California, arriving ' + shipWindow() + ' with tracking. ' + OFFER.guaranteeDays + ' days for a full refund (keep the pods) and a ' + OFFER.warrantyDays + '-day warranty on the motor and battery.']
+     'Three pods ship every two months at 15% off, in the scent you picked. Every email has skip, change-scent, and cancel links. No phone call, no minimum number of deliveries.'],
+    ['Shipping and returns?',
+     'Free US shipping over $50, dispatched from California, arriving ' + shipWindow() + ' with tracking. ' + OFFER.guaranteeDays + ' days for a full refund, and you keep the pods.']
   ];
 
-  var state = { plan: 1, scent: 0, faq: 0, img: 0, added: false, tick: 0 };
+  var state = { plan: 1, scent: 0, faq: 0, img: 0, added: false };
 
   var $ = function (id) { return document.getElementById(id); };
 
@@ -172,23 +164,6 @@
     });
   }
 
-  function buildOrders() {
-    var host = $('orders');
-    ORDERS.forEach(function (o) {
-      var row = document.createElement('div');
-      row.className = 'vh-order';
-      row.innerHTML =
-        '<span class="vh-order__dot" aria-hidden="true"></span>' +
-        '<span class="vh-order__city"></span>' +
-        '<span class="vh-order__item"></span>' +
-        '<span class="vh-order__ago"></span>';
-      row.querySelector('.vh-order__city').textContent = o[0];
-      row.querySelector('.vh-order__item').textContent = o[1];
-      row.querySelector('.vh-order__ago').textContent = o[2];
-      host.appendChild(row);
-    });
-  }
-
   function buildFaq() {
     var host = $('faq-list');
     FAQS.forEach(function (f, i) {
@@ -251,11 +226,6 @@
       item.querySelector('[id^="faq-panel-"]').hidden = !open;
     });
 
-    document.querySelectorAll('#orders .vh-order').forEach(function (row, i) {
-      var live = i === (state.tick % ORDERS.length);
-      row.classList.toggle('is-live', live);
-      row.querySelector('.vh-order__ago').textContent = live ? 'just now' : ORDERS[i][2];
-    });
   }
 
   /* --- Wire up ------------------------------------------------------------- */
@@ -264,7 +234,6 @@
   buildScents();
   buildThumbs();
   buildMarquee();
-  buildOrders();
   buildFaq();
 
   $('ship-window').textContent = shipWindow();
@@ -280,7 +249,6 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  setInterval(function () { state.tick += 1; render(); }, 5200);
 
   function isDarkNow() {
     var set = document.documentElement.getAttribute('data-ap-theme');
