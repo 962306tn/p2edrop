@@ -147,7 +147,8 @@ img{max-width:100%;display:block}
 .tier__sub{font-size:14px;color:var(--muted);margin-top:3px}
 .tier__was{color:var(--muted);text-decoration:line-through;font-weight:400;font-size:15px;margin-right:6px}
 .atc{display:block;width:100%;background:var(--cta);color:#fff;border:0;border-radius:10px;
-  padding:17px;font-size:17px;font-weight:600;cursor:pointer;margin-top:8px;font-family:inherit}
+  padding:17px;font-size:17px;font-weight:600;cursor:pointer;margin-top:8px;font-family:inherit;
+  text-align:center;text-decoration:none}
 .atc:hover{background:var(--cta-hover)}
 .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;font-size:13px;color:var(--muted)}
 .pills span{border:1px solid var(--border);border-radius:20px;padding:5px 12px;background:#fff}
@@ -409,7 +410,7 @@ summary::-webkit-details-marker{display:none}
       <div><span>Plug-in air fresheners, 3 rooms</span><span>[[$__]] / yr</span></div>
       <div><span>Professional upholstery clean, one visit</span><span>[[$__]]</span></div>
       <div><span>Carpet clean, one visit</span><span>[[$__]]</span></div>
-      <div class="cost--us"><span>VelaHush Pet Odor Gun, one time</span><span>$59.90</span></div>
+      <div class="cost--us"><span>VelaHush Pet Odor Gun, one time</span><span>$59.95</span></div>
     </div>
 
     <div class="slot slot--warn"><b>Fill or delete these four rows</b>
@@ -458,12 +459,12 @@ summary::-webkit-details-marker{display:none}
         </ul>
 
         <!-- Bundle tiers. Margins on these are computed in PET-ODOR-GUN-STRATEGY.md Appendix E:
-             1 unit → $34.98 contribution · 2 units → $55.13 · 3 units → $70.64
+             1 unit -> $35.02 contribution · 2 units -> $55.18 · 3 units -> $66.41
              (formula C = 0.891P − 1.04·COGS − 2.89, COGS $14.90/unit).
              Second-gun bundles carry the margin. Refills do not — keep refills off this page. -->
         <label class="tier">
           <input type="radio" name="tier" value="1">
-          <div class="tier__row"><span class="tier__name">1 Gun</span><span class="tier__price">$59.90</span></div>
+          <div class="tier__row"><span class="tier__name">1 Gun</span><span class="tier__price">$59.95</span></div>
           <div class="tier__sub">One for the living room.</div>
         </label>
 
@@ -471,28 +472,28 @@ summary::-webkit-details-marker{display:none}
           <input type="radio" name="tier" value="2" checked>
           <span class="tier__flag">Most popular</span>
           <div class="tier__row"><span class="tier__name">2 Guns</span>
-            <span class="tier__price"><span class="tier__was">$119.80</span>$99.90</span></div>
-          <div class="tier__sub">$49.95 each. One stays in the house, one lives in the car.</div>
+            <span class="tier__price"><span class="tier__was">$119.90</span>$99.95</span></div>
+          <div class="tier__sub">$49.98 each. One stays in the house, one lives in the car.</div>
         </label>
 
         <label class="tier">
           <input type="radio" name="tier" value="3">
           <div class="tier__row"><span class="tier__name">3 Guns</span>
-            <span class="tier__price"><span class="tier__was">$179.70</span>$134.70</span></div>
-          <div class="tier__sub">$44.90 each. House, car, and one to give away.</div>
+            <span class="tier__price"><span class="tier__was">$179.85</span>$129.95</span></div>
+          <div class="tier__sub">$43.32 each. House, car, and one to give away.</div>
         </label>
 
-        <button class="atc" type="button">Add to cart · $99.90</button>
+        <a class="atc" id="pdp-link" href="/products/velahush-pet-odor-gun?variant=54286421786988">Get the 2-gun set · $99.95</a>
 
         <div class="pills">
-          <span>Free US shipping</span><span>30-day returns</span><span>Ships from [[ORIGIN]]</span><span>[[X]]-day delivery</span>
+          <span>Free US shipping</span><span>30-day returns</span><span>7-16 day delivery</span>
         </div>
 
         <div class="slot slot--warn" style="text-align:left">
-          <b>Before publishing</b>
-          1. Replace the <code>&lt;button class="atc"&gt;</code> with your real cart form or Kaching Bundles block — this button does nothing.<br>
-          2. <code>[[X]]-day delivery</code> must match your Shipping policy page exactly. The PDP currently says 7-10 days and the policy says 10-16. Fix one.<br>
-          3. Confirm what actually ships in the box. The current PDP says "ships empty, no solution included", which contradicts the bundle economics.
+          <b>Still open</b>
+          Confirm what actually ships in the box. The PDP currently says "ships empty, no solution included",
+          which contradicts the bundle economics in Appendix E. Answer the "Does it come with solution?"
+          FAQ below once this is settled.
         </div>
       </div>
     </div>
@@ -551,7 +552,7 @@ summary::-webkit-details-marker{display:none}
       <div class="faq__a"><p>[[MATCH YOUR RETURNS PAGE WORD FOR WORD. Window, who pays return shipping, condition required, how to start one. A mismatch between this line and the policy page is a chargeback waiting to happen.]]</p></div></details>
 
     <details class="faq__item"><summary class="faq__q">How long does delivery take?<span class="faq__icon" aria-hidden="true"></span></summary>
-      <div class="faq__a"><p>[[MATCH YOUR SHIPPING PAGE WORD FOR WORD, including where it ships from. Fix the 7-10 vs 10-16 day contradiction before this page goes live.]]</p></div></details>
+      <div class="faq__a"><p>Orders ship within 1-2 business days and arrive in 7-16 days. Shipping is free on every US order. You get a tracking number as soon as the parcel is scanned.</p></div></details>
   </div></div>
 </section>
 
@@ -587,11 +588,17 @@ document.querySelectorAll('.bb-item').forEach(function (d) {
 });
 
 // Keep the ATC label in sync with the selected tier.
-var prices = { '1': '$59.90', '2': '$99.90', '3': '$134.70' };
+var tiers = {
+  '1': { label: 'Get 1 gun · $59.95',      variant: '54286421754220' },
+  '2': { label: 'Get the 2-gun set · $99.95',  variant: '54286421786988' },
+  '3': { label: 'Get the 3-gun set · $129.95', variant: '54286421819756' }
+};
 document.querySelectorAll('.tier input').forEach(function (r) {
   r.addEventListener('change', function () {
-    var b = document.querySelector('.atc');
-    if (b) b.textContent = 'Add to cart · ' + prices[r.value];
+    var t = tiers[r.value], a = document.getElementById('pdp-link');
+    if (!t || !a) return;
+    a.textContent = t.label;
+    a.href = '/products/velahush-pet-odor-gun?variant=' + t.variant;
   });
 });
 </script>
