@@ -17,14 +17,12 @@
     gunPrice: 49,
     bundlePrice: 59.90,
     refillPrice: 21,
-    refillDiscount: 0.15,   // plan price = refill * (1 - discount)
+    refillDiscount: 0.15,   // email-only plan offer; nothing on this page reads it
     guaranteeDays: 30,
     warrantyDays: 90,
     reviewCount: 25089,
     showUrgency: true
   };
-
-  var refillSub = OFFER.refillPrice * (1 - OFFER.refillDiscount);   // 17.85
 
   /* Prices print without a trailing .00 — "$49", but "$59.90". */
   function money(n) { return '$' + n.toFixed(2).replace(/\.00$/, ''); }
@@ -50,9 +48,7 @@
     { title: 'Gun only', note: 'One unit, one pod included. Try it on the couch first.',
       price: OFFER.gunPrice, compare: 0, badge: '' },
     { title: 'Gun + 3 refill pods', note: 'About four months of weekly use. Cheapest way to get pods.',
-      price: OFFER.bundlePrice, compare: OFFER.gunPrice + OFFER.refillPrice, badge: 'Most popular', badgeAccent: true },
-    { title: 'Gun + refill plan', note: '3 pods now, then 3 every 2 months at ' + money(refillSub) + '. Skip or cancel anytime.',
-      price: OFFER.bundlePrice, compare: OFFER.gunPrice + OFFER.refillPrice, badge: 'Never run out' }
+      price: OFFER.bundlePrice, compare: OFFER.gunPrice + OFFER.refillPrice, badge: 'Most popular', badgeAccent: true }
   ];
 
   var SCENTS = ['Lemon', 'Lavender', 'Peppermint', 'Fresh Linen'];
@@ -67,7 +63,7 @@
 
   var MARQUEE = [
     'Neutralizes at the source', 'Dry mist, no residue', 'Cordless & rechargeable',
-    'Takes any water-based solution', OFFER.warrantyDays + '-day warranty', 'Refills from ' + money(refillSub)
+    'Takes any water-based solution', OFFER.warrantyDays + '-day warranty', 'Refills ' + money(OFFER.refillPrice) + ' for three'
   ];
 
   var FAQS = [
@@ -81,8 +77,8 @@
      'Water-based only. No gasoline, no oil-based products, no solvents, nothing thick or abrasive. The nozzle atomises to a very fine mist, and anything oily or heavy clogs it. Clog damage is the one thing the warranty does not cover.'],
     ['What if it breaks after three weeks?',
      'Then you send a photo of the serial plate and we ship a replacement from California. Nothing to mail back, no diagnostic call. The motor and battery are covered for ' + OFFER.warrantyDays + ' days, and the refund window runs the first ' + OFFER.guaranteeDays + ' regardless of why you want out.'],
-    ['How does the refill plan work?',
-     'Three pods ship every two months at 15% off, in the scent you picked. Every email has skip, change-scent, and cancel links. No phone call, no minimum number of deliveries.'],
+    ['How do I get more pods?',
+     'Three pods are ' + money(OFFER.refillPrice) + ', in whichever scent you want. Most households need them about every two months. We will email you before you run out, and you order in one click. Nothing is automatic and nothing is charged without you asking.'],
     ['Shipping and returns?',
      'Free US shipping over $50, dispatched from California, arriving ' + shipWindow() + ' with tracking. ' + OFFER.guaranteeDays + ' days for a full refund, and you keep the pods.']
   ];
@@ -211,9 +207,8 @@
       el.setAttribute('aria-pressed', String(i === state.img));
     });
 
-    $('plan-note').textContent = state.plan === 2
-      ? 'Plan billed ' + money(refillSub) + ' every 2 months after today. Skip or cancel in one click.'
-      : 'One-time purchase. Add pods later at ' + money(OFFER.refillPrice) + ' for three.';
+    $('plan-note').textContent = 'One-time purchase. Pods are '
+      + money(OFFER.refillPrice) + ' for three whenever you need them.';
 
     var shot = GALLERY[state.img];
     $('hero-note').textContent = 'photo: ' + shot.short;
