@@ -28,6 +28,9 @@ the five files handed to this repo. Rename them on the way in:
 
 ## Still to commission
 
+Full generation briefs — camera angle, lens, subject, light, framing and what must
+stay out of frame — are in **`IMAGE-BRIEFS.md`** next to this file.
+
 | File | Shot |
 |---|---|
 | `misting-sofa.jpg` | woman misting the sofa before guests arrive |
