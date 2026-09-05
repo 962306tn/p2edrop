@@ -1580,3 +1580,117 @@ Và trong email xác nhận đơn:
 | **Ship thẳng từ TQ** | Minh bạch 10–16 ngày là **P0**. Dự phòng 8% hoàn tiền + 4% gửi bù đã nằm trong P&L. Chuyển 3PL Mỹ sau 100–200 đơn |
 
 *Phụ lục hoàn thành 03/09/2026.*
+
+---
+
+# PHỤ LỤC E — REFILL $5/CHAI: TÍNH LẠI TOÀN BỘ CẤU TRÚC OFFER
+
+## E.0 ⚠️ Đính chính mục A.3
+
+Bậc thang offer ở **mục A.3 dựa trên giả định refill $1/chai. Với COGS thật $5/chai, khuyến nghị đó SAI và phải bỏ.**
+Lý do: thêm 4 chai vào bundle làm COGS tăng **$20**. Nếu bạn chỉ tăng giá $20, biên lợi nhuận tăng thêm **bằng 0** — bạn làm việc miễn phí và gánh thêm rủi ro vận chuyển. Mục E.3 là bản thay thế.
+
+## E.1 🔴 Một câu hỏi phải làm rõ trước — nó thay đổi kết quả gấp 2,5 lần
+
+**$14.90 là giá vốn của cái gì?**
+
+| | Kịch bản 1 | Kịch bản 2 |
+|---|---|---|
+| Cách hiểu | $14.90 = **chỉ riêng máy**, refill tính thêm $5/chai | $14.90 = **trọn bộ máy + 4 refill**; $5 là giá vốn khi ship 1 chai riêng lẻ về sau |
+| COGS bộ bán ra | 14.90 + 4×5 = **$34.90** | **$14.90** |
+| Đóng góp/đơn @ $59.90 | **$14.18** | **$34.98** |
+| 🔴 Hoà vốn CPA | **$14** | **$35** |
+| Hoà vốn ROAS | **4.22** | 1.71 |
+| Đánh giá | 🔴🔴 **Gần như không chạy được trên Meta cold traffic** | 🟢 Khả thi |
+
+> 🟡 **Kịch bản 2 nhiều khả năng đúng hơn**, vì $5 cho một chai 120ml phần lớn là **cước vận chuyển chất lỏng quốc tế cho một kiện hàng lẻ**, không phải giá sản xuất. Nhưng "nhiều khả năng" không đủ để chi tiền quảng cáo.
+
+**👉 Câu hỏi gửi supplier hôm nay (copy dùng luôn):**
+> *"Please confirm your FOB / delivered price for three configurations, each shipped as a single parcel to a US address: (A) 1 sprayer + 4 refill bottles, (B) 1 sprayer + 2 refill bottles, (C) 2 sprayers + 4 refill bottles. Also confirm the delivered price for a standalone parcel of 2 refill bottles and of 4 refill bottles. Please state clearly whether each price already includes shipping to the US."*
+
+Ba dòng này khoá toàn bộ mô hình tài chính. Không có chúng thì mọi con số dưới đây vẫn là ước lượng.
+
+## E.2 Nếu rơi vào Kịch bản 1 — ba lối thoát
+
+Hoà vốn CPA $14 cho sản phẩm $59.90 trong ngành pet trên Meta là **rất khó đạt**. Ba cách sửa, xếp theo mức độ tôi khuyến nghị:
+
+| Lối thoát | Cấu hình | COGS | Đóng góp/đơn | 🔴 Hoà vốn CPA | Hoà vốn ROAS | Nhận xét |
+|---|---|---|---|---|---|---|
+| ⭐ **B — Giảm refill + tăng giá** | 1 máy + **2 refill** @ **$69.90** | $24.90 | **$33.49** | **$33** | 2.09 | 🟢 **Khuyến nghị.** Gần bằng Kịch bản 2 mà không cần đàm phán lại giá vốn. $69.90 cũng tách bạn xa khỏi vùng giá Amazon |
+| **C — Giữ 4 refill + tăng giá mạnh** | 1 máy + 4 refill @ **$79.90** | $34.90 | **$32.00** | **$32** | 2.50 | Kinh tế gần như tương đương B nhưng **giá cao hơn $10** → rào cản chuyển đổi lớn hơn. Chọn B thay vì C |
+| **A — Chỉ giảm refill** | 1 máy + **2 refill** @ $59.90 | $24.90 | **$24.58** | **$25** | 2.44 | Khả thi nhưng cửa sổ hẹp. Dùng nếu A.4 cho thấy đối thủ bán rẻ và bạn buộc phải giữ giá thấp |
+
+**Về việc "cắt xuống 2 chai có làm mất giá trị cảm nhận không?"** — Không, nếu bạn xử lý đúng:
+- 🟢 Chai 120mL, và creator công khai cho biết *"one refill lasted through multiple applications on my furniture"* ([nguồn](https://www.tiktok.com/@loriannbarnes1/video/7657716029837069598)). 2 chai đủ cho nhiều tuần sử dụng thật.
+- Đổi cách trình bày: thay vì đếm số chai, hãy nói theo **thời gian dùng** — *"Comes with 2 refills — about 8 weeks of weekly whole-room resets."* Con số tuần bạn **phải tự đo** sau khi có máy mẫu (mục 8.1 dòng 1–2).
+
+## E.3 🔑 BẬC THANG OFFER MỚI — UPSELL **MÁY THỨ HAI**, KHÔNG PHẢI REFILL
+
+Đây là kết luận quan trọng nhất của phụ lục này, và nó **đúng trong cả hai kịch bản**:
+
+| Cách upsell | Giá tăng thêm | COGS tăng thêm | **Biên tăng thêm** |
+|---|---|---|---|
+| ❌ Thêm 4 refill | +$20 | +$20 | **$0** — làm không công |
+| ✅ **Thêm 1 máy thứ hai** | +$30 → +$40 | +$14.90 | **+$11 → +$21** |
+
+Máy thứ hai không phải bundle giả — nó có **lý do sử dụng thật**, và đó chính là các avatar bạn đã có sẵn ở PHẦN 2:
+- *Một cái tầng trên, một cái tầng dưới* (A1 — nhà 3–4 phòng ngủ)
+- *Một cái trong nhà, một cái để trong xe* (A4 — chở chó đi công viên)
+- *Một cái tặng mẹ / tặng bạn cũng nuôi chó* (quà — mạnh vào Q4)
+
+### Bậc thang đề xuất
+
+| Gói | Nội dung | Giá | Vai trò |
+|---|---|---|---|
+| Starter | 1 máy + refill theo cấu hình chốt ở E.2 | **$59.90** (hoặc $69.90) | Neo giá |
+| ⭐ **Most Popular** (chọn sẵn) | **2 máy** + refill | **$89.90** hoặc **$99.90** — **A/B test** | Gói bạn muốn bán |
+| Refill 2-pack | 2 chai | $19.90 | Giữ chân, **không phải nguồn lợi nhuận** |
+
+**Đóng góp/đơn của gói 2 máy:**
+
+| | @ $89.90 | @ $99.90 |
+|---|---|---|
+| Kịch bản 2 (COGS $29.80) | **$46.22** | **$55.13** |
+| Kịch bản 1 (COGS $49.80) | **$25.42** | **$34.33** |
+
+👉 Trong Kịch bản 1, gói 2 máy @ $99.90 cho đóng góp **$34.33 — gấp 2,4 lần** gói đơn ($14.18). Nói cách khác: **ở Kịch bản 1, gói 2 máy không phải là upsell, nó là sản phẩm chính.**
+
+**Cách trình bày trên PDP:** đóng khung máy thứ hai như một khoản giảm giá sâu, không phải như "mua thêm":
+> **"Add a second one for $30 — half price. Most people put one upstairs and one in the car."**
+
+## E.4 ⚠️ Refill không phải mô hình "dao cạo – lưỡi dao"
+
+| Sản phẩm refill | Giá | COGS | Đóng góp/đơn |
+|---|---|---|---|
+| 2-pack | $19.90 | $10 | **$4.44** |
+| 4-pack | $34.90 | $20 | **$7.41** |
+
+Và đó là **trước khi** tính chi phí xử lý một kiện hàng lẻ, email, CSKH. Thực tế gần như hoà vốn.
+
+**Ba hệ quả bạn phải chấp nhận:**
+
+1. 🚫 **Đừng xây mô hình doanh thu dựa trên refill.** Ở PHẦN 5 tôi đã ghi nhận [bản nhái bán refill 8×120mL](https://www.amazon.com/Deodorizer-Eliminator-Bio-Enzyme-Control-Interiors/dp/B0H5BBM3CK) đang ép giá refill xuống — giờ đã rõ vì sao đó là cuộc chiến bạn không nên tham gia.
+2. 🚫 **Đừng chạy quảng cáo riêng cho refill.** Hoà vốn ROAS 4.5 — không quảng cáo nào chịu nổi. Refill chỉ bán qua **email/SMS cho khách đã mua** (chi phí gần bằng 0).
+3. ✅ **Biến điểm yếu thành USP.** Nếu máy dùng được **dung dịch enzyme gốc nước của bất kỳ hãng nào** (dòng 10 trong bảng thông số 8.1 — vẫn đang bỏ trống), thì hãy nói to điều đó:
+   > **"Works with any water-based enzyme solution. You're not locked into ours."**
+   > *(Dùng được với bất kỳ dung dịch enzyme gốc nước nào. Bạn không bị khoá vào hãng chúng tôi.)*
+
+   🔑 Câu này **xử lý trực tiếp objection "razor blade trap"** tôi đã liệt kê ở mục 2.1, tạo khác biệt với đối thủ đang bán refill độc quyền, **và** giải phóng bạn khỏi một mảng kinh doanh gần như không có lãi. Ở cấu trúc giá vốn này, **mở chuẩn là lợi thế, không phải thiệt hại.** Chỉ cần xác nhận kỹ thuật với supplier trước khi nói.
+
+## E.5 Ngưỡng CPA cập nhật — bảng thay thế A.2
+
+Giả định 30% khách chọn gói 2 máy.
+
+| Kịch bản | AOV blended | Đóng góp/đơn | 🔴 Hoà vốn CPA | 🟢 Mục tiêu CPA (20% ròng) | Kết luận |
+|---|---|---|---|---|---|
+| **KB2** — bộ đơn $59.90 + 30% lấy gói 2 máy $99.90 | ~$71.90 | ~$41 | **$41** | **$27** | 🟢 Chạy được, dư địa tốt |
+| **KB1 lối thoát B** — bộ đơn $69.90 (2 refill) + 30% lấy gói 2 máy $109.90 | ~$81.90 | ~$38 | **$38** | **$22** | 🟢 Chạy được |
+| **KB1 giữ nguyên** — bộ đơn $59.90 (4 refill), không upsell | $59.90 | $14.18 | **$14** | **$6** | 🔴 **Không chạy. Đừng launch ở cấu hình này** |
+
+## E.6 ✅ Ba việc làm ngay hôm nay
+
+1. **Gửi email báo giá 3 cấu hình cho supplier** (nội dung ở E.1). Đây là điều kiện tiên quyết cho mọi thứ khác.
+2. **Dựng PDP với gói 2 máy được chọn sẵn**, không phải gói refill. Nếu đã dựng theo A.3 thì sửa lại.
+3. **Hỏi supplier dòng 10 bảng 8.1**: máy có dùng được dung dịch enzyme gốc nước của hãng khác không? Nếu CÓ → đưa câu ở E.4 lên PDP và vào ad copy retargeting.
+
+*Phụ lục E hoàn thành 03/09/2026.*
