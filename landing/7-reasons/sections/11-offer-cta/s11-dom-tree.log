@@ -1,0 +1,23 @@
+[phase3 11/14 dom-tree] 11-offer-cta
+section.cta#buy-now [bg #fff; padding 56px 0 / 36px mobile] > div.wrap [max-width 1240px]
+ ├── div.cta__card [bg var(--cloud)=#F3F1ED; radius 20px; padding 34px]
+ │    └── div.cta__frame [border 1px dashed #C2CBD3; radius 14px; padding 34px 30px; grid 1.1fr .9fr; gap 36px; 1 col under 900px]
+ │         ├── div.cta__visual [position:relative]
+ │         │    ├── div.cta__badge [absolute top -6px right 4px; 64x64; radius 50%; bg #7EA7B2; #fff]
+ │         │    │     ├── strong  #text: "28%"   [19px; 700]
+ │         │    │     └── span    #text: "OFF"   [10px; uppercase; ls .1em]
+ │         │    └── div.cta__items [flex; align-items:flex-end; justify-content:center; gap 6px]
+ │         │          ├── figure.cta__item : div.cta__slot--sm [92x110; #fff; 1px dashed #7EA7B2; radius 12px] + figcaption (b "FREE" block + "[[Your gift]]")
+ │         │          ├── span.cta__plus  #text: "+"  [#7EA7B2; 20px; 600]
+ │         │          ├── figure.cta__item--main : div.cta__slot--lg [150x210] + figcaption (b "2 GUNS" block + "$99.95")
+ │         │          ├── span.cta__plus  #text: "+"
+ │         │          └── figure.cta__item : div.cta__slot--sm [92x110] + figcaption (b "FREE" block + "US Shipping")
+ │         └── div.cta__copy [text-align:center]
+ │              ├── h2.cta__heading  #text: "Up to 28% off" + span "+ free shipping" [Outfit 42px/32px mobile; 600; uppercase; span in #7EA7B2 on its own line]
+ │              ├── p.cta__sub  #text: "You already own the cleaner…30 days to send it back."  [16px; #374151; max-width 34ch; centred]
+ │              ├── a.cta__btn[href="/products/velahush-pet-odor-gun"]  #text: "Try it risk-free →"  [bg #17243A; #fff; radius 10px; padding 17px 46px; 17px/600; uppercase]
+ │              └── p.cta__note  #text: "Pick your bundle on the next page. 30-day money-back guarantee."  [13px; #6B7280; mt 14px]
+ └── div.slot.slot--warn : b "Check before publishing" + body copy about the 28% figure and the gift placeholder
+
+[note] replaces the previous inline PDP block. The three bundle tiers, the gallery, the bullet list and the rating strip are gone;
+       tier selection now happens on the product page the button links to.

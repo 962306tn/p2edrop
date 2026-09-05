@@ -1,0 +1,127 @@
+<style>
+:root{
+  --max:1240px; --content:860px; --gutter:16px;
+  --navy:#17243A; --blue:#7EA7B2; --cloud:#F3F1ED;
+  --soft:#EAF2F4; --badge:#DDEAEE;
+  --text:#17243A; --soft-text:#374151; --muted:#6B7280; --border:#E5E7EB;
+  --cta:#17243A; --cta-hover:#0C0D0F;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--text);
+  font-family:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+h1,h2,h3{font-family:"Outfit",Georgia,serif;font-weight:600;letter-spacing:-.01em;line-height:1.2;margin:0}
+p{margin:0 0 1em}
+a{color:inherit}
+img{max-width:100%;display:block}
+@media(max-width:1439px){:root{--gutter:60px}}
+@media(max-width:1024px){:root{--gutter:40px}}
+@media(max-width:768px){:root{--gutter:24px}body{font-size:16px}}
+@media(max-width:480px){:root{--gutter:16px}}
+/* ---- placeholder slot ---- */
+.slot{border:2px dashed var(--blue);background:var(--soft);border-radius:10px;
+  padding:22px 18px;text-align:center;color:#4a6b74;font-size:13px;line-height:1.5;margin:22px 0}
+.slot b{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#2d5560;margin-bottom:6px}
+.slot code{background:#fff;border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-size:12px}
+.slot--warn{border-color:#C9761F;background:#FCF3E8;color:#7A4A12}
+.slot--warn b{color:#8A4F0B}
+.bb-item__panel .slot{margin:0 0 16px}
+.li__body{color:var(--soft-text)}
+/* ---- offer CTA ---- */
+.cta{padding:56px 0;background:#fff;scroll-margin-top:60px}
+.cta__card{background:var(--cloud);border-radius:20px;padding:34px}
+.cta__frame{border:1px dashed #C2CBD3;border-radius:14px;padding:34px 30px;
+  display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+.cta__visual{position:relative}
+.cta__badge{position:absolute;top:-6px;right:4px;z-index:2;width:64px;height:64px;border-radius:50%;
+  background:var(--blue);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  line-height:1.05}
+.cta__badge strong{font-size:19px;font-weight:700}
+.cta__badge span{font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+.cta__items{display:flex;align-items:flex-end;justify-content:center;gap:6px}
+.cta__item{margin:0;text-align:center;flex:0 1 auto}
+.cta__slot{background:#fff;border:1px dashed var(--blue);border-radius:12px;
+  display:flex;align-items:center;justify-content:center;color:#7f949c;font-size:11px;
+  letter-spacing:.04em;padding:6px;text-align:center}
+.cta__slot--sm{width:92px;height:110px}
+.cta__slot--lg{width:150px;height:210px}
+.cta__item figcaption{margin-top:10px;font-size:13px;color:var(--soft-text);line-height:1.35}
+.cta__item figcaption b{display:block;font-size:13px;font-weight:700;color:var(--navy)}
+.cta__plus{color:var(--blue);font-size:20px;font-weight:600;padding-bottom:56px}
+.cta__copy{text-align:center}
+.cta__heading{font-size:42px;line-height:1.05;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:14px}
+.cta__heading span{display:block;color:var(--blue)}
+.cta__sub{font-size:16px;color:var(--soft-text);max-width:34ch;margin:0 auto 20px}
+.cta__btn{display:inline-block;background:var(--cta);color:#fff;text-decoration:none;
+  border-radius:10px;padding:17px 46px;font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:.03em}
+.cta__btn:hover{background:var(--cta-hover)}
+.cta__note{font-size:13px;color:var(--muted);margin:14px 0 0}
+@media(max-width:900px){.cta__frame{grid-template-columns:1fr;gap:28px;padding:26px 18px}.cta__heading{font-size:32px}}
+@media(max-width:768px){.cta{padding:36px 0}.cta__card{padding:18px;border-radius:16px}.cta__slot--lg{width:120px;height:168px}.cta__slot--sm{width:74px;height:88px}.cta__btn{display:block;padding:16px}}
+</style>
+<!-- ========== 5. OFFER CTA ==========
+     Replaces the inline PDP. Layout follows the reference CTA card:
+     framed card, dashed inner frame, product cluster on the left with FREE labels,
+     discount headline + button on the right.
+     The numbers here are real: 3 guns at $129.95 against 3 x $59.95 is a 28% saving,
+     and free US shipping is already configured on the store. Nothing else is claimed. -->
+<section class="cta" id="buy-now">
+  <div class="wrap">
+    <div class="cta__card">
+      <div class="cta__frame">
+
+        <div class="cta__visual">
+          <div class="cta__badge"><strong>28%</strong><span>OFF</span></div>
+
+          <div class="cta__items">
+            <figure class="cta__item">
+              <div class="cta__slot cta__slot--sm">
+                <!-- [[free-gift.png — 600x600, transparent PNG. DELETE THIS WHOLE <figure> IF YOU ARE NOT GIVING A GIFT.]] -->
+                <span>free gift</span>
+              </div>
+              <figcaption><b>FREE</b>[[Your gift]]</figcaption>
+            </figure>
+
+            <span class="cta__plus" aria-hidden="true">+</span>
+
+            <figure class="cta__item cta__item--main">
+              <div class="cta__slot cta__slot--lg">
+                <!-- <img src="/cdn/shop/files/hero-white.jpg" alt="VelaHush Pet Odor Gun" width="1400" height="1400"> -->
+                <span>hero-white.jpg</span>
+              </div>
+              <figcaption><b>2 GUNS</b>$99.95</figcaption>
+            </figure>
+
+            <span class="cta__plus" aria-hidden="true">+</span>
+
+            <figure class="cta__item">
+              <div class="cta__slot cta__slot--sm">
+                <!-- [[shipping-box.png — 600x600, transparent PNG]] -->
+                <span>shipping</span>
+              </div>
+              <figcaption><b>FREE</b>US Shipping</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="cta__copy">
+          <h2 class="cta__heading">Up to 28% off<span>+ free shipping</span></h2>
+          <p class="cta__sub">You already own the cleaner. This is the part that puts it where the smell actually is. Free shipping, 30 days to send it back.</p>
+          <a class="cta__btn" href="/products/velahush-pet-odor-gun">Try it risk-free &rarr;</a>
+          <p class="cta__note">Pick your bundle on the next page. 30-day money-back guarantee.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="slot slot--warn">
+      <b>Check before publishing</b>
+      <strong>28%</strong> is the real saving on the 3-gun tier ($129.95 against 3 &times; $59.95). If you change the tier
+      prices, change this number and the badge. The gift figure on the left is a placeholder: give a real gift
+      and name it, or delete that <code>&lt;figure&gt;</code> and the two <code>+</code> signs around it. Do not
+      write "free gifts" plural until there is more than one.
+    </div>
+  </div>
+</section>
+

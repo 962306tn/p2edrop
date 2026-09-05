@@ -79,10 +79,10 @@
     },
     {
       "index": 11,
-      "key": "11-product-offer",
-      "label": "Inline product offer with three bundle tiers",
-      "file": "sections/11-product-offer/section.html",
-      "bytes": 14134
+      "key": "11-offer-cta",
+      "label": "Offer CTA card with discount badge and product link",
+      "file": "sections/11-offer-cta/section.html",
+      "bytes": 6801
     },
     {
       "index": 12,

@@ -121,39 +121,50 @@ img{max-width:100%;display:block}
 .callout{background:var(--soft);border-radius:12px;padding:20px 22px;margin-top:24px;font-size:16px;color:var(--soft-text)}
 .callout strong{color:var(--navy)}
 
-/* ---- PDP ---- */
-.pdp{padding:56px 0;background:var(--cloud);scroll-margin-top:60px}
-.pdp__grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
-.pdp__gallery{position:sticky;top:70px}
-.pdp__main{aspect-ratio:1/1;background:#fff;border-radius:14px;border:1px solid var(--border)}
-.pdp__thumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:10px}
-.pdp__thumb{aspect-ratio:1/1;background:#fff;border:1px solid var(--border);border-radius:8px}
-.pdp__rating{font-size:14px;color:var(--muted);margin-bottom:8px}
-.pdp__title{font-size:31px;margin-bottom:10px}
-.pdp__rule{display:block;width:64px;height:3px;background:var(--blue);border-radius:2px;margin-bottom:18px}
-.pdp__bullets{list-style:none;margin:0 0 22px;padding:0}
-.pdp__bullet{display:flex;gap:10px;align-items:flex-start;margin-bottom:9px;font-size:16px}
-.pdp__check{flex:0 0 20px;width:20px;height:20px;border-radius:50%;background:var(--badge);
-  display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:var(--navy);margin-top:2px}
-.tier{display:block;border:2px solid var(--border);border-radius:12px;padding:16px;margin-bottom:10px;
-  cursor:pointer;background:#fff;position:relative}
-.tier--best{border-color:var(--blue)}
-.tier input{position:absolute;opacity:0}
-.tier__flag{position:absolute;top:-11px;right:14px;background:var(--blue);color:#fff;font-size:11px;
-  letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:20px;font-weight:600}
-.tier__row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
-.tier__name{font-weight:600;font-size:17px}
-.tier__price{font-weight:600;font-size:19px;white-space:nowrap}
-.tier__sub{font-size:14px;color:var(--muted);margin-top:3px}
-.tier__was{color:var(--muted);text-decoration:line-through;font-weight:400;font-size:15px;margin-right:6px}
-.atc{display:block;width:100%;background:var(--cta);color:#fff;border:0;border-radius:10px;
-  padding:17px;font-size:17px;font-weight:600;cursor:pointer;margin-top:8px;font-family:inherit;
-  text-align:center;text-decoration:none}
-.atc:hover{background:var(--cta-hover)}
-.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;font-size:13px;color:var(--muted)}
-.pills span{border:1px solid var(--border);border-radius:20px;padding:5px 12px;background:#fff}
-@media(max-width:900px){.pdp__grid{grid-template-columns:1fr;gap:26px}.pdp__gallery{position:static}}
-@media(max-width:768px){.pdp{padding:36px 0}.pdp__title{font-size:25px}}
+/* ---- offer CTA ---- */
+.cta{padding:56px 0;background:#fff;scroll-margin-top:60px}
+.cta__card{background:var(--cloud);border-radius:20px;padding:34px}
+.cta__frame{border:1px dashed #C2CBD3;border-radius:14px;padding:34px 30px;
+  display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+
+.cta__visual{position:relative}
+.cta__badge{position:absolute;top:-6px;right:4px;z-index:2;width:64px;height:64px;border-radius:50%;
+  background:var(--blue);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  line-height:1.05}
+.cta__badge strong{font-size:19px;font-weight:700}
+.cta__badge span{font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+
+.cta__items{display:flex;align-items:flex-end;justify-content:center;gap:6px}
+.cta__item{margin:0;text-align:center;flex:0 1 auto}
+.cta__slot{background:#fff;border:1px dashed var(--blue);border-radius:12px;
+  display:flex;align-items:center;justify-content:center;color:#7f949c;font-size:11px;
+  letter-spacing:.04em;padding:6px;text-align:center}
+.cta__slot--sm{width:92px;height:110px}
+.cta__slot--lg{width:150px;height:210px}
+.cta__item figcaption{margin-top:10px;font-size:13px;color:var(--soft-text);line-height:1.35}
+.cta__item figcaption b{display:block;font-size:13px;font-weight:700;color:var(--navy)}
+.cta__plus{color:var(--blue);font-size:20px;font-weight:600;padding-bottom:56px}
+
+.cta__copy{text-align:center}
+.cta__heading{font-size:42px;line-height:1.05;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:14px}
+.cta__heading span{display:block;color:var(--blue)}
+.cta__sub{font-size:16px;color:var(--soft-text);max-width:34ch;margin:0 auto 20px}
+.cta__btn{display:inline-block;background:var(--cta);color:#fff;text-decoration:none;
+  border-radius:10px;padding:17px 46px;font-size:17px;font-weight:600;text-transform:uppercase;letter-spacing:.03em}
+.cta__btn:hover{background:var(--cta-hover)}
+.cta__note{font-size:13px;color:var(--muted);margin:14px 0 0}
+
+@media(max-width:900px){
+  .cta__frame{grid-template-columns:1fr;gap:28px;padding:26px 18px}
+  .cta__heading{font-size:32px}
+}
+@media(max-width:768px){
+  .cta{padding:36px 0}
+  .cta__card{padding:18px;border-radius:16px}
+  .cta__slot--lg{width:120px;height:168px}
+  .cta__slot--sm{width:74px;height:88px}
+  .cta__btn{display:block;padding:16px}
+}
 
 /* ---- stock notice ---- */
 .stock{max-width:var(--content);margin:36px auto;padding:20px 22px;border:1px solid #E3C4C4;
@@ -421,81 +432,67 @@ summary::-webkit-details-marker{display:none}
   </div></div>
 </section>
 
-<!-- ========== 5. INLINE PDP ========== -->
-<section class="pdp" id="buy-now">
+<!-- ========== 5. OFFER CTA ==========
+     Replaces the inline PDP. Layout follows the reference CTA card:
+     framed card, dashed inner frame, product cluster on the left with FREE labels,
+     discount headline + button on the right.
+     The numbers here are real: 3 guns at $129.95 against 3 x $59.95 is a 28% saving,
+     and free US shipping is already configured on the store. Nothing else is claimed. -->
+<section class="cta" id="buy-now">
   <div class="wrap">
-    <div class="pdp__grid">
+    <div class="cta__card">
+      <div class="cta__frame">
 
-      <div class="pdp__gallery">
-        <div class="pdp__main">
-          <div class="slot" style="margin:0;height:100%;display:flex;flex-direction:column;justify-content:center">
-            <b>Hero image</b><code>hero-white.jpg</code><br>Gun on Soft Cloud #F3F1ED, 3/4 angle, 1400x1400
-            <!-- <img src="/cdn/shop/files/hero-white.jpg" alt="VelaHush Pet Odor Gun" width="1400" height="1400"> -->
+        <div class="cta__visual">
+          <div class="cta__badge"><strong>28%</strong><span>OFF</span></div>
+
+          <div class="cta__items">
+            <figure class="cta__item">
+              <div class="cta__slot cta__slot--sm">
+                <!-- [[free-gift.png — 600x600, transparent PNG. DELETE THIS WHOLE <figure> IF YOU ARE NOT GIVING A GIFT.]] -->
+                <span>free gift</span>
+              </div>
+              <figcaption><b>FREE</b>[[Your gift]]</figcaption>
+            </figure>
+
+            <span class="cta__plus" aria-hidden="true">+</span>
+
+            <figure class="cta__item cta__item--main">
+              <div class="cta__slot cta__slot--lg">
+                <!-- <img src="/cdn/shop/files/hero-white.jpg" alt="VelaHush Pet Odor Gun" width="1400" height="1400"> -->
+                <span>hero-white.jpg</span>
+              </div>
+              <figcaption><b>2 GUNS</b>$99.95</figcaption>
+            </figure>
+
+            <span class="cta__plus" aria-hidden="true">+</span>
+
+            <figure class="cta__item">
+              <div class="cta__slot cta__slot--sm">
+                <!-- [[shipping-box.png — 600x600, transparent PNG]] -->
+                <span>shipping</span>
+              </div>
+              <figcaption><b>FREE</b>US Shipping</figcaption>
+            </figure>
           </div>
         </div>
-        <div class="pdp__thumbs">
-          <div class="pdp__thumb"></div><div class="pdp__thumb"></div><div class="pdp__thumb"></div>
-          <div class="pdp__thumb"></div><div class="pdp__thumb"></div>
+
+        <div class="cta__copy">
+          <h2 class="cta__heading">Up to 28% off<span>+ free shipping</span></h2>
+          <p class="cta__sub">You already own the cleaner. This is the part that puts it where the smell actually is. Free shipping, 30 days to send it back.</p>
+          <a class="cta__btn" href="/products/velahush-pet-odor-gun">Try it risk-free &rarr;</a>
+          <p class="cta__note">Pick your bundle on the next page. 30-day money-back guarantee.</p>
         </div>
-        <p style="font-size:13px;color:var(--muted);margin-top:10px">
-          [[5 gallery slots: hero · in-hand scale · misting a sofa · open reservoir · what is in the box]]
-        </p>
+
       </div>
+    </div>
 
-      <div class="pdp__info">
-        <!-- Source page shows "4.7/5 | 50,000+ Happy Pet Parents" here.
-             Do not reproduce a rating or a customer count you do not have.
-             Once Judge.me has real reviews, print the live average and count only. -->
-        <p class="pdp__rating">[[Rating strip — leave blank until Judge.me has real reviews]]</p>
-
-        <h1 class="pdp__title">VelaHush™ Pet Odor Gun</h1>
-        <span class="pdp__rule" aria-hidden="true"></span>
-
-        <ul class="pdp__bullets">
-          <li class="pdp__bullet"><span class="pdp__check">✓</span><span>Treats a whole room in about a minute, instead of one cushion at a time.</span></li>
-          <li class="pdp__bullet"><span class="pdp__check">✓</span><span>Mist fine enough to settle into fabric without soaking it. Dry in minutes.</span></li>
-          <li class="pdp__bullet"><span class="pdp__check">✓</span><span>Open reservoir. Fill it with any thin water-based solution you already trust.</span></li>
-          <li class="pdp__bullet"><span class="pdp__check">✓</span><span>Cordless and rechargeable. Works on car seats, carpet, crates, mattresses, curtains.</span></li>
-        </ul>
-
-        <!-- Bundle tiers. Margins on these are computed in PET-ODOR-GUN-STRATEGY.md Appendix E:
-             1 unit -> $35.02 contribution · 2 units -> $55.18 · 3 units -> $66.41
-             (formula C = 0.891P − 1.04·COGS − 2.89, COGS $14.90/unit).
-             Second-gun bundles carry the margin. Refills do not — keep refills off this page. -->
-        <label class="tier">
-          <input type="radio" name="tier" value="1">
-          <div class="tier__row"><span class="tier__name">1 Gun</span><span class="tier__price">$59.95</span></div>
-          <div class="tier__sub">One for the living room.</div>
-        </label>
-
-        <label class="tier tier--best">
-          <input type="radio" name="tier" value="2" checked>
-          <span class="tier__flag">Most popular</span>
-          <div class="tier__row"><span class="tier__name">2 Guns</span>
-            <span class="tier__price"><span class="tier__was">$119.90</span>$99.95</span></div>
-          <div class="tier__sub">$49.98 each. One stays in the house, one lives in the car.</div>
-        </label>
-
-        <label class="tier">
-          <input type="radio" name="tier" value="3">
-          <div class="tier__row"><span class="tier__name">3 Guns</span>
-            <span class="tier__price"><span class="tier__was">$179.85</span>$129.95</span></div>
-          <div class="tier__sub">$43.32 each. House, car, and one to give away.</div>
-        </label>
-
-        <a class="atc" id="pdp-link" href="/products/velahush-pet-odor-gun?variant=54286421786988">Get the 2-gun set · $99.95</a>
-
-        <div class="pills">
-          <span>Free US shipping</span><span>30-day returns</span><span>7-16 day delivery</span>
-        </div>
-
-        <div class="slot slot--warn" style="text-align:left">
-          <b>Still open</b>
-          Confirm what actually ships in the box. The PDP currently says "ships empty, no solution included",
-          which contradicts the bundle economics in Appendix E. Answer the "Does it come with solution?"
-          FAQ below once this is settled.
-        </div>
-      </div>
+    <div class="slot slot--warn">
+      <b>Check before publishing</b>
+      <strong>28%</strong> is the real saving on the 3-gun tier ($129.95 against 3 &times; $59.95). If you change the tier
+      prices, change this number and the badge. The gift figure on the left is a placeholder: give a real gift
+      and name it, or delete that <code>&lt;figure&gt;</code> and the two <code>+</code> signs around it. Do not
+      write "free gifts" plural until there is more than one.
     </div>
   </div>
 </section>
@@ -520,7 +517,7 @@ summary::-webkit-details-marker{display:none}
       <div class="faq__a"><p>It leaves the surface slightly damp, not wet. Because the mist is so fine, you are putting down a fraction of the liquid a trigger bottle would over the same area, and it dries in minutes. Hold it about 30cm back and keep the gun moving rather than resting on one spot.</p></div></details>
 
     <details class="faq__item"><summary class="faq__q">Does it come with solution?<span class="faq__icon" aria-hidden="true"></span></summary>
-      <div class="faq__a"><p>[[ANSWER THIS ACCURATELY — see the PDP note above. State exactly what is in the box: gun, charging cable, and however many bottles of solution, or none.]]</p></div></details>
+      <div class="faq__a"><p>[[ANSWER THIS ACCURATELY. State exactly what is in the box: gun, charging cable, and however many bottles of solution, or none.]]</p></div></details>
 
     <details class="faq__item"><summary class="faq__q">Can I use my own cleaner in it?<span class="faq__icon" aria-hidden="true"></span></summary>
       <div class="faq__a"><p>Yes, and that is the point of an open reservoir. Any thin water-based liquid works: enzyme cleaners, diluted white vinegar, plain water. Avoid bleach, anything oil-based, essential oils undiluted, and anything thick enough to clog a nozzle.</p></div></details>
@@ -587,18 +584,4 @@ document.querySelectorAll('.bb-item').forEach(function (d) {
   });
 });
 
-// Keep the ATC label in sync with the selected tier.
-var tiers = {
-  '1': { label: 'Get 1 gun · $59.95',      variant: '54286421754220' },
-  '2': { label: 'Get the 2-gun set · $99.95',  variant: '54286421786988' },
-  '3': { label: 'Get the 3-gun set · $129.95', variant: '54286421819756' }
-};
-document.querySelectorAll('.tier input').forEach(function (r) {
-  r.addEventListener('change', function () {
-    var t = tiers[r.value], a = document.getElementById('pdp-link');
-    if (!t || !a) return;
-    a.textContent = t.label;
-    a.href = '/products/velahush-pet-odor-gun?variant=' + t.variant;
-  });
-});
 </script>

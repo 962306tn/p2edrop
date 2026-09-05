@@ -1,0 +1,26 @@
+[phase3 11/14 layer-tree] 11-offer-cta
+Section  class="cta" id="buy-now"  bg=#FFFFFF, padding 56px (36px mobile), cols=[12]
+└── Col
+    └── Row  class="wrap"  width=1240px, align=center
+        └── Col
+            ├── Row  class="cta__card"  bg=#F3F1ED, radius 20px, padding 34px
+            │   └── Col
+            │       └── Row  class="cta__frame"  cols=[7,5] desktop / [12] mobile, border 1px dashed #C2CBD3, radius 14px, padding 34px 30px, gutter 36px
+            │           ├── Col (visual)  position=relative
+            │           │   ├── Row  class="cta__badge"  64x64, bg #7EA7B2, radius 50%, absolute top -6px right 4px
+            │           │   │   └── Col → Text "28%" 19px/700 #FFFFFF + Text "OFF" 10px uppercase #FFFFFF
+            │           │   └── Row  class="cta__items"  cols=[3,1,4,1,3] fit, vertical-align end
+            │           │       ├── Col → Row.slot 92x110 dashed #7EA7B2 → Col → Text "free gift"  ;  Text "<strong>FREE</strong><br>[[Your gift]]"
+            │           │       ├── Col → Text "+"  #7EA7B2 20px/600
+            │           │       ├── Col → Row.slot 150x210 dashed #7EA7B2 → Col → Text "hero-white.jpg"  ;  Text "<strong>2 GUNS</strong><br>$99.95"
+            │           │       ├── Col → Text "+"  #7EA7B2 20px/600
+            │           │       └── Col → Row.slot 92x110 dashed #7EA7B2 → Col → Text "shipping"  ;  Text "<strong>FREE</strong><br>US Shipping"
+            │           └── Col (copy)  centred
+            │               ├── Heading  class="cta__heading"  level=2  "UP TO 28% OFF" + span "+ FREE SHIPPING" in #7EA7B2 on its own line  Outfit 42px/32px, 600
+            │               ├── Text     class="cta__sub"   16px #374151 centred, mb 20px
+            │               ├── Button   class="cta__btn"   bg #17243A, #FFFFFF, radius 10px, padding 17px 46px, open-page /products/velahush-pet-odor-gun
+            │               └── Text     class="cta__note"  13px #6B7280 centred, mt 14px
+            └── Row  class="slot slot--warn"  bg #FCF3E8, border 2px dashed #C9761F, radius 10px → Col → Text "CHECK BEFORE PUBLISHING" + Text body
+
+[input] section.html verbatim — 6801 bytes
+[self-check] FINDING — detect ran clean on layout (risk=low, 0 dropped elements) but concatenated each figcaption's block-level <b> into the line under it ("FREE[[Your gift]]", "2 GUNS$99.95", "FREEUS Shipping") and resolved the warn slot border to the base .slot #7EA7B2 instead of the .slot--warn override #C9761F; build correction: author each caption as one Text carrying "<strong>LABEL</strong><br>value" so the label keeps its own line as display:block gives it in the source, and set the warn Row border to the cascaded #C9761F.

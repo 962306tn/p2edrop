@@ -17,3 +17,9 @@
 [phase3 14/14] 14-reviews-and-footer-> 636026450570380231
 [phase3 setup] themePageID=636024165547115369 handle=7-reasons-pet-odor-gun type=GP_STATIC status=DRAFT
 [phase4] draft handed back — 14 sections ordered; editor + preview links returned. Page NOT published (this flow never publishes).
+[phase3 11/14 revised] 11-product-offer DELETED (636026132826686180) -> replaced by 11-offer-cta (636028819395838919)
+  reason: user asked for the inline PDP block to be swapped for a single offer CTA card modelled on a reference design.
+  removed with it: the 3 bundle tiers, the sticky gallery + 5 thumbnails, the 4-bullet list, the rating strip and the
+  in-box warn note. Tier selection now happens on the product page the CTA button links to.
+  edit patch: advanced.pos rejected an object value (schema allows only the position keyword), so the 28% badge is
+  right-aligned with a -24px bottom margin instead of absolutely positioned; visually equivalent, no overlap risk.
