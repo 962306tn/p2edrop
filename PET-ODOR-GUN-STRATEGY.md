@@ -1694,3 +1694,52 @@ Giả định 30% khách chọn gói 2 máy.
 3. **Hỏi supplier dòng 10 bảng 8.1**: máy có dùng được dung dịch enzyme gốc nước của hãng khác không? Nếu CÓ → đưa câu ở E.4 lên PDP và vào ad copy retargeting.
 
 *Phụ lục E hoàn thành 03/09/2026.*
+
+---
+
+# PHỤ LỤC F — NHẬT KÝ THIẾT LẬP STORE (03/09/2026)
+
+Store: `yxciec-f7.myshopify.com` · Thực hiện qua Shopify Admin API.
+
+## F.1 ✅ ĐÃ LÀM XONG
+
+| # | Việc | Chi tiết |
+|---|---|---|
+| 1 | **Tạo trang Shipping Policy** (`/pages/shipping-policy`) | Tiếng Anh. Ghi rõ **10–16 ngày làm việc**, tracking trong 72h, ship từ đối tác nước ngoài, hàng hỏng → gửi ảnh → thay mới miễn phí không cần trả hàng, quá 30 ngày chưa nhận → hoàn tiền hoặc gửi lại |
+| 2 | **Tạo trang Terms of Service** (`/pages/terms-of-service`) | 🔑 Có mục **"What our product does and does not do"** ghi thẳng: *"It is not a disinfectant, sanitizer, or pesticide. We make no claim that it kills bacteria, viruses, germs, mites…"* → đây là lá chắn pháp lý cho rủi ro EPA/FIFRA ở PHẦN 8. Cũng có câu khuyên đi khám thú y nếu tè bậy là hành vi mới |
+| 3 | **Viết lại trang Returns & Refund Policy** | 🔴 Trang cũ viết **toàn bộ về "Doggie Stylz Mobility Support Harness"** — sai sản phẩm và mang **tên thương hiệu cũ**. Đúng lỗi tôi đã cảnh báo ở PHẦN 9. Đã thay bằng chính sách 30 ngày cho Nosewise |
+| 4 | **Sửa trang Contact** | Tiêu đề `Liên hệ` → `Contact Us`; **nội dung trước đó hoàn toàn trống**. Đã thêm email, giờ hỗ trợ, 4 câu FAQ giảm tải CSKH. Giữ nguyên handle `/pages/contact` để không vỡ link |
+| 5 | **Ẩn 2 trang rác** | `mobility-guide` ("7 reasons dog parents reach for full-body support") và `advertorial-listicle-jul-20-23-43-36` — nội dung về đai nâng chó, đang **published**. Đã chuyển sang unpublished (đảo ngược được bằng 1 click) |
+| 6 | 🔴 **Sửa lỗi phí ship nghiêm trọng** | Mỹ đang nằm trong zone **"International"** với phí **500.000 VND/đơn**. Đã tách **zone "United States"** riêng, phí **$0.00 USD**, tên hiển thị *"Free Shipping (10-16 business days)"*. Đã gỡ US khỏi zone International |
+| 7 | **Viết lại menu** | Main: Home · Shop · Track Order · Contact Us (trước là `Trang chủ`/`Danh mục`/`Liên hệ`). Footer: **trước chỉ có Search + privacy opt-out, không có link chính sách nào** → giờ đủ 8 mục gồm cả 4 trang chính sách |
+
+## F.2 🔴 CHỈ BẠN LÀM ĐƯỢC — API KHÔNG CHO PHÉP
+
+| # | Việc | Hiện trạng quan sát được | Đường dẫn trong Admin |
+|---|---|---|---|
+| **F0** | 🔴🔴 **NGÔN NGỮ MẶC ĐỊNH LÀ TIẾNG VIỆT** | `shopLocales`: **`vi` = primary**, `en` = secondary. Nghĩa là khách Mỹ bấm vào quảng cáo sẽ **vào thẳng bản tiếng Việt**. Mọi URL tiếng Anh đều có tiền tố `/en`. **Đây là lỗi lớn nhất tìm thấy hôm nay** | Settings → Languages → đặt English làm mặc định |
+| F1 | **Tên store là `all vibes space`** | Không khớp sản phẩm `Nosewise™ Pet Odor Gun`. Tên này hiện ở tab trình duyệt, email xác nhận, checkout | Settings → Store details |
+| F2 | **Múi giờ `Asia/Bangkok`** | Báo cáo đơn hàng lệch 11–14h so với dữ liệu Meta | Settings → Store details |
+| F3 | 🔴 **Privacy Policy đang bằng TIẾNG VIỆT** | Tôi không có scope `write_legal_policies` nên không sửa được. Đây là **chính sách gốc hiện ở checkout** | Đổi ngôn ngữ mặc định sang English trước (F0), rồi Settings → Policies → Privacy → **"Replace with template"** để Shopify sinh bản tiếng Anh đầy đủ. Cách này tốt hơn tôi tự viết |
+| F4 | **Chưa có custom domain** | Vẫn `.myshopify.com` | Settings → Domains |
+| F5 | **Cổng thanh toán** | Không đọc/cấu hình được qua API | Settings → Payments |
+| F6 | **Thuế: `taxesIncluded = true`** | Giá đang được coi là **đã bao gồm thuế**. Bán tại Mỹ thường ngược lại (thuế cộng ở checkout theo bang) | Settings → Taxes and duties |
+| F7 | **Zone "Domestic" vẫn là Việt Nam, giá VND** | Vô hại nếu không bán VN, nhưng nên xoá cho gọn | Settings → Shipping |
+| F8 | **Sản phẩm đang ở trạng thái DRAFT, chưa có ảnh nào** | `Nosewise™ Pet Odor Gun` — `media: []` | Products |
+
+## F.3 ⚠️ BỐN CHỖ TRONG NỘI DUNG TÔI VIẾT CẦN BẠN SỬA
+
+| # | Chỗ cần sửa | Vì sao |
+|---|---|---|
+| 1 | **`support@nosewise.com`** xuất hiện ở **4 trang** (Shipping, Returns, Terms, Contact) | Đây là địa chỉ **giả định** vì bạn chưa có domain. Phải đăng ký domain + tạo hộp thư này, hoặc find-replace bằng email thật. **Tôi cố ý không dùng Gmail cá nhân của bạn** trên trang công khai |
+| 2 | Trang Contact có dòng **`⚠ ADD YOUR REGISTERED BUSINESS MAILING ADDRESS HERE BEFORE LAUNCH ⚠`** | Meta và FTC yêu cầu địa chỉ liên hệ thật. Tôi không tự điền địa chỉ nhà bạn ở Hà Nội lên trang công khai — đó là quyết định của bạn |
+| 3 | 🔴 Mục **"Import duties"** trong Shipping Policy viết rằng thuế nhập khẩu **đã bao gồm trong giá** | **PHẢI xác minh với supplier rằng họ giao theo điều kiện DDP.** Mỹ đã siết ngưỡng miễn thuế de minimis với hàng Trung Quốc — nếu supplier **không** DDP, khách sẽ bị đòi thuế khi nhận hàng, và bạn sẽ ăn chargeback hàng loạt. Nếu không chắc, **xoá mục này** |
+| 4 | Tôi dùng **guarantee 30 ngày** (trang cũ ghi 60 ngày) | Chọn 30 để khớp ad copy ở PHẦN 6/7. 60 ngày là offer mạnh hơn — **nếu đổi thì phải đổi cả trên ads** (lỗi P1-9: chính sách mâu thuẫn với quảng cáo) |
+
+## F.4 💡 Một phát hiện phụ đáng theo đuổi
+
+🟢 Store có **delivery profile tên `Zendrop`** (chưa cấu hình location group nào) → bạn đã cài app Zendrop.
+
+👉 Zendrop có kho tại Mỹ cho một số SKU. **Hãy kiểm tra xem súng phun này có nguồn hàng kho Mỹ trên Zendrop không.** Nếu có, thời gian giao rút từ 10–16 ngày xuống 3–5 ngày — điều này xoá gần hết rủi ro ở Phụ lục C, cho phép bạn dùng dòng *"Ships from the US — arrives in 3–5 days"* làm đòn bẩy chuyển đổi ngay từ tuần 1, thay vì phải chờ đến mốc 100–200 đơn.
+
+*Phụ lục F hoàn thành 03/09/2026.*
