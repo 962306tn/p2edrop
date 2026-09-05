@@ -1,0 +1,32 @@
+<style>
+:root{
+  --max:1240px; --content:860px; --gutter:16px;
+  --navy:#17243A; --blue:#7EA7B2; --cloud:#F3F1ED;
+  --soft:#EAF2F4; --badge:#DDEAEE;
+  --text:#17243A; --soft-text:#374151; --muted:#6B7280; --border:#E5E7EB;
+  --cta:#17243A; --cta-hover:#0C0D0F;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--text);
+  font-family:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+@media(max-width:1439px){:root{--gutter:60px}}
+@media(max-width:1024px){:root{--gutter:40px}}
+@media(max-width:768px){:root{--gutter:24px}body{font-size:16px}}
+@media(max-width:480px){:root{--gutter:16px}}
+/* ---- offer bar ---- */
+.bar{background:var(--navy);color:#fff;text-align:center;padding:10px 16px;font-size:14px;
+  position:sticky;top:0;z-index:50}
+.bar strong{font-weight:600;letter-spacing:.04em}
+.bar a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.li__body{color:var(--soft-text)}
+</style>
+
+<!-- ========== 1. OFFER BAR ==========
+     Source page runs a per-visitor JS countdown ("2 hours" reset on every load).
+     That is a false urgency representation; it is deliberately NOT reproduced.
+     Use a real, dated promotion or leave this static line. -->
+<div class="bar">
+  <strong>FREE US SHIPPING</strong> on every order &nbsp;·&nbsp; <a href="#buy-now">See the bundles</a>
+</div>

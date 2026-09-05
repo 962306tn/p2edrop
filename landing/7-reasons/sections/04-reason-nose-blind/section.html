@@ -1,0 +1,44 @@
+<style>
+:root{
+  --max:1240px; --content:860px; --gutter:16px;
+  --navy:#17243A; --blue:#7EA7B2; --cloud:#F3F1ED;
+  --soft:#EAF2F4; --badge:#DDEAEE;
+  --text:#17243A; --soft-text:#374151; --muted:#6B7280; --border:#E5E7EB;
+  --cta:#17243A; --cta-hover:#0C0D0F;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--text);
+  font-family:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.inner{max-width:var(--content);margin:0 auto}
+h1,h2,h3{font-family:"Outfit",Georgia,serif;font-weight:600;letter-spacing:-.01em;line-height:1.2;margin:0}
+p{margin:0 0 1em}
+@media(max-width:1439px){:root{--gutter:60px}}
+@media(max-width:1024px){:root{--gutter:40px}}
+@media(max-width:768px){:root{--gutter:24px}body{font-size:16px}}
+@media(max-width:480px){:root{--gutter:16px}}
+/* ---- listicle ---- */
+.li{padding:40px 0}
+.li__number{width:30px;height:30px;border-radius:50%;background:var(--badge);
+  display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;margin-bottom:14px}
+.li__heading{font-size:29px;margin-bottom:12px}
+.li__rule{display:block;width:64px;height:3px;background:var(--blue);border-radius:2px;margin-bottom:20px}
+.li__body{color:var(--soft-text)}
+@media(max-width:768px){.li{padding:28px 0}.li__heading{font-size:23px}}
+.foot .inner{text-align:center}
+</style>
+
+<!-- REASON 1 -->
+<section class="li">
+  <div class="wrap"><div class="inner">
+    <div class="li__number" aria-hidden="true">1</div>
+    <h2 class="li__heading">You cannot smell your own house. Everyone who walks in can.</h2>
+    <span class="li__rule" aria-hidden="true"></span>
+    <div class="li__body">
+      <p>Most people do not go looking for this. They find out sideways: a friend pauses in the doorway, a relative asks whether the dog has been on the sofa, someone cracks a window in January.</p>
+      <p>The problem with fixing it by nose is that yours has been switched off for months. You end up treating the one spot you already know about, because that is the only spot you have evidence for. Meanwhile the smell is spread evenly across every soft surface in the room, which is exactly why guests notice it as a room, not a stain.</p>
+      <p>Treating by area instead of by stain is the whole shift. It is also the reason a trigger bottle was never going to work.</p>
+    </div>
+  </div></div>
+</section>

@@ -1,0 +1,73 @@
+<style>
+:root{
+  --max:1240px; --content:860px; --gutter:16px;
+  --navy:#17243A; --blue:#7EA7B2; --cloud:#F3F1ED;
+  --soft:#EAF2F4; --badge:#DDEAEE;
+  --text:#17243A; --soft-text:#374151; --muted:#6B7280; --border:#E5E7EB;
+  --cta:#17243A; --cta-hover:#0C0D0F;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--text);
+  font-family:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.inner{max-width:var(--content);margin:0 auto}
+h1,h2,h3{font-family:"Outfit",Georgia,serif;font-weight:600;letter-spacing:-.01em;line-height:1.2;margin:0}
+p{margin:0 0 1em}
+@media(max-width:1439px){:root{--gutter:60px}}
+@media(max-width:1024px){:root{--gutter:40px}}
+@media(max-width:768px){:root{--gutter:24px}body{font-size:16px}}
+@media(max-width:480px){:root{--gutter:16px}}
+/* ---- placeholder slot ---- */
+.slot{border:2px dashed var(--blue);background:var(--soft);border-radius:10px;
+  padding:22px 18px;text-align:center;color:#4a6b74;font-size:13px;line-height:1.5;margin:22px 0}
+.slot b{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#2d5560;margin-bottom:6px}
+.slot code{background:#fff;border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-size:12px}
+.slot--warn{border-color:#C9761F;background:#FCF3E8;color:#7A4A12}
+.slot--warn b{color:#8A4F0B}
+.bb-item__panel .slot{margin:0 0 16px}
+/* ---- listicle ---- */
+.li{padding:40px 0}
+.li__number{width:30px;height:30px;border-radius:50%;background:var(--badge);
+  display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;margin-bottom:14px}
+.li__heading{font-size:29px;margin-bottom:12px}
+.li__rule{display:block;width:64px;height:3px;background:var(--blue);border-radius:2px;margin-bottom:20px}
+.li__body{color:var(--soft-text)}
+@media(max-width:768px){.li{padding:28px 0}.li__heading{font-size:23px}}
+/* cost table */
+.cost{border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:24px;font-size:15px}
+.cost div{display:grid;grid-template-columns:1fr auto;gap:12px;padding:13px 16px;border-bottom:1px solid var(--border)}
+.cost div:last-child{border-bottom:0}
+.cost .cost--us{background:var(--soft);font-weight:600}
+.cost span:last-child{white-space:nowrap;font-variant-numeric:tabular-nums}
+.foot .inner{text-align:center}
+</style>
+
+<!-- REASON 7 — cost comparison -->
+<section class="li">
+  <div class="wrap"><div class="inner">
+    <div class="li__number" aria-hidden="true">7</div>
+    <h2 class="li__heading">Less than one cleaning visit, and it does not run out.</h2>
+    <span class="li__rule" aria-hidden="true"></span>
+    <div class="li__body">
+      <p>Nobody buys one bottle of odour spray. They buy it again every few weeks, for years, and never add it up.</p>
+    </div>
+
+    <!-- Numbers below: the VelaHush row is your real price. The comparison rows are US market
+         ranges — verify each against a live source before publishing and keep the citation.
+         Do not publish a comparison figure you cannot show a receipt for. -->
+    <div class="cost">
+      <div><span>Enzyme spray, replaced every 3 weeks</span><span>[[$__]] / yr</span></div>
+      <div><span>Plug-in air fresheners, 3 rooms</span><span>[[$__]] / yr</span></div>
+      <div><span>Professional upholstery clean, one visit</span><span>[[$__]]</span></div>
+      <div><span>Carpet clean, one visit</span><span>[[$__]]</span></div>
+      <div class="cost--us"><span>VelaHush Pet Odor Gun, one time</span><span>$59.95</span></div>
+    </div>
+
+    <div class="slot slot--warn"><b>Fill or delete these four rows</b>
+      A price comparison is a factual claim. Either put a real, sourced figure in each
+      <code>[[$__]]</code> and keep the source in your records, or delete the row.
+      An invented "you are spending $340 a year" is an unsubstantiated claim under FTC advertising rules
+      and a Meta rejection risk.</div>
+  </div></div>
+</section>

@@ -1,0 +1,7 @@
+[phase3 6/14 dom-tree] 06-reason-whole-room
+section.li [padding 40px 0 / 28px 0 mobile] > div.wrap > div.inner [max-width 860px]
+ ├── div.li__number  #text: "3"  [30x30; radius 50%; bg #DDEAEE; 13px; 600; mb 14px]
+ ├── h2.li__heading  #text: "A whole room in about a minute, not a cushion at a time."  [Outfit 29px/23px mobile; 600; mb 12px]
+ ├── span.li__rule [64x3px; bg #7EA7B2; radius 2px; mb 20px]  (decorative accent rule)
+ ├── div.li__body [#374151] > 2 x p  (body copy, each mb 1em)
+ └── trailing block: warn slot: review grid, leave empty

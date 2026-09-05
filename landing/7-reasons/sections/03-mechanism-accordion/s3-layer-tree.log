@@ -1,0 +1,20 @@
+[phase3 3/14 layer-tree] 03-mechanism-accordion
+Section  class="bb"  bg=#F3F1ED, padding 56px (36px mobile), cols=[12]
+└── Col
+    └── Row  class="inner"  width=860px, align=center
+        └── Col
+            ├── Heading  class="bb-heading"  level=2  text="Why the smell keeps coming back after you clean"  Outfit 31px/24px, 600, centred
+            ├── Row  class="bb-rule"  64x3px, bg=#7EA7B2, radius 2px, align=center, mt 14px
+            ├── Text  class="bb-sub"  text="Tap each to see what is actually happening"  15px #6B7280 centred, mt 14px, mb 32px
+            └── Accordion  itemCount=5, expandItem=false, expandedMode=single, iconPosition=right
+                │  header bg #FFFFFF, border 1px #E5E7EB all, radius 10px, padding 18px, item gap 10px
+                ├── AccordionItem "01 The smell is not in the air. It is in the fabric."
+                │   └── Col → [Row.slot → Col → Text "IMAGE SLOT" + Text "<code>mechanism-fiber.jpg</code> — macro shot…", Text body]
+                ├── AccordionItem "02 Your nose stopped reporting it about two weeks ago."     → Col → Text body
+                ├── AccordionItem "03 A trigger bottle sprays droplets. Droplets sit on top."
+                │   └── Col → [Row.slot → Col → Text "IMAGE SLOT" + Text "<code>mechanism-droplet-vs-mist.jpg</code> — side by side…", Text body]
+                ├── AccordionItem "04 More liquid is not more coverage. It is a wet cushion."  → Col → Text body
+                └── AccordionItem "05 A fine mist covers more and dries faster."               → Col → Text body
+
+[input] section.html verbatim — 6960 bytes
+[self-check] FINDING — detect swallowed the .bb__head block into the Accordion as a sixth item (itemCount=6, item 1 titled with the H2 and holding the subhead as its panel), which would hide the section heading behind a click and leave five real items mis-numbered; build correction: lift the H2, the 64x3 accent rule and the subhead out as siblings above the Accordion and author exactly 5 AccordionItems, carrying each number badge into settings.childItem as the inline styled span the source renders and setting expandItem=false since every <details> loads closed.

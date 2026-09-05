@@ -1,0 +1,7 @@
+[phase3 4/14 dom-tree] 04-reason-nose-blind
+section.li [padding 40px 0 / 28px 0 mobile] > div.wrap > div.inner [max-width 860px]
+ ├── div.li__number  #text: "1"  [30x30; radius 50%; bg #DDEAEE; 13px; 600; mb 14px]
+ ├── h2.li__heading  #text: "You cannot smell your own house. Everyone who walks in can."  [Outfit 29px/23px mobile; 600; mb 12px]
+ ├── span.li__rule [64x3px; bg #7EA7B2; radius 2px; mb 20px]  (decorative accent rule)
+ ├── div.li__body [#374151] > 3 x p  (body copy, each mb 1em)
+ └── trailing block: none

@@ -1,0 +1,18 @@
+[phase3 14/14 layer-tree] 14-reviews-and-footer
+Section  bg=#F3F1ED, padding 40px (28px mobile), cols=[12]
+└── Col
+    └── Row  width=860px, align=center
+        └── Col
+            └── Row  class="slot slot--warn"  bg #FCF3E8, border 2px dashed #C9761F, radius 10px
+                └── Col -> Text "REVIEW WIDGET MOUNT POINT" + Text body
+Section  class="foot"  bg=#17243A, padding 36px, cols=[12]
+└── Col
+    └── Row  width=860px, align=center
+        └── Col
+            ├── Text  EPA/FIFRA disclaimer  13px #C8D2DE centred
+            └── Text  "All Vibes Pet · support@allvibespet.com" (inline mailto) + address placeholder  13px #C8D2DE centred
+
+[note] built as ONE page section holding two full-width Rows (review mount on #F3F1ED, footer on #17243A), since a GemPages Section carries a single background and the two blocks need different ones.
+
+[input] section.html verbatim — 2820 bytes
+[self-check] FINDING — detect dropped the decorative accent rule and split the inline <strong>/<a> runs into sibling Text nodes, and for the FAQ it folded the heading block and the accordion into one wrapper Row; build correction: author the rule as a Line element, merge each inline run back into a single Text carrying its <strong>/<a> verbatim, and keep the heading, the rule and the Accordion as siblings so no question is hidden behind another.

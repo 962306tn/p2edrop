@@ -1,0 +1,10 @@
+[phase3 12/14 layer-tree] 12-stock-notice
+Section  bg=#FFFFFF, padding 0, cols=[12]
+└── Col
+    └── Row  class="stock"  width=860px, align=center, bg=#FCF1F1, border 1px #E3C4C4, radius 12px, padding 20px 22px, margin 36px auto
+        └── Col
+            ├── Heading  level=3  "One thing worth knowing"  Outfit 17px, 600, #7A2E2E, mb 8px
+            └── Text  "VelaHush is sold here and nowhere else…return window on it."  15px #7A2E2E, mb 0
+
+[input] section.html verbatim — 1678 bytes
+[self-check] FINDING — detect dropped the decorative accent rule and split the inline <strong>/<a> runs into sibling Text nodes, and for the FAQ it folded the heading block and the accordion into one wrapper Row; build correction: author the rule as a Line element, merge each inline run back into a single Text carrying its <strong>/<a> verbatim, and keep the heading, the rule and the Accordion as siblings so no question is hidden behind another.

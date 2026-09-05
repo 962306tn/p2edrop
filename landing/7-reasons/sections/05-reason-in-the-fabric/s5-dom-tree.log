@@ -1,0 +1,7 @@
+[phase3 5/14 dom-tree] 05-reason-in-the-fabric
+section.li.li--alt [bg var(--cloud)=#F3F1ED] [padding 40px 0 / 28px 0 mobile] > div.wrap > div.inner [max-width 860px]
+ ├── div.li__number  #text: "2"  [30x30; radius 50%; bg #DDEAEE; 13px; 600; mb 14px]
+ ├── h2.li__heading  #text: "The smell is not on the couch. It is in it."  [Outfit 29px/23px mobile; 600; mb 12px]
+ ├── span.li__rule [64x3px; bg #7EA7B2; radius 2px; mb 20px]  (decorative accent rule)
+ ├── div.li__body [#374151] > 2 x p  (body copy, each mb 1em)
+ └── trailing block: slot misting-sofa.jpg

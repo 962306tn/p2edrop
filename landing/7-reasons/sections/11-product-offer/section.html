@@ -1,0 +1,143 @@
+<style>
+:root{
+  --max:1240px; --content:860px; --gutter:16px;
+  --navy:#17243A; --blue:#7EA7B2; --cloud:#F3F1ED;
+  --soft:#EAF2F4; --badge:#DDEAEE;
+  --text:#17243A; --soft-text:#374151; --muted:#6B7280; --border:#E5E7EB;
+  --cta:#17243A; --cta-hover:#0C0D0F;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--text);
+  font-family:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+h1,h2,h3{font-family:"Outfit",Georgia,serif;font-weight:600;letter-spacing:-.01em;line-height:1.2;margin:0}
+p{margin:0 0 1em}
+a{color:inherit}
+img{max-width:100%;display:block}
+@media(max-width:1439px){:root{--gutter:60px}}
+@media(max-width:1024px){:root{--gutter:40px}}
+@media(max-width:768px){:root{--gutter:24px}body{font-size:16px}}
+@media(max-width:480px){:root{--gutter:16px}}
+/* ---- placeholder slot ---- */
+.slot{border:2px dashed var(--blue);background:var(--soft);border-radius:10px;
+  padding:22px 18px;text-align:center;color:#4a6b74;font-size:13px;line-height:1.5;margin:22px 0}
+.slot b{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#2d5560;margin-bottom:6px}
+.slot code{background:#fff;border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-size:12px}
+.slot--warn{border-color:#C9761F;background:#FCF3E8;color:#7A4A12}
+.slot--warn b{color:#8A4F0B}
+.bb-item__panel .slot{margin:0 0 16px}
+.li__body{color:var(--soft-text)}
+/* ---- PDP ---- */
+.pdp{padding:56px 0;background:var(--cloud);scroll-margin-top:60px}
+.pdp__grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+.pdp__gallery{position:sticky;top:70px}
+.pdp__main{aspect-ratio:1/1;background:#fff;border-radius:14px;border:1px solid var(--border)}
+.pdp__thumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:10px}
+.pdp__thumb{aspect-ratio:1/1;background:#fff;border:1px solid var(--border);border-radius:8px}
+.pdp__rating{font-size:14px;color:var(--muted);margin-bottom:8px}
+.pdp__title{font-size:31px;margin-bottom:10px}
+.pdp__rule{display:block;width:64px;height:3px;background:var(--blue);border-radius:2px;margin-bottom:18px}
+.pdp__bullets{list-style:none;margin:0 0 22px;padding:0}
+.pdp__bullet{display:flex;gap:10px;align-items:flex-start;margin-bottom:9px;font-size:16px}
+.pdp__check{flex:0 0 20px;width:20px;height:20px;border-radius:50%;background:var(--badge);
+  display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:var(--navy);margin-top:2px}
+.tier{display:block;border:2px solid var(--border);border-radius:12px;padding:16px;margin-bottom:10px;
+  cursor:pointer;background:#fff;position:relative}
+.tier--best{border-color:var(--blue)}
+.tier input{position:absolute;opacity:0}
+.tier__flag{position:absolute;top:-11px;right:14px;background:var(--blue);color:#fff;font-size:11px;
+  letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:20px;font-weight:600}
+.tier__row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.tier__name{font-weight:600;font-size:17px}
+.tier__price{font-weight:600;font-size:19px;white-space:nowrap}
+.tier__sub{font-size:14px;color:var(--muted);margin-top:3px}
+.tier__was{color:var(--muted);text-decoration:line-through;font-weight:400;font-size:15px;margin-right:6px}
+.atc{display:block;width:100%;background:var(--cta);color:#fff;border:0;border-radius:10px;
+  padding:17px;font-size:17px;font-weight:600;cursor:pointer;margin-top:8px;font-family:inherit;
+  text-align:center;text-decoration:none}
+.atc:hover{background:var(--cta-hover)}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;font-size:13px;color:var(--muted)}
+.pills span{border:1px solid var(--border);border-radius:20px;padding:5px 12px;background:#fff}
+@media(max-width:900px){.pdp__grid{grid-template-columns:1fr;gap:26px}.pdp__gallery{position:static}}
+@media(max-width:768px){.pdp{padding:36px 0}.pdp__title{font-size:25px}}
+</style>
+
+<!-- ========== 5. INLINE PDP ========== -->
+<section class="pdp" id="buy-now">
+  <div class="wrap">
+    <div class="pdp__grid">
+
+      <div class="pdp__gallery">
+        <div class="pdp__main">
+          <div class="slot" style="margin:0;height:100%;display:flex;flex-direction:column;justify-content:center">
+            <b>Hero image</b><code>hero-white.jpg</code><br>Gun on Soft Cloud #F3F1ED, 3/4 angle, 1400x1400
+            <!-- <img src="/cdn/shop/files/hero-white.jpg" alt="VelaHush Pet Odor Gun" width="1400" height="1400"> -->
+          </div>
+        </div>
+        <div class="pdp__thumbs">
+          <div class="pdp__thumb"></div><div class="pdp__thumb"></div><div class="pdp__thumb"></div>
+          <div class="pdp__thumb"></div><div class="pdp__thumb"></div>
+        </div>
+        <p style="font-size:13px;color:var(--muted);margin-top:10px">
+          [[5 gallery slots: hero · in-hand scale · misting a sofa · open reservoir · what is in the box]]
+        </p>
+      </div>
+
+      <div class="pdp__info">
+        <!-- Source page shows "4.7/5 | 50,000+ Happy Pet Parents" here.
+             Do not reproduce a rating or a customer count you do not have.
+             Once Judge.me has real reviews, print the live average and count only. -->
+        <p class="pdp__rating">[[Rating strip — leave blank until Judge.me has real reviews]]</p>
+
+        <h1 class="pdp__title">VelaHush™ Pet Odor Gun</h1>
+        <span class="pdp__rule" aria-hidden="true"></span>
+
+        <ul class="pdp__bullets">
+          <li class="pdp__bullet"><span class="pdp__check">✓</span><span>Treats a whole room in about a minute, instead of one cushion at a time.</span></li>
+          <li class="pdp__bullet"><span class="pdp__check">✓</span><span>Mist fine enough to settle into fabric without soaking it. Dry in minutes.</span></li>
+          <li class="pdp__bullet"><span class="pdp__check">✓</span><span>Open reservoir. Fill it with any thin water-based solution you already trust.</span></li>
+          <li class="pdp__bullet"><span class="pdp__check">✓</span><span>Cordless and rechargeable. Works on car seats, carpet, crates, mattresses, curtains.</span></li>
+        </ul>
+
+        <!-- Bundle tiers. Margins on these are computed in PET-ODOR-GUN-STRATEGY.md Appendix E:
+             1 unit -> $35.02 contribution · 2 units -> $55.18 · 3 units -> $66.41
+             (formula C = 0.891P − 1.04·COGS − 2.89, COGS $14.90/unit).
+             Second-gun bundles carry the margin. Refills do not — keep refills off this page. -->
+        <label class="tier">
+          <input type="radio" name="tier" value="1">
+          <div class="tier__row"><span class="tier__name">1 Gun</span><span class="tier__price">$59.95</span></div>
+          <div class="tier__sub">One for the living room.</div>
+        </label>
+
+        <label class="tier tier--best">
+          <input type="radio" name="tier" value="2" checked>
+          <span class="tier__flag">Most popular</span>
+          <div class="tier__row"><span class="tier__name">2 Guns</span>
+            <span class="tier__price"><span class="tier__was">$119.90</span>$99.95</span></div>
+          <div class="tier__sub">$49.98 each. One stays in the house, one lives in the car.</div>
+        </label>
+
+        <label class="tier">
+          <input type="radio" name="tier" value="3">
+          <div class="tier__row"><span class="tier__name">3 Guns</span>
+            <span class="tier__price"><span class="tier__was">$179.85</span>$129.95</span></div>
+          <div class="tier__sub">$43.32 each. House, car, and one to give away.</div>
+        </label>
+
+        <a class="atc" id="pdp-link" href="/products/velahush-pet-odor-gun?variant=54286421786988">Get the 2-gun set · $99.95</a>
+
+        <div class="pills">
+          <span>Free US shipping</span><span>30-day returns</span><span>7-16 day delivery</span>
+        </div>
+
+        <div class="slot slot--warn" style="text-align:left">
+          <b>Still open</b>
+          Confirm what actually ships in the box. The PDP currently says "ships empty, no solution included",
+          which contradicts the bundle economics in Appendix E. Answer the "Does it come with solution?"
+          FAQ below once this is settled.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

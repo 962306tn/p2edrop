@@ -1,0 +1,20 @@
+[phase3 2/14 layer-tree] 02-article-header
+Section  class="ah"  bg=#FFFFFF, padding 64px/40px (36px/28px mobile), cols=[12]
+└── Col
+    └── Row  width=860px, align=center, cols=[12]
+        └── Col
+            ├── Heading  class="ah__heading"  level=1  text="7 Reasons Pet Owners Who Buy Odor Spray By The Case Are Switching To A Misting Gun"  Outfit 40px/29px, 600, ls -.01em, lh 120%, mb 18px
+            ├── Text  class="ah__lead"  text="The smell still goes…every three weeks."  italic 19px/17px #374151, mb 22px
+            ├── Row  class="ah__note"  bg=#EAF2F4, border-left 4px #7EA7B2, radius 0/8/8/0, padding 16px 18px, mb 26px
+            │   └── Col
+            │       └── Text  text="<strong>Note:</strong> This is not a stronger cleaner…one stain on it."  16px #374151
+            ├── Row  class="ah__byline"  border-top 1px #E5E7EB, padding-top 18px, mb 22px
+            │   └── Col
+            │       └── Text  text="[[AUTHOR NAME]] · [[MONTH YEAR]]"  14px #6B7280, name in #17243A/600
+            └── Row  class="slot slot--warn"  bg=#FCF3E8, border 2px dashed #C9761F, radius 10px, padding 22px 18px
+                └── Col
+                    ├── Text  text="BYLINE DECISION REQUIRED"  12px uppercase ls .08em #8A4F0B, centred
+                    └── Text  text="The source page bylines "By Sarah"…needs no photo."  13px #7A4A12, centred, inline <code>.ah__byline</code>
+
+[input] section.html verbatim — 3979 bytes
+[self-check] FINDING — detect split the note box, the byline and the warn slot into loose sibling Text fragments (6 where the source has 3 semantic units), resolved the warn slot's border to the base .slot #7EA7B2 instead of the .slot--warn override #C9761F, and dropped 4 decorative/empty nodes (avatar div, divider span); build correction: merge each unit into one Text carrying its inline <strong>/<code> verbatim per Text._comments.setting.text, set the warn Row border to the cascaded #C9761F, and keep the avatar and divider dropped since both are empty decorative boxes the merchant replaces with a real author photo.

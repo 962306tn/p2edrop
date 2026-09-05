@@ -1,0 +1,86 @@
+<style>
+:root{
+  --max:1240px; --content:860px; --gutter:16px;
+  --navy:#17243A; --blue:#7EA7B2; --cloud:#F3F1ED;
+  --soft:#EAF2F4; --badge:#DDEAEE;
+  --text:#17243A; --soft-text:#374151; --muted:#6B7280; --border:#E5E7EB;
+  --cta:#17243A; --cta-hover:#0C0D0F;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--text);
+  font-family:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.inner{max-width:var(--content);margin:0 auto}
+h1,h2,h3{font-family:"Outfit",Georgia,serif;font-weight:600;letter-spacing:-.01em;line-height:1.2;margin:0}
+p{margin:0 0 1em}
+img{max-width:100%;display:block}
+@media(max-width:1439px){:root{--gutter:60px}}
+@media(max-width:1024px){:root{--gutter:40px}}
+@media(max-width:768px){:root{--gutter:24px}body{font-size:16px}}
+@media(max-width:480px){:root{--gutter:16px}}
+/* ---- placeholder slot ---- */
+.slot{border:2px dashed var(--blue);background:var(--soft);border-radius:10px;
+  padding:22px 18px;text-align:center;color:#4a6b74;font-size:13px;line-height:1.5;margin:22px 0}
+.slot b{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#2d5560;margin-bottom:6px}
+.slot code{background:#fff;border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-size:12px}
+.slot--warn{border-color:#C9761F;background:#FCF3E8;color:#7A4A12}
+.slot--warn b{color:#8A4F0B}
+.bb-item__panel .slot{margin:0 0 16px}
+/* ---- listicle ---- */
+.li{padding:40px 0}
+.li__number{width:30px;height:30px;border-radius:50%;background:var(--badge);
+  display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;margin-bottom:14px}
+.li__heading{font-size:29px;margin-bottom:12px}
+.li__rule{display:block;width:64px;height:3px;background:var(--blue);border-radius:2px;margin-bottom:20px}
+.li__body{color:var(--soft-text)}
+@media(max-width:768px){.li{padding:28px 0}.li__heading{font-size:23px}}
+/* review row */
+.li__reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+.li__review{border:1px solid var(--border);border-radius:12px;overflow:hidden;background:#fff}
+.li__review-media{aspect-ratio:1/1;background:var(--soft)}
+.li__review-card{padding:16px}
+.li__review-stars{color:var(--blue);letter-spacing:2px;font-size:15px}
+.li__review-headline{font-weight:600;font-size:16px;margin:8px 0 6px}
+.li__review-text{font-size:14px;color:var(--soft-text)}
+.li__review-foot{border-top:1px solid var(--border);padding-top:10px;font-size:13px;color:var(--muted)}
+@media(max-width:768px){.li__reviews{grid-template-columns:1fr}}
+.foot .inner{text-align:center}
+</style>
+
+<!-- REASON 3 — the source page puts its 3-card review grid here -->
+<section class="li">
+  <div class="wrap"><div class="inner">
+    <div class="li__number" aria-hidden="true">3</div>
+    <h2 class="li__heading">A whole room in about a minute, not a cushion at a time.</h2>
+    <span class="li__rule" aria-hidden="true"></span>
+    <div class="li__body">
+      <p>Continuous trigger, wide cone, walk the room. Sofa, rug, curtains, the chair nobody sits in, the corner the crate lives in. No pump, no wrist, no stopping to re-aim at a stain.</p>
+      <p>That matters more than it sounds. The reason most people give up on odour spray is not that it fails. It is that treating a living room properly with a hand bottle takes twenty minutes of squeezing, so they do the one cushion and stop.</p>
+    </div>
+
+    <div class="slot slot--warn">
+      <b>Review grid — 3 cards — LEAVE EMPTY UNTIL YOU HAVE REAL ORDERS</b>
+      The source page runs three photo testimonials here ("Sarah K. 34, Texas" + verified tick + dog breed).
+      Do not fill this with AI comps or supplier images. Your own note in
+      <code>PETGUNPDPGRAYSCALE10PROMPTS.md</code> says the <code>review-*.jpg</code> files are layout comps
+      and must not be captioned as customer photos. Once you have real reviews with permission,
+      uncomment the grid below and drop them in. Until then this block stays deleted, not filled.
+    </div>
+
+    <!--
+    <div class="li__reviews">
+      <article class="li__review">
+        <div class="li__review-media"><img src="[[REAL customer photo]]" alt="" loading="lazy" width="300" height="300"></div>
+        <div class="li__review-card">
+          <div class="li__review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="li__review-headline">[[Their words, verbatim]]</p>
+          <p class="li__review-text">[[Their words, verbatim. Do not edit for persuasion.]]</p>
+          <div class="li__review-foot"><span>[[First name, initial, state]]</span></div>
+        </div>
+      </article>
+      [[card 2]] [[card 3]]
+    </div>
+    -->
+  </div></div>
+</section>

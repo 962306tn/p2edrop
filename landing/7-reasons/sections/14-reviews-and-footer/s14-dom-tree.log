@@ -1,0 +1,7 @@
+[phase3 14/14 dom-tree] 14-reviews-and-footer
+section.li.li--alt [bg #F3F1ED; padding 40px 0] > div.wrap > div.inner > div.slot.slot--warn
+ ├── b  #text: "Review widget mount point"
+ └── #text: "Drop the Judge.me / Loox embed here once it has real reviews… An empty review section on a new store costs you far less than a fabricated one."
+footer.foot [bg var(--navy)=#17243A; #C8D2DE; padding 36px 0; 13px; lh 1.7; centred] > div.wrap > div.inner
+ ├── p  #text: "VelaHush™ is a sprayer. It is not a disinfectant, sanitiser, or pesticide… Results depend on the solution you use and the surface you use it on."
+ └── p  #text: "All Vibes Pet · " + a[mailto:support@allvibespet.com] + <br> + "[[ADD YOUR REGISTERED BUSINESS MAILING ADDRESS HERE BEFORE LAUNCH]]"

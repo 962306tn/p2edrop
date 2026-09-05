@@ -1,0 +1,8 @@
+[phase3 1/14 layer-tree] 01-offer-bar
+Section  class="bar"  background=#17243A, padding=10px 16px, cols=[12]
+└── Col
+    └── Text  text="FREE US SHIPPING on every order · See the bundles"  link="#buy-now" (inline <a>)
+              color=#FFFFFF, fontSize=14px, textAlign=center, underlineLink=true
+
+[input] section.html verbatim — 1448 bytes
+[self-check] FINDING — detect split one inline sentence into three sibling Text nodes and reordered them, and the source bar is position:sticky/z-index:50 which build_section cannot root as a Sticky; build correction: merge the three into a single Text preserving the inline <strong> and <a href="#buy-now"> verbatim, and build the bar as a full-width Section carrying the same #17243A background, 10px/16px padding and 14px centred type, noting the loss of scroll pinning for the merchant to restore in the editor.

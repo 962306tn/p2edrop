@@ -1,0 +1,13 @@
+[phase3 8/14 layer-tree] 08-reason-unwashable
+Section  class="li" bg=#FFFFFF, padding 40px (28px mobile), cols=[12]
+└── Col
+    └── Row  class="inner"  width=860px, align=center
+        └── Col
+            ├── Text  class="li__number"  text="5"  30x30 pill, bg #DDEAEE, 13px/600, centred, mb 14px
+            ├── Heading  class="li__heading"  level=2  text="It works on everything you cannot put in a washing machine."  Outfit 29px/23px, 600, mb 12px
+            ├── Line   class="li__rule"  64px wide, 3px thick, #7EA7B2, left, mb 20px
+            ├── 3 x Text  body copy  17px/16px #374151, mb 1em each
+            └── slot car-interior.jpg
+
+[input] section.html verbatim — 3200 bytes
+[self-check] FINDING — detect dropped the 64x3px .li__rule accent bar (an empty decorative <span> it has no element for) and, in the trailing block, split each sentence that contains an inline <code> or <strong> into separate sibling Text nodes; build correction: author the rule as a Line element (width 64px, thickness 3, colour #7EA7B2, align left) and merge each split sentence back into one Text carrying its inline <code>/<strong> verbatim, so no wording or punctuation is lost.

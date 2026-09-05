@@ -1,0 +1,6 @@
+[preflight] asset scan: 0 <link rel=stylesheet>, 0 live <img src>, 0 css url(), 0 @font-face.
+[preflight] every <img> in the source is inside an HTML comment (paste-ready placeholders), so nothing is fetched at build time.
+[preflight] sourceImagesExternal=false — no external image host, no data: URIs, no oversized payloads.
+[preflight] warnings: none blocking.
+[split] one <style> block cloned into every section file so each is self-contained; page <script> (accordion single-open + tier link sync) NOT cloned — GemPages rebuilds behaviour natively.
+[split] 14 section files written.

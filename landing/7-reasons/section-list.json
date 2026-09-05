@@ -1,0 +1,109 @@
+{
+  "pageName": "7 Reasons Pet Owners Are Replacing Their Odor Sprays",
+  "handle": "7-reasons-pet-odor-gun",
+  "type": "GP_STATIC",
+  "cloneMode": "exact",
+  "source": "input.html",
+  "sourceImagesExternal": false,
+  "totalSections": 14,
+  "sections": [
+    {
+      "index": 1,
+      "key": "01-offer-bar",
+      "label": "Sticky free-shipping offer bar",
+      "file": "sections/01-offer-bar/section.html",
+      "bytes": 10220
+    },
+    {
+      "index": 2,
+      "key": "02-article-header",
+      "label": "Article header, note callout and byline",
+      "file": "sections/02-article-header/section.html",
+      "bytes": 11302
+    },
+    {
+      "index": 3,
+      "key": "03-mechanism-accordion",
+      "label": "Five-item mechanism accordion",
+      "file": "sections/03-mechanism-accordion/section.html",
+      "bytes": 13833
+    },
+    {
+      "index": 4,
+      "key": "04-reason-nose-blind",
+      "label": "Reason 1 \u2014 nose blindness",
+      "file": "sections/04-reason-nose-blind/section.html",
+      "bytes": 10846
+    },
+    {
+      "index": 5,
+      "key": "05-reason-in-the-fabric",
+      "label": "Reason 2 \u2014 odor is inside the fabric",
+      "file": "sections/05-reason-in-the-fabric/section.html",
+      "bytes": 10826
+    },
+    {
+      "index": 6,
+      "key": "06-reason-whole-room",
+      "label": "Reason 3 \u2014 whole room in a minute",
+      "file": "sections/06-reason-whole-room/section.html",
+      "bytes": 11936
+    },
+    {
+      "index": 7,
+      "key": "07-reason-no-soaking",
+      "label": "Reason 4 \u2014 no soaking, no drying",
+      "file": "sections/07-reason-no-soaking/section.html",
+      "bytes": 11011
+    },
+    {
+      "index": 8,
+      "key": "08-reason-unwashable",
+      "label": "Reason 5 \u2014 unwashable surfaces",
+      "file": "sections/08-reason-unwashable/section.html",
+      "bytes": 11019
+    },
+    {
+      "index": 9,
+      "key": "09-reason-open-reservoir",
+      "label": "Reason 6 \u2014 open reservoir, no refill lock-in",
+      "file": "sections/09-reason-open-reservoir/section.html",
+      "bytes": 11173
+    },
+    {
+      "index": 10,
+      "key": "10-reason-cost",
+      "label": "Reason 7 \u2014 cost comparison table",
+      "file": "sections/10-reason-cost/section.html",
+      "bytes": 11435
+    },
+    {
+      "index": 11,
+      "key": "11-product-offer",
+      "label": "Inline product offer with three bundle tiers",
+      "file": "sections/11-product-offer/section.html",
+      "bytes": 14134
+    },
+    {
+      "index": 12,
+      "key": "12-stock-notice",
+      "label": "Sold-here-only stock notice",
+      "file": "sections/12-stock-notice/section.html",
+      "bytes": 10299
+    },
+    {
+      "index": 13,
+      "key": "13-faq",
+      "label": "Twelve-item FAQ accordion",
+      "file": "sections/13-faq/section.html",
+      "bytes": 14964
+    },
+    {
+      "index": 14,
+      "key": "14-reviews-and-footer",
+      "label": "Review mount point and disclaimer footer",
+      "file": "sections/14-reviews-and-footer/section.html",
+      "bytes": 10897
+    }
+  ]
+}

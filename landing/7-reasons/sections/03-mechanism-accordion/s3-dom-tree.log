@@ -1,0 +1,21 @@
+[phase3 3/14 dom-tree] 03-mechanism-accordion
+section.bb [bg var(--cloud)=#F3F1ED; padding 56px 0 / 36px 0 mobile] > div.wrap > div.inner [max-width 860px]
+ ├── div.bb__head [text-align:center; margin-bottom:32px]        <-- SIBLING of the accordion, not an item
+ │    ├── h2.bb-heading  #text: "Why the smell keeps coming back after you clean"  [Outfit 31px/24px mobile; 600]
+ │    ├── span.bb-rule [64x3px; bg #7EA7B2; radius 2px; margin 14px auto 0]  (decorative accent rule)
+ │    └── p.bb-sub  #text: "Tap each to see what is actually happening"  [15px; #6B7280; mt 14px]
+ └── 5 x details.bb-item [bg #fff; border 1px #E5E7EB; radius 10px; mb 10px; all CLOSED on load]
+      ├── summary.bb-item__header [flex; gap 14px; padding 18px]
+      │    ├── span.bb-item__num  #text: "01".."05"  [30x30; radius 50%; bg #DDEAEE; 12px; 600]
+      │    ├── span.bb-item__title  #text: item title  [17px; 600]
+      │    └── span.bb-toggle [14x14 plus/minus drawn with ::before/::after; minus when open]
+      └── div.bb-item__panel [padding 0 18px 20px; #374151]
+           ├── (items 01 and 03 only) div.slot  #text: "Image slot" + code "mechanism-fiber.jpg" / "mechanism-droplet-vs-mist.jpg" + trailing description
+           └── p  #text: item body copy
+
+item titles:
+ 01 "The smell is not in the air. It is in the fabric."
+ 02 "Your nose stopped reporting it about two weeks ago."
+ 03 "A trigger bottle sprays droplets. Droplets sit on top."
+ 04 "More liquid is not more coverage. It is a wet cushion."
+ 05 "A fine mist covers more and dries faster."

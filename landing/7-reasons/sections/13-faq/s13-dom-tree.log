@@ -1,0 +1,17 @@
+[phase3 13/14 dom-tree] 13-faq
+section.faq [padding 56px 0 / 36px mobile] > div.wrap > div.inner [max-width 860px]
+ ├── h2.faq__heading  #text: "Frequently asked questions"  [Outfit 29px/24px mobile; 600; centred]
+ ├── span.faq__rule [64x3px; bg #7EA7B2; radius 2px; margin 14px auto 30px]
+ └── 12 x details.faq__item [border-bottom 1px #E5E7EB; all CLOSED on load]
+      ├── summary.faq__q [flex space-between; padding 18px 0; 17px; 600] + span.faq__icon [14x14 plus/minus]
+      └── div.faq__a [padding 0 0 20px; 16px; #374151] > p
+
+questions in order:
+ 01 Will it leave my furniture wet?           07 How big is the reservoir?
+ 02 Does it come with solution?               08 Will it work on carpet and rugs?
+ 03 Can I use my own cleaner in it?           09 Will it stain or discolour fabric?
+ 04 Is it safe to spray around my pet?        10 How is this different from a $12 spray bottle?
+ 05 Does it disinfect or kill bacteria?       11 What is your return policy?
+ 06 How long does a charge last?              12 How long does delivery take?
+
+[note] answers 02, 06, 07 and 11 are [[ ]] placeholders awaiting real specs; answer 05 is the page's EPA/FIFRA guard and must stay verbatim.

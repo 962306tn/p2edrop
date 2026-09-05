@@ -1,0 +1,7 @@
+[phase3 10/14 dom-tree] 10-reason-cost
+section.li [padding 40px 0 / 28px 0 mobile] > div.wrap > div.inner [max-width 860px]
+ ├── div.li__number  #text: "7"  [30x30; radius 50%; bg #DDEAEE; 13px; 600; mb 14px]
+ ├── h2.li__heading  #text: "Less than one cleaning visit, and it does not run out."  [Outfit 29px/23px mobile; 600; mb 12px]
+ ├── span.li__rule [64x3px; bg #7EA7B2; radius 2px; mb 20px]  (decorative accent rule)
+ ├── div.li__body [#374151] > 1 x p  (body copy, each mb 1em)
+ └── trailing block: cost table (5 rows) + warn slot

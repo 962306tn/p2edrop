@@ -1,0 +1,19 @@
+[phase0] shop resolved via get_shop — domain=yxciec-f7.myshopify.com shopId=629191576383390213 themeID=629191580695135188 consentState=unset | pipeline fetched via gempages_get_skill(convert-html-to-gempages)
+[phase1] split done — 14 section files written to sections/; section-list.json + split.log written.
+[phase2] rules loaded — guidelines, generation-rules, element-taxonomy, cloning-context (4 docs).
+[phase3 1/14] 01-offer-bar          -> 636024454283002823  (Sticky -> Section: build_section requires a Section root)
+[phase3 2/14] 02-article-header     -> 636024689449239401
+[phase3 3/14] 03-mechanism-accordion-> 636024980936590052  (+ edit: rule Row -> Line, Row height only accepts auto|100%)
+[phase3 4/14] 04-reason-nose-blind  -> 636025245781721828
+[phase3 5/14] 05-reason-in-the-fabric -> 636025310826988198
+[phase3 6/14] 06-reason-whole-room  -> 636025361846502249
+[phase3 7/14] 07-reason-no-soaking  -> 636025466267894500
+[phase3 8/14] 08-reason-unwashable  -> 636025519384560583
+[phase3 9/14] 09-reason-open-reservoir -> 636025586761859812
+[phase3 10/14] 10-reason-cost       -> 636025714369364841
+[phase3 11/14] 11-product-offer     -> 636026132826686180
+[phase3 12/14] 12-stock-notice      -> 636026263571530601
+[phase3 13/14] 13-faq               -> 636026370073297769
+[phase3 14/14] 14-reviews-and-footer-> 636026450570380231
+[phase3 setup] themePageID=636024165547115369 handle=7-reasons-pet-odor-gun type=GP_STATIC status=DRAFT
+[phase4] draft handed back — 14 sections ordered; editor + preview links returned. Page NOT published (this flow never publishes).

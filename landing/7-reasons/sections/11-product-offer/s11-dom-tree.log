@@ -1,0 +1,21 @@
+[phase3 11/14 dom-tree] 11-product-offer
+section.pdp#buy-now [bg var(--cloud)=#F3F1ED; padding 56px 0 / 36px mobile] > div.wrap > div.pdp__grid [grid 1fr 1fr; gap 44px; 1 col under 900px]
+ ├── div.pdp__gallery [sticky top 70px]
+ │    ├── div.pdp__main [1:1; bg #fff; border 1px #E5E7EB; radius 14px] > div.slot
+ │    │     ├── b  #text: "Hero image"
+ │    │     └── code "hero-white.jpg" + <br> + #text: "Gun on Soft Cloud #F3F1ED, 3/4 angle, 1400x1400"
+ │    ├── div.pdp__thumbs [grid repeat(5,1fr); gap 8px; mt 10px] > 5 x div.pdp__thumb [1:1; bg #fff; border 1px; radius 8px]  (all empty)
+ │    └── p  #text: "[[5 gallery slots: hero · in-hand scale · misting a sofa · open reservoir · what is in the box]]"  [13px #6B7280]
+ └── div.pdp__info
+      ├── p.pdp__rating  #text: "[[Rating strip — leave blank until Judge.me has real reviews]]"  [14px #6B7280; mb 8px]
+      ├── h1.pdp__title  #text: "VelaHush™ Pet Odor Gun"  [Outfit 31px/25px mobile; 600]
+      ├── span.pdp__rule [64x3px; bg #7EA7B2; radius 2px; mb 18px]
+      ├── ul.pdp__bullets > 4 x li.pdp__bullet [flex; gap 10px; 16px] each: span.pdp__check "✓" [20x20 circle bg #DDEAEE] + span text
+      ├── 3 x label.tier [bg #fff; border 2px #E5E7EB; radius 12px; padding 16px; mb 10px]
+      │    ├── (tier 2 only) span.tier__flag "Most popular" [absolute top -11px right 14px; bg #7EA7B2; #fff; 11px; uppercase; radius 20px]
+      │    ├── div.tier__row [flex space-between] : span.tier__name + span.tier__price (tiers 2/3 prefix span.tier__was struck-through)
+      │    └── div.tier__sub [14px #6B7280; mt 3px]
+      │   values: "1 Gun / $59.95 / One for the living room." · "2 Guns / $119.90 $99.95 / $49.98 each…" · "3 Guns / $179.85 $129.95 / $43.32 each…"
+      ├── a.atc#pdp-link [block; w 100%; bg #17243A; #fff; radius 10px; padding 17px; 17px/600; centred]  #text: "Get the 2-gun set · $99.95"  href="/products/velahush-pet-odor-gun?variant=54286421786988"
+      ├── div.pills [flex; gap 8px; 13px #6B7280] : 3 x span [border 1px; radius 20px; padding 5px 12px; bg #fff] "Free US shipping" / "30-day returns" / "7-16 day delivery"
+      └── div.slot.slot--warn [text-align:left] : b "Still open" + body copy

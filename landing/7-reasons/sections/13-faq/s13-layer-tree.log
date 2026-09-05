@@ -1,0 +1,13 @@
+[phase3 13/14 layer-tree] 13-faq
+Section  class="faq"  bg=#FFFFFF, padding 56px (36px mobile), cols=[12]
+└── Col
+    └── Row  class="inner"  width=860px, align=center
+        └── Col
+            ├── Heading  class="faq__heading"  level=2  "Frequently asked questions"  Outfit 29px/24px, 600, centred
+            ├── Line     class="faq__rule"  64px, 3px, #7EA7B2, centred, mt 14px mb 30px
+            └── Accordion  itemCount=12, expandItem=false, expandedMode=multiple, iconPosition=right
+                   header padding 18px 0, item divider border-bottom 1px #E5E7EB, no radius, transparent bg
+                   each AccordionItem -> Col -> Text answer 16px #374151, padding-bottom 20px
+
+[input] section.html verbatim — 7218 bytes
+[self-check] FINDING — detect dropped the decorative accent rule and split the inline <strong>/<a> runs into sibling Text nodes, and for the FAQ it folded the heading block and the accordion into one wrapper Row; build correction: author the rule as a Line element, merge each inline run back into a single Text carrying its <strong>/<a> verbatim, and keep the heading, the rule and the Accordion as siblings so no question is hidden behind another.

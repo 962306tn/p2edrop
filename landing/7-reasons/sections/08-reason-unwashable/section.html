@@ -1,0 +1,54 @@
+<style>
+:root{
+  --max:1240px; --content:860px; --gutter:16px;
+  --navy:#17243A; --blue:#7EA7B2; --cloud:#F3F1ED;
+  --soft:#EAF2F4; --badge:#DDEAEE;
+  --text:#17243A; --soft-text:#374151; --muted:#6B7280; --border:#E5E7EB;
+  --cta:#17243A; --cta-hover:#0C0D0F;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--text);
+  font-family:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.inner{max-width:var(--content);margin:0 auto}
+h1,h2,h3{font-family:"Outfit",Georgia,serif;font-weight:600;letter-spacing:-.01em;line-height:1.2;margin:0}
+p{margin:0 0 1em}
+img{max-width:100%;display:block}
+@media(max-width:1439px){:root{--gutter:60px}}
+@media(max-width:1024px){:root{--gutter:40px}}
+@media(max-width:768px){:root{--gutter:24px}body{font-size:16px}}
+@media(max-width:480px){:root{--gutter:16px}}
+/* ---- placeholder slot ---- */
+.slot{border:2px dashed var(--blue);background:var(--soft);border-radius:10px;
+  padding:22px 18px;text-align:center;color:#4a6b74;font-size:13px;line-height:1.5;margin:22px 0}
+.slot b{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#2d5560;margin-bottom:6px}
+.slot code{background:#fff;border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-size:12px}
+.bb-item__panel .slot{margin:0 0 16px}
+/* ---- listicle ---- */
+.li{padding:40px 0}
+.li__number{width:30px;height:30px;border-radius:50%;background:var(--badge);
+  display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;margin-bottom:14px}
+.li__heading{font-size:29px;margin-bottom:12px}
+.li__rule{display:block;width:64px;height:3px;background:var(--blue);border-radius:2px;margin-bottom:20px}
+.li__body{color:var(--soft-text)}
+@media(max-width:768px){.li{padding:28px 0}.li__heading{font-size:23px}}
+.foot .inner{text-align:center}
+</style>
+
+<!-- REASON 5 -->
+<section class="li">
+  <div class="wrap"><div class="inner">
+    <div class="li__number" aria-hidden="true">5</div>
+    <h2 class="li__heading">It works on everything you cannot put in a washing machine.</h2>
+    <span class="li__rule" aria-hidden="true"></span>
+    <div class="li__body">
+      <p>The washable things were never the problem. You already wash the blanket and the dog bed cover. The smell lives in the things you have no way to launder.</p>
+      <p>Car seats and seat belts. The mattress. Carpet and the pad under it. The crate. The stroller. Curtains. The rug in the hallway that has taken every wet paw for two years. The back of the sofa where the fabric is stapled to a frame.</p>
+      <p>The car is usually the worst of them, and the one people have simply accepted. A sealed box, warm, upholstered on every surface, and a dog in it twice a week.</p>
+    </div>
+
+    <div class="slot"><b>Image slot</b><code>car-interior.jpg</code> — misting a rear seat, door open, daylight, 1200x800<br>
+      <!-- <img src="/cdn/shop/files/car-interior.jpg" alt="Misting a car rear seat" loading="lazy" width="1200" height="800"> --></div>
+  </div></div>
+</section>

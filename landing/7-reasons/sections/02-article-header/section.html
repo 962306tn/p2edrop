@@ -1,0 +1,71 @@
+<style>
+:root{
+  --max:1240px; --content:860px; --gutter:16px;
+  --navy:#17243A; --blue:#7EA7B2; --cloud:#F3F1ED;
+  --soft:#EAF2F4; --badge:#DDEAEE;
+  --text:#17243A; --soft-text:#374151; --muted:#6B7280; --border:#E5E7EB;
+  --cta:#17243A; --cta-hover:#0C0D0F;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--text);
+  font-family:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.inner{max-width:var(--content);margin:0 auto}
+h1,h2,h3{font-family:"Outfit",Georgia,serif;font-weight:600;letter-spacing:-.01em;line-height:1.2;margin:0}
+p{margin:0 0 1em}
+@media(max-width:1439px){:root{--gutter:60px}}
+@media(max-width:1024px){:root{--gutter:40px}}
+@media(max-width:768px){:root{--gutter:24px}body{font-size:16px}}
+@media(max-width:480px){:root{--gutter:16px}}
+/* ---- placeholder slot ---- */
+.slot{border:2px dashed var(--blue);background:var(--soft);border-radius:10px;
+  padding:22px 18px;text-align:center;color:#4a6b74;font-size:13px;line-height:1.5;margin:22px 0}
+.slot b{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#2d5560;margin-bottom:6px}
+.slot code{background:#fff;border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-size:12px}
+.slot--warn{border-color:#C9761F;background:#FCF3E8;color:#7A4A12}
+.slot--warn b{color:#8A4F0B}
+/* ---- article header ---- */
+.ah{padding:64px 0 40px}
+.ah__heading{font-size:40px;margin-bottom:18px}
+.ah__lead{font-style:italic;color:var(--soft-text);font-size:19px;margin-bottom:22px}
+.ah__note{background:var(--soft);border-left:4px solid var(--blue);border-radius:0 8px 8px 0;
+  padding:16px 18px;font-size:16px;color:var(--soft-text);margin-bottom:26px}
+.ah__note-label{color:var(--navy);margin-right:6px}
+.ah__byline{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted);
+  border-top:1px solid var(--border);padding-top:18px}
+.ah__avatar{width:38px;height:38px;border-radius:50%;background:var(--badge);flex:0 0 38px}
+.ah__author{display:flex;align-items:center;gap:5px;color:var(--text);font-weight:600}
+.ah__divider{width:1px;height:14px;background:var(--border)}
+@media(max-width:768px){.ah{padding:36px 0 28px}.ah__heading{font-size:29px}.ah__lead{font-size:17px}}
+.bb-item__panel .slot{margin:0 0 16px}
+.li__body{color:var(--soft-text)}
+.foot .inner{text-align:center}
+</style>
+
+<!-- ========== 2. ARTICLE HEADER ========== -->
+<section class="ah">
+  <div class="wrap"><div class="inner">
+    <h1 class="ah__heading">7 Reasons Pet Owners Who Buy Odor Spray By The Case Are Switching To A Misting Gun</h1>
+    <p class="ah__lead">The smell still goes. They just stopped scrubbing one cushion at a time, and stopped buying the same bottle every three weeks.</p>
+
+    <div class="ah__note">
+      <strong class="ah__note-label">Note:</strong>
+      <span>This is not a stronger cleaner. It is a different way of applying one. A trigger bottle wets a spot. This covers a whole room in a fine mist, so the fabric gets treated instead of one stain on it.</span>
+    </div>
+
+    <div class="ah__byline">
+      <div class="ah__avatar"><!-- [[SLOT: author photo — a REAL person on your team, 76x76. Delete this byline entirely if no real author.]] --></div>
+      <div class="ah__author"><span>[[AUTHOR NAME]]</span></div>
+      <span class="ah__divider" aria-hidden="true"></span>
+      <span class="ah__date">[[MONTH YEAR]]</span>
+    </div>
+
+    <div class="slot slot--warn">
+      <b>Byline decision required</b>
+      The source page bylines "By Sarah" with a blue verified check. If you have no real author, delete the
+      <code>.ah__byline</code> block above. An invented author with a verified badge is the exact pattern
+      16 CFR 465 targets. A house byline ("The All Vibes Pet team") is fine and needs no photo.
+    </div>
+  </div></div>
+</section>

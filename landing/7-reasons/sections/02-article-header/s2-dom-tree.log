@@ -1,0 +1,17 @@
+[phase3 2/14 dom-tree] 02-article-header
+section.ah [padding:64px 0 40px] > div.wrap [max-width:1240px] > div.inner [max-width:860px; margin:0 auto]
+ ├── h1.ah__heading  #text: "7 Reasons Pet Owners Who Buy Odor Spray By The Case Are Switching To A Misting…"  [Outfit 40px/29px mobile; 600; ls -.01em; lh 1.2]
+ ├── p.ah__lead  #text: "The smell still goes. They just stopped scrubbing one cushion at a time, and st…"  [italic; 19px/17px mobile; #374151]
+ ├── div.ah__note [bg #EAF2F4; border-left 4px solid #7EA7B2; radius 0 8px 8px 0; padding 16px 18px; mb 26px]
+ │    ├── strong.ah__note-label  #text: "Note:"  [#17243A; mr 6px]
+ │    └── span  #text: "This is not a stronger cleaner. It is a different way of applying one. A trigge…"  [#374151; 16px]
+ ├── div.ah__byline [flex; gap 10px; border-top 1px #E5E7EB; padding-top 18px; 14px; #6B7280]
+ │    ├── div.ah__avatar [38x38; radius 50%; bg #DDEAEE]  (empty — placeholder for a real author photo)
+ │    ├── div.ah__author > span  #text: "[[AUTHOR NAME]]"  [#17243A; 600]
+ │    ├── span.ah__divider [1x14px; bg #E5E7EB]  (decorative)
+ │    └── span.ah__date  #text: "[[MONTH YEAR]]"  [#6B7280]
+ └── div.slot.slot--warn [border 2px dashed #C9761F; bg #FCF3E8; radius 10px; padding 22px 18px; margin 22px 0; text-align:center]
+      ├── b  #text: "Byline decision required"  [12px; uppercase; ls .08em; #8A4F0B]
+      └── #text + code.ah__byline + #text  "The source page bylines "By Sarah" with a blue verified check… 16 CFR 465 targets…"  [13px; #7A4A12]
+
+[note] .slot--warn overrides the base .slot border-color to #C9761F — the cascade the detector missed.

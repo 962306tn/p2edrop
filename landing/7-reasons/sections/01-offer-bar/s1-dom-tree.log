@@ -1,0 +1,8 @@
+[phase3 1/14 dom-tree] 01-offer-bar
+div.bar [position:sticky; top:0; z-index:50; bg:var(--navy)=#17243A; color:#fff; text-align:center; padding:10px 16px; font-size:14px]
+ ├── strong  #text: "FREE US SHIPPING"  [font-weight:600; letter-spacing:.04em]
+ ├── #text: " on every order  ·  "
+ └── a[href="#buy-now"]  #text: "See the bundles"  [color:#fff; text-decoration:underline; text-underline-offset:3px]
+
+[note] one inline sentence with three inline children — a single text flow, not three stacked blocks.
+[note] sticky bar pinned at top with z-index 50 -> Sticky element at root level (element-taxonomy §8).
