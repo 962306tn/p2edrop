@@ -1,0 +1,126 @@
+/* ==========================================================================
+   VelaHush — Dawn palette tokens
+
+   The D1 palette, completed. Every value here is asserted by
+   contrast-check.py; CI fails if an edit drops a pair below its threshold, so
+   treat that script as the source of truth for what is allowed, not this file.
+
+   Two structural decisions differ from the D1 draft, both explained in
+   README.md:
+
+   1. The CTA keeps ONE colour on every ground. D1 called for a second CTA
+      colour on dark sections because clay on pine is only 2.66 — which is
+      true, and no shade of clay fixes it. But WCAG 1.4.11 asks for a
+      distinguishable BOUNDARY, not a contrasting fill, so a cream ring at
+      11.24 satisfies it while the button keeps the colour buyers have learnt.
+
+   2. Every role that appears on a dark section has an on-dark value. The draft
+      only specified the CTA, leaving eucalyptus at 1.98 and the warning at
+      2.49 on pine.
+   ========================================================================== */
+
+:root {
+  /* --- Ground ------------------------------------------------------------- */
+  --vh-surface: #F8F4EC;          /* warm cream */
+  --vh-surface-dark: #153B32;     /* deep pine — the dark section ground */
+  --vh-surface-mist: #DDECF2;     /* mist blue */
+
+  /* Mist is 1.10 against cream — as a fill it has no edge on the page at all.
+     It may only be used inside a container that draws this border. */
+  --vh-mist-edge: #4F7C8F;        /* 4.15 on cream */
+
+  /* --- Ink ---------------------------------------------------------------- */
+  --vh-text: #153B32;             /* 11.24 on cream */
+  --vh-text-secondary: #2F6B5A;   /* eucalyptus — 5.68 on cream */
+
+  /* --- Rules -------------------------------------------------------------- */
+  --vh-line: #81B8AB;             /* decorative only, 2.04 — never carries meaning */
+  --vh-line-strong: #2F6B5A;      /* 5.68 — use when a rule separates meaning */
+
+  /* --- Action ------------------------------------------------------------- */
+  --vh-cta: #C94B34;              /* clay. 4.22 against cream: boundary is fine */
+  --vh-cta-hover: #B8452F;        /* white on it 5.34 */
+  --vh-cta-active: #AD412D;       /* white on it 5.88 */
+  --vh-cta-text: #FFFFFF;         /* 4.63 on clay */
+  --vh-cta-ring: transparent;     /* only dark sections need one */
+
+  /* Clay as TEXT, not as a fill: badges, struck prices, urgency lines. The
+     base clay is 4.22 on cream and fails; this is the same hue, darker. */
+  --vh-accent-text: #BD4631;      /* 4.69 on cream */
+
+  /* --- Selected state ------------------------------------------------------ */
+  --vh-selected: #2F6B5A;
+  --vh-selected-text: #FFFFFF;    /* 6.23 on eucalyptus */
+
+  /* --- Status -------------------------------------------------------------- */
+  --vh-star: #B27C2D;             /* 3.29 on cream — D1's #BA812F cleared 3.0 by 0.05 */
+  --vh-warn: #956725;             /* 4.51 on cream */
+
+  /* --- Focus ---------------------------------------------------------------
+     No single colour clears 3.0 on cream, pine and clay at once, so the ring
+     is two: whichever ground it lands on, one of the pair separates from it.
+     Draw as a double box-shadow, inner first. */
+  --vh-focus-inner: #F8F4EC;      /* cream: 4.22 on clay, 11.24 on pine */
+  --vh-focus-outer: #153B32;      /* pine: 11.24 on cream */
+}
+
+/* --- Dark sections ---------------------------------------------------------
+   Scope-flips the tokens rather than restating colours on every child, so
+   anything nested resolves correctly with no extra classes. */
+.vh-dark,
+[data-vh-section="dark"] {
+  --vh-surface: #153B32;
+  --vh-text: #F8F4EC;             /* 11.24 on pine */
+  --vh-text-secondary: #81C7B3;   /* 6.31 — eucalyptus itself is 1.98 here */
+
+  --vh-mist-edge: #73A0B2;        /* 4.34 on pine — the light-scope blue is 2.71 here */
+
+  --vh-line: #386659;             /* decorative, 1.89 */
+  --vh-line-strong: #4F8F7D;      /* 3.26 on pine */
+
+  --vh-cta: #C94B34;              /* unchanged: one CTA colour everywhere */
+  --vh-cta-ring: #F8F4EC;         /* 11.24 — this is what gives the button its edge */
+
+  --vh-accent-text: #E08575;      /* 4.57 — clay hue, lightened for pine */
+
+  --vh-selected: #81C7B3;
+  --vh-selected-text: #153B32;    /* 6.31 */
+
+  --vh-star: #D19135;             /* 4.59 on pine */
+  --vh-warn: #CC9E5C;             /* 5.06 on pine */
+
+  --vh-focus-inner: #153B32;
+  --vh-focus-outer: #F8F4EC;
+}
+
+/* --- Applied patterns -------------------------------------------------------
+   The three places where getting the token right is not enough on its own. */
+
+.vh-btn-primary {
+  background: var(--vh-cta);
+  color: var(--vh-cta-text);
+  border: 2px solid var(--vh-cta-ring);
+}
+.vh-btn-primary:hover { background: var(--vh-cta-hover); }
+.vh-btn-primary:active { background: var(--vh-cta-active); }
+
+/* The mist panel never sits on the page ground without this border. */
+.vh-mist-panel {
+  background: var(--vh-surface-mist);
+  border: 1px solid var(--vh-mist-edge);
+  color: #153B32;                 /* 10.19 on mist; mist stays light in both scopes */
+}
+
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--vh-focus-inner), 0 0 0 4px var(--vh-focus-outer);
+}
+
+/* Under protanopia the CTA and the selected state read as the same colour
+   (1.03). Selection therefore must never be signalled by fill alone — the
+   radio mark and the border weight carry it, and this rule is what keeps that
+   true if someone later strips the border. */
+.vh-plan[aria-pressed="true"] {
+  border: 2px solid var(--vh-selected);
+  background: var(--vh-surface);
+}
