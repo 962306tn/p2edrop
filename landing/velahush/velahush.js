@@ -29,6 +29,16 @@
   /* Prices print without a trailing .00 — "$49", but "$59.90". */
   function money(n) { return '$' + n.toFixed(2).replace(/\.00$/, ''); }
 
+  /* Dispatch date: same working day before the cut-off, otherwise the next one.
+     This is the date the store controls, which is why it leads the delivery
+     line — the arrival window below it is only an estimate. */
+  function shipBy() {
+    var d = new Date();
+    if (d.getHours() >= 14) d = new Date(d.getTime() + 864e5);
+    while (d.getDay() === 0 || d.getDay() === 6) d = new Date(d.getTime() + 864e5);
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  }
+
   /* Fulfilment estimate: today+5 to today+9. Replace with the real SLA. */
   function shipWindow() {
     var fmt = function (d) { return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }); };
@@ -38,7 +48,7 @@
 
   var PLANS = [
     { title: 'Gun only', note: 'One unit, one pod included. Try it on the couch first.',
-      price: OFFER.gunPrice, compare: OFFER.gunPrice * 1.6, badge: '' },
+      price: OFFER.gunPrice, compare: 0, badge: '' },
     { title: 'Gun + 3 refill pods', note: 'About four months of weekly use. Cheapest way to get pods.',
       price: OFFER.bundlePrice, compare: OFFER.gunPrice + OFFER.refillPrice, badge: 'Most popular', badgeAccent: true },
     { title: 'Gun + refill plan', note: '3 pods now, then 3 every 2 months at ' + money(refillSub) + '. Skip or cancel anytime.',
@@ -106,7 +116,7 @@
       btn.querySelector('.vh-plan__title').textContent = p.title;
       btn.querySelector('.vh-plan__note').textContent = p.note;
       btn.querySelector('.vh-plan__price').textContent = money(p.price);
-      btn.querySelector('.vh-plan__compare').textContent = money(p.compare);
+      btn.querySelector('.vh-plan__compare').textContent = p.compare ? money(p.compare) : '';
       if (p.badge) btn.querySelector('.vh-badge').textContent = p.badge;
       btn.addEventListener('click', function () {
         state.plan = i;
@@ -214,9 +224,12 @@
       heroImg.src = shot.src;
     }
 
-    $('cta-label').textContent = state.added ? 'Added to cart' : 'Add to cart';
+    var saving = plan.compare ? plan.compare - plan.price : 0;
+    $('cta-label').textContent = state.added ? 'Added to cart'
+      : (saving > 0 ? 'Add to cart — save ' + money(saving) : 'Add to cart');
     $('cta-price').textContent = state.added ? '✓' : money(plan.price);
     $('sticky-cta').textContent = state.added ? 'Added ✓' : 'Add — ' + money(plan.price);
+    $('ship-by').textContent = shipBy();
     $('sticky-summary').textContent = summary;
 
     document.querySelectorAll('#faq-list .vh-faq__item').forEach(function (item, i) {
@@ -237,6 +250,7 @@
   buildFaq();
 
   $('ship-window').textContent = shipWindow();
+  $('ship-by').textContent = shipBy();
 
   function addToCart() { state.added = true; render(); }
   $('cta').addEventListener('click', addToCart);

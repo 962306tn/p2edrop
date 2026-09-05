@@ -15,7 +15,16 @@
    ========================================================================== */
 
 /* --- Page frame ----------------------------------------------------------- */
-.vh-page { background: var(--color-bg); color: var(--color-text); padding-bottom: 104px; }
+/* The design system ships 15px body copy. This audience is 40-65+, so the page
+   lifts the floor to 17px rather than editing the system file. Every size below
+   is set against that, not against the system default. */
+.vh-page {
+  background: var(--color-bg);
+  color: var(--color-text);
+  padding-bottom: 104px;
+  font-size: 17px;
+  line-height: 1.6;
+}
 .vh-wrap { max-width: 1240px; margin-inline: auto; padding-inline: var(--space-6); }
 .vh-wrap--table { max-width: 1000px; }
 .vh-wrap--faq { max-width: 900px; }
@@ -62,7 +71,7 @@
 .vh-lede--under { margin-top: var(--space-2); }
 .vh-lede--tight { max-width: 50ch; }
 .vh-sub { margin: 0; font-size: 17px; line-height: 1.55; color: var(--color-neutral-800); max-width: 48ch; text-wrap: pretty; }
-.vh-note { font-size: 15.5px; line-height: 1.55; color: var(--color-neutral-800); margin: 0; }
+.vh-note { font-size: 17px; line-height: 1.55; color: var(--color-neutral-800); margin: 0; }
 
 /* --- Image frames ---------------------------------------------------------
    Every frame renders the striped placeholder plus a caption naming the shot
@@ -110,7 +119,7 @@
 .vh-announce__inner {
   display: flex; flex-wrap: wrap; gap: var(--space-8);
   padding-block: var(--space-3);
-  font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  font-size: 13.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
 }
 
 /* --- 2. Header ------------------------------------------------------------- */
@@ -136,7 +145,7 @@
 }
 .vh-nav {
   display: flex; align-items: center; gap: var(--space-6);
-  font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  font-size: 14.5px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
 }
 .vh-nav a { color: var(--color-neutral-800); text-decoration: none; white-space: nowrap; }
 .vh-nav a:hover { color: var(--color-accent-700); text-decoration: underline; }
@@ -179,7 +188,7 @@
 .vh-thumb__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 
 .vh-offer { display: flex; flex-direction: column; gap: var(--space-6); }
-.vh-rating { display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap; font-size: 13px; font-weight: 600; }
+.vh-rating { display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap; font-size: 15px; font-weight: 600; }
 .vh-stars { color: var(--color-accent-700); letter-spacing: 0.06em; }
 .vh-rating__count { color: var(--color-neutral-700); }
 
@@ -191,7 +200,7 @@
   font-size: 15.5px; line-height: 1.45;
 }
 /* accent-700, not the base accent: at 13px the base red only clears ~3:1 here. */
-.vh-bullet__n { flex: none; color: var(--color-accent-700); font-weight: 800; font-size: 13px; letter-spacing: 0.08em; }
+.vh-bullet__n { flex: none; color: var(--color-accent-700); font-weight: 800; font-size: 15px; letter-spacing: 0.08em; }
 
 .vh-picker { display: flex; flex-direction: column; gap: var(--space-3); }
 .vh-plans { display: flex; flex-direction: column; gap: var(--space-3); }
@@ -220,10 +229,10 @@
 .vh-plan__main { flex: 1; display: flex; flex-direction: column; gap: var(--space-1); }
 .vh-plan__row { display: flex; align-items: center; gap: var(--space-2); flex-wrap: wrap; }
 .vh-plan__title { font-family: var(--font-heading); font-weight: 800; font-size: 16px; text-transform: uppercase; letter-spacing: -0.01em; }
-.vh-plan__note { font-size: 13.5px; line-height: 1.4; color: var(--color-neutral-700); }
+.vh-plan__note { font-size: 15.5px; line-height: 1.4; color: var(--color-neutral-700); }
 .vh-plan__prices { text-align: right; flex: none; }
 .vh-plan__price { display: block; font-family: var(--font-heading); font-weight: 800; font-size: 19px; }
-.vh-plan__compare { display: block; font-size: 12.5px; color: var(--color-neutral-600); text-decoration: line-through; }
+.vh-plan__compare { display: block; font-size: 14.5px; color: var(--color-neutral-600); text-decoration: line-through; }
 .vh-badge {
   font-size: 9.5px; font-weight: 700; letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -233,7 +242,7 @@
 .vh-badge--accent { background: var(--color-accent); }
 
 .vh-plan-note {
-  font-size: 12.5px; line-height: 1.4; color: var(--color-neutral-700);
+  font-size: 14.5px; line-height: 1.4; color: var(--color-neutral-700);
   border-left: 2px solid var(--color-accent);
   padding-left: var(--space-3);
 }
@@ -241,7 +250,7 @@
 .vh-scents { display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap; padding-top: var(--space-1); }
 .vh-chip {
   cursor: pointer; font: inherit;
-  font-size: 13px; font-weight: 600;
+  font-size: 15px; font-weight: 600;
   padding: var(--space-2) var(--space-3);
   background: transparent; color: var(--color-neutral-800);
   border: 2px solid var(--color-neutral-400);
@@ -262,7 +271,7 @@
 }
 .vh-cta:hover { background: var(--color-accent-600); color: #fff; text-decoration: none; }
 
-.vh-scarcity { display: flex; align-items: center; gap: var(--space-2); font-size: 13px; font-weight: 600; color: var(--color-neutral-700); }
+.vh-scarcity { display: flex; align-items: center; gap: var(--space-2); font-size: 15px; font-weight: 600; color: var(--color-neutral-700); }
 .vh-scarcity__dot { width: 8px; height: 8px; background: var(--color-accent); animation: vh-blink 1.8s ease-in-out infinite; }
 
 .vh-grid-box {
@@ -274,8 +283,8 @@
 }
 .vh-grid-box > * { padding: var(--space-3) var(--space-4); background: var(--color-bg); }
 .vh-grid-box--2up { grid-template-columns: repeat(2, 1fr); }
-.vh-cell__title { font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
-.vh-cell__body { font-size: 12.5px; color: var(--color-neutral-700); line-height: 1.35; }
+.vh-cell__title { font-size: 14.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+.vh-cell__body { font-size: 14.5px; color: var(--color-neutral-700); line-height: 1.35; }
 
 .vh-pay { display: flex; gap: var(--space-2); flex-wrap: wrap; }
 .vh-pay span {
@@ -318,7 +327,7 @@
 }
 .vh-step__n { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700); }
 .vh-step__title { font-family: var(--font-heading); font-weight: 800; font-size: 21px; line-height: 1.1; text-transform: uppercase; }
-.vh-step__body { margin: 0; font-size: 15px; line-height: 1.55; color: var(--color-neutral-800); }
+.vh-step__body { margin: 0; font-size: 16.5px; line-height: 1.55; color: var(--color-neutral-800); }
 
 /* --- 7. Refills ------------------------------------------------------------ */
 .vh-btn-ink {
@@ -331,7 +340,7 @@
 }
 .vh-btn-ink:hover { background: var(--color-accent); color: #fff; text-decoration: none; }
 .vh-scent-card__name { font-family: var(--font-heading); font-weight: 800; font-size: 15px; text-transform: uppercase; }
-.vh-scent-card__note { font-size: 12.5px; color: var(--color-neutral-700); line-height: 1.35; }
+.vh-scent-card__note { font-size: 14.5px; color: var(--color-neutral-700); line-height: 1.35; }
 
 /* --- 8. Poster band --------------------------------------------------------
    The one place red runs as a ground rather than as an accent. */
@@ -339,7 +348,7 @@
 .vh-poster .vh-cols { align-items: end; }
 .vh-poster__copy { margin: 0; font-size: 16.5px; line-height: 1.6; max-width: 44ch; }
 .vh-poster__chips { display: flex; flex-wrap: wrap; gap: var(--space-2); }
-.vh-poster__chips span { border: 2px solid #fff; padding: var(--space-2) var(--space-3); font-size: 13.5px; font-weight: 600; }
+.vh-poster__chips span { border: 2px solid #fff; padding: var(--space-2) var(--space-3); font-size: 15px; font-weight: 600; }
 
 /* --- 9. Reviews ------------------------------------------------------------ */
 .vh-reviews__head {
@@ -391,9 +400,9 @@
 }
 .vh-compare__head > div { padding: var(--space-3) var(--space-4); }
 .vh-compare__head > div + div { padding-inline: var(--space-2); }
-.vh-compare__label { padding: var(--space-3) var(--space-4); font-size: 15.5px; }
-.vh-compare__yes { padding: var(--space-3) var(--space-2); color: var(--color-accent-700); font-weight: 800; font-size: 15px; text-transform: uppercase; }
-.vh-compare__no { padding: var(--space-3) var(--space-2); color: var(--color-neutral-600); font-weight: 700; font-size: 15px; text-transform: uppercase; }
+.vh-compare__label { padding: var(--space-3) var(--space-4); font-size: 17px; }
+.vh-compare__yes { padding: var(--space-3) var(--space-2); color: var(--color-accent-700); font-weight: 800; font-size: 16.5px; text-transform: uppercase; }
+.vh-compare__no { padding: var(--space-3) var(--space-2); color: var(--color-neutral-600); font-weight: 700; font-size: 16.5px; text-transform: uppercase; }
 
 /* --- 12. Guarantee pair ----------------------------------------------------- */
 .vh-pair { display: grid; gap: 0; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); }
@@ -415,7 +424,7 @@
   font-size: 16.5px; font-weight: 700;
 }
 .vh-faq__sign { font-family: var(--font-heading); font-size: 20px; color: var(--color-accent); flex: none; }
-.vh-faq__a { margin: 0; padding-bottom: var(--space-6); font-size: 15.5px; line-height: 1.6; color: var(--color-neutral-800); max-width: 62ch; }
+.vh-faq__a { margin: 0; padding-bottom: var(--space-6); font-size: 17px; line-height: 1.6; color: var(--color-neutral-800); max-width: 62ch; }
 
 /* --- 14. Footer ------------------------------------------------------------- */
 .vh-footer { border-top: 2px solid var(--color-text); background: var(--color-surface); }
@@ -423,9 +432,9 @@
   display: flex; flex-wrap: wrap; gap: var(--space-6);
   justify-content: space-between; align-items: center;
   padding-block: var(--space-8);
-  font-size: 13px; color: var(--color-neutral-700);
+  font-size: 14.5px; color: var(--color-neutral-700);
 }
-.vh-footer__links { display: flex; gap: var(--space-6); flex-wrap: wrap; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; font-size: 12px; }
+.vh-footer__links { display: flex; gap: var(--space-6); flex-wrap: wrap; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; font-size: 13.5px; }
 .vh-footer__links a { color: var(--color-neutral-800); text-decoration: none; }
 .vh-footer__links a:hover { color: var(--color-accent-700); text-decoration: underline; }
 
@@ -446,10 +455,10 @@
 .vh-sticky__text { min-width: 0; }
 .vh-sticky__thumb { width: 44px; height: 44px; flex: none; border: 2px solid var(--color-text); overflow: hidden; position: relative; }
 .vh-sticky__summary {
-  font-size: 14px; font-weight: 700; text-transform: uppercase;
+  font-size: 15.5px; font-weight: 700; text-transform: uppercase;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
-.vh-sticky__meta { font-size: 12px; color: var(--color-neutral-700); }
+.vh-sticky__meta { font-size: 13.5px; color: var(--color-neutral-700); }
 .vh-sticky__cta {
   border: none; cursor: pointer;
   background: var(--color-accent); color: #fff;
