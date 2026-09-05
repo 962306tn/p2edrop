@@ -5,7 +5,7 @@
   "cloneMode": "exact",
   "source": "input.html",
   "sourceImagesExternal": false,
-  "totalSections": 14,
+  "totalSections": 12,
   "sections": [
     {
       "index": 1,
@@ -83,20 +83,6 @@
       "label": "Offer CTA card with discount badge and product link",
       "file": "sections/11-offer-cta/section.html",
       "bytes": 6801
-    },
-    {
-      "index": 12,
-      "key": "12-stock-notice",
-      "label": "Sold-here-only stock notice",
-      "file": "sections/12-stock-notice/section.html",
-      "bytes": 10299
-    },
-    {
-      "index": 13,
-      "key": "13-faq",
-      "label": "Twelve-item FAQ accordion",
-      "file": "sections/13-faq/section.html",
-      "bytes": 14964
     },
     {
       "index": 14,

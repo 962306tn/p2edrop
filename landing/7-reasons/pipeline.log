@@ -23,3 +23,9 @@
   in-box warn note. Tier selection now happens on the product page the CTA button links to.
   edit patch: advanced.pos rejected an object value (schema allows only the position keyword), so the 28% badge is
   right-aligned with a -24px bottom margin instead of absolutely positioned; visually equivalent, no overlap risk.
+[phase3 revised] 12-stock-notice (636026263571530601) and 13-faq (636026370073297769) DELETED on request.
+  The page now runs 12 sections: offer bar, article header, mechanism accordion, 7 reasons, offer CTA, review mount + footer.
+  Compliance check before removing the FAQ: the "this is not a disinfectant / not EPA registered" statement that answer
+  carried is duplicated verbatim in the footer disclaimer, so the FIFRA guard survives the deletion.
+  Lost with the FAQ and not restated anywhere on the page: the 7-16 day delivery window, the returns window, the
+  spot-test warning and the "do not spray onto a pet" line. Those now live only on the product and policy pages.

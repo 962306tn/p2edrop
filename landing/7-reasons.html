@@ -1,8 +1,11 @@
 <!-- ============================================================
      VelaHush™ Pet Odor Gun — "7 Reasons" advertorial
-     Layout mirrors shophealthypetz.com/pages/6-reasons section order:
+     Section order:
        offer bar → article header → mechanism accordion → 7 listicle items
-       → inline PDP (#buy-now) → stock notice → FAQ → reviews → disclaimer
+       → offer CTA (#buy-now) → review mount → disclaimer footer
+
+     The inline PDP, the sold-here-only notice and the FAQ were removed on request.
+     Bundle tiers and the full FAQ live on the product page the CTA links to.
 
      COMPLIANCE — READ BEFORE PUBLISHING (see PET-ODOR-GUN-STRATEGY.md Part 8.4 + Appendix B):
      Every proof slot below is EMPTY ON PURPOSE. The source page fills the same slots with
@@ -165,28 +168,6 @@ img{max-width:100%;display:block}
   .cta__slot--sm{width:74px;height:88px}
   .cta__btn{display:block;padding:16px}
 }
-
-/* ---- stock notice ---- */
-.stock{max-width:var(--content);margin:36px auto;padding:20px 22px;border:1px solid #E3C4C4;
-  background:#FCF1F1;border-radius:12px;color:#7A2E2E;font-size:15px}
-.stock h3{font-size:17px;margin-bottom:8px;color:#7A2E2E}
-
-/* ---- FAQ ---- */
-.faq{padding:56px 0}
-.faq__heading{font-size:29px;text-align:center}
-.faq__rule{display:block;width:64px;height:3px;background:var(--blue);margin:14px auto 30px;border-radius:2px}
-.faq__item{border-bottom:1px solid var(--border)}
-.faq__q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;
-  background:none;border:0;padding:18px 0;cursor:pointer;text-align:left;font:inherit;
-  font-weight:600;font-size:17px;color:inherit}
-.faq__icon{width:14px;height:14px;flex:0 0 14px;position:relative}
-.faq__icon::before,.faq__icon::after{content:"";position:absolute;background:var(--navy);
-  left:50%;top:50%;transform:translate(-50%,-50%)}
-.faq__icon::before{width:14px;height:2px}
-.faq__icon::after{width:2px;height:14px;transition:opacity .2s}
-.faq__item[open] .faq__icon::after{opacity:0}
-.faq__a{padding:0 0 20px;color:var(--soft-text);font-size:16px}
-@media(max-width:768px){.faq{padding:36px 0}.faq__heading{font-size:24px}}
 
 /* ---- footer ---- */
 .foot{background:var(--navy);color:#C8D2DE;padding:36px 0;font-size:13px;line-height:1.7}
@@ -497,63 +478,7 @@ summary::-webkit-details-marker{display:none}
   </div>
 </section>
 
-<!-- ========== 6. STOCK NOTICE ========== -->
-<div class="wrap">
-  <div class="stock">
-    <h3>One thing worth knowing</h3>
-    <p style="margin:0">VelaHush is sold here and nowhere else. If you see it on a marketplace listing, it did not come from us and we cannot honour the return window on it.</p>
-    <!-- The source page pairs this with a fabricated "Only 43 left" counter.
-         Do not add a stock number unless it is read from real inventory. -->
-  </div>
-</div>
-
-<!-- ========== 7. FAQ ========== -->
-<section class="faq">
-  <div class="wrap"><div class="inner">
-    <h2 class="faq__heading">Frequently asked questions</h2>
-    <span class="faq__rule" aria-hidden="true"></span>
-
-    <details class="faq__item"><summary class="faq__q">Will it leave my furniture wet?<span class="faq__icon" aria-hidden="true"></span></summary>
-      <div class="faq__a"><p>It leaves the surface slightly damp, not wet. Because the mist is so fine, you are putting down a fraction of the liquid a trigger bottle would over the same area, and it dries in minutes. Hold it about 30cm back and keep the gun moving rather than resting on one spot.</p></div></details>
-
-    <details class="faq__item"><summary class="faq__q">Does it come with solution?<span class="faq__icon" aria-hidden="true"></span></summary>
-      <div class="faq__a"><p>[[ANSWER THIS ACCURATELY. State exactly what is in the box: gun, charging cable, and however many bottles of solution, or none.]]</p></div></details>
-
-    <details class="faq__item"><summary class="faq__q">Can I use my own cleaner in it?<span class="faq__icon" aria-hidden="true"></span></summary>
-      <div class="faq__a"><p>Yes, and that is the point of an open reservoir. Any thin water-based liquid works: enzyme cleaners, diluted white vinegar, plain water. Avoid bleach, anything oil-based, essential oils undiluted, and anything thick enough to clog a nozzle.</p></div></details>
-
-    <details class="faq__item"><summary class="faq__q">Is it safe to spray around my pet?<span class="faq__icon" aria-hidden="true"></span></summary>
-      <div class="faq__a"><p>Treat the room with the pet out of it and let the surfaces dry before they come back. Do not spray the gun onto an animal. Safety depends entirely on what you put in the reservoir, so follow the label of whatever solution you are using.</p></div></details>
-
-    <details class="faq__item"><summary class="faq__q">Does it disinfect or kill bacteria?<span class="faq__icon" aria-hidden="true"></span></summary>
-      <div class="faq__a"><p>No. It is a sprayer, not a disinfectant. It atomises whatever liquid you put in it. Any claim about what that liquid does belongs to the liquid's own label, not to this device.</p>
-        <!-- Keep this answer. It is the page's own defence against an EPA/FIFRA pesticidal-claim problem
-             and it pre-empts the objection honestly. Do not soften it. --></div></details>
-
-    <details class="faq__item"><summary class="faq__q">How long does a charge last?<span class="faq__icon" aria-hidden="true"></span></summary>
-      <div class="faq__a"><p>[[REAL SPEC: runtime in minutes of continuous spraying, charge time, battery capacity. Get these from the supplier in writing.]]</p></div></details>
-
-    <details class="faq__item"><summary class="faq__q">How big is the reservoir?<span class="faq__icon" aria-hidden="true"></span></summary>
-      <div class="faq__a"><p>[[REAL SPEC: capacity in ml, and roughly how many rooms that covers at normal use.]]</p></div></details>
-
-    <details class="faq__item"><summary class="faq__q">Will it work on carpet and rugs?<span class="faq__icon" aria-hidden="true"></span></summary>
-      <div class="faq__a"><p>Yes. Carpet is one of the surfaces that benefits most, because the residue sits down in the pile where wiping never reaches and the pad underneath holds it. Do a light even pass rather than a heavy one.</p></div></details>
-
-    <details class="faq__item"><summary class="faq__q">Will it stain or discolour fabric?<span class="faq__icon" aria-hidden="true"></span></summary>
-      <div class="faq__a"><p>The gun does not stain anything; it only delivers liquid. Whether a given solution is safe on a given fabric depends on both. Spot-test an out-of-sight area first on anything delicate, unlined, or dry-clean-only.</p></div></details>
-
-    <details class="faq__item"><summary class="faq__q">How is this different from a $12 spray bottle?<span class="faq__icon" aria-hidden="true"></span></summary>
-      <div class="faq__a"><p>Coverage and droplet size. A trigger bottle puts heavy droplets on a small patch, which is fine for a stain and useless for a room. This puts a fine mist over a whole area with less liquid, which is what a spread-out smell actually needs. You can keep using the same solution.</p></div></details>
-
-    <details class="faq__item"><summary class="faq__q">What is your return policy?<span class="faq__icon" aria-hidden="true"></span></summary>
-      <div class="faq__a"><p>[[MATCH YOUR RETURNS PAGE WORD FOR WORD. Window, who pays return shipping, condition required, how to start one. A mismatch between this line and the policy page is a chargeback waiting to happen.]]</p></div></details>
-
-    <details class="faq__item"><summary class="faq__q">How long does delivery take?<span class="faq__icon" aria-hidden="true"></span></summary>
-      <div class="faq__a"><p>Orders ship within 1-2 business days and arrive in 7-16 days. Shipping is free on every US order. You get a tracking number as soon as the parcel is scanned.</p></div></details>
-  </div></div>
-</section>
-
-<!-- ========== 8. REVIEWS ========== -->
+<!-- ========== 6. REVIEWS ========== -->
 <section class="li li--alt">
   <div class="wrap"><div class="inner">
     <div class="slot slot--warn">
@@ -565,7 +490,7 @@ summary::-webkit-details-marker{display:none}
   </div></div>
 </section>
 
-<!-- ========== 9. FOOTER ========== -->
+<!-- ========== 7. FOOTER ========== -->
 <footer class="foot">
   <div class="wrap"><div class="inner">
     <p>VelaHush™ is a sprayer. It is not a disinfectant, sanitiser, or pesticide, and it is not registered with the EPA. It makes no claim to kill or reduce bacteria, viruses, mould, or mites. Results depend on the solution you use and the surface you use it on.</p>

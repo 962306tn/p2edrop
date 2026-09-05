@@ -1,6 +1,0 @@
-[phase3 12/14 dom-tree] 12-stock-notice
-div.wrap > div.stock [max-width 860px; margin 36px auto; bg #FCF1F1; border 1px #E3C4C4; radius 12px; padding 20px 22px; 15px #7A2E2E]
- ├── h3  #text: "One thing worth knowing"  [Outfit 17px; 600; #7A2E2E; mb 8px]
- └── p  #text: "VelaHush is sold here and nowhere else. If you see it on a marketplace listing, it did not come from us and we cannot honour the return window on it."  [margin 0]
-
-[note] the source page this clones pairs the same box with a fabricated "Only 43 left" counter; that counter is deliberately absent here.
