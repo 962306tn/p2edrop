@@ -50,6 +50,13 @@ img{max-width:100%;display:block}
 .slot--warn{border-color:#C9761F;background:#FCF3E8;color:#7A4A12}
 .slot--warn b{color:#8A4F0B}
 
+/* ---- real images ---- */
+.img{margin:22px 0;border-radius:12px;overflow:hidden;background:var(--soft)}
+.img img{width:100%;height:auto;display:block}
+.bb-item__panel .img{margin:0 0 16px}
+.cta__hero{width:150px;height:auto;border-radius:12px;display:block}
+@media(max-width:768px){.cta__hero{width:120px}}
+
 /* ---- offer bar ---- */
 .bar{background:var(--navy);color:#fff;text-align:center;padding:10px 16px;font-size:14px;
   position:sticky;top:0;z-index:50}
@@ -143,7 +150,6 @@ img{max-width:100%;display:block}
   display:flex;align-items:center;justify-content:center;color:#7f949c;font-size:11px;
   letter-spacing:.04em;padding:6px;text-align:center}
 .cta__slot--sm{width:92px;height:110px}
-.cta__slot--lg{width:150px;height:210px}
 .cta__item figcaption{margin-top:10px;font-size:13px;color:var(--soft-text);line-height:1.35}
 .cta__item figcaption b{display:block;font-size:13px;font-weight:700;color:var(--navy)}
 .cta__plus{color:var(--blue);font-size:20px;font-weight:600;padding-bottom:56px}
@@ -164,7 +170,7 @@ img{max-width:100%;display:block}
 @media(max-width:768px){
   .cta{padding:36px 0}
   .cta__card{padding:18px;border-radius:16px}
-  .cta__slot--lg{width:120px;height:168px}
+  
   .cta__slot--sm{width:74px;height:88px}
   .cta__btn{display:block;padding:16px}
 }
@@ -223,8 +229,7 @@ summary::-webkit-details-marker{display:none}
     <details class="bb-item">
       <summary class="bb-item__header"><span class="bb-item__num">01</span><span class="bb-item__title">The smell is not in the air. It is in the fabric.</span><span class="bb-toggle" aria-hidden="true"></span></summary>
       <div class="bb-item__panel">
-        <div class="slot"><b>Image slot</b><code>mechanism-fiber.jpg</code> — macro shot of upholstery weave, 900px wide<br>
-          <!-- <img src="/cdn/shop/files/mechanism-fiber.jpg" alt="Close-up of upholstery fibres" loading="lazy" width="900" height="600"> --></div>
+        <figure class="img"><img src="https://cdn.shopify.com/s/files/1/1004/8402/2636/files/mechanism-fiber.jpg?v=1788661333" alt="Close-up of upholstery fibres" loading="lazy" width="1200" height="800"></figure>
         <p>What you are smelling is residue that soaked into the weave: oils from fur and skin, dried saliva, whatever came in on their paws. Air fresheners perfume the air above it. The residue is still down in the fabric, so the smell comes back the moment the perfume fades.</p>
       </div>
     </details>
@@ -239,8 +244,7 @@ summary::-webkit-details-marker{display:none}
     <details class="bb-item">
       <summary class="bb-item__header"><span class="bb-item__num">03</span><span class="bb-item__title">A trigger bottle sprays droplets. Droplets sit on top.</span><span class="bb-toggle" aria-hidden="true"></span></summary>
       <div class="bb-item__panel">
-        <div class="slot"><b>Image slot</b><code>mechanism-droplet-vs-mist.jpg</code> — side by side, trigger stream vs nano mist<br>
-          <!-- <img src="/cdn/shop/files/mechanism-droplet-vs-mist.jpg" alt="Trigger spray droplets beside a fine mist" loading="lazy" width="900" height="600"> --></div>
+        <figure class="img"><img src="https://cdn.shopify.com/s/files/1/1004/8402/2636/files/mechanism-droplet-vs-mist.jpg?v=1788661333" alt="Trigger spray droplets beside a fine mist" loading="lazy" width="1200" height="800"></figure>
         <p>A hand trigger throws heavy droplets over a small patch. They land on the surface and most of the liquid stays there. A finer mist carries the same amount of solution over far more area, and settles into the weave instead of beading on top of it.</p>
       </div>
     </details>
@@ -288,8 +292,7 @@ summary::-webkit-details-marker{display:none}
       <p>The gun atomises the solution into a mist fine enough to settle into the weave rather than pool on it. Same bottle of solution, delivered in a way the fabric can actually take.</p>
     </div>
 
-    <div class="slot"><b>Image slot</b><code>misting-sofa.jpg</code> — mist visible against a dark sofa, side light, 1200x800<br>
-      <!-- <img src="/cdn/shop/files/misting-sofa.jpg" alt="Fine mist settling into a sofa cushion" loading="lazy" width="1200" height="800"> --></div>
+    <figure class="img"><img src="https://cdn.shopify.com/s/files/1/1004/8402/2636/files/misting-sofa.jpg?v=1788661333" alt="Fine mist settling into a sofa cushion" loading="lazy" width="1200" height="800"></figure>
   </div></div>
 </section>
 
@@ -341,9 +344,7 @@ summary::-webkit-details-marker{display:none}
       <p>A mist that fine puts down a fraction of the liquid over a much wider area. The fabric goes slightly damp to the touch and is dry again in minutes. You can treat the sofa and then sit on it.</p>
     </div>
 
-    <div class="slot"><b>Image slot — the single most important image on this page</b><code>wet-ring-comparison.jpg</code><br>
-      Left: dark wet patch from a trigger bottle. Right: same fabric, evenly misted, no ring. Shoot both on the same cushion, same light, one frame.<br>
-      <!-- <img src="/cdn/shop/files/wet-ring-comparison.jpg" alt="Trigger spray wet patch beside evenly misted fabric" loading="lazy" width="1200" height="800"> --></div>
+    <figure class="img"><img src="https://cdn.shopify.com/s/files/1/1004/8402/2636/files/wet-ring-comparison.jpg?v=1788661333" alt="Trigger spray wet patch beside evenly misted fabric" loading="lazy" width="1200" height="800"></figure>
   </div></div>
 </section>
 
@@ -359,8 +360,7 @@ summary::-webkit-details-marker{display:none}
       <p>The car is usually the worst of them, and the one people have simply accepted. A sealed box, warm, upholstered on every surface, and a dog in it twice a week.</p>
     </div>
 
-    <div class="slot"><b>Image slot</b><code>car-interior.jpg</code> — misting a rear seat, door open, daylight, 1200x800<br>
-      <!-- <img src="/cdn/shop/files/car-interior.jpg" alt="Misting a car rear seat" loading="lazy" width="1200" height="800"> --></div>
+    <figure class="img"><img src="https://cdn.shopify.com/s/files/1/1004/8402/2636/files/car-interior.jpg?v=1788661333" alt="Misting a car rear seat" loading="lazy" width="1200" height="800"></figure>
   </div></div>
 </section>
 
@@ -439,10 +439,7 @@ summary::-webkit-details-marker{display:none}
             <span class="cta__plus" aria-hidden="true">+</span>
 
             <figure class="cta__item cta__item--main">
-              <div class="cta__slot cta__slot--lg">
-                <!-- <img src="/cdn/shop/files/hero-white.jpg" alt="VelaHush Pet Odor Gun" width="1400" height="1400"> -->
-                <span>hero-white.jpg</span>
-              </div>
+              <img class="cta__hero" src="https://cdn.shopify.com/s/files/1/1004/8402/2636/files/hero-white.jpg?v=1788661334" alt="VelaHush Pet Odor Gun" width="1200" height="1200">
               <figcaption><b>2 GUNS</b>$99.95</figcaption>
             </figure>
 

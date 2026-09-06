@@ -29,3 +29,11 @@
   carried is duplicated verbatim in the footer disclaimer, so the FIFRA guard survives the deletion.
   Lost with the FAQ and not restated anywhere on the page: the 7-16 day delivery window, the returns window, the
   spot-test warning and the "do not spray onto a pet" line. Those now live only on the product and policy pages.
+[phase3 images] 6 merchant images wired in from Shopify Files (all fileStatus READY, dimensions verified by GraphQL):
+  mechanism-fiber.jpg 1200x800 -> 03 accordion item 1   (gIm03Fibr_)
+  mechanism-droplet-vs-mist.jpg 1200x800 -> 03 item 3   (gIm03Drop_)
+  misting-sofa.jpg 1200x800 -> 05 reason 2              (gIm05Sofa_)
+  wet-ring-comparison.jpg 1200x800 -> 07 reason 4       (gIm07Ring_)
+  car-interior.jpg 1200x800 -> 08 reason 5              (gIm08Car__)
+  hero-white.jpg 1200x1200 -> 11 offer CTA, 150px       (gImCtaHero)
+  each placeholder slot Row removed and replaced by an Image element at the same position; alt text from the HTML comments.
