@@ -1,0 +1,2551 @@
+{
+  "uid": "gc4u5Bufhe",
+  "tag": "ProductBundleDiscount",
+  "label": "Product Bundle Discount",
+  "settings": {
+    "bundleItems": [
+      {
+        "discountType": "no_discount",
+        "discountValue": "0",
+        "id": "deal-item--1",
+        "quantity": 1
+      },
+      {
+        "discountType": "percentage",
+        "discountValue": 5,
+        "id": "deal-item--2",
+        "quantity": 2,
+        "title": "FIRSTORDERDISCOUNT_2"
+      },
+      {
+        "discountType": "percentage",
+        "discountValue": 15,
+        "id": "deal-item--3",
+        "quantity": 3,
+        "title": "FIRSTORDERDISCOUNT_3"
+      }
+    ],
+    "childItem": [
+      "Buy 1",
+      "Buy 2",
+      "Buy 3"
+    ],
+    "enableIcon": false,
+    "hasPreSelectItem": true,
+    "hideNoDiscountItem": false,
+    "iconHorizontalPosition": "center",
+    "iconPosition": "center",
+    "iconSize": {
+      "desktop": 18,
+      "mobile": 18,
+      "tablet": 18
+    },
+    "iconSpacing": "12px",
+    "layout": "vertical-layout",
+    "selectItemDefault": 1,
+    "text": "<p>MMM</p>",
+    "useProductCompareAtPrice": false,
+    "applyToInBetweenQuantities": false,
+    "enableDisplayCondition": true
+  },
+  "styles": {
+    "align": "left",
+    "backgroundColor": {
+      "active": "bg-2",
+      "hover": "bg-2",
+      "normal": "bg-1"
+    },
+    "borderBundle": {
+      "active": {
+        "border": "solid",
+        "borderWidth": "2px",
+        "color": "brand",
+        "isCustom": true,
+        "width": "2px 2px 2px 2px"
+      },
+      "hover": {
+        "border": "solid",
+        "borderWidth": "2px",
+        "color": "brand",
+        "isCustom": true,
+        "width": "2px 2px 2px 2px"
+      },
+      "normal": {
+        "border": "solid",
+        "borderWidth": "1px",
+        "color": "line-2",
+        "isCustom": false,
+        "width": "1px 1px 1px 1px"
+      }
+    },
+    "boxShadowBundle": {
+      "normal": {
+        "angle": 90,
+        "blur": "12px",
+        "color": "rgba(0, 0, 0, 0.20)",
+        "distance": "4px",
+        "spread": "0px",
+        "type": "shadow-1"
+      }
+    },
+    "enableActiveEffect": true,
+    "enableHoverEffect": true,
+    "hasBoxShadowBundle": {
+      "active": false,
+      "hover": false,
+      "normal": false
+    },
+    "iconColor": {
+      "active": "brand",
+      "hover": "transparent",
+      "normal": "line-1"
+    },
+    "roundedBundle": {
+      "normal": {
+        "bblr": "16px",
+        "bbrr": "16px",
+        "btlr": "16px",
+        "btrr": "16px",
+        "radiusType": "custom"
+      }
+    },
+    "size": {
+      "desktop": {
+        "gap": "24px",
+        "padding": {
+          "bottom": "16px",
+          "left": "20px",
+          "right": "20px",
+          "top": "16px",
+          "type": "custom"
+        },
+        "width": "100%"
+      },
+      "mobile": {
+        "customShapeValue": "",
+        "gap": "20px",
+        "height": "",
+        "padding": {
+          "bottom": "14px",
+          "left": "20px",
+          "right": "20px",
+          "top": "14px",
+          "type": "custom"
+        },
+        "shape": "",
+        "shapeValue": "",
+        "width": "100%"
+      },
+      "tablet": {
+        "customShapeValue": "",
+        "gap": "24px",
+        "height": "",
+        "padding": {
+          "bottom": "14px",
+          "left": "20px",
+          "right": "20px",
+          "top": "14px",
+          "type": "custom"
+        },
+        "shape": "",
+        "shapeValue": "",
+        "width": "100%"
+      }
+    }
+  },
+  "advanced": {
+    "animation": {
+      "desktop": {
+        "enabled": true,
+        "trigger": "appear",
+        "triggerConfig": {
+          "appear": {
+            "animation": "zoom",
+            "setting": {
+              "fade": {
+                "delay": "0",
+                "easing": "ease-out",
+                "speed": 1.7
+              },
+              "shake": {
+                "delay": "0",
+                "easing": "linear",
+                "intensity": 11,
+                "loop": false,
+                "speed": 0.7
+              },
+              "slide": {
+                "delay": "0",
+                "direction": "left",
+                "easing": "ease-out",
+                "isCustomDistance": false,
+                "speed": 1.7
+              },
+              "zoom": {
+                "delay": "0",
+                "easing": "ease-out",
+                "isFade": true,
+                "scale": {
+                  "in": [
+                    80,
+                    100
+                  ],
+                  "out": [
+                    120,
+                    100
+                  ]
+                },
+                "speed": "1.5",
+                "zoomDirection": "in"
+              }
+            }
+          },
+          "hover": {
+            "animation": "none",
+            "setting": {
+              "fade": {
+                "delay": "0",
+                "easing": "ease-out",
+                "speed": 1.7
+              },
+              "shake": {
+                "delay": "0",
+                "easing": "linear",
+                "intensity": 11,
+                "loop": false,
+                "speed": 0.7
+              },
+              "slide": {
+                "delay": "0",
+                "direction": "left",
+                "easing": "ease-out",
+                "isCustomDistance": false,
+                "speed": 1.7
+              },
+              "zoom": {
+                "delay": "0",
+                "easing": "ease-out",
+                "isFade": false,
+                "scale": {
+                  "in": [
+                    100,
+                    120
+                  ],
+                  "out": [
+                    100,
+                    80
+                  ]
+                },
+                "speed": 1.7,
+                "zoomDirection": "in"
+              }
+            }
+          }
+        }
+      }
+    },
+    "border": {
+      "desktop": {
+        "normal": {
+          "border": "none",
+          "borderType": "none",
+          "borderWidth": "1px",
+          "color": "#121212",
+          "isCustom": true,
+          "width": "1px 1px 1px 1px"
+        }
+      }
+    },
+    "boxShadow": {
+      "desktop": {
+        "normal": {}
+      }
+    },
+    "d": {
+      "desktop": true,
+      "mobile": true,
+      "tablet": true
+    },
+    "hasBoxShadow": {
+      "desktop": {
+        "normal": false
+      }
+    },
+    "op": {
+      "desktop": "100%"
+    },
+    "pageType": "GP_PRODUCT",
+    "rounded": {
+      "desktop": {
+        "normal": {
+          "bblr": "0px",
+          "bbrr": "0px",
+          "btlr": "0px",
+          "btrr": "0px",
+          "radiusType": "none"
+        }
+      }
+    },
+    "spacing-setting": {
+      "desktop": {
+        "link": false,
+        "margin": {
+          "bottom": "32px",
+          "top": "24px"
+        }
+      },
+      "tablet": {
+        "link": false,
+        "margin": {
+          "bottom": "28px",
+          "top": "20px"
+        }
+      }
+    }
+  },
+  "childrens": [
+    {
+      "uid": "gKSumx-_cZ",
+      "tag": "ProductBundleDiscountItem",
+      "label": "Bundle Item",
+      "settings": {},
+      "styles": {},
+      "advanced": {
+        "pageType": "GP_PRODUCT",
+        "hasBoxShadow": {
+          "desktop": {
+            "normal": false
+          }
+        },
+        "boxShadow": {
+          "desktop": {
+            "normal": {}
+          }
+        },
+        "op": {
+          "desktop": "100%"
+        }
+      },
+      "childrens": [
+        {
+          "uid": "gMKQTO_M4k",
+          "tag": "Row",
+          "label": "Row",
+          "settings": {
+            "blockAlignment": "start",
+            "horizontalAlign": {
+              "desktop": "space-between"
+            },
+            "inlineAlignment": "start",
+            "layout": {
+              "desktop": {
+                "cols": [
+                  6,
+                  6
+                ],
+                "display": "fit"
+              },
+              "mobile": {
+                "cols": [
+                  6,
+                  6
+                ],
+                "display": "fit"
+              }
+            },
+            "text": "<p>6 bottles</p>",
+            "verticalAlign": {
+              "desktop": "center"
+            }
+          },
+          "styles": {
+            "background": {
+              "desktop": {
+                "attachment": "scroll",
+                "color": "transparent",
+                "image": {
+                  "height": 0,
+                  "src": "",
+                  "width": 0
+                },
+                "position": {
+                  "x": 50,
+                  "y": 50
+                },
+                "repeat": "no-repeat",
+                "size": "cover",
+                "type": "color"
+              }
+            },
+            "columnGap": {
+              "desktop": "1%"
+            },
+            "preloadBgImage": false,
+            "verticalGutter": {
+              "desktop": "16px"
+            },
+            "width": {
+              "desktop": "100%",
+              "mobile": "100%",
+              "tablet": "100%"
+            }
+          },
+          "advanced": {
+            "pageType": "GP_PRODUCT",
+            "spacing-setting": {
+              "desktop": {
+                "margin": {
+                  "bottom": 0
+                }
+              }
+            },
+            "hasBoxShadow": {
+              "desktop": {
+                "normal": false
+              }
+            },
+            "boxShadow": {
+              "desktop": {
+                "normal": {}
+              }
+            },
+            "op": {
+              "desktop": "100%"
+            }
+          },
+          "childrens": [
+            {
+              "uid": "g_SX1eh6wJ",
+              "tag": "Col",
+              "label": "Block",
+              "settings": {},
+              "styles": {},
+              "advanced": {
+                "pageType": "GP_PRODUCT",
+                "hasBoxShadow": {
+                  "desktop": {
+                    "normal": false
+                  }
+                },
+                "boxShadow": {
+                  "desktop": {
+                    "normal": {}
+                  }
+                },
+                "op": {
+                  "desktop": "100%"
+                }
+              },
+              "childrens": [
+                {
+                  "uid": "gDnTIC1reH",
+                  "tag": "Text",
+                  "label": "Text Block",
+                  "settings": {
+                    "background": {
+                      "desktop": {
+                        "attachment": "scroll",
+                        "color": "transparent",
+                        "image": {
+                          "height": 0,
+                          "src": "",
+                          "width": 0
+                        },
+                        "position": {
+                          "x": 50,
+                          "y": 50
+                        },
+                        "repeat": "no-repeat",
+                        "size": "cover",
+                        "type": "color"
+                      }
+                    },
+                    "globalSize": {
+                      "desktop": {
+                        "padding": {
+                          "type": "custom"
+                        },
+                        "width": "100%"
+                      }
+                    },
+                    "htmlTag": "div",
+                    "text": "<p>Single Board</p>",
+                    "translate": "text"
+                  },
+                  "styles": {
+                    "align": {
+                      "desktop": "left"
+                    },
+                    "hasLineClamp": {
+                      "desktop": false
+                    },
+                    "lineClamp": {
+                      "desktop": 1,
+                      "mobile": 1,
+                      "tablet": 1
+                    },
+                    "shapeRounded": {
+                      "desktop": {}
+                    },
+                    "textAlign": {
+                      "desktop": "left"
+                    },
+                    "typo": {
+                      "attrs": {
+                        "bold": false,
+                        "color": "text-2"
+                      },
+                      "custom": {
+                        "fontSize": {
+                          "desktop": "19px",
+                          "mobile": "18px",
+                          "tablet": "16px"
+                        },
+                        "fontStyle": "normal",
+                        "fontWeight": "400",
+                        "hasShadowText": false,
+                        "letterSpacing": {
+                          "desktop": "normal"
+                        },
+                        "lineHeight": {
+                          "desktop": "150%",
+                          "mobile": "130%",
+                          "tablet": "150%"
+                        },
+                        "textShadow": {
+                          "angle": 37,
+                          "blur": "2px",
+                          "color": "rgba(0, 0, 0, 0.6)",
+                          "distance": "4px",
+                          "type": "custom"
+                        }
+                      },
+                      "type": "subheading-2"
+                    }
+                  },
+                  "advanced": {
+                    "pageType": "GP_PRODUCT",
+                    "spacing-setting": {
+                      "desktop": {
+                        "margin": {
+                          "bottom": 0
+                        }
+                      }
+                    },
+                    "hasBoxShadow": {
+                      "desktop": {
+                        "normal": false
+                      }
+                    },
+                    "boxShadow": {
+                      "desktop": {
+                        "normal": {}
+                      }
+                    },
+                    "op": {
+                      "desktop": "100%"
+                    }
+                  }
+                },
+                {
+                  "uid": "go9cFl3jvY",
+                  "tag": "Text",
+                  "label": "Text Block",
+                  "settings": {
+                    "background": {
+                      "desktop": {
+                        "attachment": "scroll",
+                        "color": "transparent",
+                        "image": {
+                          "height": 0,
+                          "src": "",
+                          "width": 0
+                        },
+                        "position": {
+                          "x": 50,
+                          "y": 50
+                        },
+                        "repeat": "no-repeat",
+                        "size": "cover",
+                        "type": "color"
+                      }
+                    },
+                    "globalSize": {
+                      "desktop": {
+                        "padding": {
+                          "type": "custom"
+                        },
+                        "width": "100%"
+                      }
+                    },
+                    "htmlTag": "div",
+                    "text": "<p>(1 board)</p>",
+                    "translate": "text"
+                  },
+                  "styles": {
+                    "align": {
+                      "desktop": "left"
+                    },
+                    "hasLineClamp": {
+                      "desktop": false
+                    },
+                    "lineClamp": {
+                      "desktop": 1,
+                      "mobile": 1,
+                      "tablet": 1
+                    },
+                    "shapeRounded": {
+                      "desktop": {}
+                    },
+                    "textAlign": {
+                      "desktop": "left"
+                    },
+                    "typo": {
+                      "attrs": {
+                        "bold": false,
+                        "color": "text-2"
+                      },
+                      "custom": {
+                        "fontSize": {
+                          "desktop": "13px",
+                          "mobile": "18px",
+                          "tablet": "16px"
+                        },
+                        "fontStyle": "normal",
+                        "fontWeight": "400",
+                        "hasShadowText": false,
+                        "letterSpacing": {
+                          "desktop": "normal"
+                        },
+                        "lineHeight": {
+                          "desktop": "150%",
+                          "mobile": "130%",
+                          "tablet": "150%"
+                        },
+                        "textShadow": {
+                          "angle": 37,
+                          "blur": "2px",
+                          "color": "rgba(0, 0, 0, 0.6)",
+                          "distance": "4px",
+                          "type": "custom"
+                        }
+                      },
+                      "type": "subheading-2"
+                    }
+                  },
+                  "advanced": {
+                    "pageType": "GP_PRODUCT",
+                    "spacing-setting": {
+                      "desktop": {
+                        "margin": {
+                          "bottom": 0
+                        }
+                      }
+                    },
+                    "hasBoxShadow": {
+                      "desktop": {
+                        "normal": false
+                      }
+                    },
+                    "boxShadow": {
+                      "desktop": {
+                        "normal": {}
+                      }
+                    },
+                    "op": {
+                      "desktop": "100%"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "uid": "g-iUPFIHOj",
+              "tag": "Col",
+              "label": "Block",
+              "settings": {},
+              "advanced": {
+                "pageType": "GP_PRODUCT",
+                "hasBoxShadow": {
+                  "desktop": {
+                    "normal": false
+                  }
+                },
+                "boxShadow": {
+                  "desktop": {
+                    "normal": {}
+                  }
+                },
+                "op": {
+                  "desktop": "100%"
+                }
+              },
+              "childrens": [
+                {
+                  "uid": "gfHsJngYXZ",
+                  "tag": "Row",
+                  "label": "Row",
+                  "settings": {
+                    "blockAlignment": "start",
+                    "horizontalAlign": {
+                      "desktop": "end"
+                    },
+                    "inlineAlignment": "start",
+                    "layout": {
+                      "desktop": {
+                        "cols": [
+                          12
+                        ],
+                        "display": "fit"
+                      },
+                      "mobile": {
+                        "cols": [
+                          12
+                        ],
+                        "display": "fit"
+                      }
+                    },
+                    "verticalAlign": {
+                      "desktop": "end"
+                    }
+                  },
+                  "styles": {
+                    "background": {
+                      "desktop": {
+                        "attachment": "scroll",
+                        "color": "transparent",
+                        "image": {
+                          "height": 0,
+                          "src": "",
+                          "width": 0
+                        },
+                        "position": {
+                          "x": 50,
+                          "y": 50
+                        },
+                        "repeat": "no-repeat",
+                        "size": "cover",
+                        "type": "color"
+                      }
+                    },
+                    "columnGap": {
+                      "desktop": "1%"
+                    },
+                    "preloadBgImage": false,
+                    "verticalGutter": {
+                      "desktop": "8px"
+                    },
+                    "width": {
+                      "desktop": "100%",
+                      "mobile": "default",
+                      "tablet": "default"
+                    }
+                  },
+                  "advanced": {
+                    "pageType": "GP_PRODUCT",
+                    "spacing-setting": {
+                      "desktop": {
+                        "margin": {
+                          "bottom": 0
+                        }
+                      }
+                    },
+                    "hasBoxShadow": {
+                      "desktop": {
+                        "normal": false
+                      }
+                    },
+                    "boxShadow": {
+                      "desktop": {
+                        "normal": {}
+                      }
+                    },
+                    "op": {
+                      "desktop": "100%"
+                    }
+                  },
+                  "childrens": [
+                    {
+                      "uid": "gjXdxWVfxG",
+                      "tag": "Col",
+                      "label": "Block",
+                      "settings": {},
+                      "styles": {},
+                      "advanced": {
+                        "pageType": "GP_PRODUCT",
+                        "hasBoxShadow": {
+                          "desktop": {
+                            "normal": false
+                          }
+                        },
+                        "boxShadow": {
+                          "desktop": {
+                            "normal": {}
+                          }
+                        },
+                        "op": {
+                          "desktop": "100%"
+                        }
+                      },
+                      "childrens": [
+                        {
+                          "uid": "gjneUoMvP5",
+                          "tag": "ProductPrice",
+                          "label": "Product Price",
+                          "settings": {
+                            "hasOnlyDefaultVariant": false,
+                            "priceType": "regular"
+                          },
+                          "styles": {
+                            "color": {
+                              "hover": "text-2",
+                              "normal": "text-2"
+                            },
+                            "hasTextShadow": {
+                              "normal": false
+                            },
+                            "lineColor": "text-2",
+                            "lineThrough": true,
+                            "textAlign": {
+                              "desktop": "right"
+                            },
+                            "textShadow": {
+                              "normal": {
+                                "type": "shadow-1"
+                              }
+                            },
+                            "thickness": 1,
+                            "typo": {
+                              "attrs": {},
+                              "custom": {
+                                "fontSize": {
+                                  "desktop": "16px",
+                                  "mobile": "18px",
+                                  "tablet": "16px"
+                                },
+                                "fontStyle": "normal",
+                                "fontWeight": "400",
+                                "hasShadowText": false,
+                                "letterSpacing": {
+                                  "desktop": "normal"
+                                },
+                                "lineHeight": {
+                                  "desktop": "130%",
+                                  "mobile": "130%",
+                                  "tablet": "150%"
+                                },
+                                "textShadow": {
+                                  "angle": 37,
+                                  "blur": "2px",
+                                  "color": "rgba(0, 0, 0, 0.6)",
+                                  "distance": "4px",
+                                  "type": "custom"
+                                }
+                              },
+                              "type": "subheading-2"
+                            }
+                          },
+                          "advanced": {
+                            "pageType": "GP_PRODUCT",
+                            "spacing-setting": {
+                              "desktop": {
+                                "link": false,
+                                "margin": {},
+                                "padding": {
+                                  "bottom": "8px"
+                                }
+                              },
+                              "mobile": {
+                                "link": false,
+                                "margin": {},
+                                "padding": {
+                                  "bottom": "6px"
+                                }
+                              }
+                            },
+                            "hasBoxShadow": {
+                              "desktop": {
+                                "normal": false
+                              }
+                            },
+                            "boxShadow": {
+                              "desktop": {
+                                "normal": {}
+                              }
+                            },
+                            "op": {
+                              "desktop": "100%"
+                            }
+                          }
+                        },
+                        {
+                          "uid": "gr4Z7xKwOg",
+                          "tag": "Text",
+                          "label": "Text Block",
+                          "settings": {
+                            "background": {
+                              "desktop": {
+                                "attachment": "scroll",
+                                "color": "transparent",
+                                "image": {
+                                  "height": 0,
+                                  "src": "",
+                                  "width": 0
+                                },
+                                "position": {
+                                  "x": 50,
+                                  "y": 50
+                                },
+                                "repeat": "no-repeat",
+                                "size": "cover",
+                                "type": "color"
+                              }
+                            },
+                            "globalSize": {
+                              "desktop": {
+                                "padding": {
+                                  "type": "custom"
+                                },
+                                "width": "100%"
+                              }
+                            },
+                            "htmlTag": "div",
+                            "text": "<p>($239.99 per board)</p>",
+                            "translate": "text"
+                          },
+                          "styles": {
+                            "align": {
+                              "desktop": "left"
+                            },
+                            "hasLineClamp": {
+                              "desktop": false
+                            },
+                            "lineClamp": {
+                              "desktop": 1,
+                              "mobile": 1,
+                              "tablet": 1
+                            },
+                            "shapeRounded": {
+                              "desktop": {}
+                            },
+                            "textAlign": {
+                              "desktop": "left",
+                              "tablet": "right"
+                            },
+                            "typo": {
+                              "attrs": {
+                                "color": "text-2"
+                              },
+                              "custom": {
+                                "fontSize": {
+                                  "desktop": "13px",
+                                  "mobile": "12px",
+                                  "tablet": "14px"
+                                },
+                                "fontStyle": "normal",
+                                "fontWeight": "400",
+                                "hasShadowText": false,
+                                "letterSpacing": {
+                                  "desktop": "normal"
+                                },
+                                "lineHeight": {
+                                  "desktop": "130%",
+                                  "mobile": "130%",
+                                  "tablet": "150%"
+                                },
+                                "textShadow": {
+                                  "angle": 37,
+                                  "blur": "2px",
+                                  "color": "rgba(0, 0, 0, 0.6)",
+                                  "distance": "4px",
+                                  "type": "custom"
+                                }
+                              },
+                              "type": "paragraph-1"
+                            }
+                          },
+                          "advanced": {
+                            "pageType": "GP_PRODUCT",
+                            "spacing-setting": {
+                              "desktop": {
+                                "margin": {
+                                  "bottom": "0px"
+                                }
+                              }
+                            },
+                            "hasBoxShadow": {
+                              "desktop": {
+                                "normal": false
+                              }
+                            },
+                            "boxShadow": {
+                              "desktop": {
+                                "normal": {}
+                              }
+                            },
+                            "op": {
+                              "desktop": "100%"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "uid": "gMk-vEUTIp",
+      "tag": "ProductBundleDiscountItem",
+      "label": "Bundle Item",
+      "settings": {},
+      "styles": {},
+      "advanced": {
+        "pageType": "GP_PRODUCT",
+        "hasBoxShadow": {
+          "desktop": {
+            "normal": false
+          }
+        },
+        "boxShadow": {
+          "desktop": {
+            "normal": {}
+          }
+        },
+        "op": {
+          "desktop": "100%"
+        }
+      },
+      "childrens": [
+        {
+          "uid": "gM903lkB3l",
+          "tag": "Text",
+          "label": "Text Block",
+          "settings": {
+            "background": {
+              "desktop": {
+                "attachment": "scroll",
+                "color": "brand",
+                "image": {
+                  "src": "",
+                  "width": 0,
+                  "height": 0
+                },
+                "position": {
+                  "x": 50,
+                  "y": 50
+                },
+                "repeat": "no-repeat",
+                "size": "cover",
+                "type": "color"
+              }
+            },
+            "globalSize": {
+              "desktop": {
+                "gap": "",
+                "padding": {
+                  "type": "custom"
+                },
+                "width": "Auto"
+              }
+            },
+            "htmlTag": "div",
+            "text": "<p>&nbsp; &nbsp;Most Popular &nbsp;&nbsp;</p>",
+            "translate": "text"
+          },
+          "styles": {
+            "align": {
+              "desktop": "left"
+            },
+            "hasLineClamp": {
+              "desktop": false
+            },
+            "lineClamp": {
+              "desktop": 1,
+              "mobile": 1,
+              "tablet": 1
+            },
+            "shapeRounded": {
+              "desktop": {
+                "bblr": "6px",
+                "bbrr": "6px",
+                "btlr": "6px",
+                "btrr": "6px",
+                "radiusType": "custom"
+              }
+            },
+            "textAlign": {
+              "desktop": "left"
+            },
+            "typo": {
+              "attrs": {
+                "color": "bg-1"
+              },
+              "custom": {
+                "fontSize": {
+                  "desktop": "13px",
+                  "mobile": "14px",
+                  "tablet": "15px"
+                },
+                "fontStyle": "normal",
+                "fontWeight": "400",
+                "hasShadowText": false,
+                "letterSpacing": {
+                  "desktop": "normal"
+                },
+                "lineHeight": {
+                  "desktop": "200%",
+                  "mobile": "150%",
+                  "tablet": "150%"
+                },
+                "textShadow": {
+                  "angle": 37,
+                  "blur": "2px",
+                  "color": "rgba(0, 0, 0, 0.6)",
+                  "distance": "4px",
+                  "type": "custom"
+                }
+              },
+              "type": "paragraph-1"
+            }
+          },
+          "advanced": {
+            "border": {
+              "desktop": {
+                "normal": {
+                  "border": "none",
+                  "borderType": "none",
+                  "borderWidth": "1px",
+                  "color": "#121212",
+                  "isCustom": true,
+                  "width": "1px 1px 1px 1px"
+                }
+              }
+            },
+            "boxShadow": {
+              "desktop": {
+                "normal": {}
+              }
+            },
+            "d": {
+              "desktop": true,
+              "mobile": true,
+              "tablet": true
+            },
+            "editorData": {
+              "cssPlaceholder": ".{{rootClassName}} {\n\n}\n.{{rootClassName}} p {\n\n}"
+            },
+            "hasBoxShadow": {
+              "desktop": {
+                "normal": false
+              }
+            },
+            "left": {
+              "desktop": ""
+            },
+            "op": {
+              "desktop": "100%"
+            },
+            "pageType": "GP_PRODUCT",
+            "pos": {
+              "desktop": "relative"
+            },
+            "rounded": {
+              "desktop": {
+                "normal": {
+                  "bblr": "6px",
+                  "bbrr": "6px",
+                  "btlr": "6px",
+                  "btrr": "6px",
+                  "radiusType": "custom"
+                }
+              }
+            },
+            "spacing-setting": {
+              "desktop": {
+                "link": false,
+                "margin": {
+                  "bottom": "-30px",
+                  "left": "0px",
+                  "right": "0px"
+                },
+                "padding": {
+                  "bottom": "0px",
+                  "left": "0px",
+                  "right": "0px",
+                  "top": "0px"
+                }
+              },
+              "mobile": {
+                "link": false,
+                "margin": {
+                  "bottom": "-30px",
+                  "left": "0px",
+                  "right": "0px"
+                },
+                "padding": {
+                  "bottom": "0px",
+                  "left": "0px",
+                  "right": "0px",
+                  "top": "0px"
+                }
+              }
+            },
+            "top": {
+              "desktop": "-30px",
+              "mobile": "-28px"
+            },
+            "z": {
+              "desktop": 9999
+            }
+          }
+        },
+        {
+          "uid": "g4KrjI7_IW",
+          "tag": "Row",
+          "label": "Row",
+          "settings": {
+            "blockAlignment": "start",
+            "horizontalAlign": {
+              "desktop": "space-between"
+            },
+            "inlineAlignment": "start",
+            "layout": {
+              "desktop": {
+                "cols": [
+                  6,
+                  6
+                ],
+                "display": "fit"
+              },
+              "mobile": {
+                "cols": [
+                  6,
+                  6
+                ],
+                "display": "fit"
+              }
+            },
+            "verticalAlign": {
+              "desktop": "center"
+            }
+          },
+          "styles": {
+            "background": {
+              "desktop": {
+                "attachment": "scroll",
+                "color": "transparent",
+                "image": {
+                  "height": 0,
+                  "src": "",
+                  "width": 0
+                },
+                "position": {
+                  "x": 50,
+                  "y": 50
+                },
+                "repeat": "no-repeat",
+                "size": "cover",
+                "type": "color"
+              }
+            },
+            "columnGap": {
+              "desktop": "1%"
+            },
+            "preloadBgImage": false,
+            "verticalGutter": {
+              "desktop": "16px"
+            },
+            "width": {
+              "desktop": "100%",
+              "mobile": "100%",
+              "tablet": "100%"
+            }
+          },
+          "advanced": {
+            "pageType": "GP_PRODUCT",
+            "hasBoxShadow": {
+              "desktop": {
+                "normal": false
+              }
+            },
+            "boxShadow": {
+              "desktop": {
+                "normal": {}
+              }
+            },
+            "op": {
+              "desktop": "100%"
+            }
+          },
+          "childrens": [
+            {
+              "uid": "gWSXXnBbPX",
+              "tag": "Col",
+              "label": "Block",
+              "settings": {},
+              "styles": {},
+              "advanced": {
+                "pageType": "GP_PRODUCT",
+                "hasBoxShadow": {
+                  "desktop": {
+                    "normal": false
+                  }
+                },
+                "boxShadow": {
+                  "desktop": {
+                    "normal": {}
+                  }
+                },
+                "op": {
+                  "desktop": "100%"
+                }
+              },
+              "childrens": [
+                {
+                  "uid": "gObF9ks5-n",
+                  "tag": "Text",
+                  "label": "Text Block",
+                  "settings": {
+                    "background": {
+                      "desktop": {
+                        "attachment": "scroll",
+                        "color": "transparent",
+                        "image": {
+                          "height": 0,
+                          "src": "",
+                          "width": 0
+                        },
+                        "position": {
+                          "x": 50,
+                          "y": 50
+                        },
+                        "repeat": "no-repeat",
+                        "size": "cover",
+                        "type": "color"
+                      }
+                    },
+                    "globalSize": {
+                      "desktop": {
+                        "padding": {
+                          "type": "custom"
+                        },
+                        "width": "100%"
+                      }
+                    },
+                    "htmlTag": "div",
+                    "text": "<p>Duo Pack</p>",
+                    "translate": "text"
+                  },
+                  "styles": {
+                    "align": {
+                      "desktop": "left"
+                    },
+                    "hasLineClamp": {
+                      "desktop": false
+                    },
+                    "lineClamp": {
+                      "desktop": 1,
+                      "mobile": 1,
+                      "tablet": 1
+                    },
+                    "shapeRounded": {
+                      "desktop": {}
+                    },
+                    "textAlign": {
+                      "desktop": "left"
+                    },
+                    "typo": {
+                      "type": "subheading-2",
+                      "attrs": {
+                        "color": "text-2",
+                        "textAlign": {
+                          "desktop": "left"
+                        }
+                      },
+                      "custom": {
+                        "fontSize": {
+                          "desktop": "19px",
+                          "mobile": "17px",
+                          "tablet": "16px"
+                        },
+                        "fontStyle": "normal",
+                        "fontWeight": "400",
+                        "hasShadowText": false,
+                        "letterSpacing": {
+                          "desktop": "normal"
+                        },
+                        "lineHeight": {
+                          "desktop": "150%",
+                          "mobile": "130%",
+                          "tablet": "150%"
+                        },
+                        "textShadow": {
+                          "angle": 37,
+                          "blur": "2px",
+                          "color": "rgba(0, 0, 0, 0.6)",
+                          "distance": "4px",
+                          "type": "custom"
+                        }
+                      }
+                    }
+                  },
+                  "advanced": {
+                    "pageType": "GP_PRODUCT",
+                    "spacing-setting": {
+                      "desktop": {
+                        "margin": {
+                          "bottom": 0
+                        }
+                      }
+                    },
+                    "hasBoxShadow": {
+                      "desktop": {
+                        "normal": false
+                      }
+                    },
+                    "boxShadow": {
+                      "desktop": {
+                        "normal": {}
+                      }
+                    },
+                    "op": {
+                      "desktop": "100%"
+                    }
+                  }
+                },
+                {
+                  "uid": "g88ZtiS3rE",
+                  "tag": "Text",
+                  "label": "Text Block",
+                  "settings": {
+                    "background": {
+                      "desktop": {
+                        "attachment": "scroll",
+                        "color": "transparent",
+                        "image": {
+                          "height": 0,
+                          "src": "",
+                          "width": 0
+                        },
+                        "position": {
+                          "x": 50,
+                          "y": 50
+                        },
+                        "repeat": "no-repeat",
+                        "size": "cover",
+                        "type": "color"
+                      }
+                    },
+                    "globalSize": {
+                      "desktop": {
+                        "padding": {
+                          "type": "custom"
+                        },
+                        "width": "100%"
+                      }
+                    },
+                    "htmlTag": "div",
+                    "text": "<p>(2 boards)</p>",
+                    "translate": "text"
+                  },
+                  "styles": {
+                    "align": {
+                      "desktop": "left"
+                    },
+                    "hasLineClamp": {
+                      "desktop": false
+                    },
+                    "lineClamp": {
+                      "desktop": 1,
+                      "mobile": 1,
+                      "tablet": 1
+                    },
+                    "shapeRounded": {
+                      "desktop": {}
+                    },
+                    "textAlign": {
+                      "desktop": "left"
+                    },
+                    "typo": {
+                      "attrs": {
+                        "bold": false,
+                        "color": "text-2"
+                      },
+                      "custom": {
+                        "fontSize": {
+                          "desktop": "13px",
+                          "mobile": "18px",
+                          "tablet": "16px"
+                        },
+                        "fontStyle": "normal",
+                        "fontWeight": "400",
+                        "hasShadowText": false,
+                        "letterSpacing": {
+                          "desktop": "normal"
+                        },
+                        "lineHeight": {
+                          "desktop": "150%",
+                          "mobile": "130%",
+                          "tablet": "150%"
+                        },
+                        "textShadow": {
+                          "angle": 37,
+                          "blur": "2px",
+                          "color": "rgba(0, 0, 0, 0.6)",
+                          "distance": "4px",
+                          "type": "custom"
+                        }
+                      },
+                      "type": "subheading-2"
+                    }
+                  },
+                  "advanced": {
+                    "pageType": "GP_PRODUCT",
+                    "spacing-setting": {
+                      "desktop": {
+                        "margin": {
+                          "bottom": 0
+                        }
+                      }
+                    },
+                    "hasBoxShadow": {
+                      "desktop": {
+                        "normal": false
+                      }
+                    },
+                    "boxShadow": {
+                      "desktop": {
+                        "normal": {}
+                      }
+                    },
+                    "op": {
+                      "desktop": "100%"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "uid": "geQIIPD2W5",
+              "tag": "Col",
+              "label": "Block",
+              "settings": {},
+              "advanced": {
+                "pageType": "GP_PRODUCT",
+                "hasBoxShadow": {
+                  "desktop": {
+                    "normal": false
+                  }
+                },
+                "boxShadow": {
+                  "desktop": {
+                    "normal": {}
+                  }
+                },
+                "op": {
+                  "desktop": "100%"
+                }
+              },
+              "childrens": [
+                {
+                  "uid": "gwLBhXksP_",
+                  "tag": "Row",
+                  "label": "Row",
+                  "settings": {
+                    "blockAlignment": "start",
+                    "horizontalAlign": {
+                      "desktop": "end"
+                    },
+                    "inlineAlignment": "start",
+                    "layout": {
+                      "desktop": {
+                        "cols": [
+                          12
+                        ],
+                        "display": "fit"
+                      },
+                      "mobile": {
+                        "cols": [
+                          12
+                        ],
+                        "display": "fit"
+                      }
+                    },
+                    "verticalAlign": {
+                      "desktop": "center"
+                    }
+                  },
+                  "styles": {
+                    "background": {
+                      "desktop": {
+                        "attachment": "scroll",
+                        "color": "transparent",
+                        "image": {
+                          "height": 0,
+                          "src": "",
+                          "width": 0
+                        },
+                        "position": {
+                          "x": 50,
+                          "y": 50
+                        },
+                        "repeat": "no-repeat",
+                        "size": "cover",
+                        "type": "color"
+                      }
+                    },
+                    "columnGap": {
+                      "desktop": "1%"
+                    },
+                    "preloadBgImage": false,
+                    "verticalGutter": {
+                      "desktop": "8px"
+                    },
+                    "width": {
+                      "desktop": "100%",
+                      "mobile": "default",
+                      "tablet": "default"
+                    }
+                  },
+                  "advanced": {
+                    "pageType": "GP_PRODUCT",
+                    "spacing-setting": {
+                      "desktop": {
+                        "margin": {
+                          "bottom": 0
+                        }
+                      }
+                    },
+                    "hasBoxShadow": {
+                      "desktop": {
+                        "normal": false
+                      }
+                    },
+                    "boxShadow": {
+                      "desktop": {
+                        "normal": {}
+                      }
+                    },
+                    "op": {
+                      "desktop": "100%"
+                    }
+                  },
+                  "childrens": [
+                    {
+                      "uid": "gtLU9mEKVO",
+                      "tag": "Col",
+                      "label": "Block",
+                      "settings": {},
+                      "styles": {},
+                      "advanced": {
+                        "pageType": "GP_PRODUCT",
+                        "hasBoxShadow": {
+                          "desktop": {
+                            "normal": false
+                          }
+                        },
+                        "boxShadow": {
+                          "desktop": {
+                            "normal": {}
+                          }
+                        },
+                        "op": {
+                          "desktop": "100%"
+                        }
+                      },
+                      "childrens": [
+                        {
+                          "uid": "gMppZHCpjg",
+                          "tag": "ProductPrice",
+                          "label": "Product Price",
+                          "settings": {
+                            "hasOnlyDefaultVariant": false,
+                            "priceType": "regular"
+                          },
+                          "styles": {
+                            "color": {
+                              "hover": "text-2",
+                              "normal": "text-2"
+                            },
+                            "hasTextShadow": {
+                              "normal": false
+                            },
+                            "lineColor": "text-2",
+                            "lineThrough": true,
+                            "textAlign": {
+                              "desktop": "right"
+                            },
+                            "textShadow": {
+                              "normal": {
+                                "type": "shadow-1"
+                              }
+                            },
+                            "thickness": 1,
+                            "typo": {
+                              "attrs": {},
+                              "custom": {
+                                "fontSize": {
+                                  "desktop": "16px",
+                                  "mobile": "18px",
+                                  "tablet": "16px"
+                                },
+                                "fontStyle": "normal",
+                                "fontWeight": "400",
+                                "hasShadowText": false,
+                                "letterSpacing": {
+                                  "desktop": "normal"
+                                },
+                                "lineHeight": {
+                                  "desktop": "130%",
+                                  "mobile": "130%",
+                                  "tablet": "150%"
+                                },
+                                "textShadow": {
+                                  "angle": 37,
+                                  "blur": "2px",
+                                  "color": "rgba(0, 0, 0, 0.6)",
+                                  "distance": "4px",
+                                  "type": "custom"
+                                }
+                              },
+                              "type": "subheading-2"
+                            }
+                          },
+                          "advanced": {
+                            "pageType": "GP_PRODUCT",
+                            "spacing-setting": {
+                              "desktop": {
+                                "link": false,
+                                "margin": {},
+                                "padding": {
+                                  "bottom": "8px"
+                                }
+                              },
+                              "mobile": {
+                                "link": false,
+                                "margin": {},
+                                "padding": {
+                                  "bottom": "6px"
+                                }
+                              }
+                            },
+                            "hasBoxShadow": {
+                              "desktop": {
+                                "normal": false
+                              }
+                            },
+                            "boxShadow": {
+                              "desktop": {
+                                "normal": {}
+                              }
+                            },
+                            "op": {
+                              "desktop": "100%"
+                            }
+                          }
+                        },
+                        {
+                          "uid": "go0TRKpvBN",
+                          "tag": "Text",
+                          "label": "Text Block",
+                          "settings": {
+                            "background": {
+                              "desktop": {
+                                "attachment": "scroll",
+                                "color": "transparent",
+                                "image": {
+                                  "height": 0,
+                                  "src": "",
+                                  "width": 0
+                                },
+                                "position": {
+                                  "x": 50,
+                                  "y": 50
+                                },
+                                "repeat": "no-repeat",
+                                "size": "cover",
+                                "type": "color"
+                              }
+                            },
+                            "globalSize": {
+                              "desktop": {
+                                "padding": {
+                                  "type": "custom"
+                                },
+                                "width": "100%"
+                              }
+                            },
+                            "htmlTag": "div",
+                            "text": "<p>($227.99 per board)</p>",
+                            "translate": "text"
+                          },
+                          "styles": {
+                            "align": {
+                              "desktop": "left"
+                            },
+                            "hasLineClamp": {
+                              "desktop": false
+                            },
+                            "lineClamp": {
+                              "desktop": 1,
+                              "mobile": 1,
+                              "tablet": 1
+                            },
+                            "shapeRounded": {
+                              "desktop": {}
+                            },
+                            "textAlign": {
+                              "desktop": "left",
+                              "tablet": "right"
+                            },
+                            "typo": {
+                              "attrs": {
+                                "color": "text-2"
+                              },
+                              "custom": {
+                                "fontSize": {
+                                  "desktop": "13px",
+                                  "mobile": "12px",
+                                  "tablet": "14px"
+                                },
+                                "fontStyle": "normal",
+                                "fontWeight": "400",
+                                "hasShadowText": false,
+                                "letterSpacing": {
+                                  "desktop": "normal"
+                                },
+                                "lineHeight": {
+                                  "desktop": "130%",
+                                  "mobile": "130%",
+                                  "tablet": "150%"
+                                },
+                                "textShadow": {
+                                  "angle": 37,
+                                  "blur": "2px",
+                                  "color": "rgba(0, 0, 0, 0.6)",
+                                  "distance": "4px",
+                                  "type": "custom"
+                                }
+                              },
+                              "type": "paragraph-1"
+                            }
+                          },
+                          "advanced": {
+                            "pageType": "GP_PRODUCT",
+                            "spacing-setting": {
+                              "desktop": {
+                                "margin": {
+                                  "bottom": 0
+                                }
+                              }
+                            },
+                            "hasBoxShadow": {
+                              "desktop": {
+                                "normal": false
+                              }
+                            },
+                            "boxShadow": {
+                              "desktop": {
+                                "normal": {}
+                              }
+                            },
+                            "op": {
+                              "desktop": "100%"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "uid": "gJSPww_EIj",
+      "tag": "ProductBundleDiscountItem",
+      "label": "Bundle Item",
+      "settings": {},
+      "styles": {},
+      "advanced": {
+        "pageType": "GP_PRODUCT",
+        "hasBoxShadow": {
+          "desktop": {
+            "normal": false
+          }
+        },
+        "boxShadow": {
+          "desktop": {
+            "normal": {}
+          }
+        },
+        "op": {
+          "desktop": "100%"
+        }
+      },
+      "childrens": [
+        {
+          "uid": "gSgdPO4JGU",
+          "tag": "Row",
+          "label": "Row",
+          "settings": {
+            "blockAlignment": "start",
+            "horizontalAlign": {
+              "desktop": "space-between"
+            },
+            "inlineAlignment": "start",
+            "layout": {
+              "desktop": {
+                "cols": [
+                  6,
+                  6
+                ],
+                "display": "fit"
+              },
+              "mobile": {
+                "cols": [
+                  6,
+                  6
+                ],
+                "display": "fit"
+              }
+            },
+            "verticalAlign": {
+              "desktop": "center"
+            }
+          },
+          "styles": {
+            "background": {
+              "desktop": {
+                "attachment": "scroll",
+                "color": "transparent",
+                "image": {
+                  "height": 0,
+                  "src": "",
+                  "width": 0
+                },
+                "position": {
+                  "x": 50,
+                  "y": 50
+                },
+                "repeat": "no-repeat",
+                "size": "cover",
+                "type": "color"
+              }
+            },
+            "columnGap": {
+              "desktop": "1%"
+            },
+            "preloadBgImage": false,
+            "verticalGutter": {
+              "desktop": "16px"
+            },
+            "width": {
+              "desktop": "100%",
+              "mobile": "100%",
+              "tablet": "100%"
+            }
+          },
+          "advanced": {
+            "pageType": "GP_PRODUCT",
+            "hasBoxShadow": {
+              "desktop": {
+                "normal": false
+              }
+            },
+            "boxShadow": {
+              "desktop": {
+                "normal": {}
+              }
+            },
+            "op": {
+              "desktop": "100%"
+            }
+          },
+          "childrens": [
+            {
+              "uid": "gjuOXxWB93",
+              "tag": "Col",
+              "label": "Block",
+              "settings": {},
+              "styles": {},
+              "advanced": {
+                "pageType": "GP_PRODUCT",
+                "hasBoxShadow": {
+                  "desktop": {
+                    "normal": false
+                  }
+                },
+                "boxShadow": {
+                  "desktop": {
+                    "normal": {}
+                  }
+                },
+                "op": {
+                  "desktop": "100%"
+                }
+              },
+              "childrens": [
+                {
+                  "uid": "gOXJ7MdX-R",
+                  "tag": "Text",
+                  "label": "Text Block",
+                  "settings": {
+                    "background": {
+                      "desktop": {
+                        "attachment": "scroll",
+                        "color": "transparent",
+                        "image": {
+                          "height": 0,
+                          "src": "",
+                          "width": 0
+                        },
+                        "position": {
+                          "x": 50,
+                          "y": 50
+                        },
+                        "repeat": "no-repeat",
+                        "size": "cover",
+                        "type": "color"
+                      }
+                    },
+                    "globalSize": {
+                      "desktop": {
+                        "padding": {
+                          "type": "custom"
+                        },
+                        "width": "100%"
+                      }
+                    },
+                    "htmlTag": "div",
+                    "text": "<p>Crew Pack</p>",
+                    "translate": "text"
+                  },
+                  "styles": {
+                    "align": {
+                      "desktop": "left"
+                    },
+                    "hasLineClamp": {
+                      "desktop": false
+                    },
+                    "lineClamp": {
+                      "desktop": 1,
+                      "mobile": 1,
+                      "tablet": 1
+                    },
+                    "shapeRounded": {
+                      "desktop": {}
+                    },
+                    "textAlign": {
+                      "desktop": "left"
+                    },
+                    "typo": {
+                      "attrs": {
+                        "bold": false,
+                        "color": "text-2"
+                      },
+                      "custom": {
+                        "fontSize": {
+                          "desktop": "19px",
+                          "mobile": "18px",
+                          "tablet": "16px"
+                        },
+                        "fontStyle": "normal",
+                        "fontWeight": "400",
+                        "hasShadowText": false,
+                        "letterSpacing": {
+                          "desktop": "normal"
+                        },
+                        "lineHeight": {
+                          "desktop": "150%",
+                          "mobile": "130%",
+                          "tablet": "150%"
+                        },
+                        "textShadow": {
+                          "angle": 37,
+                          "blur": "2px",
+                          "color": "rgba(0, 0, 0, 0.6)",
+                          "distance": "4px",
+                          "type": "custom"
+                        }
+                      },
+                      "type": "subheading-2"
+                    }
+                  },
+                  "advanced": {
+                    "pageType": "GP_PRODUCT",
+                    "spacing-setting": {
+                      "desktop": {
+                        "margin": {
+                          "bottom": 0
+                        }
+                      }
+                    },
+                    "hasBoxShadow": {
+                      "desktop": {
+                        "normal": false
+                      }
+                    },
+                    "boxShadow": {
+                      "desktop": {
+                        "normal": {}
+                      }
+                    },
+                    "op": {
+                      "desktop": "100%"
+                    }
+                  }
+                },
+                {
+                  "uid": "gSEIofMOUZ",
+                  "tag": "Text",
+                  "label": "Text Block",
+                  "settings": {
+                    "background": {
+                      "desktop": {
+                        "attachment": "scroll",
+                        "color": "transparent",
+                        "image": {
+                          "height": 0,
+                          "src": "",
+                          "width": 0
+                        },
+                        "position": {
+                          "x": 50,
+                          "y": 50
+                        },
+                        "repeat": "no-repeat",
+                        "size": "cover",
+                        "type": "color"
+                      }
+                    },
+                    "globalSize": {
+                      "desktop": {
+                        "padding": {
+                          "type": "custom"
+                        },
+                        "width": "100%"
+                      }
+                    },
+                    "htmlTag": "div",
+                    "text": "<p>(3 boards)</p>",
+                    "translate": "text"
+                  },
+                  "styles": {
+                    "align": {
+                      "desktop": "left"
+                    },
+                    "hasLineClamp": {
+                      "desktop": false
+                    },
+                    "lineClamp": {
+                      "desktop": 1,
+                      "mobile": 1,
+                      "tablet": 1
+                    },
+                    "shapeRounded": {
+                      "desktop": {}
+                    },
+                    "textAlign": {
+                      "desktop": "left"
+                    },
+                    "typo": {
+                      "attrs": {
+                        "bold": false,
+                        "color": "text-2"
+                      },
+                      "custom": {
+                        "fontSize": {
+                          "desktop": "13px",
+                          "mobile": "18px",
+                          "tablet": "16px"
+                        },
+                        "fontStyle": "normal",
+                        "fontWeight": "400",
+                        "hasShadowText": false,
+                        "letterSpacing": {
+                          "desktop": "normal"
+                        },
+                        "lineHeight": {
+                          "desktop": "150%",
+                          "mobile": "130%",
+                          "tablet": "150%"
+                        },
+                        "textShadow": {
+                          "angle": 37,
+                          "blur": "2px",
+                          "color": "rgba(0, 0, 0, 0.6)",
+                          "distance": "4px",
+                          "type": "custom"
+                        }
+                      },
+                      "type": "subheading-2"
+                    }
+                  },
+                  "advanced": {
+                    "pageType": "GP_PRODUCT",
+                    "spacing-setting": {
+                      "desktop": {
+                        "margin": {
+                          "bottom": 0
+                        }
+                      }
+                    },
+                    "hasBoxShadow": {
+                      "desktop": {
+                        "normal": false
+                      }
+                    },
+                    "boxShadow": {
+                      "desktop": {
+                        "normal": {}
+                      }
+                    },
+                    "op": {
+                      "desktop": "100%"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "uid": "g998NSkumB",
+              "tag": "Col",
+              "label": "Block",
+              "settings": {},
+              "advanced": {
+                "pageType": "GP_PRODUCT",
+                "hasBoxShadow": {
+                  "desktop": {
+                    "normal": false
+                  }
+                },
+                "boxShadow": {
+                  "desktop": {
+                    "normal": {}
+                  }
+                },
+                "op": {
+                  "desktop": "100%"
+                }
+              },
+              "childrens": [
+                {
+                  "uid": "gWsYV2LAO7",
+                  "tag": "Row",
+                  "label": "Row",
+                  "settings": {
+                    "blockAlignment": "start",
+                    "horizontalAlign": {
+                      "desktop": "end"
+                    },
+                    "inlineAlignment": "start",
+                    "layout": {
+                      "desktop": {
+                        "cols": [
+                          12
+                        ],
+                        "display": "fit"
+                      },
+                      "mobile": {
+                        "cols": [
+                          12
+                        ],
+                        "display": "fit"
+                      }
+                    },
+                    "verticalAlign": {
+                      "desktop": "center"
+                    }
+                  },
+                  "styles": {
+                    "background": {
+                      "desktop": {
+                        "attachment": "scroll",
+                        "color": "transparent",
+                        "image": {
+                          "height": 0,
+                          "src": "",
+                          "width": 0
+                        },
+                        "position": {
+                          "x": 50,
+                          "y": 50
+                        },
+                        "repeat": "no-repeat",
+                        "size": "cover",
+                        "type": "color"
+                      }
+                    },
+                    "columnGap": {
+                      "desktop": "1%"
+                    },
+                    "preloadBgImage": false,
+                    "verticalGutter": {
+                      "desktop": "8px"
+                    },
+                    "width": {
+                      "desktop": "100%",
+                      "mobile": "default",
+                      "tablet": "default"
+                    }
+                  },
+                  "advanced": {
+                    "pageType": "GP_PRODUCT",
+                    "spacing-setting": {
+                      "desktop": {
+                        "margin": {
+                          "bottom": 0
+                        }
+                      }
+                    },
+                    "hasBoxShadow": {
+                      "desktop": {
+                        "normal": false
+                      }
+                    },
+                    "boxShadow": {
+                      "desktop": {
+                        "normal": {}
+                      }
+                    },
+                    "op": {
+                      "desktop": "100%"
+                    }
+                  },
+                  "childrens": [
+                    {
+                      "uid": "gfu8QPYHM4",
+                      "tag": "Col",
+                      "label": "Block",
+                      "settings": {},
+                      "styles": {},
+                      "advanced": {
+                        "pageType": "GP_PRODUCT",
+                        "hasBoxShadow": {
+                          "desktop": {
+                            "normal": false
+                          }
+                        },
+                        "boxShadow": {
+                          "desktop": {
+                            "normal": {}
+                          }
+                        },
+                        "op": {
+                          "desktop": "100%"
+                        }
+                      },
+                      "childrens": [
+                        {
+                          "uid": "gapvAKJ9l5",
+                          "tag": "ProductPrice",
+                          "label": "Product Price",
+                          "settings": {
+                            "hasOnlyDefaultVariant": false,
+                            "priceType": "regular"
+                          },
+                          "styles": {
+                            "color": {
+                              "normal": "text-2"
+                            },
+                            "hasTextShadow": {
+                              "normal": false
+                            },
+                            "lineColor": "text-2",
+                            "lineThrough": true,
+                            "textAlign": {
+                              "desktop": "right"
+                            },
+                            "textShadow": {
+                              "normal": {
+                                "type": "shadow-1"
+                              }
+                            },
+                            "thickness": 1,
+                            "typo": {
+                              "attrs": {},
+                              "custom": {
+                                "fontSize": {
+                                  "desktop": "16px",
+                                  "mobile": "18px",
+                                  "tablet": "16px"
+                                },
+                                "fontStyle": "normal",
+                                "fontWeight": "400",
+                                "hasShadowText": false,
+                                "letterSpacing": {
+                                  "desktop": "normal"
+                                },
+                                "lineHeight": {
+                                  "desktop": "150%",
+                                  "mobile": "130%",
+                                  "tablet": "150%"
+                                },
+                                "textShadow": {
+                                  "angle": 37,
+                                  "blur": "2px",
+                                  "color": "rgba(0, 0, 0, 0.6)",
+                                  "distance": "4px",
+                                  "type": "custom"
+                                }
+                              },
+                              "type": "subheading-2"
+                            }
+                          },
+                          "advanced": {
+                            "pageType": "GP_PRODUCT",
+                            "spacing-setting": {
+                              "mobile": {
+                                "link": false,
+                                "margin": {},
+                                "padding": {
+                                  "bottom": "6px"
+                                }
+                              }
+                            },
+                            "hasBoxShadow": {
+                              "desktop": {
+                                "normal": false
+                              }
+                            },
+                            "boxShadow": {
+                              "desktop": {
+                                "normal": {}
+                              }
+                            },
+                            "op": {
+                              "desktop": "100%"
+                            }
+                          }
+                        },
+                        {
+                          "uid": "g4HjMd-LwW",
+                          "tag": "Text",
+                          "label": "Text Block",
+                          "settings": {
+                            "background": {
+                              "desktop": {
+                                "attachment": "scroll",
+                                "color": "transparent",
+                                "image": {
+                                  "height": 0,
+                                  "src": "",
+                                  "width": 0
+                                },
+                                "position": {
+                                  "x": 50,
+                                  "y": 50
+                                },
+                                "repeat": "no-repeat",
+                                "size": "cover",
+                                "type": "color"
+                              }
+                            },
+                            "globalSize": {
+                              "desktop": {
+                                "padding": {
+                                  "type": "custom"
+                                },
+                                "width": "100%"
+                              }
+                            },
+                            "htmlTag": "div",
+                            "text": "<p>($203.99 per board)</p>",
+                            "translate": "text"
+                          },
+                          "styles": {
+                            "align": {
+                              "desktop": "left"
+                            },
+                            "hasLineClamp": {
+                              "desktop": false
+                            },
+                            "lineClamp": {
+                              "desktop": 1,
+                              "mobile": 1,
+                              "tablet": 1
+                            },
+                            "shapeRounded": {
+                              "desktop": {}
+                            },
+                            "textAlign": {
+                              "desktop": "left",
+                              "tablet": "right"
+                            },
+                            "typo": {
+                              "attrs": {
+                                "color": "text-2"
+                              },
+                              "custom": {
+                                "fontSize": {
+                                  "desktop": "13px",
+                                  "mobile": "12px",
+                                  "tablet": "14px"
+                                },
+                                "fontStyle": "normal",
+                                "fontWeight": "400",
+                                "hasShadowText": false,
+                                "letterSpacing": {
+                                  "desktop": "normal"
+                                },
+                                "lineHeight": {
+                                  "desktop": "130%",
+                                  "mobile": "130%",
+                                  "tablet": "150%"
+                                },
+                                "textShadow": {
+                                  "angle": 37,
+                                  "blur": "2px",
+                                  "color": "rgba(0, 0, 0, 0.6)",
+                                  "distance": "4px",
+                                  "type": "custom"
+                                }
+                              },
+                              "type": "paragraph-1"
+                            }
+                          },
+                          "advanced": {
+                            "pageType": "GP_PRODUCT",
+                            "spacing-setting": {
+                              "desktop": {
+                                "margin": {
+                                  "bottom": 0
+                                }
+                              }
+                            },
+                            "hasBoxShadow": {
+                              "desktop": {
+                                "normal": false
+                              }
+                            },
+                            "boxShadow": {
+                              "desktop": {
+                                "normal": {}
+                              }
+                            },
+                            "op": {
+                              "desktop": "100%"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

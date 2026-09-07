@@ -1,0 +1,77 @@
+[
+ {
+  "order": 1,
+  "name": "Hero buy box",
+  "file": "01.json"
+ },
+ {
+  "order": 2,
+  "name": "Trust marquee",
+  "file": "02.json"
+ },
+ {
+  "order": 3,
+  "name": "Problem: nose blind",
+  "file": "03.json"
+ },
+ {
+  "order": 4,
+  "name": "How it works",
+  "file": "04.json"
+ },
+ {
+  "order": 5,
+  "name": "Why a mist",
+  "file": "05.json"
+ },
+ {
+  "order": 6,
+  "name": "Infographics",
+  "file": "06.json"
+ },
+ {
+  "order": 7,
+  "name": "Three tests",
+  "file": "07.json"
+ },
+ {
+  "order": 8,
+  "name": "Refills",
+  "file": "08.json"
+ },
+ {
+  "order": 9,
+  "name": "Poster band",
+  "file": "09.json"
+ },
+ {
+  "order": 10,
+  "name": "Comparison table",
+  "file": "10.json"
+ },
+ {
+  "order": 11,
+  "name": "What it is not",
+  "file": "11.json"
+ },
+ {
+  "order": 12,
+  "name": "Guarantee",
+  "file": "12.json"
+ },
+ {
+  "order": 13,
+  "name": "FAQ",
+  "file": "13.json"
+ },
+ {
+  "order": 14,
+  "name": "Final CTA",
+  "file": "14.json"
+ },
+ {
+  "order": 15,
+  "name": "Sticky add to cart",
+  "file": "15.json"
+ }
+]
