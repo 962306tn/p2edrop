@@ -1,0 +1,21 @@
+{
+  "_note": "Alert rules api/alerts.py measures against. SHOPIFY_LOW_STOCK_DEFAULT and SHOPIFY_FULFILMENT_SLA_DAYS in merchant/.env override the store-wide defaults; the per-type and per-handle entries below are the only place a single product's threshold can be set.",
+
+  "_all_vibes_space_note": "The two Pet Odor entries are this store's; the Workshop tools, Storage, and canvas-tool-apron entries below are the reference's ACME values, kept because merchant/api/tests/test_reads.py asserts them against the ACME fixture catalog. They match no product in this store and cost nothing to keep. The gun is bought once; a refill pod is a consumable a customer comes back for, so it gets the earlier threshold.",
+  "low_stock_by_type": {
+    "Pet Odor Eliminator": 6,
+    "Pet Odor Eliminator Refill": 8,
+    "Workshop tools": 12,
+    "Storage": 6
+  },
+  "low_stock_by_handle": {
+    "canvas-tool-apron": 15
+  },
+
+  "_slow_mover_note": "Reference values, and three tests in test_reads.py assert the alerts they produce. With no order history yet, min_stock 12 reports every listing in this store as a slow mover on day one. Raising it to about 60 while pre-launch silences that, at the cost of those three reference tests; lower it back toward 12 once a few weeks of orders exist. Change it deliberately, not by accident.",
+  "slow_mover_max_units_30d": 2,
+  "slow_mover_min_stock": 12,
+
+  "return_spike_pct": 20.0,
+  "return_spike_min_units": 4
+}

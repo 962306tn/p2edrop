@@ -102,6 +102,98 @@ only orders placed through the agent are visible, only when a buyer asks, and th
 credential needs the `read_global_api_orders` scope. Without that scope the backend
 disables its order tools and the agent points customers at the confirmation email.
 
+## Configured for all vibes space
+
+```bash
+./scripts/configure-commerce-agents.sh --check
+```
+
+Copies four files from `config/commerce-agents/` into the checkout and runs its suite:
+
+| From | To | Holds |
+|---|---|---|
+| `root.env` | `.env` | `SHOP_DOMAIN=yxciec-f7.myshopify.com`, the hero tagline |
+| `merchant.env` | `merchant/.env` | the shop domain, store name, `SHOPIFY_LOW_STOCK_DEFAULT=5`, `MERCHANT_REQUIRE_HOST_APPROVAL=1` |
+| `thresholds.json` | `merchant/data/thresholds.json` | low-stock thresholds for the two product types |
+| `storefront_agent_config.py` | `storefront/api/agent_config.py` | brand voice, and search notes for the scent and bundle axes |
+
+The two `.env` files are merged, not overwritten. The rule is one line of the script: the
+template owns every setting it states, and a key the template ships **blank** keeps whatever
+the checkout already has. That blank set is exactly the credentials, so re-running never
+costs you a pasted key and never leaves a stale shop domain behind.
+
+Nothing in `config/commerce-agents/` is a secret; all four files are committed. Every
+credential lives in the checkout's own gitignored `.env` files.
+
+Two edits were deliberately *not* made, because the reference's own tests assert the values:
+
+- `thresholds.json` keeps ACME's `Workshop tools`, `Storage`, and `canvas-tool-apron`
+  entries alongside this store's. They match no product here and keep three tests in
+  `merchant/api/tests/test_reads.py` green.
+- `slow_mover_min_stock` stays at 12. With no order history, that reports every listing as a
+  slow mover on day one; raising it to about 60 while pre-launch silences that and fails
+  those same three tests. The file says so beside the value — change it deliberately.
+
+### What is still yours to do
+
+The merchant agent needs an app on the store. Four steps, the first three in the
+[Shopify Dev Dashboard](https://shopify.dev/docs/apps/build/dev-dashboard/create-apps-using-dev-dashboard):
+
+1. Create the app.
+2. Put the scopes below on a version and release it. Scopes come from the *released*
+   version, so adding one later means releasing again and re-approving on the store.
+3. Install the app on the store and approve the scopes, then copy the client ID and secret
+   from its Settings.
+4. Put them in `merchant/.env` as `SHOPIFY_CLIENT_ID` and `SHOPIFY_CLIENT_SECRET`, and set
+   `SHOPIFY_OPERATOR` to whoever the change ledger should stamp.
+
+| Scope | What needs it |
+|---|---|
+| `read_products`, `write_products` | catalog reads; price and content writes |
+| `read_inventory`, `write_inventory` | stock levels and restocks |
+| `read_orders` | the order scan behind metrics, demand signals, and order issues |
+| `read_locations` | the location an inventory move applies at |
+| `read_reports` | ShopifyQL metrics — optional, `SHOPIFY_DISABLE_SHOPIFYQL=1` derives them from the order scan instead |
+| `read_marketing_events` | `get_campaign_performance` — optional; without it the tool reports it cannot read rather than returning a zero |
+
+There is no token to paste and none to replace tomorrow: `merchant/api/admin_token.py` mints
+a 24-hour Admin token from the client ID and secret and mints another when it runs out. The
+secret is a password for every scope the app was granted; it is read once, in
+`merchant/api/agent_config.py`, and never reaches the model, a route, a log, or an error
+message.
+
+Also still open: `ANTHROPIC_API_KEY` in both `.env` files, and whether the storefront serves
+`/.well-known/ucp`. The storefront agent needs that endpoint; the merchant agent does not.
+
+### This is a live store, not a development store
+
+The reference tells you to use a development store, because an approved change writes to the
+real catalog. all vibes space is a live Advanced-plan store with three products, so:
+
+- `MERCHANT_REQUIRE_HOST_APPROVAL=1` stays on. A chat turn that calls `apply_change` is held
+  on the approval gate; the change moves only when the host calls
+  `POST /api/merchant/changes/{id}/apply`. Staging sends no Admin mutation at all — the
+  suite asserts zero mutations on every staging path.
+- Run `SHOPIFY_LOCAL_STORE=1` first. Same backend, same documents, same stage-approve-apply
+  path, against an in-process store. Nothing leaves the machine.
+- Then `merchant/scripts/smoke_live.py --read-only` against the real store before anything
+  writes. Without `--read-only` it makes one reversible price write and puts it back.
+
+### Where it stands now
+
+Configured and green: 231 tests pass with these files in place. The merchant host boots
+against `yxciec-f7.myshopify.com` and `/api/merchant/health` reports the credentials as
+missing, which is the documented state until the app exists.
+
+Not verified against the live store from this session: the environment's network policy
+denies outbound access to the shop's domain (a 403 on CONNECT), so no read has actually run
+against all vibes space here. Run the two smoke checks above from a machine that can reach
+the store.
+
+One thing worth knowing before reading the merchant agent's first answer: the store has no
+orders yet. Every metric derived from the order scan will be empty or `None` with a note,
+which is the backend behaving correctly, not a wiring fault.
+
 ## Building your own agent
 
 The blueprint ships a Claude Code plugin, `commerce-builder` — six skills and four
