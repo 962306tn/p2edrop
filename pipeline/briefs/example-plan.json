@@ -1,0 +1,84 @@
+{
+  "slug": "velahush-tof",
+  "brand": "VelaHush",
+  "product": "VelaHush rechargeable white-noise sleep lamp",
+  "market": "US",
+  "language": "en-US",
+  "funnel": "TOF",
+  "aspect_ratio": "9:16",
+  "style": "warm domestic realism, soft practical lighting, shallow depth of field, handheld feel",
+  "negative_prompt": "plastic skin, extra fingers, warped faces, watermark, subtitles, brand logos",
+  "no_text_in_video": true,
+  "burn_captions": true,
+  "defaults": {
+    "module": "video_gen",
+    "model": "seedance-2.5",
+    "aspect_ratio": "9:16",
+    "resolution": "1080p",
+    "duration": 7
+  },
+  "variants": [
+    {
+      "id": "01-dog-owns-the-sofa",
+      "format": "mini-vsl",
+      "angle": "A",
+      "hook": "My dog took the sofa. I took the 3am ceiling shift.",
+      "backup_hook": "Nobody warns you that a 40lb dog outranks you at bedtime.",
+      "voiceover": "He gets the sofa. I get the ceiling, the fridge hum, the neighbour's car door. One small lamp later and the room finally has one sound instead of nine.",
+      "caption": "The dog kept the sofa. I got my sleep back anyway. #sleep #whitenoise",
+      "cta": "Tap to see the lamp that shut the room up.",
+      "music": "soft lo-fi, low energy, no drop",
+      "scenes": [
+        {
+          "duration": 6,
+          "visual": "A large dog sprawled across the whole living room sofa at night, one lamp on, a person standing in the doorway holding a pillow",
+          "camera": "slow push in from doorway height",
+          "vo": "He gets the sofa.",
+          "overlay": "3:04 AM"
+        },
+        {
+          "duration": 7,
+          "visual": "The same person lying awake on a floor mattress, eyes open, staring at the ceiling, faint street light moving across the wall",
+          "camera": "static low angle, slight handheld drift",
+          "vo": "I get the ceiling, the fridge, the neighbour's car door."
+        },
+        {
+          "duration": 7,
+          "visual": "Close on a small matte sleep lamp switching on beside the mattress, warm glow spreading, the room visibly settling",
+          "camera": "macro to medium pull back",
+          "vo": "One small lamp later, the room has one sound instead of nine."
+        }
+      ]
+    },
+    {
+      "id": "02-sofa-talks-back",
+      "format": "skit",
+      "angle": "B",
+      "hook": "My sofa filed a complaint about my sleep schedule.",
+      "backup_hook": "Day 400 of sleeping on furniture that clearly resents me.",
+      "voiceover": "Look, I am not saying the sofa was right. I am saying it stopped bringing it up after the lamp arrived.",
+      "caption": "Even the furniture noticed. #sleeptok #whitenoise",
+      "cta": "Link in bio - VelaHush.",
+      "scenes": [
+        {
+          "duration": 6,
+          "visual": "A person collapsing onto an old sofa at 2am, laptop still open on the coffee table, half-drunk mug beside it",
+          "camera": "wide static, sitcom framing",
+          "vo": "Two in the morning. Again."
+        },
+        {
+          "duration": 7,
+          "visual": "Same wide shot, the person sitting up, talking to the empty sofa cushion beside them with a straight face, deadpan",
+          "camera": "wide static, slow zoom",
+          "vo": "It says I snore through the good part."
+        },
+        {
+          "duration": 7,
+          "visual": "Morning light, the person asleep and still, the small sleep lamp glowing faintly on the side table, the room calm",
+          "camera": "slow pan from lamp to sleeping face",
+          "vo": "It has not brought it up since."
+        }
+      ]
+    }
+  ]
+}

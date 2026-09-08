@@ -1,0 +1,142 @@
+{
+  "_comment": [
+    "Endpoint map for the render backends. Everything here is overridable so you",
+    "never have to touch the Python when a provider moves a path.",
+    "",
+    "CONFIRMED from public Topview docs: base_url, both auth headers, and the",
+    "'<module>/task/submit' + '<module>/task/query' shape (url2video, video_avatar,",
+    "common_task/* are documented). The text/image-to-video module path below is",
+    "INFERRED - run 'python3 pipeline/topview.py doctor' from a machine that can",
+    "reach api.topview.ai and it will tell you which candidate actually answers."
+  ],
+  "topview": {
+    "base_url": "https://api.topview.ai",
+    "auth_header": "Authorization",
+    "auth_scheme": "Bearer",
+    "api_key_env": "TOPVIEW_API_KEY",
+    "extra_headers": {
+      "Topview-Uid": "${TOPVIEW_UID}"
+    },
+    "modules": {
+      "video_gen": {
+        "submit": "/v1/video_gen/task/submit",
+        "query": "/v1/video_gen/task/query",
+        "candidates": [
+          "/v1/video_gen/task/submit",
+          "/v1/text2video/task/submit",
+          "/v1/img2video/task/submit",
+          "/v1/common_task/video_gen/submit"
+        ],
+        "payload_keys": {
+          "prompt": "prompt",
+          "model": "model",
+          "aspect_ratio": "aspectRatio",
+          "duration": "duration",
+          "resolution": "resolution",
+          "seed": "seed",
+          "image_url": "imageUrl"
+        }
+      },
+      "url2video": {
+        "submit": "/v1/url2video/task/submit",
+        "query": "/v1/url2video/task/query",
+        "candidates": [
+          "/v1/url2video/task/submit"
+        ],
+        "payload_keys": {
+          "prompt": "prompt",
+          "model": "model",
+          "aspect_ratio": "aspectRatio",
+          "duration": "duration",
+          "resolution": "resolution",
+          "seed": "seed",
+          "image_url": "imageUrl",
+          "url": "url"
+        }
+      },
+      "video_avatar": {
+        "submit": "/v1/video_avatar/task/submit",
+        "query": "/v1/video_avatar/task/query",
+        "candidates": [
+          "/v1/video_avatar/task/submit"
+        ],
+        "payload_keys": {
+          "prompt": "prompt",
+          "model": "model",
+          "aspect_ratio": "aspectRatio",
+          "duration": "duration",
+          "resolution": "resolution",
+          "seed": "seed",
+          "image_url": "imageUrl"
+        }
+      }
+    },
+    "task_id_keys": [
+      "taskId",
+      "task_id",
+      "id"
+    ],
+    "status_keys": [
+      "status",
+      "taskStatus",
+      "state"
+    ],
+    "success_values": [
+      "success",
+      "succeeded",
+      "completed",
+      "finished",
+      "done"
+    ],
+    "failure_values": [
+      "fail",
+      "failed",
+      "error",
+      "cancelled",
+      "canceled"
+    ],
+    "poll_interval_seconds": 6,
+    "poll_timeout_seconds": 1800,
+    "max_concurrent_tasks": 3
+  },
+  "superscale": {
+    "_comment": [
+      "UNVERIFIED. Superscale publishes docs at docs.superscale.ai but its REST",
+      "surface is not public enough to hardcode. Fill base_url/paths from your own",
+      "account, or leave 'enabled': false and use the manual hand-off files that",
+      "build_pack.py writes to <out>/prompts/<variant>/superscale.json."
+    ],
+    "enabled": false,
+    "base_url": "",
+    "auth_header": "Authorization",
+    "auth_scheme": "Bearer",
+    "api_key_env": "SUPERSCALE_API_KEY",
+    "extra_headers": {},
+    "paths": {
+      "submit": "",
+      "query": ""
+    },
+    "task_id_keys": [
+      "id",
+      "taskId",
+      "job_id"
+    ],
+    "status_keys": [
+      "status",
+      "state"
+    ],
+    "success_values": [
+      "success",
+      "succeeded",
+      "completed",
+      "ready"
+    ],
+    "failure_values": [
+      "failed",
+      "error"
+    ],
+    "poll_interval_seconds": 8,
+    "poll_timeout_seconds": 1800,
+    "max_concurrent_tasks": 2
+  }
+}

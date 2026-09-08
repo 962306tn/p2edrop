@@ -1,2 +1,7 @@
 .mcp.json
 .env
+
+# pipeline output
+out/
+__pycache__/
+*.pyc
