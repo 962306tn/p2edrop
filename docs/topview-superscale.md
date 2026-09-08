@@ -1,34 +1,44 @@
 # Brief in, videos out: Topview + Superscale
 
-Two ways to drive Topview, and you want both for different jobs:
+## What each vendor actually exposes
 
-| | Topview MCP | Topview REST API (`pipeline/`) |
+Worth stating plainly, because it decides the whole design:
+
+| | Topview | Superscale |
 | --- | --- | --- |
-| Feels like | chatting - "make me a clip of..." | a build - one command, 30 clips |
-| Good for | one-offs, iterating on a shot, storyboards | a brief that fans out into variants |
-| Survives a closed chat | no | yes, resumable from `.state.json` |
-| Plans | Pro, Business, Ultra, Team | **Pro and Business only** |
+| REST API | yes - `https://api.topview.ai` | **none.** `api.superscale.ai` does not resolve, and the docs publish no key, bearer or base url |
+| MCP server | yes - `https://mcp.topview.ai/claude`, plus an official stdio server on npm | yes - `https://mcp.superscale.ai/mcp`, OAuth, Pro plan and up |
+| Batch rendering from a brief | `pipeline/` calls the API directly | not possible headlessly - drive it from the chat |
 
-The pipeline is the part that answers "gen automatically when I hand over a brief".
-MCP is the part that answers "let me poke at one shot until it looks right".
+So: **Topview renders, driven by the pipeline. Superscale finishes, driven by MCP.**
+Anything that says otherwise is guessing.
 
-## 1. Connect the MCP server
+## 1. Connect the MCP servers
 
 ```bash
-./scripts/setup-topview-mcp.sh
+./scripts/setup-topview-mcp.sh          # https://mcp.topview.ai/claude
+./scripts/setup-superscale-mcp.sh       # https://mcp.superscale.ai/mcp
+./scripts/setup-superscale-mcp.sh --docs   # docs knowledge base, no account needed
 ```
 
-That registers `https://mcp.topview.ai/claude` at user scope. Adding the URL does
-not sign you in - start Claude Code, run `/mcp`, pick `topview`, finish the OAuth
-flow in the browser, then run `/mcp` again and confirm it reads `connected`.
+Adding a URL does not sign you in. Start Claude Code, run `/mcp`, pick the server,
+finish the OAuth flow in the browser, then run `/mcp` again and confirm `connected`.
+Headless: `claude mcp login <name> --no-browser`.
 
-Headless: `claude mcp login topview --no-browser`.
+Superscale authenticates with OAuth 2.1 through Clerk - PKCE and dynamic client
+registration - so there is no key to paste anywhere. A 401 that never clears
+usually means the plan does not include MCP; it starts at Pro.
 
-Prefer to commit the config for a team? `cp .mcp.json.example .mcp.json` - it now
-carries both `gempages` and `topview`. Use either user scope or project scope for a
-given server, not both.
+Topview also publishes an official stdio MCP server on npm if you would rather run
+it locally than over HTTP:
 
-## 2. Set up the API for batch rendering
+```json
+{ "mcpServers": { "topview-ai": {
+    "command": "npx", "args": ["-y", "topview-ai-mcp"],
+    "env": { "TOPVIEW_UID": "...", "TOPVIEW_API_KEY": "..." } } } }
+```
+
+## 2. Set up the Topview API for batch rendering
 
 ```bash
 cp .env.example .env      # git-ignored
@@ -36,41 +46,43 @@ cp .env.example .env      # git-ignored
 python3 pipeline/topview.py doctor
 ```
 
-`doctor` sends a deliberately empty body to each candidate endpoint and reads the
-answer for you:
+`doctor` calls the account endpoint and prints your credit balance. If that
+answers, the key, the uid and the base url are all correct. A 403 means the plan
+has no API access (Ultra and Team are MCP-only) - use the MCP route instead.
 
-- **400 / 422** - the path is right, it is only rejecting the empty body. This is
-  the result you want.
-- **401** - key wrong or missing.
-- **403** - the key has no API access. You are on Ultra or Team; use MCP instead.
-- **404** - wrong path. Put whichever candidate returned 400 into
-  `pipeline/providers.json` under `topview.modules.video_gen.submit`.
+Both headers go on every request: `Authorization: Bearer <key>` and
+`Topview-Uid: <uid>`. Topview signals failure **inside** an HTTP 200 - the body is
+`{code, message, result}` and `code` is the real status - so the pipeline reads
+`code`, not the HTTP status, and turns `4100` into "not enough credits" rather
+than a silent success.
 
-Why the probe exists: Topview's documented shape - base `https://api.topview.ai`,
-headers `Authorization: Bearer <key>` and `Topview-Uid: <uid>`, then
-`POST /v1/<module>/task/submit` returning a `taskId` you poll at
-`/v1/<module>/task/query` - is stable and confirmed for `url2video`,
-`video_avatar` and the `common_task/*` family. The exact module name for plain
-text/image-to-video generation is the one thing this repo could not verify from
-public docs, so it is configuration with a self-check rather than a hardcoded guess.
+Endpoints in use, all verified against Topview's own published client:
 
-Nothing else in the pipeline hardcodes an endpoint or a field name; even the JSON
-body keys are a mapping in `providers.json` (`payload_keys`), so a renamed field is
-a config edit.
+| task | submit |
+| --- | --- |
+| text to video | `POST /v1/common_task/text2video/task/submit` |
+| image to video | `POST /v2/common_task/image2video/task/submit` (note: v2) |
+| omni reference | `POST /v1/common_task/omni_reference/task/submit` |
+| text to image | `POST /v1/common_task/text2image/task/submit` |
+| image edit | `POST /v1/common_task/image_edit/task/submit` |
+
+Each returns a `taskId`; the matching `/task/query?taskId=...` is polled until
+`status` is `success`, and the file lands in `result.videos[].filePath`. A clip can
+fail *inside* a task that reports success, so the pipeline checks both levels.
 
 ## 3. Run a brief
 
 ```bash
 python3 pipeline/build_pack.py plan.json --out out/velahush-tof
-python3 pipeline/topview.py render out/velahush-tof/manifest.json --dry-run
-python3 pipeline/topview.py render out/velahush-tof/manifest.json --only 01-dog-owns-the-sofa
-python3 pipeline/topview.py render out/velahush-tof/manifest.json
-python3 pipeline/superscale.py push out/velahush-tof/manifest.json
+python3 pipeline/topview.py estimate out/velahush-tof/manifest.json
+python3 pipeline/topview.py render   out/velahush-tof/manifest.json --only 01-dog-owns-the-sofa
+python3 pipeline/topview.py render   out/velahush-tof/manifest.json
+python3 pipeline/superscale.py assemble out/velahush-tof/manifest.json --run
 ```
 
-In a Claude Code session you do not type any of this - hand over the brief and the
-`video-brief` skill (`.claude/skills/video-brief/`) walks the same path, writing
-`plan.json` for you and stopping for your go-ahead before it spends credits.
+In a Claude Code session you type none of this - hand over the brief and the
+`video-brief` skill walks the same path, writing `plan.json` for you and stopping
+for your go-ahead before it spends credits.
 
 `plan.json` is the creative layer: one entry per format x angle, each with a hook,
 a backup hook, voiceover, caption, CTA and 3-6 scenes.
@@ -80,70 +92,84 @@ a backup hook, voiceover, caption, CTA and 3-6 scenes.
 What lands in `out/<slug>/`:
 
 ```
-INDEX.md                      one table, every variant, every hook
-manifest.json                 the render jobs
-prompts/<variant>/script.md   human review copy
+INDEX.md                        one table, every variant, every hook
+manifest.json                   the render jobs
+prompts/<variant>/script.md     human review copy
 prompts/<variant>/seedance.txt  flat prompts, paste straight into the Topview UI
 prompts/<variant>/topview.json  the API bodies
-prompts/<variant>/superscale.json  post-production hand-off
+prompts/<variant>/superscale.json  hand-off for the Superscale MCP
 renders/<variant>/scene-NN.mp4
-final/<variant>.mp4           after the Superscale pass or assemble.sh
-.state.json                   task ids - why a re-run resumes instead of re-paying
+final/<variant>.mp4             after assemble.sh
+.state.json                     task ids - why a re-run resumes instead of re-paying
 ```
+
+### Models and cost
+
+`pipeline/models.json` carries every model Topview exposes with its real
+constraints and per-second credit rate, extracted from Topview's own package
+rather than retyped. That buys three things:
+
+- `estimate` tells you what a pack costs **before** you spend anything.
+- `render` shows the total and your balance, and asks before the first submit
+  (`--yes` skips it, `--dry-run` submits nothing at all).
+- `build_pack` warns when a model does not support the aspect ratio, resolution or
+  duration you asked for - a warning, not a block, because Topview ships models
+  faster than any local table tracks. Unknown models are sent anyway.
+
+Model names are display names, exactly as Topview writes them: `Seedance 1.5 Pro`,
+`Veo 3.1`, `Kling V3`, `Wan 2.6`, `Vidu Q3 Pro`, `MiniMax-Hailuo-2.3`,
+`Topview Pro`. Resolution is an integer height (`1080`, not `"1080p"`), duration is
+in seconds, and `sound` is `"on"` or `"off"`.
 
 ### Flags worth knowing
 
 | Flag | Why |
 | --- | --- |
-| `--dry-run` | print payloads, submit nothing, spend nothing |
+| `--dry-run` | print payloads and cost, submit nothing |
 | `--only <variant>` | prove one variant looks right before paying for ten |
 | `--limit N` | cap a run |
+| `--yes` | skip the cost confirmation (for unattended runs) |
 | `--retry-failed` | re-submit clips that failed; without it they stay skipped |
-| `--config <path>` | point at a different `providers.json` |
 
-Concurrency is `topview.max_concurrent_tasks` (default 3) - raise it to match your
-plan's concurrency limit, not above it, or submits start getting rejected.
+Concurrency is `max_concurrent_tasks` (default 3). Topview returns code `4007`
+("an unfinished task already exists") if your plan allows fewer, so lower it rather
+than fight it.
+
+### Image-to-video
+
+Give a scene a `first_frame` (and optionally `end_frame`) pointing at a local image
+and the pipeline switches that clip to the v2 image-to-video endpoint, uploads the
+file through Topview's three-step S3 flow, and submits the returned `fileId`. Useful
+when the ad has to show the real product rather than a model's idea of it.
 
 ## 4. Superscale
 
-Superscale ships **disabled**: it documents its product at `docs.superscale.ai` but
-does not publish a REST surface stable enough to hardcode, and a wrong guess here
-would fail silently mid-campaign rather than loudly at setup.
+There is no API to call, so the pipeline does not pretend otherwise. Two paths:
 
-So the pipeline gives you two honest paths:
-
-- **Manual (default).** Every variant gets `prompts/<variant>/superscale.json` -
-  clips, hook, caption, CTA, overlays, aspect ratio - to drop into the Superscale
-  UI. `superscale.py push` also writes `out/<slug>/assemble.sh`, which concatenates
-  that variant's clips locally with ffmpeg, so a brief still ends as a watchable
-  cut with no second vendor involved.
-- **API.** If your account exposes one, fill `base_url`, `paths.submit`,
-  `paths.query` and `api_key_env` under `superscale` in `pipeline/providers.json`,
-  set `"enabled": true`, export `SUPERSCALE_API_KEY`, and re-run `push`. Each
-  variant goes up as one job carrying the rendered clip URLs. `superscale.py check`
-  tells you whether the config is complete before you rely on it.
+- **The finished cut, locally.** `superscale.py assemble ... --run` concatenates
+  each variant's clips with ffmpeg into `final/<variant>.mp4`. Re-encodes rather
+  than stream-copies, because clips from different models carry different codecs.
+- **The polished edit, via MCP.** Each variant has a `superscale.json` hand-off -
+  clips, hook, caption, CTA, overlays, aspect ratio. Connect the MCP server and
+  ask for the edit in chat, pointing at those files.
 
 ## Troubleshooting
 
-- **`403` on every endpoint in `doctor`** - Ultra/Team plan. MCP works; the REST API
-  does not. Use the MCP route in step 1.
-- **`no task id in submit response`** - the path answered but the response shape is
-  different from what `task_id_keys` lists. Add the key it actually uses to
-  `providers.json`.
-- **`task succeeded but no asset url`** - same idea for the output: the pipeline
-  looks for any `http(s)` URL ending in a media extension. If your response hands
-  back a bare id instead, that module needs a download step adding.
-- **A run timed out** - task ids are already in `.state.json`. Re-run the same
-  command; it resumes. Nothing is submitted twice.
-- **Everything is slow / submits rejected** - lower `max_concurrent_tasks`.
-- **Works locally, not in Claude Code on the web** - remote sessions run behind an
-  egress proxy, and `api.topview.ai` and `docs.topview.ai` are not on its allowlist.
-  Render from local Claude Code or your own machine.
+| Symptom | Meaning |
+| --- | --- |
+| `401 from Topview` | key or uid wrong - both headers are required |
+| `Topview [4100] Credit not enough` | out of credits; `estimate` first next time |
+| `Topview [4007]` | plan allows fewer parallel tasks - lower `max_concurrent_tasks` |
+| `Topview [6001]` | the prompt tripped Topview's safety check - rewrite that scene |
+| `403` on every call | plan has no API access (Ultra/Team) - use MCP |
+| a run timed out | task ids are in `.state.json`; re-run the same command to resume |
+| Superscale MCP stays 401 | MCP starts at the Pro plan |
+| works locally, not on Claude Code web | remote sessions run behind an egress proxy and `api.topview.ai` is not allowlisted - render locally |
 
 ## References
 
-- Topview: [Getting started with the API](https://docs.topview.ai/docs/getting-started)
-- Topview: [One API for every AI video and image model](https://www.topview.ai/openapi)
-- Topview: [MCP for marketing workflows](https://www.topview.ai/mcp)
-- Superscale: [Quickstart](https://docs.superscale.ai/getting-started/quickstart)
-- Claude Code: [Connect Claude Code to tools via MCP](https://code.claude.com/docs/en/mcp)
+- Topview: [API getting started](https://docs.topview.ai/docs/getting-started) · [OpenAPI overview](https://www.topview.ai/openapi) · [MCP](https://www.topview.ai/mcp)
+- Topview's official client, the source of the verified endpoints: [`topview-ai-mcp` on npm](https://www.npmjs.com/package/topview-ai-mcp)
+- Superscale: [Superscale for Agents](https://docs.superscale.ai/integrations/superscale-for-agents) · [quickstart](https://docs.superscale.ai/getting-started/quickstart)
+- Independent audit confirming Superscale has MCP but no REST API: [api-evangelist/superscale](https://github.com/api-evangelist/superscale)
+- Claude Code: [Connect to tools via MCP](https://code.claude.com/docs/en/mcp)

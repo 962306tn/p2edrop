@@ -34,6 +34,12 @@ Copy the shape of `pipeline/briefs/example-plan.json`. Rules that matter:
 - `style` and `negative_prompt` at plan level keep 10 variants looking like one campaign.
 - Language: write `hook`, `vo`, `caption`, `cta` in the brief's target language;
   keep `visual`/`camera` in English - the video models are trained on English prompts.
+- `defaults.model` must be a name Topview actually accepts - check
+  `pipeline/models.json`, which also carries each model's allowed aspect ratios,
+  resolutions (integer heights) and durations. Seedance 1.5 Pro is a good default
+  for 9:16 ad work; Veo 3.1 when the scene needs native audio.
+- A scene with a product photo gets `first_frame: <path>` and renders as
+  image-to-video instead; the renderer uploads the file itself.
 
 Validate as you go: `python3 pipeline/build_pack.py plan.json` fails loudly on a
 malformed plan.
@@ -48,29 +54,37 @@ Produces per variant: `script.md` (human review), `seedance.txt` (paste-into-UI
 prompts), `topview.json` (API bodies), `superscale.json` (post-production hand-off),
 plus `manifest.json` and `INDEX.md` for the whole pack.
 
-### 4. Show before you spend
+### 4. Price it, then show before you spend
 
 ```bash
+python3 pipeline/topview.py estimate out/<slug>/manifest.json
 python3 pipeline/topview.py render out/<slug>/manifest.json --dry-run --limit 2
 ```
 
-Show the user `INDEX.md` and one full variant `script.md`. Rendering costs credits,
-so **get an explicit go-ahead before the first real render**, and suggest
-`--only <variant>` for a single-variant test first.
+Show the user `INDEX.md`, one full variant `script.md`, and the credit estimate.
+Rendering costs credits, so **get an explicit go-ahead before the first real
+render**, and suggest `--only <variant>` for a single-variant test first. Never
+pass `--yes` on the user's first run - that flag exists for unattended repeats.
 
 ### 5. Render
 
 ```bash
 python3 pipeline/topview.py render out/<slug>/manifest.json --only 01-...   # test one
 python3 pipeline/topview.py render out/<slug>/manifest.json                 # the rest
-python3 pipeline/superscale.py push out/<slug>/manifest.json                # stitch
+python3 pipeline/superscale.py assemble out/<slug>/manifest.json --run      # stitch
 ```
 
 Resumable: task ids live in `out/<slug>/.state.json`. If a run times out or the
 laptop sleeps, re-run the same command - it picks the tasks back up instead of
 re-submitting. Failed clips stay failed until `--retry-failed`.
 
-## When the API is not available
+## Superscale, and when the Topview API is not available
+
+Superscale has **no REST API** - it is MCP only. So the polished edit is something
+you ask for in chat through its MCP server, handing it
+`prompts/<variant>/superscale.json`. `superscale.py assemble --run` is the local
+ffmpeg cut that does not need Superscale at all. Never write code that posts to a
+Superscale REST endpoint; there isn't one.
 
 Topview's Ultra and Team plans include MCP but not the REST API. If
 `topview.py doctor` returns 403, do not keep retrying - switch to the Topview MCP
@@ -80,8 +94,9 @@ The pack, the review step and the credit-consent rule stay exactly the same.
 
 ## Do not
 
-- Do not invent Topview endpoint paths in code. They live in `pipeline/providers.json`;
-  if one is wrong, run `topview.py doctor` and fix the config.
+- Do not invent endpoint paths, model names or field names. The verified ones are in
+  `pipeline/providers.json` and `pipeline/models.json`; `topview.py doctor` checks
+  credentials and prints the credit balance.
 - Do not render every variant before the user has seen a single one.
 - Do not put subtitles in the model prompt unless `overlay` asks for it - burned-in
   text is added in post, where it is legible and correct.

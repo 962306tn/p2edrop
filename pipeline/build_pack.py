@@ -15,7 +15,16 @@ import json
 import re
 from pathlib import Path
 
-from common import PipelineError, die, load_config, log, run_cli
+from common import (
+    PipelineError,
+    api_model_name,
+    die,
+    load_config,
+    load_models,
+    log,
+    model_warnings,
+    run_cli,
+)
 
 REQUIRED_PLAN_KEYS = ("brand", "language", "variants")
 REQUIRED_VARIANT_KEYS = ("id", "format", "hook", "scenes")
@@ -84,31 +93,53 @@ def scene_prompt(plan, variant, scene, scene_no):
     return f"{header} " + " ".join(p.rstrip(".") + "." for p in parts if p)
 
 
-def build_payload(plan, variant, scene, prompt, module_cfg):
-    """Provider request body, with field names taken from providers.json so a
-    renamed API field is a config edit, not a code change."""
-    keys = module_cfg.get("payload_keys", {})
-    defaults = {**(plan.get("defaults") or {}), **(variant.get("defaults") or {}), **(scene.get("defaults") or {})}
+def build_payload(plan, variant, scene, prompt, task_type, models):
+    """Request body for a Topview common_task submit.
 
-    values = {
-        "prompt": prompt,
-        "model": defaults.get("model"),
-        "aspect_ratio": defaults.get("aspect_ratio") or plan.get("aspect_ratio"),
-        "duration": scene.get("duration") or defaults.get("duration"),
-        "resolution": defaults.get("resolution"),
-        "seed": scene.get("seed") or defaults.get("seed"),
-        "image_url": scene.get("image_url") or variant.get("image_url"),
+    Field names are Topview's own: aspectRatio, resolution as an integer height,
+    duration in seconds, sound as on/off, generatingCount for how many takes.
+    """
+    defaults = {
+        **(plan.get("defaults") or {}),
+        **(variant.get("defaults") or {}),
+        **(scene.get("defaults") or {}),
     }
+    model = defaults.get("model")
+    if not model:
+        die("defaults.model is required - see models.json for the names Topview accepts")
 
-    payload = {}
-    for logical, value in values.items():
-        if value in (None, ""):
-            continue
-        payload[keys.get(logical, logical)] = value
-    # Anything the provider needs that this pipeline does not model yet.
+    aspect = defaults.get("aspect_ratio") or plan.get("aspect_ratio")
+    resolution = defaults.get("resolution")
+    duration = scene.get("duration") or defaults.get("duration")
+    sound = scene.get("sound", defaults.get("sound"))
+
+    payload = {"prompt": prompt, "model": api_model_name(models, task_type, model)}
+    if aspect:
+        payload["aspectRatio"] = aspect
+    if resolution:
+        payload["resolution"] = int(resolution)
+    if duration:
+        payload["duration"] = int(duration)
+    if sound:
+        payload["sound"] = sound
+    if defaults.get("count"):
+        payload["generatingCount"] = int(defaults["count"])
+    if defaults.get("board_id"):
+        payload["boardId"] = defaults["board_id"]
+
+    if task_type == "i2v":
+        # first_frame is a local path or a Topview fileId; the renderer uploads
+        # paths just before submitting, so the pack stays portable.
+        for field, key in (("first_frame", "firstFrameFileId"), ("end_frame", "endFrameFileId")):
+            ref = scene.get(field) or variant.get(field)
+            if ref:
+                payload[key] = ref
+
     payload.update(defaults.get("extra_payload") or {})
     payload.update(scene.get("extra_payload") or {})
-    return payload
+
+    warnings = model_warnings(models, task_type, model, aspect, resolution, duration)
+    return payload, warnings
 
 
 def script_markdown(plan, variant):
@@ -153,11 +184,11 @@ def build(plan_path, out_dir=None, config_path=None):
     validate(plan)
 
     config = load_config(config_path)
-    topview = config["topview"]
-    module_name = (plan.get("defaults") or {}).get("module", "video_gen")
-    module_cfg = topview["modules"].get(module_name)
-    if not module_cfg:
-        die(f"unknown topview module '{module_name}' - known: {', '.join(topview['modules'])}")
+    models = load_models()
+    default_task = (plan.get("defaults") or {}).get("task_type", "t2v")
+    if default_task not in config["topview"]["modules"]:
+        die(f"unknown task type '{default_task}' - known: {', '.join(config['topview']['modules'])}")
+    seen_warnings = {}
 
     slug = slugify(plan.get("slug") or f"{plan['brand']}-{plan.get('funnel', 'pack')}")
     out = Path(out_dir) if out_dir else Path("out") / slug
@@ -175,8 +206,15 @@ def build(plan_path, out_dir=None, config_path=None):
         flat_prompts = []
         for scene_no, scene in enumerate(variant["scenes"], 1):
             prompt = scene_prompt(plan, variant, scene, scene_no)
-            payload = build_payload(plan, variant, scene, prompt, module_cfg)
-            topview_payloads.append(payload)
+            # A scene with a starting image is image-to-video, everything else
+            # is text-to-video. Different endpoint, different API version.
+            task_type = scene.get("task_type") or (
+                "i2v" if (scene.get("first_frame") or variant.get("first_frame")) else default_task
+            )
+            payload, warnings = build_payload(plan, variant, scene, prompt, task_type, models)
+            for warning in warnings:
+                seen_warnings.setdefault(warning, f"{vid}/scene-{scene_no:02d}")
+            topview_payloads.append({"taskType": task_type, "body": payload})
             flat_prompts.append(f"--- scene {scene_no:02d} ---\n{prompt}\n")
             jobs.append(
                 {
@@ -184,8 +222,11 @@ def build(plan_path, out_dir=None, config_path=None):
                     "variant": vid,
                     "scene": scene_no,
                     "provider": "topview",
-                    "module": module_name,
+                    "module": task_type,
                     "payload": payload,
+                    "upload_fields": [
+                        k for k in ("firstFrameFileId", "endFrameFileId") if k in payload
+                    ],
                     "output": f"renders/{vid}/scene-{scene_no:02d}.mp4",
                 }
             )
@@ -221,7 +262,6 @@ def build(plan_path, out_dir=None, config_path=None):
         "slug": slug,
         "brand": plan["brand"],
         "plan": str(plan_path),
-        "module": module_name,
         "jobs": jobs,
     }
     (out / "manifest.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False))
@@ -239,18 +279,21 @@ def build(plan_path, out_dir=None, config_path=None):
                 "## Render",
                 "",
                 "```bash",
+                f"python3 pipeline/topview.py estimate {out}/manifest.json",
                 f"python3 pipeline/topview.py render {out}/manifest.json",
-                f"python3 pipeline/superscale.py push {out}/manifest.json   # optional post-production",
+                f"python3 pipeline/superscale.py assemble {out}/manifest.json",
                 "```",
                 "",
             ]
         )
     )
 
+    for warning, where in seen_warnings.items():
+        log(f"warning: {warning} (first at {where})")
     log(f"built {len(jobs)} jobs across {len(plan['variants'])} variants -> {out}")
     log(f"  prompts:  {prompts_dir}")
     log(f"  manifest: {out / 'manifest.json'}")
-    log(f"  next:     python3 pipeline/topview.py render {out / 'manifest.json'}")
+    log(f"  next:     python3 pipeline/topview.py estimate {out / 'manifest.json'}")
     return 0
 
 

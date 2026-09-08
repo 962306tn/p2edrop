@@ -11,11 +11,12 @@
   "no_text_in_video": true,
   "burn_captions": true,
   "defaults": {
-    "module": "video_gen",
-    "model": "seedance-2.5",
+    "task_type": "t2v",
+    "model": "Seedance 1.5 Pro",
     "aspect_ratio": "9:16",
-    "resolution": "1080p",
-    "duration": 7
+    "resolution": 1080,
+    "duration": 7,
+    "sound": "off"
   },
   "variants": [
     {

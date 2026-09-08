@@ -1,142 +1,49 @@
 {
-  "_comment": [
-    "Endpoint map for the render backends. Everything here is overridable so you",
-    "never have to touch the Python when a provider moves a path.",
+  "_source": [
+    "Verified against the official topview-ai-mcp npm package (publisher",
+    "topview-xuejia@tabcut.com), which ships Topview's own API client:",
+    "base https://api.topview.ai, headers 'Authorization: Bearer <key>' +",
+    "'Topview-Uid: <uid>', every response wrapped as {code, message, result}",
+    "where code '200' means success, and task queries polled with ?taskId=.",
     "",
-    "CONFIRMED from public Topview docs: base_url, both auth headers, and the",
-    "'<module>/task/submit' + '<module>/task/query' shape (url2video, video_avatar,",
-    "common_task/* are documented). The text/image-to-video module path below is",
-    "INFERRED - run 'python3 pipeline/topview.py doctor' from a machine that can",
-    "reach api.topview.ai and it will tell you which candidate actually answers."
+    "Superscale has no REST API at all - api.superscale.ai does not resolve and",
+    "its docs publish no key, bearer or base url. It ships an MCP server instead",
+    "(https://mcp.superscale.ai/mcp, OAuth, Pro plan and up), so it is connected",
+    "with scripts/setup-superscale-mcp.sh rather than called from here."
   ],
   "topview": {
     "base_url": "https://api.topview.ai",
-    "auth_header": "Authorization",
-    "auth_scheme": "Bearer",
     "api_key_env": "TOPVIEW_API_KEY",
-    "extra_headers": {
-      "Topview-Uid": "${TOPVIEW_UID}"
+    "uid_env": "TOPVIEW_UID",
+    "credit_path": "/user/credit/detail",
+    "upload": {
+      "credential": "/v1/upload/credential",
+      "check": "/v1/upload/check"
     },
     "modules": {
-      "video_gen": {
-        "submit": "/v1/video_gen/task/submit",
-        "query": "/v1/video_gen/task/query",
-        "candidates": [
-          "/v1/video_gen/task/submit",
-          "/v1/text2video/task/submit",
-          "/v1/img2video/task/submit",
-          "/v1/common_task/video_gen/submit"
-        ],
-        "payload_keys": {
-          "prompt": "prompt",
-          "model": "model",
-          "aspect_ratio": "aspectRatio",
-          "duration": "duration",
-          "resolution": "resolution",
-          "seed": "seed",
-          "image_url": "imageUrl"
-        }
+      "t2v": {
+        "submit": "/v1/common_task/text2video/task/submit",
+        "query": "/v1/common_task/text2video/task/query"
       },
-      "url2video": {
-        "submit": "/v1/url2video/task/submit",
-        "query": "/v1/url2video/task/query",
-        "candidates": [
-          "/v1/url2video/task/submit"
-        ],
-        "payload_keys": {
-          "prompt": "prompt",
-          "model": "model",
-          "aspect_ratio": "aspectRatio",
-          "duration": "duration",
-          "resolution": "resolution",
-          "seed": "seed",
-          "image_url": "imageUrl",
-          "url": "url"
-        }
+      "i2v": {
+        "submit": "/v2/common_task/image2video/task/submit",
+        "query": "/v2/common_task/image2video/task/query"
       },
-      "video_avatar": {
-        "submit": "/v1/video_avatar/task/submit",
-        "query": "/v1/video_avatar/task/query",
-        "candidates": [
-          "/v1/video_avatar/task/submit"
-        ],
-        "payload_keys": {
-          "prompt": "prompt",
-          "model": "model",
-          "aspect_ratio": "aspectRatio",
-          "duration": "duration",
-          "resolution": "resolution",
-          "seed": "seed",
-          "image_url": "imageUrl"
-        }
+      "omni": {
+        "submit": "/v1/common_task/omni_reference/task/submit",
+        "query": "/v1/common_task/omni_reference/task/query"
+      },
+      "text2image": {
+        "submit": "/v1/common_task/text2image/task/submit",
+        "query": "/v1/common_task/text2image/task/query"
+      },
+      "image_edit": {
+        "submit": "/v1/common_task/image_edit/task/submit",
+        "query": "/v1/common_task/image_edit/task/query"
       }
     },
-    "task_id_keys": [
-      "taskId",
-      "task_id",
-      "id"
-    ],
-    "status_keys": [
-      "status",
-      "taskStatus",
-      "state"
-    ],
-    "success_values": [
-      "success",
-      "succeeded",
-      "completed",
-      "finished",
-      "done"
-    ],
-    "failure_values": [
-      "fail",
-      "failed",
-      "error",
-      "cancelled",
-      "canceled"
-    ],
-    "poll_interval_seconds": 6,
-    "poll_timeout_seconds": 1800,
+    "poll_interval_seconds": 5,
+    "poll_timeout_seconds": 900,
     "max_concurrent_tasks": 3
-  },
-  "superscale": {
-    "_comment": [
-      "UNVERIFIED. Superscale publishes docs at docs.superscale.ai but its REST",
-      "surface is not public enough to hardcode. Fill base_url/paths from your own",
-      "account, or leave 'enabled': false and use the manual hand-off files that",
-      "build_pack.py writes to <out>/prompts/<variant>/superscale.json."
-    ],
-    "enabled": false,
-    "base_url": "",
-    "auth_header": "Authorization",
-    "auth_scheme": "Bearer",
-    "api_key_env": "SUPERSCALE_API_KEY",
-    "extra_headers": {},
-    "paths": {
-      "submit": "",
-      "query": ""
-    },
-    "task_id_keys": [
-      "id",
-      "taskId",
-      "job_id"
-    ],
-    "status_keys": [
-      "status",
-      "state"
-    ],
-    "success_values": [
-      "success",
-      "succeeded",
-      "completed",
-      "ready"
-    ],
-    "failure_values": [
-      "failed",
-      "error"
-    ],
-    "poll_interval_seconds": 8,
-    "poll_timeout_seconds": 1800,
-    "max_concurrent_tasks": 2
   }
 }
