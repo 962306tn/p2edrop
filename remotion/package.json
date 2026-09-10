@@ -1,0 +1,28 @@
+{
+  "name": "p2edrop-remotion",
+  "version": "1.0.0",
+  "description": "Remotion video project cho p2edrop",
+  "scripts": {
+    "dev": "remotion studio",
+    "studio": "remotion studio",
+    "render": "remotion render",
+    "still": "remotion still",
+    "upgrade": "remotion upgrade",
+    "typecheck": "tsc --noEmit"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@remotion/cli": "^4.0.523",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "remotion": "^4.0.523"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/web": "^0.0.356",
+    "typescript": "^7.0.2"
+  },
+  "private": true
+}
