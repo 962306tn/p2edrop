@@ -1,79 +1,89 @@
-# VelaHush — Kiểm toán giá (10/09/2026)
+# VelaHush — Kiểm toán giá
 
-Quan sát trực tiếp qua Shopify Admin API. **Chưa thay đổi gì trên store** — tài
-liệu này để quyết định, không phải nhật ký thay đổi.
+Cập nhật 10/09/2026. Quan sát qua Shopify Admin API + ảnh chụp PDP thật.
 
-## Hiện trạng
+## Trạng thái
 
-Product `velahush-pet-odor-gun` (ACTIVE) có 2 option:
+| # | Vấn đề | Trạng thái |
+|---|---|---|
+| 1 | PDP viết refill "$21" trong khi giá thật $34.99 | ✅ **Đã sửa 10/09** |
+| 2 | `compareAtPrice` đặt ngược chiều | 🔴 Còn |
+| 3 | Bundle đắt hơn mua rời | ⚪ **Không áp dụng** — xem đính chính |
+| 4 | Variant `Gun only` sống nhưng ẩn khỏi selector | 🟡 Cần quyết định |
 
-| Option | Giá trị |
+---
+
+## 1. ✅ Đã sửa — giá refill trong PDP
+
+PDP viết hai lần "3 pods for **$21**" trong khi sản phẩm `velahush-refill-pods-3-pack`
+bán **$34.99**. Đã sửa cả hai chỗ:
+
+- Tiêu đề `<h2>`: *"Refills: 3 pods for $34.99, and we tell you when"*
+- FAQ *"How do I get more pods?"*: *"Three pods are $34.99, ordered whenever you want them."*
+
+Không đụng gì khác trong description. `updatedAt` = `2026-09-10T07:07:59Z`.
+
+**Con số $34.99 được chính trang xác nhận.** Dòng upsell dưới selector viết
+*"Upgrade to 6 refills for $30.00 more. Save $4.99 versus the Starter"* — và
+$34.99 − $30.00 = **$4.99**, khớp chính xác. Logic của trang đã tính theo $34.99
+từ đầu; chỉ có phần chữ là sót lại từ phương án giá cũ (pods $21, bundle $70).
+
+## 2. 🔴 Còn — `compareAtPrice` đặt ngược chiều
+
+| Variant | `price` | `compareAtPrice` hiện tại | Đúng phải là |
+|---|---|---|---|
+| Gun + 3 refill pods (×4) | $99.99 | **$70.00** | — |
+| Gun + 6 refill pods (×4) | $129.99 | **`null`** | — |
+
+`compareAtPrice` là giá gốc gạch ngang, **bắt buộc cao hơn** `price`. Giá trị
+$70.00 thấp hơn $99.99 nên theme sẽ không hiện mức tiết kiệm, hoặc hiện thành
+"~~$70.00~~ $99.99" — trông như vừa tăng giá.
+
+Con số đặt vào phải cao hơn giá bán thì mới có tác dụng. Vì PDP không bán lẻ súng
+(xem mục 3), mức tham chiếu hợp lý là giá trị cảm nhận của bộ, không phải phép
+cộng à la carte — đây là quyết định marketing, không có đáp án từ dữ liệu.
+
+## 3. ⚪ Đính chính — bundle KHÔNG đắt hơn mua rời
+
+**Kết luận trước đó của tôi sai.** Tôi đọc Admin API thấy variant `Gun only` $49
+với `availableForSale: true` rồi suy ra khách mua rời được, và kết luận bundle
+$99.99 đắt hơn $83.99.
+
+Ảnh chụp PDP thật cho thấy selector **chỉ render 2 lựa chọn**:
+
+| Lựa chọn | Giá |
 |---|---|
-| **Setup** | `Gun only` · `Gun + 3 refill pods` · `Gun + 6 refill pods` |
-| **Scent** | Lemon · Lavender · Peppermint · Fresh Linen |
+| VelaHush™ Starter Set — 1 gun + 3 pods *(chọn sẵn)* | $99.99 |
+| VelaHush™ Refill Bundle — 1 gun + 6 pods *(BEST VALUE)* | $129.99 |
 
-12 variant, tất cả `availableForSale: true`, tồn kho 10, `inventoryPolicy: DENY`.
+Không có `Gun only`. Khách vào trang này **không có đường mua rời**, nên phép so
+sánh $83.99 vs $99.99 không tồn tại. Thang giá trên PDP là hợp lệ.
 
-Product `velahush-refill-pods-3-pack`: **$34.99**, cả 4 mùi.
+## 4. 🟡 Cần quyết định — variant `Gun only` sống nhưng ẩn
 
-## Lỗi 1 — Bundle đắt hơn mua rời
+Bốn variant `Gun only` ($49.00, tồn kho 10, `availableForSale: true`) vẫn tồn tại
+trong Admin dù selector không hiện. Chúng vẫn tới được khách qua:
 
-`Gun only` bán được độc lập, nên khách so sánh được hai đường mua:
+- **URL variant trực tiếp** — `?variant=54303710151020` (và 3 mùi còn lại)
+- **Meta catalog / Google Shopping feed** — feed đồng bộ **mọi** variant, nên $49
+  sẽ xuất hiện trong catalog ads dù PDP không bán mức giá đó
+- Tìm kiếm nội bộ store, một số block product recommendation
 
-| Setup | Giá bundle | Mua rời | Chênh |
-|---|---|---|---|
-| Gun + 3 pods | $99.99 | $49.00 + $34.99 = $83.99 | 🔴 bundle **đắt hơn $16.00** |
-| Gun + 6 pods | $129.99 | $49.00 + $69.98 = $118.98 | 🔴 bundle **đắt hơn $11.01** |
+Rủi ro cụ thể ở tuần chạy ads: Advantage+ Catalog Ads hiện "$49", khách bấm vào,
+PDP chỉ có $99.99. Vừa hụt kỳ vọng vừa là rủi ro chính sách giá gây hiểu nhầm.
 
-Khách nào tính nhẩm cũng thấy nên mua rời. Bundle đang trừng phạt người mua nhiều.
+Ba cách xử lý:
 
-## Lỗi 2 — `compareAtPrice` đặt ngược chiều
+| Cách | Đánh đổi |
+|---|---|
+| Xoá hẳn 4 variant `Gun only` | Sạch nhất. Mất điểm giá vào cửa nếu sau này muốn dùng |
+| Nâng lên $69 rồi để nguyên | Feed hiện $69, gần bundle hơn, bớt hụt kỳ vọng |
+| Giữ nguyên $49 | Feed vẫn hiện $49 — phải loại trừ thủ công trong Commerce Manager |
 
-4 variant `Gun + 3 refill pods`: `price = $99.99`, `compareAtPrice = $70.00`.
+Nên chốt trước khi bật catalog ads, không gấp cho ad set TOF tuần 1.
 
-`compareAtPrice` phải là giá gốc **cao hơn** giá bán. Ở đây thấp hơn → theme render
-thành "~~$70.00~~ $99.99", trông như vừa tăng giá. Meta catalog cũng đọc số này.
+## Tồn kho, chưa xử lý
 
-4 variant `Gun + 6 refill pods` có `compareAtPrice = null` — không hiển thị mức
-tiết kiệm nào.
-
-## Lỗi 3 — PDP viết sai giá refill
-
-PDP viết **hai lần** "3 pods for **$21**", trong khi sản phẩm thật bán **$34.99**.
-Chênh $13.99 (+67%). Vừa giết chuyển đổi, vừa là rủi ro chính sách Meta về giá gây
-hiểu nhầm.
-
-**Nguyên nhân gốc:** `$49 + $21 = $70` — đúng bằng `compareAtPrice` đang mắc kẹt.
-Phương án giá cũ là pods $21, bundle $70. Khi đổi pods lên $34.99 và bundle lên
-$99.99, `compareAtPrice` của phương án cũ bị bỏ quên.
-
-## Phương án sửa
-
-Chỉ cần nâng **súng lẻ $49 → $69** là thang giá đảo đúng chiều, không phải đụng
-vào $99.99 / $129.99:
-
-| Setup | Bundle | Mua rời | Chênh |
-|---|---|---|---|
-| Gun only | — | **$69.00** | — |
-| Gun + 3 pods | $99.99 | $69.00 + $34.99 = $103.99 | ✅ tiết kiệm **$4.00** |
-| Gun + 6 pods | $129.99 | $69.00 + $69.98 = $138.98 | ✅ tiết kiệm **$8.99** |
-
-Bốn thay đổi cần ghi:
-
-1. 4 variant `Gun only`: `$49.00` → `$69.00`
-2. 4 variant `Gun + 3 pods`: `compareAtPrice` `$70.00` → `$103.99`
-3. 4 variant `Gun + 6 pods`: `compareAtPrice` `null` → `$138.98`
-4. PDP: 2 chỗ `$21` → `$34.99`
-
-**Cân nhắc bậc giữa.** Tiết kiệm $4.00 hơi mỏng để làm bậc mặc định. Hạ xuống
-`$94.99` sẽ thành tiết kiệm $9.00, cân với bậc $129.99, và tạo thang giá dốc đều
-$69 / $94.99 / $129.99.
-
-## Vấn đề tồn kho, chưa xử lý
-
-10 chiếc/variant × 12 variant = 120. Ngân sách test $90/ngày với AOV $69–$129.99
-sẽ chạm trần tồn kho giữa learning phase, buộc tắt ad set và mất dữ liệu học.
-
-Với `inventoryPolicy: DENY`, hết hàng là variant tự chặn mua — khách bấm vào ad
-rồi không mua được. Cần nâng tồn kho, hoặc thu hẹp còn 2–3 variant chủ lực trước
-khi bật ads.
+10 chiếc/variant × 12 variant = 120. Ngân sách $90/ngày với AOV $99.99–$129.99 sẽ
+chạm trần tồn kho giữa learning phase. Với `inventoryPolicy: DENY`, hết hàng là
+variant tự chặn mua — khách bấm ad rồi không mua được.
