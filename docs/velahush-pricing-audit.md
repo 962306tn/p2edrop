@@ -9,7 +9,7 @@ Cập nhật 10/09/2026. Quan sát qua Shopify Admin API + ảnh chụp PDP th�
 | 1 | PDP viết refill "$21" trong khi giá thật $34.99 | ✅ **Đã sửa 10/09** |
 | 2 | `compareAtPrice` đặt ngược chiều | 🔴 Còn |
 | 3 | Bundle đắt hơn mua rời | ⚪ **Không áp dụng** — xem đính chính |
-| 4 | Variant `Gun only` sống nhưng ẩn khỏi selector | 🟡 Cần quyết định |
+| 4 | Variant `Gun only` sống nhưng ẩn khỏi selector | ✅ **Đã nâng $49 → $69 (10/09)** |
 
 ---
 
@@ -59,28 +59,23 @@ $99.99 đắt hơn $83.99.
 Không có `Gun only`. Khách vào trang này **không có đường mua rời**, nên phép so
 sánh $83.99 vs $99.99 không tồn tại. Thang giá trên PDP là hợp lệ.
 
-## 4. 🟡 Cần quyết định — variant `Gun only` sống nhưng ẩn
+## 4. ✅ Đã sửa — `Gun only` nâng lên $69
 
-Bốn variant `Gun only` ($49.00, tồn kho 10, `availableForSale: true`) vẫn tồn tại
-trong Admin dù selector không hiện. Chúng vẫn tới được khách qua:
+Bốn variant `Gun only` đã đổi từ $49.00 → **$69.00**:
 
-- **URL variant trực tiếp** — `?variant=54303710151020` (và 3 mùi còn lại)
-- **Meta catalog / Google Shopping feed** — feed đồng bộ **mọi** variant, nên $49
-  sẽ xuất hiện trong catalog ads dù PDP không bán mức giá đó
-- Tìm kiếm nội bộ store, một số block product recommendation
-
-Rủi ro cụ thể ở tuần chạy ads: Advantage+ Catalog Ads hiện "$49", khách bấm vào,
-PDP chỉ có $99.99. Vừa hụt kỳ vọng vừa là rủi ro chính sách giá gây hiểu nhầm.
-
-Ba cách xử lý:
-
-| Cách | Đánh đổi |
+| Variant | ID |
 |---|---|
-| Xoá hẳn 4 variant `Gun only` | Sạch nhất. Mất điểm giá vào cửa nếu sau này muốn dùng |
-| Nâng lên $69 rồi để nguyên | Feed hiện $69, gần bundle hơn, bớt hụt kỳ vọng |
-| Giữ nguyên $49 | Feed vẫn hiện $49 — phải loại trừ thủ công trong Commerce Manager |
+| Gun only / Lemon | `54303710151020` |
+| Gun only / Lavender | `54303710183788` |
+| Gun only / Peppermint | `54303710216556` |
+| Gun only / Fresh Linen | `54303710249324` |
 
-Nên chốt trước khi bật catalog ads, không gấp cho ad set TOF tuần 1.
+Selector trên PDP vẫn chỉ hiện 2 bundle, nên với khách vào trang thì không đổi gì.
+Thay đổi này là để **product feed**: Meta catalog và Google Shopping đồng bộ mọi
+variant, nên trước đây feed hiện $49 trong khi trang không bán mức đó. Ở $69,
+khoảng cách với bundle $99.99 đủ gần để không tạo hụt kỳ vọng.
+
+Tiện thể nó cũng qua ngưỡng free shipping $50, thứ mà mức $49 hụt đúng $1.
 
 ## Tồn kho, chưa xử lý
 
