@@ -3,6 +3,10 @@
     "gempages": {
       "type": "http",
       "url": "${GEMPAGES_MCP_URL}"
+    },
+    "meta-ads": {
+      "type": "http",
+      "url": "https://mcp.facebook.com/ads"
     }
   }
 }
