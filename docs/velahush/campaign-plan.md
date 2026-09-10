@@ -1,227 +1,209 @@
-# VelaHush — Meta Ads Campaign Setup Plan
+# VelaHush — Meta Ads Campaign Setup Plan (v2)
 **Ngày:** 10/09/2026 · **Budget:** $100/ngày · **Market:** US (EN) · **Objective:** Sales / Purchase
+**v2 thay đổi:** chuyển sang cấu trúc CBO tách theo **nguồn creative** theo đề xuất của bạn. Xem mục 1.
 
 ---
 
-## 0. Kết luận nhanh (TL;DR)
+## 1. Đính chính v1 — bạn đúng, và bạn sai một chỗ khác
 
-| Quyết định | Phương án |
-|---|---|
-| Số nhóm | **3 ad set** (không phải 6) — 1 campaign ABO |
-| Ngân sách | TOF $60 · MOF $30 · BOF $10 |
-| Số creative | **10 ads = 6 TOF / 3 MOF / 1 BOF** → đúng tỉ lệ 60/30/10 ở CẢ budget lẫn số creative |
-| Đọc angle nào thắng | Ở **cấp AD** bên trong nhóm TOF, không tách ad set |
-| Tận dụng 3 advertorial | 2 ads/advertorial trong cùng nhóm TOF |
-| Ngày 1–4 | BOF chưa có tệp → dồn $10 sang TOF. Ngày 5 mới về đúng 60/30/10 |
-| Việc tay nhiều nhất | Không phải dựng campaign — mà là **lọc + re-edit video từ kho 444 cái** |
+**Bạn đúng:** tôi nói 3 nhóm TOF broad sẽ overlap đấu giá với chính mình. Điều đó đúng với **ABO**. Với **CBO thì không** — Meta dedup ở cấp auction giữa các ad set trong cùng một CBO campaign, nên nó không tự đẩy giá của chính nó. Việc bạn chọn CBO chính là cách xử lý đúng cho vấn đề tôi nêu. Bỏ phản đối đó.
 
-> **Vì sao 3 chứ không 6 nhóm:** $100/ngày chia 6 nhóm = ~$16/nhóm. Với CPA mục tiêu $25–35, mỗi nhóm không đủ 1 đơn/ngày → không nhóm nào thoát learning phase, và 3 nhóm TOF cùng target broad sẽ **overlap đấu giá với chính mình**. Bạn vẫn được phép tới 6 — nhưng dùng 6 ở đây là trả tiền để học chậm hơn. Xem "Plan B" nếu bạn vẫn muốn tách.
+**Và tách theo *nguồn creative* khác hẳn tách theo *angle*.** Ba nguồn (video mình tự tạo / ảnh đối thủ / video đối thủ) có CPM, hook rate, tỉ lệ chuyển đổi khác nhau về bản chất — đó là biến đáng tách nhóm thật. v1 tách theo advertorial mới là cách tách vô nghĩa.
+
+**Chỗ còn lại:** **CBO không tôn trọng tỉ lệ 60/30/10 của bạn.** CBO được thiết kế để dồn tiền vào ad set nào ra chuyển đổi rẻ nhất. Ngày 1 TOF luôn rẻ nhất (tệp lớn, chưa bão hoà) → CBO sẽ bóp MOF và BOF xuống $2–3/ngày và bạn mất luôn tầng giữa. Ép bằng min/max spend limit thì được, nhưng đó là đánh nhau với thuật toán và Meta cảnh báo trực tiếp là nó làm giảm hiệu quả delivery.
+
+**CBO + tỉ lệ cố định là hai thứ mâu thuẫn nhau về mặt cấu trúc.** Cách thoát: đặt CBO ở đúng chỗ nó giỏi (so sánh 3 nguồn creative với nhau) và khoá tỉ lệ ở cấp **campaign**.
 
 ---
 
-## 1. Cấu trúc campaign
+## 2. Cấu trúc — 3 campaign, 5 ad set
 
-**Campaign:** `VH | Sales-Purchase | ABO | US | 2026-09`
-- Objective: **Sales**, conversion event **Purchase**, conversion location Website
-- **ABO** (ngân sách ở cấp ad set) — bắt buộc, vì CBO sẽ không tôn trọng tỉ lệ 60/30/10
-- Tắt Advantage campaign budget
-- Attribution: 7-day click, 1-day view
+```
+Campaign 1 · VH | TOF | CBO | $60/ngày          ← CBO ở đây, đúng chỗ
+  ├─ AS1  TOF-OWN   Video Topview + content tự tạo      3 ads → advertorial
+  ├─ AS2  TOF-IMG   Ảnh đối thủ (RECREATE, xem mục 5)   3 ads → advertorial
+  └─ AS3  TOF-VID   Video đối thủ (re-edit)             3 ads → advertorial
 
-### Ad set 1 — `TOF | Broad-AdvPlus | Advertorial | $60`
-| Setting | Giá trị |
+Campaign 2 · VH | MOF | ABO | $30/ngày
+  └─ AS4  MOF-WARM  3 ads (1 carousel + 2 static) → PDP
+
+Campaign 3 · VH | BOF | ABO | $10/ngày
+  └─ AS5  BOF-RTG   1 ad → PDP + discount code
+```
+
+**Vì sao tách 3 campaign:** budget nằm ở cấp campaign nên **60/30/10 được khoá cứng** — MOF và BOF không thể bị TOF hút mất tiền. Trong Campaign 1, CBO vẫn tự do phân bổ giữa 3 nguồn creative, đúng như bạn muốn. Bạn được cả hai thứ, không phải chọn một.
+
+> Nếu bạn vẫn muốn **1 campaign CBO duy nhất** cho cả 5 ad set: bắt buộc phải set ad set spend limit (AS1–3 max $22/ad set; AS4 min $25; AS5 min $8). Chấp nhận delivery kém hơn. Tôi không khuyên, nhưng nó chạy được.
+
+### Setting chi tiết
+
+**Campaign 1 — `VH | TOF | CBO | US | 2026-09`**
+| | |
 |---|---|
-| Budget | **$60/ngày** (daily, ABO) |
-| Audience | **Advantage+ Audience**, để trống audience suggestion (hoặc chỉ gợi ý "Pet owner" / "Dog owner") |
-| Location / Age | US · 18–65+ · All genders |
-| Exclude | Website visitors 30d · Purchasers 180d |
-| Placements | Advantage+ Placements (bật hết) |
-| Optimization | Purchase · Highest volume · **không** đặt bid cap |
-| Destination | 3 advertorial (mỗi ad 1 URL) |
-| Số ads | **6** |
+| Budget | **$60/ngày, Advantage campaign budget BẬT** |
+| Objective | Sales · Purchase · Website |
+| Bid strategy | Highest volume, không bid cap |
+| **Ad set spend limit (ngày 1–5)** | **Minimum $15/ad set** trên cả AS1, AS2, AS3 |
+| Ad set spend limit (từ ngày 6) | **Gỡ hết** |
+| Audience (cả 3 ad set) | Advantage+ Audience, US, 18–65+, all genders, để trống suggestion |
+| Exclude (cả 3) | Website visitors 30d · Purchasers 180d |
+| Placements | Advantage+ Placements |
+| Page identity | **Creator Page** (xem `page-strategy.md`) |
+| Attribution | 7-day click, 1-day view |
 
-### Ad set 2 — `MOF | Warm | PDP | $30`
-| Setting | Giá trị |
-|---|---|
-| Budget | **$30/ngày** |
-| Audience (từ ngày 5) | Video viewers 25% (all videos, 90d) + Page engagers 180d + IG engagers 180d + Website visitors 30d + LAL 1–3% (nếu đã đủ data) |
-| Audience (ngày 1–4) | **Broad cold + Advantage+** — pool warm chưa tồn tại. MOF ở đây là *loại creative*, không phải *tệp*, nên chạy cold vẫn đúng logic |
-| Exclude | ATC 14d · Initiate Checkout 14d · Purchasers 180d |
-| Destination | **PDP trực tiếp** (đã được educate rồi, không cần advertorial nữa) |
-| Số ads | **3** |
+> **Min spend $15 trong 5 ngày đầu là bắt buộc.** Không có nó, CBO sẽ chọn người thắng trong 24h dựa trên dữ liệu gần như bằng 0, bóp AS2 và AS3 xuống $3/ngày, và bạn **không bao giờ biết được** nguồn creative nào thực sự tốt. $15 × 5 ngày = $75/nguồn, đủ để đọc directional. Ngày 6 gỡ ra cho CBO tự do.
 
-### Ad set 3 — `BOF | RTG-14d | PDP | $10`
-| Setting | Giá trị |
-|---|---|
-| Budget | **$10/ngày** — **BẬT TỪ NGÀY 5**, không phải ngày 1 |
-| Audience | ATC 14d + Initiate Checkout 14d + PDP viewers 7d + Advertorial readers 14d (URL contains `velahush`) |
-| Exclude | Purchasers 180d |
-| Destination | PDP + discount code |
-| Số ads | **1** (1 dự phòng để luân phiên) |
+**Campaign 2 — `VH | MOF | ABO | US | 2026-09`** · $30/ngày
+- Audience từ ngày 5: Video viewers 25% (90d) + Page engagers 180d (cả 2 page) + IG engagers 180d + Website visitors 30d + LAL 1–3%
+- Audience ngày 1–4: Broad + Advantage+ (pool warm chưa tồn tại)
+- Exclude: ATC 14d · IC 14d · Purchasers 180d
+- Page identity: **Brand Page**, hoặc **Partnership Ad (Brand × Creator)** khi có video creator
+- Destination: PDP trực tiếp
 
-> Nếu pool BOF < 1,000 người sau ngày 5 → nới window lên 30d thay vì tăng budget.
+**Campaign 3 — `VH | BOF | ABO | US | 2026-09`** · $10/ngày · **OFF đến ngày 5**
+- Audience: ATC 14d + IC 14d + PDP viewers 7d + Advertorial readers 14d (URL contains `velahush`)
+- Exclude: Purchasers 180d
+- Page identity: **Brand Page**
+- **1 ad thôi.** Bạn ghi "1 ảnh, 1 video gì đấy" — $10 chia 2 ad = $5/ad, không ad nào đủ dữ liệu. Chạy 1 static, để video làm bản luân phiên khi frequency > 4.
 
 ---
 
-## 2. Bản đồ creative → advertorial (nhóm TOF)
+## 3. Ma trận creative — 3 nguồn × 3 angle
 
-| Ad | Angle | Nguồn video | Destination |
+Bạn nói "tự pitch sau nhưng lẫn lộn" — tôi hiểu là **mỗi ad set chứa đủ cả 3 advertorial**, để biến duy nhất giữa các ad set là *nguồn creative*. Đúng thiết kế thí nghiệm. Cụ thể:
+
+| | **7R** · mùi quay lại | **MRC** · đón khách | **BSC** · vấn đề ở chai xịt |
 |---|---|---|---|
-| `TOF_7R_A` | Mùi quay lại dù đã dọn | **Video Topview (sản phẩm MỚI, chuẩn)** ← hero, để ở đây | `/pages/velahush-7-reasons` |
-| `TOF_7R_B` | Nose blind — bạn hết ngửi thấy, khách thì không | Kho library #1 | `/pages/velahush-7-reasons` |
-| `TOF_MRC_A` | "We're 10 minutes away" panic | Kho library #2 | `/pages/velahush-make-room-for-company` |
-| `TOF_MRC_B` | Ngưng mời khách vì mùi sofa | Kho library #3 | `/pages/velahush-make-room-for-company` |
-| `TOF_BSC_A` | Vấn đề là chai xịt, không phải dung dịch | Kho library #4 (có demo xịt/mist) | `/pages/velahush-break-the-spray-bottle-cycle` |
-| `TOF_BSC_B` | Đếm số chai dưới bồn rửa | Kho library #5 | `/pages/velahush-break-the-spray-bottle-cycle` |
+| **AS1 · OWN** | `TOF1_OWN_7R` ⭐ hero | `TOF1_OWN_MRC` | `TOF1_OWN_BSC` |
+| **AS2 · IMG** | `TOF2_IMG_7R` | `TOF2_IMG_MRC` | `TOF2_IMG_BSC` |
+| **AS3 · VID** | `TOF3_VID_7R` | `TOF3_VID_MRC` | `TOF3_VID_BSC` |
 
-### Nhóm MOF (3 ads, dùng 20 ảnh Topview + superscale)
-| Ad | Format | Nội dung | Destination |
-|---|---|---|---|
-| `MOF_C1_Mechanism` | **Carousel 6 ảnh** | Cơ chế: trigger spray vs fine mist, đi vào sợi vải | PDP `?adv=spray-cycle-v2` |
-| `MOF_S1_Compare` | Static 1080×1350 | So sánh cạnh nhau: vệt ướt vs phủ đều | PDP `?adv=spray-cycle-v2` |
-| `MOF_S2_Objection` | Long-form native static | Xử lý 2 rào cản: "ướt sofa?" / "chỉ che mùi?" | PDP `?adv=7-reasons-v2` |
+**9 ads TOF + 3 MOF + 1 BOF = 13 ads.**
+Tỉ lệ theo *ngân sách* = đúng 60/30/10. Theo *số creative* = 69/23/8 — lệch nhẹ so với mục tiêu, và tôi cho là nên chấp nhận: TOF là nơi cần volume để tìm winner, ép về đúng 6 ad chỉ để cho tròn số sẽ làm mỏng ma trận.
 
-### Nhóm BOF (1 ad — **CHƯA CÓ, phải làm**)
-| Ad | Format | Spec |
-|---|---|---|
-| `BOF_S1_Offer` | Static 1080×1080 | Trái 40%: sản phẩm cắt nền (lấy từ 20 ảnh MOF). Phải: `XX% OFF` cỡ lớn · deadline ngày · 3 bullet (Free shipping / 30-day return / Sofa·Rug·Bed·Car) · sao đánh giá **chỉ nếu có review thật** |
+### ⚠️ Ma trận này KHÔNG đọc được bằng thống kê ở mức $60/ngày
+$60 / 9 ads ≈ $6.7/ad/ngày. Với CPM ~$20 và CTR 1.5% thì mỗi ô được ~5 click/ngày — cần 10+ ngày mới đủ mẫu cho một ô. Đừng cố đọc 9 ô.
 
-Làm bằng Canva ~15 phút. Đây là gap duy nhất phải tự tay tạo.
+**Cách đọc đúng ở budget này:** chính việc CBO **dồn tiền vào đâu** mới là tín hiệu.
+- Ngày 3–5: ad set nào chiếm nhiều share nhất → **nguồn creative thắng**
+- Trong ad set đó: ad nào ăn tiền nhất → **angle thắng**
+- Ngày 6–7: gỡ min spend, tắt 2 nguồn thua, nhân bản nguồn thắng thành 3–4 variant mới cùng angle thắng
+
+Đây là đọc directional, không phải kết luận thống kê. Ở $100/ngày thì directional là thứ tốt nhất mua được — và nó đủ để ra quyết định.
 
 ---
 
-## 3. ⚠️ 3 rủi ro phải xử lý trước khi bật
+## 4. Lịch ngân sách theo ngày
 
-**1. Video kho 444 cái đang show sản phẩm CŨ, PDP show sản phẩm MỚI.**
-Ngoại hình khác → mismatch creative↔landing page: tụt CVR và có rủi ro policy "misrepresentation". Cách xử lý (giữ được tốc độ):
-- Cắt bỏ mọi shot hero cận cảnh sản phẩm cũ, chỉ giữ B-roll vấn đề (thú cưng trên sofa, ngửi, khách tới, cảnh xịt).
-- **3–4 giây cuối luôn thay bằng footage sản phẩm mới từ video Topview + CTA card.**
-- Làm 1 template CapCut duy nhất: `[hook 0–3s từ library] + [body] + [3s cuối: sản phẩm mới + CTA]` → swap clip là xong.
-
-**2. Quyền sử dụng video của page đối thủ.** Nếu đó là footage nhà cung cấp mà bạn cũng có quyền thì không sao. Nếu là creative do đối thủ tự sản xuất, dùng nguyên bản là rủi ro bản quyền + báo cáo. Việc re-edit ở trên (hook mới, VO mới, sub mới, sản phẩm của bạn) là mức tối thiểu — không phải là miễn trừ hoàn toàn.
-
-**3. Chưa verify được tham số `adv` trên PDP.** Link bạn đưa có `?adv=7-reasons-v2&cta=end`. Tôi bị chặn network nên không kiểm tra được. **Bạn cần tự confirm 2 việc:**
-- PDP nhận những giá trị `adv` nào (tôi đang giả định `make-room-v2`, `spray-cycle-v2` — nếu sai nó sẽ fallback về mặc định và bạn mất đúng framing).
-- Nút CTA trong 3 advertorial có **truyền tiếp** `adv` + UTM sang PDP không. Nếu không, toàn bộ traffic TOF sẽ mất attribution ở bước 2.
-
----
-
-## 4. Gap lớn nhất về creative: MOFU thật
-
-Theo framework của bạn, MOF = **Native UGC & Creator video** (unboxing, GRWM, testimonial). Bạn đang có **0 video UGC** — 20 ảnh static chỉ là giải pháp tạm.
-
-Đây là tầng quyết định trust và nó đang yếu nhất. Việc nên làm song song ngay tuần này:
-- Đặt 3–5 video UGC (Billo / Insense / creator local) — 5–7 ngày giao.
-- Hoặc nhanh hơn: dùng **avatar UGC của Topview** để ra 3 video testimonial trong ngày.
-- 4 Creator Page trong sơ đồ hệ sinh thái của bạn chỉ phát huy khi có Partnership Ads — mà Partnership Ads cần creator video thật. Chưa có creator video thì 4 page đó chưa dùng được.
-
----
-
-## 5. Lịch triển khai & ngân sách theo ngày
-
-| Ngày | TOF | MOF | BOF | Ghi chú |
+| Ngày | C1 TOF | C2 MOF | C3 BOF | Ghi chú |
 |---|---|---|---|---|
-| 1–4 | **$70** | **$30** (broad cold) | **off** | Pool retarget = 0. $10 vào BOF lúc này là tiền chết |
-| 5–7 | $60 | $30 (chuyển sang tệp warm) | $10 | Về đúng **60/30/10** |
+| **–14 → –1** | 0 | 0 | 0 | **Warm-up 2 page** (`page-strategy.md` mục 3). Bỏ qua bước này là rủi ro restrict ad account |
+| 1–4 | **$70** | $30 (broad cold) | off | Pool retarget = 0, $10 vào BOF là tiền chết. Min spend $15/ad set đang bật |
+| 5–7 | $60 | $30 (chuyển tệp warm) | $10 | Về đúng **60/30/10** |
+| 6 | — | — | — | **Gỡ min spend limit** ở Campaign 1 |
 | 8+ | $60 | $30 | $10 | Steady state |
 
-**Luật không đụng tay trong 72h đầu:** không tắt ad, không sửa budget, không đổi audience. Mọi chỉnh sửa reset learning phase.
-
-### Mốc đọc số
-| Thời điểm | Xem gì | Hành động |
-|---|---|---|
-| Ngày 3 | Hook rate (3s view / impression) ở cấp ad | < 20% → hook hỏng, thay 3s đầu |
-| Ngày 3 | CTR outbound | < 1% → creative/angle không chạm |
-| Ngày 5 | Advertorial nào ra ATC nhiều nhất | Đó là angle thắng |
-| Ngày 7 | Ad nào < 1/3 chi tiêu trung bình | Tắt, thay ad mới cùng angle thắng |
-| Ngày 10–14 | Frequency > 3 ở TOF | Refresh creative |
+**Không đụng gì trong 72h đầu.** Mọi chỉnh sửa reset learning phase.
 
 ---
 
-## 6. Tracking / UTM
+## 5. ⚠️ AS2 "ảnh đối thủ" là ad set rủi ro nhất — phải xử lý
 
-**Trường "URL parameters" (dán y hệt cho CẢ 10 ads):**
+Ba vấn đề chồng lên nhau:
+
+1. **Bản quyền nặng hơn video nhiều.** Video đối thủ bạn re-edit (đổi hook, VO, sub, 3s cuối) thì đã biến đổi đáng kể. Một **ảnh static** là một tác phẩm đơn lẻ — dùng gần như nguyên bản thì rất dễ bị match và DMCA takedown, kéo theo ad account.
+2. **Vẫn là sản phẩm CŨ.** Ảnh không có "3 giây cuối" để bạn chèn sản phẩm mới vào như video. Mismatch creative ↔ PDP lộ ngay ở frame đầu tiên.
+3. Đây cũng là nguồn duy nhất trong 3 nguồn mà bạn **không kiểm soát chất lượng đầu ra**.
+
+**Cách xử lý — dùng ảnh đối thủ làm *layout reference*, không chạy trực tiếp:**
+- Lấy 3 ảnh đối thủ chạy lâu nhất → phân tích cấu trúc (bố cục, thứ tự thông tin, kích cỡ chữ, vị trí sản phẩm)
+- Dựng lại đúng layout đó bằng **sản phẩm mới của bạn** (ảnh Topview + Canva)
+- ~30 phút/ảnh, 3 ảnh là xong AS2
+
+Bạn giữ được đúng thứ có giá trị (bố cục đã được validate bằng tiền của đối thủ) và bỏ toàn bộ rủi ro. Layout không được bảo hộ bản quyền — file ảnh thì có.
+
+> Với AS3 (video), giữ nguyên quy tắc v1: cắt hết shot hero sản phẩm cũ, 3–4s cuối luôn là sản phẩm mới + CTA card, hook mới, VO mới.
+
+---
+
+## 6. Tracking
+
+**URL parameters — dán y hệt cho cả 13 ads:**
 ```
 utm_source=facebook&utm_medium=paid_social&utm_campaign={{campaign.name}}&utm_content={{ad.name}}&utm_term={{adset.name}}&plc={{placement}}
 ```
-Vì tên ad đã mã hoá angle (`TOF_7R_A`), bạn đọc được ngay trong GA4/Shopify report angle nào ra đơn — không cần tách ad set.
+Tên ad đã mã hoá **nguồn + angle** (`TOF2_IMG_MRC`) nên `utm_content` cho bạn đọc cả 2 chiều của ma trận ngay trong GA4/Shopify, không cần chạm Ads Manager.
 
-**Website URL theo từng ad:** xem `meta-bulk-import.csv`.
+**Chưa verify (bạn phải tự check):**
+- PDP nhận giá trị `adv` nào — tôi đang giả định `7-reasons-v2` / `make-room-v2` / `spray-cycle-v2`
+- 3 advertorial có truyền tiếp `adv` + UTM sang PDP không. Không truyền = mất attribution ở bước 2, toàn bộ ma trận thành vô nghĩa
 
-**Bắt buộc trước khi bật:**
-- Conversions API (Shopify → Facebook & Instagram app) đang bật, deduplication OK
-- Domain `allvibespet.com` đã verify
-- 8 sự kiện Aggregated Event Measurement đã xếp: Purchase → InitiateCheckout → AddToCart → ViewContent → PageView
-- Test bằng Events Manager Test Events trên đúng URL advertorial (không phải chỉ PDP)
+**Trước khi bật:** CAPI bật + dedup OK · domain verified · AEM xếp Purchase → IC → ATC → ViewContent → PageView · test Events trên **URL advertorial** chứ không chỉ PDP.
 
 ---
 
-## 7. Cách set nhanh nhất — xếp theo thời gian thật
-
-| # | Cách | Thời gian | Nhận xét |
-|---|---|---|---|
-| **1** | **Build 1 ad hoàn chỉnh → Duplicate ×5 → chỉ đổi video + URL + tên** | **~30 phút** | **Khuyến nghị.** Ít lỗi nhất. Dùng "Duplicate → same ad set" |
-| 2 | Bulk import Excel | ~40 phút | Chỉ nhanh khi ≥ 30 ads. Phải export template của chính Meta trước rồi mới paste — header tự chế sẽ lỗi |
-| 3 | Advantage+ Shopping (ASC) | ~10 phút | Nhanh nhất nhưng **phá cấu trúc TOF/MOF/BOF riêng** của bạn. Chỉ hợp làm campaign thứ 2 chạy song song |
-| 4 | Marketing API script | 3–4 giờ setup | Chỉ đáng nếu tuần nào cũng launch |
-
-### Quy trình 30 phút (cách 1)
-1. Upload **hết** video + ảnh vào Media Library trước, đặt tên theo đúng `TOF_7R_A...` — **đây là bước tiết kiệm thời gian nhất**, làm sau sẽ mất gấp đôi.
-2. Tạo Campaign + Ad set TOF (setting mục 1).
-3. Build **`TOF_7R_A`** đầy đủ: copy, headline, URL, URL parameters, CTA.
-4. Duplicate ad đó 5 lần trong cùng ad set → mỗi bản chỉ sửa: **tên ad · video · primary text · headline · URL**. (URL parameters giữ nguyên vì dùng macro.)
-5. Duplicate cả ad set TOF → sửa thành MOF (budget, audience, 3 ads).
-6. Duplicate tiếp → BOF (budget, audience, 1 ad, **để trạng thái OFF**).
-7. Review → Publish.
-
-### Việc tốn tay thật sự: lọc 444 video (KHÔNG xem hết)
-1. Meta Ad Library → lọc theo page → sort **"longest running"**. Ad chạy > 30 ngày = đã được validate bằng tiền thật.
-2. Lấy top 20. Ưu tiên: 2 giây đầu có **vấn đề nhìn thấy được** (chó nằm sofa, khách bấm chuông, tủ đầy chai xịt), cảm giác native/UGC, tỉ lệ 9:16 hoặc 4:5.
-3. Chọn 5 theo bảng bản đồ ở mục 2.
-4. Re-edit bằng 1 template CapCut duy nhất → 5 video trong ~45 phút.
-
-> **Đường tắt:** repo này đã có skill `topview-ugc-video-pipeline` (gen video TOF trên Topview + dựng bằng ffmpeg: VO, sub, hook A/B, CTA). Chạy skill đó là ra thẳng 6 video TOF kèm biến thể hook A/B, bạn không phải mở CapCut. Nói một tiếng là tôi chạy.
-
----
-
-## 8. Plan B — nếu vẫn muốn 6 nhóm
-
-Chỉ dùng khi bạn chấp nhận đánh đổi tốc độ học lấy dữ liệu angle sạch, hoặc khi budget lên ≥ $200/ngày.
-
-| Ad set | Budget | Audience | Destination |
-|---|---|---|---|
-| `TOF-A` | $20 | Broad | `/velahush-7-reasons` |
-| `TOF-B` | $20 | Broad | `/velahush-make-room-for-company` |
-| `TOF-C` | $20 | Broad | `/velahush-break-the-spray-bottle-cycle` |
-| `MOF-A` | $15 | Warm (VV + Engagers) | PDP |
-| `MOF-B` | $15 | LAL 1–3% | PDP |
-| `BOF` | $10 | RTG 14d | PDP |
-
-**Bắt buộc:** 3 nhóm TOF-A/B/C phải chạy qua **công cụ A/B Test của Meta**, không phải tạo tay 3 ad set song song. A/B Test chia tệp loại trừ lẫn nhau → mới tránh được overlap đấu giá. Tạo tay 3 nhóm broad giống hệt nhau là tự đẩy CPM của chính mình lên.
-
----
-
-## 9. Quy ước đặt tên
+## 7. Quy ước đặt tên
 
 ```
-Campaign : VH | Sales-Purchase | ABO | US | 2026-09
-Ad set   : TOF | Broad-AdvPlus | Advertorial | $60
-           MOF | Warm-VV+Eng   | PDP         | $30
-           BOF | RTG-ATC14     | PDP         | $10
-Ad       : TOF_7R_A_ProductHero_9x16
-           <TẦNG>_<ANGLE>_<VARIANT>_<MÔ TẢ>_<TỈ LỆ>
+Campaign : VH | TOF | CBO | US | 2026-09
+           VH | MOF | ABO | US | 2026-09
+           VH | BOF | ABO | US | 2026-09
+Ad set   : AS1 | TOF-OWN | Broad-AdvPlus | Advertorial
+           AS2 | TOF-IMG | Broad-AdvPlus | Advertorial
+           AS3 | TOF-VID | Broad-AdvPlus | Advertorial
+           AS4 | MOF-WARM | PDP
+           AS5 | BOF-RTG14 | PDP
+Ad       : TOF1_OWN_7R_ProductHero_9x16
+           <ADSET#>_<NGUỒN>_<ANGLE>_<MÔ TẢ>_<TỈ LỆ>
 ```
-Angle code: `7R` = 7 Reasons · `MRC` = Make Room for Company · `BSC` = Break the Spray-Bottle Cycle
+Nguồn: `OWN` tự tạo · `IMG` ảnh recreate · `VID` video re-edit
+Angle: `7R` 7 Reasons · `MRC` Make Room for Company · `BSC` Break the Spray-Bottle Cycle
 
 ---
 
-## 10. Checklist trước khi bấm Publish
+## 8. Cách set nhanh nhất
 
+Build **Campaign 1 + AS1 + 3 ads** hoàn chỉnh → **Duplicate AS1 → 2 lần** (chỉ đổi tên + swap creative) → **Duplicate Campaign 1 → 2 lần** (đổi thành MOF/ABO và BOF/ABO). URL parameters dùng macro nên set 1 lần cho cả 13 ads.
+**~35 phút.**
+
+Upload **toàn bộ** video/ảnh vào Media Library trước, đặt tên đúng theo quy ước mục 7 — làm trước tiết kiệm gấp đôi thời gian so với upload lúc build ad.
+
+**Việc tốn tay thật sự vẫn là creative, không phải campaign:**
+| Việc | Cách nhanh nhất | Thời gian |
+|---|---|---|
+| Lọc 3 video từ kho 444 (AS3) | Ad Library → sort **"longest running"** → top 20 → chọn 3 | 15 phút |
+| Re-edit 3 video | 1 template CapCut duy nhất, swap clip | 45 phút |
+| Recreate 3 ảnh (AS2) | Phân tích layout ảnh đối thủ → dựng lại bằng ảnh Topview + Canva | 90 phút |
+| 3 creative AS1 | Skill `topview-ugc-video-pipeline` trong repo này — gen + dựng ffmpeg (VO, sub, hook A/B, CTA) tự động | Chạy skill |
+| 1 static BOF | Canva, spec trong `ads-copy-velahush-20260910.md` | 15 phút |
+
+---
+
+## 9. Mốc đọc số
+
+| Thời điểm | Xem gì | Hành động |
+|---|---|---|
+| Ngày 3 | Hook rate (3s view / impression) cấp ad | < 20% → thay 3 giây đầu, giữ copy |
+| Ngày 3 | Outbound CTR | < 1.0% → angle không chạm |
+| Ngày 5 | **Share ngân sách giữa AS1/AS2/AS3** | Đây là kết quả chính: nguồn creative nào thắng |
+| Ngày 6 | — | **Gỡ min spend limit** |
+| Ngày 7 | Ad nào tiêu < 1/3 mức trung bình | Tắt, nhân bản nguồn+angle thắng thành variant mới |
+| Ngày 10–14 | Frequency TOF > 3 | Refresh creative (đổi hook trước, copy sau) |
+
+---
+
+## 10. Checklist trước khi Publish
+
+- [ ] **2 page đã warm-up ≥ 10 ngày** — xem `page-strategy.md`
+- [ ] Đã quyết phương án Creator Page (A / B / C) — nếu chọn C, đọc lại rủi ro mất BM
 - [ ] Pixel + CAPI verified, dedup OK, test trên URL advertorial
 - [ ] Domain verified · AEM 8 events đã xếp
-- [ ] 3 advertorial truyền tiếp `adv` + UTM sang PDP (**đang chưa verify**)
-- [ ] PDP nhận đúng giá trị `adv` cho cả 3 angle (**đang chưa verify**)
-- [ ] Mọi video kho library đã cắt hết shot sản phẩm cũ, 3s cuối là sản phẩm mới
-- [ ] BOF static đã làm xong, ad ở trạng thái OFF
-- [ ] Discount code BOF đã tạo và test được trên checkout
-- [ ] Không có testimonial/số review bịa trong bất kỳ creative nào
-- [ ] Đã set exclusion Purchasers 180d ở cả 3 nhóm
+- [ ] 3 advertorial truyền tiếp `adv` + UTM sang PDP (**chưa verify**)
+- [ ] PDP nhận đúng giá trị `adv` cho cả 3 angle (**chưa verify**)
+- [ ] AS2: 3 ảnh đã **dựng lại** bằng sản phẩm mới, không dùng file gốc của đối thủ
+- [ ] AS3: video đã cắt hết shot sản phẩm cũ, 3s cuối là sản phẩm mới
+- [ ] Min spend limit $15 đã set trên AS1/AS2/AS3
+- [ ] Campaign 3 (BOF) ở trạng thái **OFF**
+- [ ] Discount code BOF đã tạo và test được ở checkout
+- [ ] Không có testimonial / số review bịa trong bất kỳ creative nào
+- [ ] Exclusion Purchasers 180d ở cả 3 campaign

@@ -292,3 +292,23 @@ If it doesn't work on your couch, send it back. That's the entire risk.
 - [ ] Chính sách return chính xác (đang giả định 30-day)
 - [ ] Review thật để thay `MOF_S2_Objection`
 - [ ] 3–5 video UGC creator — tầng MOF đang yếu nhất trong cả phễu
+
+---
+
+# ⚠️ CẬP NHẬT v2 — cách dùng copy với cấu trúc 3 nguồn creative
+
+Cấu trúc mới là ma trận **3 nguồn creative × 3 angle** (xem `campaign-plan.md` mục 3). Quy tắc dùng copy:
+
+**Cùng một angle → dùng CHUNG một bộ copy trên cả 3 ad set.**
+
+| Angle | Copy dùng | Áp cho |
+|---|---|---|
+| 7R | `TOF_7R_A` | `TOF1_OWN_7R` · `TOF2_IMG_7R` · `TOF3_VID_7R` |
+| MRC | `TOF_MRC_A` | `TOF1_OWN_MRC` · `TOF2_IMG_MRC` · `TOF3_VID_MRC` |
+| BSC | `TOF_BSC_A` | `TOF1_OWN_BSC` · `TOF2_IMG_BSC` · `TOF3_VID_BSC` |
+
+**Lý do:** biến đang test giữa 3 ad set là **nguồn creative**. Nếu copy cũng đổi theo thì khi AS3 thắng bạn không biết là do video hay do copy — mất luôn kết quả của cả thí nghiệm. Giữ copy cố định, chỉ đổi asset.
+
+**Copy variant B (`TOF_7R_B`, `TOF_MRC_B`, `TOF_BSC_B`) không dùng ở ngày 1.** Giữ làm kho refresh: ngày 7, khi đã biết nguồn + angle nào thắng, nhân bản nguồn thắng và dùng variant B để làm biến thể mới mà không phải viết thêm.
+
+**Với AS2 (ảnh recreate):** ảnh static không có VO/sub, nên headline phải gánh nhiều hơn. Nếu copy dài bị cắt ở "See more" trong feed, ưu tiên giữ nguyên 125 ký tự đầu — đó là phần đã được viết để đọc một mình vẫn đủ nghĩa.
