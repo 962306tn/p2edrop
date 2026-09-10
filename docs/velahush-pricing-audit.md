@@ -77,8 +77,29 @@ khoảng cách với bundle $99.99 đủ gần để không tạo hụt kỳ v�
 
 Tiện thể nó cũng qua ngưỡng free shipping $50, thứ mà mức $49 hụt đúng $1.
 
-## Tồn kho, chưa xử lý
+## 5. ✅ Đã sửa — tồn kho nâng lên 100/variant
 
-10 chiếc/variant × 12 variant = 120. Ngân sách $90/ngày với AOV $99.99–$129.99 sẽ
-chạm trần tồn kho giữa learning phase. Với `inventoryPolicy: DENY`, hết hàng là
-variant tự chặn mua — khách bấm ad rồi không mua được.
+| Sản phẩm | Trước | Sau |
+|---|---|---|
+| VelaHush Pet Odor Gun (12 variant) | 10 | **100** → 1.200 |
+| VelaHush Refill Pods, 3 Pack (4 variant) | 10 | **100** → 400 |
+
+Location duy nhất là **CJ - TAM THOI** (`gid://shopify/Location/115651641708`) —
+dropshipping, nên con số tồn kho là cổng chặn mua chứ không phải hàng vật lý
+trong kho. `inventoryPolicy` giữ nguyên `DENY`.
+
+1.200 chiếc thừa sức cho tuần test: $630 ngân sách ở AOV $99.99, kể cả ROAS 3
+cũng chỉ khoảng 19 đơn.
+
+**Lưu ý khi xem trong Admin:** trường tổng `totalInventory` của product cập nhật
+trễ và có thể vẫn hiện `120` một lúc. Số per-variant mới là số thật.
+
+## Trạng thái tổng kết
+
+| # | Vấn đề | Trạng thái |
+|---|---|---|
+| 1 | PDP viết refill "$21" | ✅ → $34.99 |
+| 2 | `compareAtPrice` đặt ngược chiều | 🔴 **Còn lại duy nhất** |
+| 3 | Bundle đắt hơn mua rời | ⚪ Không áp dụng (đính chính) |
+| 4 | `Gun only` $49 lệch feed | ✅ → $69 |
+| 5 | Tồn kho 10/variant | ✅ → 100/variant |
