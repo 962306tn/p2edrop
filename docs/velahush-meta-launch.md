@@ -10,19 +10,16 @@ với 12 variant, ảnh riêng, copy sạch về compliance. Phần còn thiếu
 
 ## 🔴 Ba blocker phải xử lý trước khi bật ads
 
-### 1. Giá refill trên PDP mâu thuẫn với giá thật
+### 1. Thang giá đang đảo chiều
 
-PDP `velahush-pet-odor-gun` viết **hai lần**:
+`Gun only` bán độc lập được ($49), nên bundle $99.99 **đắt hơn mua rời $16.00**.
+PDP còn viết refill "$21" trong khi giá thật là $34.99, và `compareAtPrice` của
+bậc giữa bị đặt ngược ($70 thấp hơn giá bán $99.99).
 
-> "Refills: 3 pods for **$21**, and we tell you when"
-> "Three pods are **$21**, ordered whenever you want them."
+Chi tiết và phương án sửa: **`velahush-pricing-audit.md`**. Tóm tắt: nâng súng lẻ
+lên $69 là thang giá đảo đúng chiều, không phải đụng vào $99.99 / $129.99.
 
-Sản phẩm thật `velahush-refill-pods-3-pack` đang bán **$34.99** — cả 4 mùi.
-
-Chênh **$13.99 (+67%)**. Đây vừa là sát thủ chuyển đổi (khách bấm vào thấy giá
-khác), vừa là rủi ro chính sách Meta về giá gây hiểu nhầm. Sửa một trong hai
-chiều, nhưng phải khớp trước khi chạy — đặc biệt nếu định dùng angle "Money Math"
-vốn xây trên chi phí vận hành.
+**Chưa sửa gì trên store** — đang chờ quyết định.
 
 ### 2. Tồn kho không đủ cho ngân sách test
 
@@ -44,26 +41,57 @@ nhắc hạ ngưỡng xuống $45 hoặc nâng gun lên $50.
 
 ## Cấu trúc campaign tuần 1
 
-Objective **Purchase** cho cả ba. Không dùng Traffic hay Engagement — kể cả khi
-tài khoản chưa có đơn nào.
+**Một campaign duy nhất, ba tầng phễu, ngân sách đặt ở cấp ad set (ABO).**
 
-| Ad set | Ngân sách | Targeting | Vai trò |
+Objective **Purchase** cho cả ba tầng. Không dùng Traffic hay Engagement, kể cả
+khi tài khoản chưa có đơn nào.
+
+### ⚠️ Bắt buộc ABO, không được CBO
+
+Với CBO (Advantage campaign budget), Meta tự dồn tiền về ad set có CPA rẻ nhất.
+Tệp BOF nhỏ nên **luôn** trông rẻ nhất một cách giả tạo — nó sẽ hút sạch ngân sách
+và bỏ đói TOF, làm hỏng hoàn toàn tỉ lệ phễu. Muốn giữ đúng tỉ lệ thì ngân sách
+phải đặt ở cấp ad set.
+
+### Ba ad set
+
+| Ad set | Tệp | Số creative |
+|---|---|---|
+| **TOF — Cold** | US · 30–65+ · không interest | **6 ads (60%)** |
+| **MOF — Warm** | Video viewers ≥25% · FB/IG engagers 365d · site visitors 30d | **3 ads (30%)** |
+| **BOF — Hot** | ATC + InitiateCheckout 14d · PDP viewers 7d, loại trừ người đã mua | **1 ad (10%)** |
+
+Tỉ lệ 60/30/10 là **tỉ lệ số lượng creative**, tổng 10 ads.
+
+### 🔴 Ngân sách KHÔNG chia theo 60/30/10 ở tuần 1
+
+Store có 0 đơn và 0 traffic, nên **pool MOF và BOF đang rỗng**. Không thể retarget
+người đã xem khi chưa ai xem.
+
+Cụ thể hơn: custom audience của Meta cần khoảng **1.000 người** mới phân phối được.
+Ad set nhắm tệp rỗng sẽ không tiêu được tiền, hoặc tiêu vào vài trăm người với tần
+suất cao — đốt ngân sách mà không học được gì.
+
+Vì vậy:
+
+| Giai đoạn | TOF | MOF | BOF |
 |---|---|---|---|
-| **ASC** — Advantage+ Shopping | $30/ngày | Để Meta tự quyết | Đường cơ sở. Thường thắng ở tài khoản lạnh |
-| **ABO Broad** | $30/ngày | US · 30–65+ · không interest | Kiểm chứng creative có tự đứng được không |
-| **ABO Interest** | $30/ngày | Dog/Cat owners · Chewy · PetSmart · Nature's Miracle | Kiểm chứng giả định avatar ở PHẦN 2 |
+| **Tuần 1** — pool rỗng | **$90/ngày** | PAUSED | PAUSED |
+| **Khi pool ≥1.000 người** (thường 7–14 ngày) | $54 | $27 | $9 |
 
-Cả ba dùng **chung 5 creative** — đó là điều kiện để so sánh ad set có nghĩa.
+**Dựng đủ cả 3 ad set ngay bây giờ** kèm đủ 10 creative, nhưng để MOF/BOF ở
+`PAUSED`. Bật khi Audiences báo tệp đã đủ lớn. Làm vậy thì cấu trúc sẵn sàng, và
+không có đồng nào chảy vào tệp rỗng.
 
-Tổng: **$90/ngày × 7 ngày = $630**.
+Tổng tuần 1: **$90/ngày × 7 ngày = $630**.
 
 ### Vì sao vẫn chạy Purchase khi có 0 đơn
 
-Tài khoản lạnh sẽ ra khỏi learning phase chậm (cần 50 purchase/tuần/ad set — bạn
-gần như chắc chắn không đạt ở tuần 1). Điều đó **không** biến Purchase thành lựa
-chọn sai. Tối ưu cho Traffic sẽ dạy Meta tìm người hay bấm chứ không phải người
-hay mua, và tín hiệu rác đó ở lại trong tài khoản. Chấp nhận learning phase dài,
-đọc tín hiệu creative thay vì CPA ở những ngày đầu.
+Tài khoản lạnh ra khỏi learning phase chậm (cần 50 purchase/tuần/ad set — gần như
+chắc chắn không đạt ở tuần 1). Điều đó **không** biến Purchase thành lựa chọn sai.
+Tối ưu Traffic sẽ dạy Meta tìm người hay bấm chứ không phải người hay mua, và tín
+hiệu rác đó ở lại trong tài khoản. Chấp nhận learning phase dài, đọc tín hiệu
+creative thay vì CPA ở những ngày đầu.
 
 ## Chạy qua MCP
 
@@ -76,24 +104,35 @@ Liệt kê các ad account Meta của tôi. Với act_XXXXXXXXX, cho tôi biết
 timezone, spend cap và trạng thái dataset đang gắn.
 ```
 
-**Bước 2 — tạo khung campaign, để PAUSED:**
+**Bước 2 — tạo campaign, để PAUSED:**
 ```
-Trong act_XXXXXXXXX tạo 3 campaign PAUSED, objective OUTCOME_SALES, không đặt
-special ad category:
-  1. "VH | ASC | Cold"        — Advantage+ Shopping, daily budget $30
-  2. "VH | ABO Broad | Cold"  — daily budget $30
-  3. "VH | ABO Interest | Cold" — daily budget $30
-Đọc lại cả 3 cho tôi xem trước khi tạo ad set.
+Trong act_XXXXXXXXX tạo 1 campaign PAUSED tên "VH | Funnel | US",
+objective OUTCOME_SALES, buying type AUCTION, không đặt special ad category,
+và KHÔNG bật Advantage campaign budget (ngân sách phải ở cấp ad set).
+Đọc lại cho tôi xem trước khi tạo ad set.
 ```
 
-**Bước 3 — ad set.** Nhớ: ngân sách tính bằng **cents**, `$30` phải truyền là
-`3000`. Bảo agent đọc ngược lại con số sau khi tạo.
+**Bước 3 — ba ad set.** Ngân sách tính bằng **cents**: `$90` truyền là `9000`,
+`$5` là `500`. Luôn bảo agent đọc ngược lại con số sau khi tạo.
+```
+Trong campaign "VH | Funnel | US" tạo 3 ad set, tất cả PAUSED,
+optimization goal OFFSITE_CONVERSIONS, conversion event Purchase,
+pixel <DATASET_ID>:
+  1. "TOF | Broad"  — daily budget 9000, US, tuổi 30-65+, không interest
+  2. "MOF | Warm"   — daily budget 500, custom audience video viewers 25% +
+                      engagers 365d + site visitors 30d
+  3. "BOF | Hot"    — daily budget 500, custom audience ATC/IC 14d +
+                      PDP viewers 7d, loại trừ Purchasers 180d
+Đọc lại cả 3 kèm daily_budget dạng đô-la để tôi kiểm tra.
+```
 
-**Bước 4 — ad.** Cần Page ID + Instagram, link tới `/products/velahush-pet-odor-gun`
-hoặc advertorial, kèm UTM.
+**Bước 4 — 10 ad theo tỉ lệ 60/30/10.** Cần Page ID + Instagram, link tới
+`/products/velahush-pet-odor-gun` hoặc advertorial, kèm UTM. Đặt 6 ad vào
+`TOF | Broad`, 3 ad vào `MOF | Warm`, 1 ad vào `BOF | Hot`.
 
-**Bước 5 — kiểm tra bằng mắt trong Ads Manager, rồi mới bật.** Việc chuyển từ
-PAUSED sang ACTIVE nên do bạn làm thủ công ở tuần đầu.
+**Bước 5 — kiểm tra bằng mắt trong Ads Manager, rồi mới bật.** Tuần 1 chỉ bật
+`TOF | Broad`; giữ `MOF | Warm` và `BOF | Hot` ở PAUSED cho tới khi Audiences báo
+tệp đủ ~1.000 người. Việc chuyển từ PAUSED sang ACTIVE nên do bạn làm thủ công.
 
 ### UTM chuẩn
 
