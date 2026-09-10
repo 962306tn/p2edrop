@@ -48,7 +48,7 @@ Campaign 3 · VH | BOF | ABO | $10/ngày
 | Audience (cả 3 ad set) | Advantage+ Audience, US, 18–65+, all genders, để trống suggestion |
 | Exclude (cả 3) | Website visitors 30d · Purchasers 180d |
 | Placements | Advantage+ Placements |
-| Page identity | **Creator Page** (xem `page-strategy.md`) |
+| Page identity | **AI KOL Page** (xem `page-strategy.md`) |
 | Attribution | 7-day click, 1-day view |
 
 > **Min spend $15 trong 5 ngày đầu là bắt buộc.** Không có nó, CBO sẽ chọn người thắng trong 24h dựa trên dữ liệu gần như bằng 0, bóp AS2 và AS3 xuống $3/ngày, và bạn **không bao giờ biết được** nguồn creative nào thực sự tốt. $15 × 5 ngày = $75/nguồn, đủ để đọc directional. Ngày 6 gỡ ra cho CBO tự do.
@@ -57,7 +57,7 @@ Campaign 3 · VH | BOF | ABO | $10/ngày
 - Audience từ ngày 5: Video viewers 25% (90d) + Page engagers 180d (cả 2 page) + IG engagers 180d + Website visitors 30d + LAL 1–3%
 - Audience ngày 1–4: Broad + Advantage+ (pool warm chưa tồn tại)
 - Exclude: ATC 14d · IC 14d · Purchasers 180d
-- Page identity: **Brand Page**, hoặc **Partnership Ad (Brand × Creator)** khi có video creator
+- Page identity: **Brand Page**. Creative có thể là AI host, nhưng **không** set Partnership Ad giữa 2 page mình sở hữu — không có tín hiệu bên thứ ba nên không có lift
 - Destination: PDP trực tiếp
 
 **Campaign 3 — `VH | BOF | ABO | US | 2026-09`** · $10/ngày · **OFF đến ngày 5**
@@ -195,7 +195,7 @@ Upload **toàn bộ** video/ảnh vào Media Library trước, đặt tên đún
 ## 10. Checklist trước khi Publish
 
 - [ ] **2 page đã warm-up ≥ 10 ngày** — xem `page-strategy.md`
-- [ ] Đã quyết phương án Creator Page (A / B / C) — nếu chọn C, đọc lại rủi ro mất BM
+- [ ] AI KOL persona đã rà: chỉ trình bày/demo, không có câu nào dạng lời chứng thực — xem `page-strategy.md` mục 2
 - [ ] Pixel + CAPI verified, dedup OK, test trên URL advertorial
 - [ ] Domain verified · AEM 8 events đã xếp
 - [ ] 3 advertorial truyền tiếp `adv` + UTM sang PDP (**chưa verify**)
