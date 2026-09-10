@@ -1,0 +1,9 @@
+Dán chuỗi này vào trường "URL parameters" của CẢ 10 ads (giống hệt nhau, không đổi gì):
+
+utm_source=facebook&utm_medium=paid_social&utm_campaign={{campaign.name}}&utm_content={{ad.name}}&utm_term={{adset.name}}&plc={{placement}}
+
+Meta tự thay macro lúc chạy, nên bạn set 1 lần rồi duplicate là xong.
+Vì tên ad đã mã hoá angle (TOF_7R_A / TOF_MRC_B / TOF_BSC_A), utm_content sẽ cho biết
+angle nào ra đơn ngay trong GA4 và Shopify report — không cần tách ad set để đọc.
+
+LƯU Ý: URL trong build-sheet.csv đã chứa sẵn dấu "?" nên Meta sẽ tự nối bằng "&". Không tự thêm "?" hay "&" vào đầu chuỗi trên.
