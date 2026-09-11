@@ -1,0 +1,63 @@
+# Unit economics — thứ Shopify KHÔNG tự trả lời được, và agent bắt buộc phải biết
+# trước khi được phép tạo hay đánh giá một campaign.
+#
+# Cách dùng: copy thành docs/unit-economics.yml (file thật đã nằm trong .gitignore
+# nếu bạn muốn giữ kín biên lợi nhuận), điền số thật, rồi mở đầu mỗi session bằng:
+#
+#   Đọc docs/unit-economics.yml. Dùng break_even_roas trong đó làm ngưỡng
+#   đánh giá, KHÔNG tự suy ra ROAS mục tiêu từ dữ liệu Meta.
+#
+# Vì sao cần file này: Meta MCP chỉ thấy spend và revenue. Shopify MCP chỉ thấy
+# doanh thu và tồn kho. Không bên nào biết bạn lãi hay lỗ ở một mức ROAS cho trước.
+
+store: allvibefr.com
+currency: USD
+updated: 2026-09-11          # số cũ là số sai — cập nhật mỗi khi đổi giá hoặc đổi nhà cung cấp
+
+# --- Chi phí biến đổi theo từng đơn -----------------------------------------
+# Điền theo % doanh thu, hoặc số tuyệt đối cho mỗi đơn. Cái nào không biết thì
+# ĐOÁN CAO LÊN — đoán thấp làm break-even ROAS đẹp giả tạo và bạn scale vào lỗ.
+variable_costs:
+  cogs_pct: 0.30             # giá vốn hàng / giá bán. Lấy từ Shopify "Cost per item" nếu đã điền
+  shipping_pct: 0.12         # vận chuyển + đóng gói
+  payment_fee_pct: 0.029     # Shopify Payments / PayPal (+ $0.30/đơn, đã gộp vào fixed dưới)
+  refund_rate_pct: 0.05      # % doanh thu mất vì hoàn / hoàn tiền một phần / chargeback
+  fixed_per_order: 0.30      # phí cố định mỗi đơn ($)
+
+# --- Ngưỡng ------------------------------------------------------------------
+# contribution_margin = 1 - (tổng các % ở trên)
+# break_even_roas     = 1 / contribution_margin
+# target_roas         = 1 / (contribution_margin - target_profit_pct)
+#
+# Ví dụ với số mẫu ở trên: CM = 1 - (0.30+0.12+0.029+0.05) = 0.501
+#   break_even_roas = 1 / 0.501           = 2.00
+#   target_roas     = 1 / (0.501 - 0.15)  = 2.85
+thresholds:
+  contribution_margin: 0.501
+  break_even_roas: 2.00      # dưới mức này là ĐANG LỖ, không phải "cần tối ưu thêm"
+  target_profit_pct: 0.15    # lãi mong muốn, tính theo % doanh thu
+  target_roas: 2.85          # mức để scale
+  max_cpa: 34.50             # ngưỡng CPA cứng ($) — agent phải đề xuất tắt khi vượt
+
+# --- Ràng buộc agent phải tôn trọng -----------------------------------------
+rules:
+  learning_phase_days: 7     # chưa đủ số ngày này thì KHÔNG kết luận ad set thắng/thua
+  min_purchases_to_judge: 15 # chưa đủ số purchase này thì mọi ROAS đều là nhiễu
+  max_daily_budget_usd: 50   # trần ngân sách/ad set agent được phép đề xuất
+  never_increase_budget: true# tăng ngân sách luôn là quyết định của người
+  out_of_stock_action: pause # hết hàng thì đề xuất tắt ads cho sản phẩm đó ngay
+
+# --- Sản phẩm ----------------------------------------------------------------
+# Chỉ cần liệt kê những SKU đang chạy ads. Nếu Shopify đã điền "Cost per item"
+# thì bỏ trống cogs ở đây và để agent đọc thẳng từ Shopify.
+products:
+  - sku: velahush-gun
+    title: "VelaHush Pet Odor Gun"
+    price: 69.00
+    cogs: null               # <-- CHƯA ĐIỀN. Điền vào Shopify hoặc vào đây.
+    break_even_roas: null
+  - sku: velahush-pods-3
+    title: "VelaHush Refill Pods, 3 Pack"
+    price: 34.99
+    cogs: null
+    break_even_roas: null
