@@ -90,17 +90,30 @@ chỉ khi dữ liệu trong Shopify **đã được điền**. Nối một store
 | ☐ | Biết **phí ship + phí thanh toán + tỉ lệ hoàn** thực tế | Shopify không quy các khoản này về từng đơn |
 | ☐ | `docs/unit-economics.yml` đã điền | [Mục 4](#4-cho-agent-biết-unit-economics) |
 
-**Trạng thái hiện tại của store này (kiểm tra ngày 2026-09-11):**
+**Trạng thái store này (cập nhật 2026-09-11):**
 
 ```
-Store    : All Vibes Pet — allvibefr.com (Advanced, USD)
-Sản phẩm : VelaHush Pet Odor Gun        $69.00    cost per item = (trống)
-           VelaHush Refill Pods, 3 Pack $34.99    cost per item = (trống)
+Store : All Vibes Pet — allvibefr.com (Advanced, USD)
+Cost per item: ĐÃ ĐIỀN cho cả 16 variant (4 mùi × 4 cấu hình)
+
+SKU                  Giá   COGS  Lãi gộp      %  BE ROAS  Tgt ROAS  CPA max
+VH-G (gun only)    69.00  15.00    39.97 57.9%     1.73      2.33    39.97
+VH-G3 (+3 pods)    99.99  20.00    59.79 59.8%     1.67      2.23    59.79
+VH-G6 (+6 pods)   129.99  25.00    78.82 60.6%     1.65      2.19    78.82
+VH-POD3 (refill)   34.99   5.00    22.73 65.0%     1.54      2.00    22.73
 ```
 
-→ **`unitCost` đang null trên toàn bộ variant.** Nối Shopify MCP bây giờ thì agent
-đọc được doanh thu và tồn kho, nhưng **không biết bạn lãi hay lỗ**. Điền Cost per item
-(Shopify admin → Products → variant → Cost per item) là việc cần làm trước tiên.
+Chạy lại bất cứ lúc nào: `./scripts/break-even.py`
+
+Hai điều đọc ra từ bảng này:
+
+- **Break-even ROAS ~1.54–1.73**, không phải 2.0 như số mẫu. Biên rộng hơn nhiều so
+  với mặc định — nhưng `shipping_pct` và `refund_rate_pct` vẫn đang là **ước lượng**.
+  Thay bằng số thật từ invoice vận chuyển và dữ liệu hoàn đơn thì bảng này mới chốt được.
+- **Refill có % cao nhất (65%) nhưng lãi gộp thấp nhất ($22.73/đơn).** Traffic lạnh nên
+  đẩy **VH-G6** — $78.82/đơn nghĩa là nó chịu được CPA gấp 3.5 lần refill. Refill để
+  dành cho retarget và email, nơi CPA rẻ. Đây là lý do % biên lợi nhuận một mình là chỉ
+  số gây hiểu nhầm.
 
 ### 2.4. Client và môi trường
 
