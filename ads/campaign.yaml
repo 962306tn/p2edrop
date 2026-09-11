@@ -1,0 +1,60 @@
+# Cau hinh campaign + 5 nhom quang cao.
+# Moi so tien deu tinh bang CENT: 50000 = 500.00 (don vi tien cua ad account).
+# ${TEN_BIEN} duoc lay tu ads/.env.
+
+campaign:
+  name: "P2EDROP | Sales | 2026-09"
+  objective: OUTCOME_SALES        # OUTCOME_SALES | OUTCOME_TRAFFIC | OUTCOME_LEADS | OUTCOME_ENGAGEMENT | OUTCOME_AWARENESS | OUTCOME_APP_PROMOTION
+  budget_mode: ABO                # CBO = ngan sach o campaign | ABO = ngan sach o tung nhom
+  # daily_budget: 100000          # chi dat khi budget_mode = CBO
+  # bid_strategy: LOWEST_COST_WITHOUT_CAP
+  # spend_cap: 500000
+  # start_time: "2026-09-15T00:00:00+0700"
+  # special_ad_categories: ""     # HOUSING | EMPLOYMENT | CREDIT | FINANCIAL_PRODUCTS_SERVICES | ...
+
+defaults:
+  page_id: "${PAGE_ID}"
+  instagram_user_id: "${INSTAGRAM_USER_ID}"
+  pixel_id: "${PIXEL_ID}"
+  custom_event_type: PURCHASE
+  conversion_domain: "${CONVERSION_DOMAIN}"
+  optimization_goal: OFFSITE_CONVERSIONS   # LINK_CLICKS | LANDING_PAGE_VIEWS | THRUPLAY | VALUE | ...
+  billing_event: IMPRESSIONS
+  targeting_countries: "VN"
+  advantage_audience: true
+  call_to_action: SHOP_NOW
+  stage_creatives_paused: true             # tao creative o trang thai PAUSED cho den khi ad duoc bat
+  # UTM mac dinh; tung dong trong plan.csv co the ghi de.
+  # Placeholder cua script: [[campaign]] [[adset]] [[ad]] va ban slug [[campaign_slug]] [[adset_slug]] [[ad_slug]]
+  # Macro dong cua Meta ({{ad.id}}, {{adset.name}}...) cu de nguyen, script khong ma hoa dau ngoac.
+  utm_source: facebook
+  utm_medium: paid_social
+  utm_campaign: "[[campaign_slug]]"
+  utm_content: "[[ad_slug]]"
+  utm_term: "[[adset_slug]]"
+  preview_formats:
+    - MOBILE_FEED_STANDARD
+    - DESKTOP_FEED_STANDARD
+    - INSTAGRAM_STANDARD
+
+# 5 nhom quang cao. Ten o day phai trung voi cot `adset` trong plan.csv.
+adsets:
+  - name: "AS1 | Broad"
+    daily_budget: 30000
+  - name: "AS2 | Broad 25-44"
+    daily_budget: 30000
+    advantage_audience: false
+    targeting:
+      geo_locations: { countries: ["VN"] }
+      age_min: 25
+      age_max: 44
+  - name: "AS3 | Interest"
+    daily_budget: 30000
+    # Dung file JSON rieng cho targeting phuc tap (interest id, custom audience...)
+    # targeting_file: targeting/as3-interest.json
+  - name: "AS4 | Lookalike"
+    daily_budget: 30000
+    # targeting_file: targeting/as4-lookalike.json
+  - name: "AS5 | Retarget 30d"
+    daily_budget: 30000
+    # targeting_file: targeting/as5-retarget.json

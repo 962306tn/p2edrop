@@ -1,2 +1,9 @@
 .mcp.json
 .env
+
+# Meta Ads CLI
+ads/.env
+ads/media/*
+!ads/media/.gitkeep
+ads/state/
+ads/out/

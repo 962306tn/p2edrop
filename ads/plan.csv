@@ -1,0 +1,7 @@
+adset,ad_name,media,body,title,description,cta,link_url,utm_source,utm_medium,utm_campaign,utm_content,utm_term,conversion_domain,url_tags_extra
+AS1 | Broad,AD1 | Hook gia,media/creative-01.jpg,"Doi giay ban dang tim, giam 30% trong 3 ngay.",Giam 30% hom nay,Freeship toan quoc,SHOP_NOW,https://example.com/san-pham,,,,,,,
+AS1 | Broad,AD2 | Video UGC,media/creative-02.mp4,"Khach that noi gi sau 2 tuan dung?",Review that tu khach,Doi tra 30 ngay,SHOP_NOW,https://example.com/san-pham,,,,,,,
+AS2 | Broad 25-44,AD3 | Hook gia,media/creative-01.jpg,"Doi giay ban dang tim, giam 30% trong 3 ngay.",Giam 30% hom nay,Freeship toan quoc,SHOP_NOW,https://example.com/san-pham,,,,,,,
+AS3 | Interest,AD4 | Hook loi ich,media/creative-03.jpg,"Di ca ngay khong dau chan.",Em chan nhu di bo,Bao hanh 12 thang,SHOP_NOW,https://example.com/san-pham,,,,,,,
+AS4 | Lookalike,AD5 | Hook gia,media/creative-01.jpg,"Doi giay ban dang tim, giam 30% trong 3 ngay.",Giam 30% hom nay,Freeship toan quoc,SHOP_NOW,https://example.com/san-pham,,,,,,,
+AS5 | Retarget 30d,AD6 | Uu dai chot,media/creative-04.jpg,"Ban da xem san pham nay. Nhap MA10 de giam them 10%.",Giam them 10% cho ban,Chi con hom nay,BUY_NOW,https://example.com/san-pham,,,,,,,
