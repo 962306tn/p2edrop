@@ -2,3 +2,5 @@
 .env
 research/pet-odor/data/
 research/pet-odor/.venv/
+__pycache__/
+*.pyc
